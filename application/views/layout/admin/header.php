@@ -6,15 +6,15 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Dashboard Admin - Lingkar Edukasi</title>
         <!-- Favicon icon -->
-        <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/images/admin/brand/logo-only-main.svg')?>">
+        <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/admin/images/admin/brand/logo-only-main.svg')?>">
         <link rel="stylesheet" href="<?= base_url('assets/admin/vendor/chartist/css/chartist.min.css') ?>">
         <link href="<?= base_url('assets/admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') ?>" rel="stylesheet">
         <link href="<?= base_url('assets/admin/vendor/perfect-scrollbar/css/perfect-scrollbar.css') ?>" rel="stylesheet">
         <link href="<?= base_url('assets/admin/vendor/owl-carousel/owl.carousel.css') ?>" rel="stylesheet">
         <link href="<?= base_url('assets/admin/vendor/metismenu/css/metisMenu.min.css') ?>" rel="stylesheet">
         <link href="<?= base_url('assets/admin/vendor/datatables/css/jquery.dataTables.min.css') ?>" rel="stylesheet">
-        <link href="<?= base_url('assets/icon/admin/flaticon/flaticon.css') ?>" rel="stylesheet">
-        <link href="<?= base_url('assets/css/admin/style.css') ?>" rel="stylesheet">
+        <link href="<?= base_url('assets/admin/icon/admin/flaticon/flaticon.css') ?>" rel="stylesheet">
+        <link href="<?= base_url('assets/admin/css/admin/style.css') ?>" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     </head>
     <body>
@@ -31,9 +31,9 @@
             
             <div class="nav-header">
                 <a href="index.html" class="brand-logo">
-                    <img class="logo-abbr" src="<?= base_url('assets/images/admin/brand/logo-only-main.svg')?>" alt="">
-                    <img class="logo-compact" src="<?= base_url('assets/images/admin/brand/logo-only-main.svg')?>" alt="">
-                    <img class="brand-title" src="<?= base_url('assets/images/admin/brand/logo-text-main.svg')?>" alt="">
+                    <img class="logo-abbr" src="<?= base_url('assets/admin/images/admin/brand/logo-only-main.svg')?>" alt="">
+                    <img class="logo-compact" src="<?= base_url('assets/admin/images/admin/brand/logo-only-main.svg')?>" alt="">
+                    <img class="brand-title" src="<?= base_url('assets/admin/images/admin/brand/logo-text-main.svg')?>" alt="">
                 </a>
 
                 <div class="nav-control">
