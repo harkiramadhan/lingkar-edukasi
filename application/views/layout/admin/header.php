@@ -7,12 +7,12 @@
         <title>Dashboard Admin - Lingkar Edukasi</title>
         <!-- Favicon icon -->
         <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/images/admin/brand/logo-only-main.svg')?>">
-        <link rel="stylesheet" href="<?= base_url('assets/vendor/admin/chartist/css/chartist.min.css') ?>">
-        <link href="<?= base_url('assets/vendor/admin/bootstrap-select/dist/css/bootstrap-select.min.css') ?>" rel="stylesheet">
-        <link href="<?= base_url('assets/vendor/admin/perfect-scrollbar/css/perfect-scrollbar.css') ?>" rel="stylesheet">
-        <link href="<?= base_url('assets/vendor/admin/owl-carousel/owl.carousel.css') ?>" rel="stylesheet">
-        <link href="<?= base_url('assets/vendor/admin/metismenu/css/metisMenu.min.css') ?>" rel="stylesheet">
-        <link href="<?= base_url('assets/vendor/admin/datatables/css/jquery.dataTables.min.css') ?>" rel="stylesheet">
+        <link rel="stylesheet" href="<?= base_url('assets/admin/vendor/chartist/css/chartist.min.css') ?>">
+        <link href="<?= base_url('assets/admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') ?>" rel="stylesheet">
+        <link href="<?= base_url('assets/admin/vendor/perfect-scrollbar/css/perfect-scrollbar.css') ?>" rel="stylesheet">
+        <link href="<?= base_url('assets/admin/vendor/owl-carousel/owl.carousel.css') ?>" rel="stylesheet">
+        <link href="<?= base_url('assets/admin/vendor/metismenu/css/metisMenu.min.css') ?>" rel="stylesheet">
+        <link href="<?= base_url('assets/admin/vendor/datatables/css/jquery.dataTables.min.css') ?>" rel="stylesheet">
         <link href="<?= base_url('assets/icon/admin/flaticon/flaticon.css') ?>" rel="stylesheet">
         <link href="<?= base_url('assets/css/admin/style.css') ?>" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
@@ -55,7 +55,7 @@
                             <ul class="navbar-nav header-right">
                                 <li class="nav-item dropdown header-profile">
                                     <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
-                                        <img src="images/profile/17.jpg" width="20" alt=""/>
+                                        <img src="<?= base_url('assets/admin/images/profile/17.jpg') ?>" width="20" alt=""/>
                                         <div class="header-info">
                                             <span class="text-black"><strong>Brian Lee</strong></span>
                                             <p class="fs-12 mb-0">Admin</p>
