@@ -1,33 +1,7 @@
             <div class="content-body">
                 <!-- row -->
                 <div class="container-fluid">
-                    <!-- Add Order -->
-                    <div class="modal fade" id="addOrderModalside">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Tambah Kelas Baru</h5>
-                                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="form-group">
-                                            <label class="text-black font-w500">Nama Kelas</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="text-black font-w500">Deskripsi</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group mb-0">
-                                            <button type="button" class="btn btn-primary">Tambah</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="row">
                         <div class="col-xl-3 col-xxl-4">
                             <div class="">

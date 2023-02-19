@@ -1,5 +1,5 @@
 <?php 
-class Kelas extends CI_Controller{
+class Transaksi extends CI_Controller{
     function __construct(){
         parent::__construct();
 
@@ -8,7 +8,7 @@ class Kelas extends CI_Controller{
     function index(){
 
         $this->load->view('layout/admin/header');
-        $this->load->view('admin/kelas');
+        $this->load->view('admin/transaksi');
         $this->load->view('layout/admin/footer');
 
     }

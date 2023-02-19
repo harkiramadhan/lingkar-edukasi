@@ -76,7 +76,8 @@
             
             <div class="deznav">
                 <div class="deznav-scroll">
-                    <a href="javascript:void(0)" class="add-menu-sidebar" data-toggle="modal" data-target="#addOrderModalside" >+ Kelas Baru</a>
+                    <a href="javascript:void(0)" class="add-menu-sidebar" data-toggle="modal" data-target="#tambahCourse" >+ Course Baru</a>
+                    
                     <ul class="metismenu" id="menu">
                         <li>
                             <a href="<?= site_url('admin/overview') ?>" class="ai-icon" aria-expanded="false">
@@ -87,18 +88,18 @@
                         <li>
                             <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                                 <i class="flaticon-381-news"></i>
-                                <span class="nav-text">Kelas</span>
+                                <span class="nav-text">Course</span>
                             </a>
                             <ul aria-expanded="false">
-                                <li><a href="<?= site_url('admin/kelas')?>">Daftar Kelas</a></li>
+                                <li><a href="<?= site_url('admin/course')?>">Daftar Course</a></li>
                                 <li><a href="<?= site_url('admin/label')?>">Label</a></li>
-                                <li><a href="lingkar-peserta.html">Peserta</a></li>
-                                <li><a href="lingkar-transaksi.html">Transaksi</a></li>
-                                <li><a href="lingkar-review.html">Reviews</a></li>
+                                <li><a href="<?= site_url('admin/peserta')?>">Peserta</a></li>
+                                <li><a href="<?= site_url('admin/transaksi')?>">Transaksi</a></li>
+                                <li><a href="<?= site_url('admin/reviews')?>">Reviews</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="lingkar-email.html" class="ai-icon" aria-expanded="false">
+                            <a href="<?= site_url('admin/tutor')?>" class="ai-icon" aria-expanded="false">
                                 <i class="flaticon-381-user-9"></i>
                                 <span class="nav-text">Tutor</span>
                             </a>
@@ -109,12 +110,12 @@
                                 <span class="nav-text">Landing Page</span>
                             </a>
                             <ul aria-expanded="false">
-                                <li><a href="#">Daftar Kelas</a></li>
+                                <li><a href="#">Daftar Course</a></li>
                                 <li><a href="#">Tutor</a></li>
                                 <li><a href="#">Label</a></li>
                             </ul>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="lingkar-transaksi.html" class="ai-icon" aria-expanded="false">
                                 <i class="flaticon-381-bookmark-1"></i>
                                 <span class="nav-text">Transaksi</span>
@@ -125,7 +126,7 @@
                                 <i class="flaticon-381-bookmark-1"></i>
                                 <span class="nav-text">Email</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="lingkar-akun.html" class="ai-icon" aria-expanded="false">
                                 <i class="flaticon-381-user-8"></i>
@@ -141,6 +142,50 @@
                     </ul>
                     <div class="copyright">
                         <p><strong>Lingkar Edukasi Admin Dashboard</strong> © 2023 All Rights Reserved</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Order -->
+            <div class="modal fade" id="tambahCourse">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Tambah Course Baru</h5>
+                            <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label class="text-black font-w500">Nama Course</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="text-black font-w500">Label Course</label>
+                                    <select class="form-control default-select ">
+                                        <option selected disabled>Pilih</option>
+                                        <option>Ekonomi</option>
+                                        <option>Pajak</option>
+                                        <option>dll</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="text-black font-w500">Pilih Tutor</label>
+                                    <select class="form-control default-select ">
+                                        <option selected disabled>Pilih</option>
+                                        <option>Alfian Rahmatullah</option>
+                                        <option>Harki Ramadhan</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group mb-0">
+                                    <button type="button" class="btn btn-primary">Tambah</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

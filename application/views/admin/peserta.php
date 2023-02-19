@@ -1,6 +1,6 @@
 
 		
-		<div class="content-body">
+        <div class="content-body">
             <!-- row -->
 			<div class="container-fluid">
 				<!-- Add Order -->
@@ -36,11 +36,11 @@
 				</div>
 				<div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
 					<div class="mb-3 mr-3">
-						<h6 class="fs-16 text-black font-w600 mb-0">568 Total Kelas</h6>
+						<h6 class="fs-16 text-black font-w600 mb-0">568 Total Peserta</h6>
 						<span class="fs-14">Berdasarkan preferensi anda</span>
 					</div>
 					<div class="d-flex mb-3">
-						<a href="javascript:void(0)" class="btn btn-primary text-nowrap">+ Kelas</a>
+						<!-- <a href="javascript:void(0)" class="btn btn-primary text-nowrap">+ Kelas</a> -->
 					</div>
 				</div>
 				<div class="row">
@@ -52,10 +52,8 @@
 										<thead>
                                             <tr>
                                                 <th>#ID</th>
-                                                <th>Kelas</th>
-                                                <th>Modul </th>
-                                                <th>Terjual</th>
-                                                <th>Harga</th>
+                                                <th>Peserta</th>
+                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -64,20 +62,29 @@
 												<td>#0012451</td>
 												<td>
 													<span class="text-nowrap font-weight-bold">
-														The Story of Danau Toba<br> (Musical Drama)
-													</span>
-													<br>
-													<span class="text-nowrap">
-														<i class="la la-user mr-2 text-primary"></i>Alfian Rahmatullah
+														Alfian Rahmatullah
 													</span>
 												</td>
-												<td>8</td>
-												<td>9x</td>
-												<td>Rp. 1.000.000</td>
+												<td><span class="badge light badge-success">Aktif</span></td>
 												<td>
-													<div class="btn-group">
-														<a href="javascript:void(0)" class="btn btn-secondary btn-sm">Detail</a>
-														<a href="javascript:void(0)" class="btn btn-primary btn-sm light"><i class="la la-trash"></i></a>
+													<div class="d-flex">
+														<a href="javascript:;" class="btn btn-secondary btn-sm px-4">Detail</a>
+														<a href="javascript:;" class="btn btn-danger  btn-sm light ml-2 px-3"><i class="la la-trash"></i></a>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>#0012451</td>
+												<td>
+													<span class="text-nowrap font-weight-bold">
+														Harki Ramadhan
+													</span>
+												</td>
+												<td><span class="badge light badge-danger">Tidak Aktif</span></td>
+												<td>
+													<div class="d-flex">
+														<a href="javascript:;" class="btn btn-secondary btn-sm px-4">Detail</a>
+														<a href="javascript:;" class="btn btn-danger  btn-sm light ml-2 px-3"><i class="la la-trash"></i></a>
 													</div>
 												</td>
 											</tr>
@@ -90,5 +97,3 @@
 				</div>
             </div>
         </div>
-
-        
