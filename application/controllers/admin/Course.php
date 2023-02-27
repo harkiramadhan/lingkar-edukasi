@@ -20,4 +20,12 @@ class Course extends CI_Controller{
         $this->load->view('layout/admin/footer');
 
     }
+
+    function tambah(){
+
+        $this->load->view('layout/admin/header');
+        $this->load->view('admin/course-tambah');
+        $this->load->view('layout/admin/footer');
+
+    }
 }   

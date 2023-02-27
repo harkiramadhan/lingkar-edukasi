@@ -32,19 +32,26 @@
 						</div>
 					</div>
 				</div>
+				<div class="page-titles m-0 px-0 pt-0">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="javascript:void(0)"><i class="fa fa-home"></i></a></li>
+						<li class="breadcrumb-item"><a href="javascript:void(0)">Course</a></li>
+						<li class="breadcrumb-item active"><a href="javascript:void(0)">Judul Detail Course</a></li>
+					</ol>
+                </div>
 				<div class="row">
-					<div class="col-xl-6 col-xxl-6">
+					<div class="col-xl-8 col-xxl-6">
 						<div class="row">
 							<div class="col-xl-12">
 								<div class="card event-detail-bx overflow-hidden">
 									<div class="card-media">
-										<img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100">
+										<img src="https://fasttechnologies.com/wp-content/uploads/2017/01/placeholder-banner.png" alt="" class="w-100" style="object-fit: cover;">
 									</div>
 									<div class="card-body">
 										<div class="d-flex flex-wrap align-items-center mb-4">
-											<h2 class="text-black col-xl-6 p-0 col-xxl-12 mr-auto title mb-3">Kelas Pajak</h2>
+											<h2 class="text-black col-xl-6 p-0 col-xxl-12 mr-auto title mb-3">Kelas Cara Menyusun Pajak Tahunan di Akhir</h2>
 											<div class="d-flex align-items-center">
-												<a href="javascript:void(0)" class="btn btn-primary light mr-3"><i class="fa fa-video-camera mr-3 scale5" aria-hidden="true"></i>Upload Materi</a>
+												<a href="javascript:void(0)" class="btn btn-primary light mr-3"><i class="fa fa-video-camera mr-3 scale5" aria-hidden="true"></i>Upload Media</a>
 												<a href="javascript:void(0)" class="share-icon mr-3">
 													<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path fill-rule="evenodd" clip-rule="evenodd" d="M11 2H6C3.791 2 2 3.791 2 6V18C2 20.209 3.791 22 6 22H18C20.209 22 22 20.209 22 18C22 15.729 22 13 22 13C22 12.448 21.552 12 21 12C20.448 12 20 12.448 20 13V18C20 19.104 19.104 20 18 20C14.67 20 9.329 20 6 20C4.895 20 4 19.104 4 18C4 14.67 4 9.329 4 6C4 4.895 4.895 4 6 4H11C11.552 4 12 3.552 12 3C12 2.448 11.552 2 11 2ZM18.586 4H15C14.448 4 14 3.552 14 3C14 2.448 14.448 2 15 2H21C21.552 2 22 2.448 22 3V9C22 9.552 21.552 10 21 10C20.448 10 20 9.552 20 9V5.414L12.707 12.707C12.317 13.097 11.683 13.097 11.293 12.707C10.902 12.317 10.902 11.683 11.293 11.293L18.586 4Z" fill="#FE634E"/>
@@ -93,27 +100,23 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-6 col-xxl-4">
+					<div class="col-xl-4 col-xxl-4">
 						<div class="row">
 							<div class="col-xl-12 col-sm-6">
 								<div class="card">
 									<div class="card-header border-0 pb-0">
-										<h4 class="fs-20 text-black">Sales Summary</h4>
+										<h4 class="fs-20 text-black"><i class="fa fa-dollar text-secondary mr-2"></i>Penjualan</h4>
+										<a href="#" class="btn btn-primary btn-xxs shadow">Detail Penjualan</a>
 									</div>
 									<div class="card-body pt-3">
 										<div class="d-flex justify-content-between align-items-center">	
-											<span class="fs-14">Tuesday</span>
-											<span class="text-black fs-18 font-w500">215,523 pcs</span>
+											<span class="fs-14">Total</span>
 										</div>
 										<div id="radialBar"></div>
 										<div class="d-flex justify-content-between align-items-center">
 											<div>
-												<p class="fs-28 text-black font-w600 mb-1">25 Left</p>
-												<span>Available Ticket</span>
-											</div>
-											<div class="d-inline-block ml-auto position-relative donut-chart-sale">
-												<span class="donut2" data-peity='{ "fill": ["rgb(254, 99, 78)", "rgba(244, 244, 244, 1)"],   "innerRadius": 26, "radius": 10}'>5/8</span>
-												<small class="text-primary">65%</small>
+												<p class="fs-28 text-black font-w600 mb-0">200.000</p>
+												<span>Penjualan</span>
 											</div>
 										</div>
 									</div>
@@ -121,58 +124,101 @@
 							</div>
 							<div class="col-xl-12 col-sm-6">
 								<div class="row">
-									<div class="col-xl-12">
+									<div class="col-xl-12 col-sm-6">
 										<div class="card">
-											<div class="card-body">
-												<div class="d-flex align-items-end">
-													<div>
-														<p class="fs-14 mb-1">New Sales</p>
-														<span class="fs-35 text-black font-w600">93
-															<svg class="ml-1" width="19" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-																<path d="M2.00401 11.1924C0.222201 11.1924 -0.670134 9.0381 0.589795 7.77817L7.78218 0.585786C8.56323 -0.195262 9.82956 -0.195262 10.6106 0.585786L17.803 7.77817C19.0629 9.0381 18.1706 11.1924 16.3888 11.1924H2.00401Z" fill="#33C25B"/>
-															</svg>
-														</span>
-													</div>
-													<canvas class="lineChart" id="chart_widget_2" height="85"></canvas>
-												</div>
+											<div class="card-header border-0 pb-0">
+												<h4 class="fs-20 text-black"><i class="fa fa-video-camera text-secondary mr-2"></i>Media Belajar</h4>
+												<a href="#" class="btn btn-primary btn-xxs shadow">Detail Media</a>
 											</div>
-										</div>
-									</div>
-									<div class="col-xl-12">
-										<div class="card">
-											<div class="card-body">
+											<div class="card-body pt-3">
+												<div class="d-flex justify-content-between align-items-center">	
+													<span class="fs-14">Total</span>
+												</div>
+												<div id="radialBar"></div>
 												<div class="d-flex justify-content-between align-items-center">
 													<div>
-														<p class="fs-14 mb-1">Event Held</p>
-														<span class="fs-35 text-black font-w600">856
-															<svg class="ml-1" width="19" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-																<path d="M2.00401 11.1924C0.222201 11.1924 -0.670134 9.0381 0.589795 7.77817L7.78218 0.585786C8.56323 -0.195262 9.82956 -0.195262 10.6106 0.585786L17.803 7.77817C19.0629 9.0381 18.1706 11.1924 16.3888 11.1924H2.00401Z" fill="#33C25B"/>
-															</svg>
-														</span>
-													</div>
-													<div class="d-inline-block ml-auto position-relative donut-chart-sale">
-														<span class="donut" data-peity='{ "fill": ["rgb(254, 99, 78)", "rgba(244, 244, 244, 1)"],   "innerRadius": 31, "radius": 10}'>6/8</span>
-														<small class="text-secondary">90%</small>
+														<p class="fs-28 text-black font-w600 mb-0">40</p>
+														<span>Video Belajar</span>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-xl-12">
-										<div class="card">
-											<div class="card-header align-items-start pb-0 border-0">	
-												<div>
-													<h4 class="fs-16 mb-0 text-black font-w600">Increase 25%</h4>
-													<span class="fs-12">Comparisson</span>
-												</div>
-												<select class="form-control style-1 default-select ">
-													<option>Daily</option>
-													<option>Monthly</option>
-													<option>Weekly</option>
-												</select>
+								</div>
+							</div>
+							<div class="col-xl-12 col-sm-6">
+								<div class="row">
+									<div class="col-xl-12 col-sm-6">
+										<div class="card px-0">
+											<div class="card-header border-0 pb-0">
+												<h4 class="fs-20 text-black"><i class="fa fa-list text-secondary mr-2"></i>Atribut Course</h4>
+												<a href="#" class="btn btn-primary btn-xxs shadow">Ubah</a>
 											</div>
-											<div class="card-body pt-0">
-												<canvas id="widgetChart1" height="50"></canvas>
+											<div class="card-body p-0 px-0">
+												<div class="row mx-0">
+													<div class="col-12 px-4 py-3 d-flex align-items-center mb-0">
+														<div class="ml-1 mr-3">
+															<i class="fa fa-check fa-lg text-success" aria-hidden="true"></i>
+														</div>
+
+														<div>
+															<h5 class="mb-0 text-black">Deskripsi</h5>
+															<!-- <span>24%</span> -->
+														</div>
+													</div>
+													<div class="col-12 px-4 py-3 d-flex align-items-center mb-0 border-top">
+														<div class="ml-1 mr-3">
+															<i class="fa fa-times fa-lg text-danger" aria-hidden="true"></i>
+														</div>
+
+														<div>
+															<h5 class="mb-0 text-black">Media/Video</h5>
+															<!-- <span>24%</span> -->
+														</div>
+													</div>
+													<div class="col-12 px-4 py-3 d-flex align-items-center mb-0 border-top">
+														<div class="ml-1 mr-3">
+															<i class="fa fa-check fa-lg text-success" aria-hidden="true"></i>
+														</div>
+
+														<div>
+															<h5 class="mb-0 text-black">Lesson</h5>
+															<!-- <span>24%</span> -->
+														</div>
+													</div>
+													<div class="col-12 px-4 py-3 d-flex align-items-center mb-0 border-top">
+														<div class="ml-1 mr-3">
+															<i class="fa fa-check fa-lg text-success" aria-hidden="true"></i>
+														</div>
+
+														<div>
+															<h5 class="mb-0 text-black">Tools</h5>
+															<!-- <span>24%</span> -->
+														</div>
+													</div>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-xl-12 col-sm-6">
+								<div class="card">
+									<div class="card-header border-0 pb-0">
+										<h4 class="fs-20 text-black"><i class="fa fa- fa-star-half-o text-secondary mr-2"></i>Review</h4>
+										<a href="#" class="btn btn-primary btn-xxs shadow">Detail Review</a>
+									</div>
+									<div class="card-body pt-3">
+										<div class="d-flex justify-content-between align-items-center">	
+											<span class="fs-14">Total</span>
+										</div>
+										<div id="radialBar"></div>
+										<div class="d-flex justify-content-between align-items-center">
+											<div>
+												<p class="fs-28 text-black font-w600 mb-0">200.000</p>
+												<span>Review</span>
 											</div>
 										</div>
 									</div>
