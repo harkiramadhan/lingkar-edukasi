@@ -103,7 +103,7 @@
                                 <li><a href="<?= site_url('admin/transaksi')?>">Transaksi</a></li>
                                 <li><a href="<?= site_url('admin/reviews')?>">Reviews</a></li>
                                 <li><a href="<?= site_url('admin/label')?>">Label</a></li>
-                                <li><a href="<?= site_url('admin/label')?>">Benefit</a></li>
+                                <li><a href="<?= site_url('admin/benefit')?>">Benefit</a></li>
                             </ul>
                         </li>
                         <li>
