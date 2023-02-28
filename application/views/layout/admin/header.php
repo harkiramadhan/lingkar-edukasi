@@ -8,12 +8,19 @@
         <!-- Favicon icon -->
         <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>">
         <link rel="stylesheet" href="<?= base_url('assets/admin/vendor/chartist/css/chartist.min.css') ?>">
+        <link rel="stylesheet" href="<?= base_url('assets/admin/vendor/select2/css/select2.min.css')?>">
         <link href="<?= base_url('assets/admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') ?>" rel="stylesheet">
         <link href="<?= base_url('assets/admin/vendor/perfect-scrollbar/css/perfect-scrollbar.css') ?>" rel="stylesheet">
         <link href="<?= base_url('assets/admin/vendor/owl-carousel/owl.carousel.css') ?>" rel="stylesheet">
         <link href="<?= base_url('assets/admin/vendor/datatables/css/jquery.dataTables.min.css') ?>" rel="stylesheet">
         <link href="<?= base_url('assets/admin/css/style.css') ?>" rel="stylesheet">
+        <link href="<?= base_url('assets/admin/css/custom.css') ?>" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    
+        <!-- Summernote -->
+        <link href="<?= base_url('assets/admin/vendor/summernote/summernote.css')?>" rel="stylesheet">
+
+
     </head>
     <body>
         <!--******************* 
@@ -76,7 +83,7 @@
             
             <div class="deznav">
                 <div class="deznav-scroll">
-                    <a href="javascript:void(0)" class="add-menu-sidebar" data-toggle="modal" data-target="#tambahCourse" >+ Course Baru</a>
+                    <a href="<?= site_url('admin/course/tambah')?>" class="add-menu-sidebar" >+ Course Baru</a>
                     
                     <ul class="metismenu" id="menu">
                         <li>
@@ -92,10 +99,11 @@
                             </a>
                             <ul aria-expanded="false">
                                 <li><a href="<?= site_url('admin/course')?>">Daftar Course</a></li>
-                                <li><a href="<?= site_url('admin/label')?>">Label</a></li>
                                 <li><a href="<?= site_url('admin/peserta')?>">Peserta</a></li>
                                 <li><a href="<?= site_url('admin/transaksi')?>">Transaksi</a></li>
                                 <li><a href="<?= site_url('admin/reviews')?>">Reviews</a></li>
+                                <li><a href="<?= site_url('admin/label')?>">Label</a></li>
+                                <li><a href="<?= site_url('admin/label')?>">Benefit</a></li>
                             </ul>
                         </li>
                         <li>
@@ -142,50 +150,6 @@
                     </ul>
                     <div class="copyright">
                         <p><strong>Lingkar Edukasi Admin Dashboard</strong> © 2023 All Rights Reserved</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Add Order -->
-            <div class="modal fade" id="tambahCourse">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Tambah Course Baru</h5>
-                            <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Nama Course</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Label Course</label>
-                                    <select class="form-control default-select ">
-                                        <option selected disabled>Pilih</option>
-                                        <option>Ekonomi</option>
-                                        <option>Pajak</option>
-                                        <option>dll</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Pilih Tutor</label>
-                                    <select class="form-control default-select ">
-                                        <option selected disabled>Pilih</option>
-                                        <option>Alfian Rahmatullah</option>
-                                        <option>Harki Ramadhan</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group mb-0">
-                                    <button type="button" class="btn btn-primary">Tambah</button>
-                                </div>
-                            </form>
-                        </div>
                     </div>
                 </div>
             </div>

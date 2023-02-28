@@ -28,4 +28,12 @@ class Course extends CI_Controller{
         $this->load->view('layout/admin/footer');
 
     }
+
+    function media(){
+
+        $this->load->view('layout/admin/header');
+        $this->load->view('admin/course-media');
+        $this->load->view('layout/admin/footer');
+
+    }
 }   

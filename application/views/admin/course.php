@@ -9,7 +9,7 @@
 						<span class="fs-14">Berdasarkan preferensi anda</span>
 					</div>
 					<div class="d-flex mb-3">
-						<a href="javascript:void(0)" class="btn btn-primary text-nowrap"  data-toggle="modal" data-target="#tambahCourse">+ Course</a>
+						<a href="<?= site_url('admin/course/tambah')?>" class="btn btn-primary text-nowrap">+ Course</a>
 					</div>
 				</div>
 				<div class="row">
@@ -45,8 +45,9 @@
 												<td>Rp. 1.000.000</td>
 												<td>
 													<div class="d-flex">
-														<a href="javascript:;" class="btn btn-secondary btn-sm px-4">Detail</a>
-														<a href="javascript:;" class="btn btn-info  btn-sm light ml-2 px-3"><i class="la la-video"></i></a>
+														<!-- <a href="javascript:;" class="btn btn-secondary btn-sm px-4">Detail</a> -->
+														<a href="javascript:;" class="btn btn-dark btn-sm dark ml-2 px-3"><i class="la la-video"></i></a>
+														<a href="javascript:;" class="btn btn-dark btn-sm dark ml-2 px-3"><i class="la la-edit"></i></a>
 														<a href="javascript:;" class="btn btn-danger  btn-sm light ml-2 px-3"><i class="la la-trash"></i></a>
 													</div>
 												</td>

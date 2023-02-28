@@ -25,6 +25,18 @@
 
         <!-- Datatable -->
         <script src="<?= base_url('assets/admin/vendor/datatables/js/jquery.dataTables.min.js') ?>"></script>
+
+        <!-- Summernote -->
+        <script src="<?= base_url('assets/admin/vendor/summernote/js/summernote.min.js')?>"></script>
+        
+        <!-- Summernote init -->
+        <script src="<?= base_url('assets/admin/js/plugins-init/summernote-init.js')?>"></script>
+
+        
+        <script src="<?= base_url('assets/admin/vendor/select2/js/select2.full.min.js')?>"></script>
+        <script src="<?= base_url('assets/admin/js/plugins-init/select2-init.js')?>"></script>
+
+
         
         <script>
             function carouselReview(){

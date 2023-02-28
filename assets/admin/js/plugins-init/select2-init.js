@@ -4,9 +4,15 @@
   "use strict"
   
   // single select box
+  $("#single-level").select2();
+
+  $("#single-select2").select2();
+
   $("#single-select").select2();
+  
 
   // multi select box
+  $('.multi-label').select2();
   $('.multi-select').select2();
 
   // dropdown option groups
