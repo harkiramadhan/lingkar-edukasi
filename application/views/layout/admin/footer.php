@@ -98,5 +98,17 @@
                 });
             })(jQuery);
 	    </script>
+
+        <script>
+            var baseUrl = '<?= site_url() ?>'
+        </script>
+        <?php 
+            if(@$ajax) {
+                foreach(@$ajax as $a){
+                    echo "<script src='".base_url('assets/admin/js/custom/' . $a).".js'></script>";
+                }
+            }
+                
+        ?>
     </body>
 </html>
