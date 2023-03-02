@@ -23,7 +23,7 @@
 										<th class="text-center" width="8%">Modul </th>
 										<th class="text-center" width="8%">Terjual</th>
 										<th width="10%">Harga</th>
-										<th class="text-center" width="5%">Action</th>
+										<th class="text-center" width="15%">Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -51,7 +51,7 @@
 											<td class="text-center">9x</td>
 											<td>Rp. <?= rupiah($row->price) ?></td>
 											<td class="text-center">
-												<div class="d-flex">
+												<div class="btn-group">
 													<a href="javascript:;" class="btn btn-dark btn-sm dark ml-2 px-3"><i class="la la-video"></i></a>
 													<a href="<?= site_url('admin/course/' . $row->id) ?>" class="btn btn-dark btn-sm dark ml-2 px-3"><i class="la la-edit"></i></a>
 													<button type="button" data-id="<?= $row->id ?>" class="btn btn-danger btn-sm light ml-2 px-3 btn-remove"><i class="la la-trash"></i></button>
