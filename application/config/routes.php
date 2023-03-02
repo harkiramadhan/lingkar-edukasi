@@ -57,3 +57,5 @@ $route['logout'] = 'welcome/logout';
 
 $route['admin'] = 'admin/admin/index';
 $route['admin/auth'] = 'admin/admin/auth';
+
+$route['admin/course/(:num)'] = 'admin/course/detail/$1';
