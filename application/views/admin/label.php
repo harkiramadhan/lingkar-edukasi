@@ -29,7 +29,7 @@
 										$no = 1;
 										foreach($labels->result() as $row){ 
 									?>
-										<tr>
+										<tr id="data-<?= $row->id ?>">
 											<td class="text-center"><?= $no++ ?>. </td>
 											<td>
 												<span class="text-nowrap font-weight-bold"><?= $row->label ?></span>

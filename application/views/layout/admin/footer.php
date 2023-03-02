@@ -36,6 +36,7 @@
         <script src="<?= base_url('assets/admin/vendor/select2/js/select2.full.min.js')?>"></script>
         <script src="<?= base_url('assets/admin/js/plugins-init/select2-init.js')?>"></script>
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         
         <script>

@@ -9,6 +9,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>">
         <link rel="stylesheet" href="<?= base_url('assets/admin/vendor/chartist/css/chartist.min.css') ?>">
         <link rel="stylesheet" href="<?= base_url('assets/admin/vendor/select2/css/select2.min.css')?>">
+        <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
         <link href="<?= base_url('assets/admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') ?>" rel="stylesheet">
         <link href="<?= base_url('assets/admin/vendor/perfect-scrollbar/css/perfect-scrollbar.css') ?>" rel="stylesheet">
         <link href="<?= base_url('assets/admin/vendor/owl-carousel/owl.carousel.css') ?>" rel="stylesheet">
@@ -66,12 +67,12 @@
                                     <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
                                         <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" width="20" alt="" style="object-fit: cover;"/>
                                         <div class="header-info">
-                                            <span class="text-black"><strong>Alfian Rahmatullah</strong></span>
+                                            <span class="text-black"><strong><?= $this->session->userdata('email') ?></strong></span>
                                             <p class="fs-12 mb-0">Admin</p>
                                         </div>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="./page-login.html" class="dropdown-item ai-icon">
+                                        <a href="<?= site_url('logout') ?>" class="dropdown-item ai-icon">
                                             <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                                             <span class="ml-2">Logout </span>
                                         </a>
