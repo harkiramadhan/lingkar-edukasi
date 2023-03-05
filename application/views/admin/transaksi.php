@@ -74,32 +74,8 @@
 												</td>
 												<td><span class="badge light badge-success">Sukses</span></td>
 												<td>
-													<div class="d-flex">
-														<a href="javascript:;" class="btn btn-secondary btn-sm px-4">Detail</a>
-														<a href="javascript:;" class="btn btn-danger  btn-sm light ml-2 px-3"><i class="la la-trash"></i></a>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<td>#0012451</td>
-												<td>
-													<span class="text-nowrap font-weight-bold">
-														Kelas Pajak Tahunan
-													</span>
-													<br>
-													<span class="text-nowrap">
-														<i class="la la-user mr-2 text-primary"></i>Harki Ramadhan
-													</span>
-												</td>
-												<td>
-													Rp. 100.000
-												</td>
-												<td><span class="badge light badge-danger">Gagal</span></td>
-												<td>
-													<div class="d-flex">
-														<a href="javascript:;" class="btn btn-secondary btn-sm px-4">Detail</a>
-														<a href="javascript:;" class="btn btn-danger  btn-sm light ml-2 px-3"><i class="la la-trash"></i></a>
-													</div>
+													<a href="javascript:;" class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-pencil"></i></a>
+													<a href="javascript:;" class="btn btn-danger  btn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-trash"></i></a>
 												</td>
 											</tr>
 										</tbody>

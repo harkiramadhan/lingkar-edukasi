@@ -36,9 +36,9 @@
 											<td>
 												<div class="media align-items-center">
 													<?php if($row->cover): ?>
-														<img class="img-fluid rounded mr-3 d-none d-xl-inline-block" width="70" height="70" src="<?= base_url('uploads/courses/' . $row->cover) ?>" style="object-fit: cover;" alt="DexignZone">
+														<img class="img-fluid rounded mr-3 d-none d-xl-inline-block" width="70" height="70" src="<?= base_url('uploads/courses/' . $row->cover) ?>" style="object-fit: cover; height: 60px;" alt="DexignZone">
 													<?php else: ?>
-														<img class="img-fluid rounded mr-3 d-none d-xl-inline-block" width="70" height="70" src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" style="object-fit: cover;" alt="DexignZone">
+														<img class="img-fluid rounded mr-3 d-none d-xl-inline-block" width="70" height="70" src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" style="object-fit: cover; height: 60px;" alt="DexignZone">
 													<?php endif; ?>
 
 													<div class="media-body">
@@ -51,11 +51,10 @@
 											<td class="text-center">9x</td>
 											<td>Rp. <?= rupiah($row->price) ?></td>
 											<td class="text-center">
-												<div class="btn-group">
-													<a href="javascript:;" class="btn btn-dark btn-sm dark ml-2 px-3"><i class="la la-video"></i></a>
-													<a href="<?= site_url('admin/course/' . $row->id) ?>" class="btn btn-dark btn-sm dark ml-2 px-3"><i class="la la-edit"></i></a>
-													<button type="button" data-id="<?= $row->id ?>" class="btn btn-danger btn-sm light ml-2 px-3 btn-remove"><i class="la la-trash"></i></button>
-												</div>
+												<a href="javascript:;" class="btn btn-secondary btn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-eye"></i></a>
+												<a href="javascript:;" class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-video"></i></a>
+												<a href="<?= site_url('admin/course/' . $row->id) ?>" class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-pencil"></i></a>
+												<button type="button" data-id="<?= $row->id ?>" class="btn btn-danger btn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-trash"></i></button>
 											</td>
 										</tr>
 									<?php } ?>

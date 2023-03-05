@@ -36,10 +36,8 @@
 											</td>
 											<td><button type="button" class="btn btn-sm btn-block text-default disabled <?= ($row->status == 1) ? 'btn-success' : 'btn-danger' ?>"><?= ($row->status == 1) ? 'Aktif' : 'Tidak Aktif' ?></button></td>
 											<td class="text-center">
-												<div class="btn-group">
-													<button class="btn btn-secondary btn-sm px-4 btn-edit" data-id="<?= $row->id ?>"><i class="fa fa-pencil mr-2"></i> Edit</button>
-													<button class="btn btn-danger  btn-sm light ml-2 px-3 btn-remove" data-id="<?= $row->id ?>"><i class="la la-trash"></i></button>
-												</div>
+												<button class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0 btn-edit" data-id="<?= $row->id ?>"><i class="fa fa-pencil"></i></button>
+												<button class="btn btn-danger btn-sm dark ml-0 px-2 py-1 mr-0 btn-remove" data-id="<?= $row->id ?>"><i class="la la-trash"></i></button>
 											</td>
 										</tr>
 									<?php } ?>

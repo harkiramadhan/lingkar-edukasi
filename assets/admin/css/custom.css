@@ -51,3 +51,7 @@
     transition: all 0.5s;
     background: #f3f3f3;
 }
+
+.form-check-inline {
+    width: 15%;
+}

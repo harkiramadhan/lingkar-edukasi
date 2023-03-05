@@ -85,10 +85,8 @@
 													<p class="mb-0 d-none d-xl-inline-block">Karciz is one of the best vendors we've ever worked with. Thanks for your wonderful, helpful service across the board. It is greatly appreciated!</p>
 												</td>
 												<td>
-													<div class="d-flex">
-														<a href="javascript:;" class="btn btn-secondary btn-sm px-4">Publish</a>
-														<a href="javascript:;" class="btn btn-danger  btn-sm light ml-2 px-3"><i class="la la-trash"></i></a>
-													</div>
+													<a href="javascript:;" class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-upload"></i></a>
+													<a href="javascript:;" class="btn btn-danger btn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-trash"></i></a>
 												</td>
 											</tr>
 										</tbody>
