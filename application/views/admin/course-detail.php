@@ -22,7 +22,7 @@
 							</div>
 							<div class="card-body">
 								<div class="d-flex flex-wrap align-items-center mb-4">
-									<h2 class="text-black col-xl-6 p-0 col-xxl-12 mr-auto title mb-3">Kelas Cara Menyusun Pajak Tahunan di Akhir</h2>
+									<h2 class="text-black col-xl-6 p-0 col-xxl-12 mr-auto title mb-3"><?= $course->judul ?></h2>
 									<div class="d-flex align-items-center">
 										<a href="javascript:void(0)" class="btn btn-primary light mr-3"><i class="fa fa-video-camera mr-3 scale5" aria-hidden="true"></i>Upload Media</a>
 										<a href="javascript:void(0)" class="share-icon mr-3">
@@ -102,7 +102,7 @@
 								<div class="card">
 									<div class="card-header border-0 pb-0">
 										<h4 class="fs-20 text-black"><i class="fa fa-video-camera text-secondary mr-2"></i>Media Belajar</h4>
-										<a href="#" class="btn btn-primary btn-xxs shadow">Detail Media</a>
+										<a href="<?= site_url('admin/course/' . $this->uri->segment(3) . '/media') ?>" class="btn btn-primary btn-xxs shadow">Detail Media</a>
 									</div>
 									<div class="card-body pt-3">
 										<div class="d-flex justify-content-between align-items-center">	
@@ -114,63 +114,6 @@
 												<p class="fs-28 text-black font-w600 mb-0">40</p>
 												<span>Video Belajar</span>
 											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-12 col-sm-6">
-						<div class="row">
-							<div class="col-xl-12 col-sm-6">
-								<div class="card px-0">
-									<div class="card-header border-0 pb-0">
-										<h4 class="fs-20 text-black"><i class="fa fa-list text-secondary mr-2"></i>Atribut Course</h4>
-										<a href="#" class="btn btn-primary btn-xxs shadow">Ubah</a>
-									</div>
-									<div class="card-body p-0 px-0">
-										<div class="row mx-0">
-											<div class="col-12 px-4 py-3 d-flex align-items-center mb-0">
-												<div class="ml-1 mr-3">
-													<i class="fa fa-check fa-lg text-success" aria-hidden="true"></i>
-												</div>
-
-												<div>
-													<h5 class="mb-0 text-black">Deskripsi</h5>
-													<!-- <span>24%</span> -->
-												</div>
-											</div>
-											<div class="col-12 px-4 py-3 d-flex align-items-center mb-0 border-top">
-												<div class="ml-1 mr-3">
-													<i class="fa fa-times fa-lg text-danger" aria-hidden="true"></i>
-												</div>
-
-												<div>
-													<h5 class="mb-0 text-black">Media/Video</h5>
-													<!-- <span>24%</span> -->
-												</div>
-											</div>
-											<div class="col-12 px-4 py-3 d-flex align-items-center mb-0 border-top">
-												<div class="ml-1 mr-3">
-													<i class="fa fa-check fa-lg text-success" aria-hidden="true"></i>
-												</div>
-
-												<div>
-													<h5 class="mb-0 text-black">Lesson</h5>
-													<!-- <span>24%</span> -->
-												</div>
-											</div>
-											<div class="col-12 px-4 py-3 d-flex align-items-center mb-0 border-top">
-												<div class="ml-1 mr-3">
-													<i class="fa fa-check fa-lg text-success" aria-hidden="true"></i>
-												</div>
-
-												<div>
-													<h5 class="mb-0 text-black">Tools</h5>
-													<!-- <span>24%</span> -->
-												</div>
-											</div>
-											
 										</div>
 									</div>
 								</div>

@@ -8,7 +8,9 @@ class Course extends CI_Controller{
             'M_Courses',
             'M_Pemateri',
             'M_Labels',
-            'M_Benefit'
+            'M_Benefit',
+            'M_Materi',
+            'M_Video'
         ]);
 
         if($this->session->userdata('admin') != TRUE) 
@@ -68,12 +70,6 @@ class Course extends CI_Controller{
         $this->load->view('layout/admin/header');
         $this->load->view('admin/course-tambah', $var);
         $this->load->view('layout/admin/footer', $var);
-    }
-
-    function media(){
-        $this->load->view('layout/admin/header');
-        $this->load->view('admin/course-media');
-        $this->load->view('layout/admin/footer');
     }
 
     /* Action */
@@ -148,12 +144,130 @@ class Course extends CI_Controller{
         }
 
         $this->db->where('id', $id)->delete('courses');
+        $res = ($this->db->affected_rows() > 0) ? 1 : 0;
+        $this->output->set_content_type('application/json')->set_output(json_encode($res));
+    }
+
+
+    /************************************  Materi Media ************************************/
+    function media($id){
+        $var = [
+            'course' => $this->M_Courses->getById($id),
+            'materi' => $this->M_Materi->getByClass($id),
+            'videos' => $this->M_Video->getByClass($id),
+            'durasi' => $this->M_Video->sumDurationByClass($id),
+            'ajax' => [
+                'media-course'
+            ]
+        ];
+
+        $this->load->view('layout/admin/header');
+        $this->load->view('admin/course-media', $var);
+        $this->load->view('layout/admin/footer', $var);
+    }
+
+    /* Ajax */
+    function deleteMateri($id){
+        $materi = $this->M_Materi->getByClass($id);
+        $video = $this->M_Video->getByMateri($id);
+
+        ?>
+            
+        <?php
+    }
+
+    function deleteVideo($id){
+        $video = $this->M_Video->getById($id);
+        ?>
+            
+        <?php
+    }
+
+    /* Action */
+    function createMateri(){
+        $this->db->insert('materi', [
+            'courseid' => $this->input->post('courseid', TRUE),
+            'materi' => $this->input->post('materi', TRUE)
+        ]);
+
         if($this->db->affected_rows() > 0){
-            $res = 1;
+            $this->session->set_flashdata('success', "Materi Berhasil Di Tambahkan");
+            redirect($_SERVER['HTTP_REFERER']);
         }else{
-            $res = 0;
+            $this->session->set_flashdata('error', "Materi Gagal Di Tambahkan");
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
+
+    function updateMateri(){
+        $this->db->where([
+            'id' => $this->input->post('id', TRUE),
+            'courseid' => $this->input->post('courseid', TRUE)
+        ])->update('materi', [
+            'materi' => $this->input->post('materi', TRUE)
+        ]);
+
+        if($this->db->affected_rows() > 0){
+            $this->session->set_flashdata('success', "Materi Berhasil Di Simpan");
+            redirect($_SERVER['HTTP_REFERER']);
+        }else{
+            $this->session->set_flashdata('error', "Materi Gagal Di Simpan");
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
+
+    function createVideo(){
+        $filename = NULL;
+		$config['upload_path'] = './uploads/courses/videos';  
+		$config['allowed_types'] = '3g2|3gp|aaf|asf|avchd|avi|drc|flv|m2v|m3u8|m4p|m4v|mkv|mng|mov|mp2|mp4|mpe|mpeg|mpg|mpv|mxf|nsv|ogg|ogv|qt|rm|rmvb|roq|svi|vob|webm|wmv|yuv'; 
+		$config['encrypt_name'] = TRUE;
+		$this->load->library('upload', $config);
+
+        if($this->upload->do_upload('video')){
+            $data = $this->upload->data();
+            $filename = $data['file_name'];
+        }
+        
+        $this->db->insert('video', [
+            'courseid' => $this->input->post('courseid', TRUE),
+            'materiid' => $this->input->post('materiid', TRUE),
+            'judul' => $this->input->post('judul', TRUE),
+            'durasi' => $this->input->post('durasi', TRUE),
+            'status' => $this->input->post('status', TRUE),
+            'video' => $filename
+        ]);
+
+        if($this->db->affected_rows() > 0){
+            $this->session->set_flashdata('success', "Video Berhasil Di Tambahkan");
+            $this->session->set_flashdata('collapse', $this->input->post('materiid', TRUE));
+            redirect($_SERVER['HTTP_REFERER']);
+        }else{
+            $this->session->set_flashdata('error', "Video Gagal Di Tambahkan");
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
+
+    function removeMateri($id){
+        $video = $this->M_Video->getByMateri($id);
+        foreach($video->result() as $row){
+            if($row->video){
+                @unlink('./uploads/courses/videos/' . $row->video);
+            }
+        }
+        
+        $this->db->where('id', $id)->delete('materi');
+        $res = ($this->db->affected_rows() > 0) ? 1 : 0;
+        $this->output->set_content_type('application/json')->set_output(json_encode(1));
+    }
+
+    function removeVideo($id){
+        $video = $this->M_Video->getById($id);
+        if(@$video->video){
+            @unlink('./uploads/courses/videos/' . @$video->video);
         }
 
-        $this->output->set_content_type('application/json')->set_output(json_encode($res));
+        $this->db->where('id', $id)->delete('video');
+        $res = ($this->db->affected_rows() > 0) ? 1 : 0;
+        $this->output->set_content_type('application/json')->set_output(json_encode(1));
     }
 }   
