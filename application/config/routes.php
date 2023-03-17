@@ -60,3 +60,4 @@ $route['admin/auth'] = 'admin/admin/auth';
 
 $route['admin/course/(:num)'] = 'admin/course/detail/$1';
 $route['admin/course/(:num)/media'] = 'admin/course/media/$1';
+$route['admin/course/(:num)/edit'] = 'admin/course/edit/$1';
