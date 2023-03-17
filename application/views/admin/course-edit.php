@@ -4,9 +4,10 @@
 
         <div class="page-titles m-0 px-0 pt-0">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?= site_url('admin') ?>"><i class="fa fa-home"></i></a></li>
-                <li class="breadcrumb-item"><a href="<?= site_url('admin/course') ?>">Course</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Edit Course</a></li>
+                <li class="breadcrumb-item"><a href="<?= site_url('admin') ?>"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+				<li class="breadcrumb-item"><a href="<?= site_url('admin/course') ?>">Course</a></li>
+				<li class="breadcrumb-item active"><a href="<?= site_url('admin/course/' . $course->id) ?>"><?= $course->judul ?></a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Edit</a></li>
             </ol>
         </div>
 

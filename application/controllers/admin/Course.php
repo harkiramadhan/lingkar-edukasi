@@ -100,9 +100,16 @@ class Course extends CI_Controller{
             $filename = $data['file_name'];
 			$this->resizeImage($filename); 
 
+            $cekFlag = $this->M_Courses->getByFlag(strtolower(str_replace([' '], ['-'], $this->input->post('judul', TRUE))));
+            if(@$cekFlag->id){
+                $flag = strtolower(str_replace([' ', '.', ','], ['-', '', ''], $this->input->post('judul', TRUE))) . "-" .$cekFlag->id;
+            }else{
+                $flag = strtolower(str_replace([' ', '.', ','], ['-', '', ''], $this->input->post('judul', TRUE)));
+            }
+            
             $dataInsert = [
                 'judul'=> $this->input->post('judul', TRUE),
-                'flag' => strtolower(str_replace([' '], ['-'], $this->input->post('judul', TRUE))),
+                'flag' => $flag,
                 'price' => $this->input->post('price'),
                 'discount' => $this->input->post('discount'),
                 'pemateriid' => $this->input->post('pemateriid'),
@@ -169,11 +176,16 @@ class Course extends CI_Controller{
             $filename = $course->cover;
 		}
 
-        
+        $cekFlag = $this->M_Courses->getByFlag(strtolower(str_replace([' '], ['-'], $this->input->post('judul', TRUE))), $id);
+        if(@$cekFlag->id){
+            $flag = strtolower(str_replace([' ', '.', ','], ['-', '', ''], $this->input->post('judul', TRUE))) . "-" .$cekFlag->id;
+        }else{
+            $flag = strtolower(str_replace([' ', '.', ','], ['-', '', ''], $this->input->post('judul', TRUE)));
+        }
 
         $dataUpdate = [
             'judul'=> $this->input->post('judul', TRUE),
-            'flag' => strtolower(str_replace([' '], ['-'], $this->input->post('judul', TRUE))),
+            'flag' => $flag,
             'price' => $this->input->post('price'),
             'discount' => $this->input->post('discount'),
             'pemateriid' => $this->input->post('pemateriid'),
