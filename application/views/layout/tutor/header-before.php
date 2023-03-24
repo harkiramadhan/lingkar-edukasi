@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Dashboard Tutor - Lingkar Edukasi</title>
+        <title>Daftar Menjadi Tutor - Lingkar Edukasi</title>
         <!-- Favicon icon -->
         <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>">
         <link rel="stylesheet" href="<?= base_url('assets/admin/vendor/chartist/css/chartist.min.css') ?>">
@@ -31,7 +31,7 @@
                 <div class="sk-child sk-bounce1"></div>
                 <div class="sk-child sk-bounce2"></div>
                 <div class="sk-child sk-bounce3"></div>
-            </div>  
+            </div>
         </div>
 
         <div id="main-wrapper">
@@ -56,31 +56,10 @@
                     <nav class="navbar navbar-expand">
                         <div class="collapse navbar-collapse justify-content-between">
                             <div class="header-left">
-                                <div class="dashboard_bar">Dashboard <strong class="text-primary">Tutor</strong>
+                                <div class="dashboard_bar">
+                                    Pendaftaran Tutor Lingkar Edukasi
                                 </div>
-
                             </div>
-                            <ul class="navbar-nav header-right">
-                                <li class="nav-item dropdown header-profile">
-                                    <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
-                                        <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" width="20" alt="" style="object-fit: cover;"/>
-                                        <div class="header-info">
-                                            <span class="text-black"><strong><?= $this->session->userdata('email') ?></strong></span>
-                                            <p class="fs-12 mb-0">Tutor</p>
-                                            <p class="fs-12 mb-0 text-danger">Belum Verifikasi</p>
-                                            <p class="fs-12 mb-0 text-warning">Dalam Proses Verifikasi</p>
-                                            <p class="fs-12 mb-0 text-success">Terverifikasi</p>
-
-                                        </div>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="<?= site_url('logout') ?>" class="dropdown-item ai-icon">
-                                            <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-                                            <span class="ml-2">Logout </span>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
                         </div>
                     </nav>
                 </div>
@@ -107,58 +86,11 @@
             
             <div class="deznav">
                 <div class="deznav-scroll">
-
-                    <a href="<?= site_url('admin/course/tambah')?>" class="add-menu-sidebar" >Verifikasi Tutor</a>
-                    <a href="<?= site_url('admin/course/tambah')?>" class="add-menu-sidebar" >+ Course Baru</a>
-                    
                     <ul class="metismenu" id="menu">
                         <li>
-                            <a href="<?= site_url('admin/overview') ?>" class="ai-icon" aria-expanded="false">
+                            <a href="<?= site_url('tutor/pendaftaran') ?>" class="ai-icon" aria-expanded="false">
                                 <i class="flaticon-381-networking"></i>
-                                <span class="nav-text">Overview</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                                <i class="flaticon-381-news"></i>
-                                <span class="nav-text">Course</span>
-                            </a>
-                            <ul aria-expanded="false">
-                                <li><a href="<?= site_url('admin/course')?>">Daftar Course</a></li>
-                                <li><a href="<?= site_url('admin/peserta')?>">Peserta</a></li>
-                                <li><a href="<?= site_url('admin/transaksi')?>">Transaksi</a></li>
-                                <li><a href="<?= site_url('admin/reviews')?>">Reviews</a></li>
-                                <li><a href="<?= site_url('admin/label')?>">Label</a></li>
-                                <li><a href="<?= site_url('admin/benefit')?>">Benefit</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="<?= site_url('admin/tutor')?>" class="ai-icon" aria-expanded="false">
-                                <i class="flaticon-381-user-9"></i>
-                                <span class="nav-text">Tutor</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= site_url('admin/akun')?>" class="ai-icon" aria-expanded="false">
-                                <i class="flaticon-381-user-8"></i>
-                                <span class="nav-text">Akun</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                                <i class="flaticon-381-album-3"></i>
-                                <span class="nav-text">Landing Page</span>
-                            </a>
-                            <ul aria-expanded="false">
-                                <li><a href="#">Daftar Course</a></li>
-                                <li><a href="#">Tutor</a></li>
-                                <li><a href="#">Label</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="lingkar-pengaturan.html" class="ai-icon" aria-expanded="false">
-                                <i class="flaticon-381-settings-9"></i>
-                                <span class="nav-text">Pengaturan</span>
+                                <span class="nav-text">Pendaftaran</span>
                             </a>
                         </li>
                     </ul>
