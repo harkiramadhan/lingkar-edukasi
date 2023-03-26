@@ -10,4 +10,5 @@ function previewImage() {
   }
 }
 
-$('#summernote').summernote()
+$('#summernote').summernote();
+

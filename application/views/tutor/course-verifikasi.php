@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="card event-detail-bx overflow-hidden h-auto">
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         Verifikasi Sedang Berlangsung, Harap tunggu
                     </div>
                 </div>

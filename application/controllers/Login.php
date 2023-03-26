@@ -56,4 +56,5 @@ class Login extends CI_Controller{
     function test(){
         var_dump(file_get_contents('https://lh3.googleusercontent.com/a/AEdFTp7DcsaX4PMURzl5e_9VxcHVzNLrUbWJSpYyUYab=s96-c'));
     }
+
 }
