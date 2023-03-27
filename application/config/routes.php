@@ -61,6 +61,7 @@ $route['admin/auth'] = 'admin/admin/auth';
 $route['tutor'] = 'tutor/tutor/index';
 $route['tutor/auth'] = 'tutor/tutor/auth';
 $route['tutor/verifikasi'] = 'tutor/tutor/verifikasi';
+$route['tutor/verifikasi/submit'] = 'tutor/tutor/submitVerifikasi';
 
 $route['admin/course/(:num)'] = 'admin/course/detail/$1';
 $route['admin/course/(:num)/media'] = 'admin/course/media/$1';

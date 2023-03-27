@@ -55,4 +55,26 @@ class Tutor extends CI_Controller{
             redirect('tutor','refresh');
         }
     }
+
+    function submitVerifikasi(){
+        if($this->session->userdata('is_tutor')){
+            $this->db->where([
+                'id'=> $this->session->userdata('userid'),
+                'email' => $this->session->userdata('email')
+            ])->update('tutor', [
+                'deskripsi' => $this->input->post('deskripsi', TRUE),
+                'link' => $this->input->post('link', TRUE),
+                'status' => 1
+            ]);
+            if($this->db->affected_rows() > 0){
+                $this->session->set_flashdata('success', "Verifikasi Berhasil Terkirim");
+            }else{
+                $this->session->set_flashdata('error', "Verifikasi Gagal Di Simpan");
+            }
+
+            redirect($_SERVER['HTTP_REFERER']);
+        }else{
+            redirect('tutor','refresh');
+        }
+    }
 }
