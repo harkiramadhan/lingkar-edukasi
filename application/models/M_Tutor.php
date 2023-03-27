@@ -7,4 +7,8 @@ class M_Tutor extends CI_Model{
     function getById($id){
         return $this->db->get_where('tutor', ['id' => $id])->row();
     }
+
+    function getAll(){
+        return $this->db->get('tutor');
+    }
 }
