@@ -28,7 +28,7 @@
                                     <div class="col-sm-9">
                                     <p class="fs-14 mb-3">
                                         Jelaskan secara singkat course yang akan anda upload pada platform Lingkar Edukasi di kolom berikut. Jangan lupa untuk sertakan link drive di kolom berikutnya.</p>
-                                        <textarea id="verifikasi" name="deskripsi" required></textarea>
+                                        <textarea id="summernotes" name="deskripsi" required></textarea>
                                     </div>
                                 </div>
 

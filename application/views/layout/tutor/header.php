@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Dashboard Tutor - Lingkar Edukasi</title>
+        <title>Acara - Ticketing Bootstrap Admin Dashboard</title>
         <!-- Favicon icon -->
         <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>">
         <link rel="stylesheet" href="<?= base_url('assets/admin/vendor/chartist/css/chartist.min.css') ?>">
@@ -17,7 +17,9 @@
         <link href="<?= base_url('assets/admin/css/style.css') ?>" rel="stylesheet">
         <link href="<?= base_url('assets/admin/css/custom.css') ?>" rel="stylesheet">
         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet        <!-- Summernote -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    
+        <!-- Summernote -->
         <link href="<?= base_url('assets/admin/vendor/summernote/summernote.css')?>" rel="stylesheet">
 
 
@@ -65,7 +67,7 @@
                                     <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
                                         <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" width="20" alt="" style="object-fit: cover;"/>
                                         <div class="header-info">
-                                            <span class="text-black"><strong><?= $this->session->userdata('email') ?></strong></span>
+                                            <span class="text-black"><strong><?= $this->session->userdata('nama') ?></strong></span>
                                             <p class="fs-12 mb-0">Tutor</p>
 
                                             <?php if($user->status == 0): ?>

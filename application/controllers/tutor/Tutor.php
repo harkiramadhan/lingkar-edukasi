@@ -38,6 +38,21 @@ class Tutor extends CI_Controller{
     }
 
     function verifikasi(){
-        
+        if($this->session->userdata('is_tutor')){
+            $userid = $this->session->userdata('userid');
+    
+            $var = [
+                'user' => $this->M_Tutor->getById($userid),
+                'ajax' => [
+                    'tutor-verification'
+                ]
+            ];
+    
+            $this->load->view('layout/tutor/header', $var);
+            $this->load->view('tutor/course-verifikasi', $var);
+            $this->load->view('layout/tutor/footer', $var);
+        }else{
+            redirect('tutor','refresh');
+        }
     }
 }
