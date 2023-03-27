@@ -29,13 +29,14 @@
                                     <?php 
                                         $no = 1;
                                         foreach($tutor->result() as $row){ 
+                                            $cekCourse = $this->db->get_where('courses', ['pemateriid' => $row->id]);
                                     ?>
                                         <tr>
                                             <td class="text-center"><?= $no++ ?></td>
                                             <td>
                                                 <span class="text-nowrap font-weight-bold"><?= $row->nama ?></span>
                                             </td>
-                                            <td class="text-center">3</td>
+                                            <td class="text-center"><?= $cekCourse->num_rows() ?></td>
                                             <td class="text-center">
                                                 <?php if($row->status == 0): ?>
                                                     <span class="badge light badge-warning">Belum Mengajukan</span>
