@@ -6,7 +6,7 @@ class Course extends CI_Controller{
         $this->load->library('image_lib');
         $this->load->model([
             'M_Courses',
-            'M_Pemateri',
+            'M_Tutor',
             'M_Labels',
             'M_Benefit',
             'M_Materi',
@@ -46,7 +46,7 @@ class Course extends CI_Controller{
 
     function tambah(){
         $var = [
-            'pemateri' => $this->M_Pemateri->getActive(),
+            'pemateri' => $this->M_Tutor->getActive(),
             'label' => $this->M_Labels->getActive(),
             'benefit' => $this->M_Benefit->getActive(),
             'ajax' => [
@@ -75,7 +75,7 @@ class Course extends CI_Controller{
     function edit($id){
         $var = [
             'course' => $this->M_Courses->getById($id),
-            'pemateri' => $this->M_Pemateri->getActive(),
+            'pemateri' => $this->M_Tutor->getActive(),
             'label' => $this->M_Labels->getActive(),
             'benefit' => $this->M_Benefit->getActive(),
             'ajax' => [

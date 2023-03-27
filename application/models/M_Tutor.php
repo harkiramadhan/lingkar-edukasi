@@ -11,4 +11,8 @@ class M_Tutor extends CI_Model{
     function getAll(){
         return $this->db->get('tutor');
     }
+
+    function getActive(){
+        return $this->db->get_where('tutor', ['status' => 2]);
+    }
 }

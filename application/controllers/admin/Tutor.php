@@ -53,8 +53,8 @@ class Tutor extends CI_Controller{
 
                     <select class="form-control mb-2" name="status" required>
                         <option value="" disabled selected>Pilih</option>
-                        <option value="3">Ditolak</option>
-                        <option value="2">Diterima</option>
+                        <option <?= ($tutor->status == 3) ? 'selected' : '' ?> value="3">Ditolak</option>
+                        <option <?= ($tutor->status == 2) ? 'selected' : '' ?> value="2">Diterima</option>
                     </select>
                     <div class="form-group mb-0 text-right mt-3">
                         <button type="submit" class="btn btn-primary">Simpan</button>
