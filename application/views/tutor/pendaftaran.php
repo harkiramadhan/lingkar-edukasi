@@ -15,8 +15,8 @@
                 <div class="card event-detail-bx overflow-hidden">
                     <div class="card-body">
                         <div class="basic-form">
-                            <form action="http://localhost/lingkar-edukasi/admin/course/create" method="POST" enctype="multipart/form-data">
-
+                            <form action="<?= site_url('tutor/pendaftaran/submit') ?>" method="POST">
+                                <input type="hidden" name="is_robot" value="">
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                                     <div class="col-sm-9">
@@ -27,14 +27,14 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">No WA/HP</label>
                                     <div class="col-sm-9">
-                                        <input name="nomor" type="text" class="form-control" placeholder="Contoh: 0821xxxxx" required="">
+                                        <input name="nohp" type="number" class="form-control" placeholder="Contoh: 0821xxxxx" required="">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Email Aktif</label>
                                     <div class="col-sm-9">
-                                        <input name="email" type="text" class="form-control" placeholder="email@gmail.com" required="">
+                                        <input name="email" type="email" class="form-control" placeholder="email@gmail.com" required="">
                                     </div>
                                 </div>
                                 
@@ -49,7 +49,6 @@
                                     <button type="button" class="btn btn-dark mr-2">Batal</button>
                                     <button type="submit" class="btn btn-primary">Daftar Sekarang</button>
                                 </div>
-
                             </form>
                         </div>
                     </div>

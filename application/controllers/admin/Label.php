@@ -7,7 +7,7 @@ class Label extends CI_Controller{
             'M_Labels'
         ]);
 
-        if($this->session->userdata('admin') != TRUE) 
+        if($this->session->userdata('is_admin') != TRUE) 
             redirect('admin','refresh');
     }
 
