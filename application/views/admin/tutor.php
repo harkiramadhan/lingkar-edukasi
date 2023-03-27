@@ -41,9 +41,11 @@
                                                     <span class="badge light badge-warning">Belum Mengajukan</span>
                                                 <?php elseif($row->status == 1): ?>
                                                     <span class="badge light badge-warning">Mengajukan</span>
-                                                    <a href="javascript:;" class="btn btn-warning btn-sm dark ml-0 px-3 py-1 mr-0" data-toggle="modal" data-target="#lihatAjuanTutor"><i class="fa fa-file-text"></i></a>
+                                                    <button type="button" class="btn btn-warning btn-sm dark ml-0 px-3 py-1 mr-0 btn-detail-ajuan" data-id="<?= $row->id ?>"><i class="fa fa-file-text"></i></button>
                                                 <?php elseif($row->status == 2): ?>
                                                     <span class="badge light badge-success">Diterima</span>
+                                                <?php elseif($row->status == 3): ?>
+                                                    <span class="badge light badge-danger">Ditolak</span>
                                                 <?php endif; ?>
                                             </td>
                                             <td class="text-center">
@@ -64,39 +66,11 @@
     </div>
 </div>
 
-<!-- Add Order -->
-<div class="modal fade" id="lihatAjuanTutor">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Pengajuan Tutor</h5>
-                <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h5 class="modal-title mb-2">Pengajuan</h5>
-                <div class="card border">
-                    <div class="card-body p-3">
-                        <p>Berikut isi dari summernote yang nanti ditulis oleh tutor.</p>
-                        <h5 class="modal-title mb-2">Link: </h5>
-                        <a class="mb-2 text-danger" href="#">https://drive.google.com/drive/folders/1pgg6QmQ7VlrQprphM3TBbwcdYttPX3Vo</a>
-                    </div>
-                </div>
-
-                <h5 class="modal-title mb-2">Tanggapan</h5>
-                <div class="form-group mb-2">
-                    <textarea class="form-control" rows="4" id="comment"></textarea>
-                </div>
-
-                <select id="single-level" class="form-control mb-2" name="level" required>
-                    <option value="" disabled selected>Pilih</option>
-                    <option value="1">Ditolak</option>
-                    <option value="2">Diterima</option>
-                </select>
-                <div class="form-group mb-0 text-right mt-3">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-            </div>
+<!-- Modals -->
+<div class="modal fade" id="modal-ajuan">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content ajuan-content">
+            
         </div>
     </div>
 </div>
