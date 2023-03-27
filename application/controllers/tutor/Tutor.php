@@ -20,6 +20,7 @@ class Tutor extends CI_Controller{
             $data = $checkUser->row();
             if($password == $data->password){
                 $this->session->set_userdata('is_tutor', TRUE);
+                $this->session->set_userdata('userid', $data->id);
                 $this->session->set_userdata('email', $data->email);
                 $this->session->set_userdata('nama', $data->nama);
 
@@ -34,5 +35,9 @@ class Tutor extends CI_Controller{
             $this->session->set_flashdata('error', "User Tidak Tersedia!");
             redirect($_SERVER['HTTP_REFERER']);
         }
+    }
+
+    function verifikasi(){
+        
     }
 }

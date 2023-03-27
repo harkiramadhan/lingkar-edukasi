@@ -67,9 +67,14 @@
                                         <div class="header-info">
                                             <span class="text-black"><strong><?= $this->session->userdata('email') ?></strong></span>
                                             <p class="fs-12 mb-0">Tutor</p>
-                                            <p class="fs-12 mb-0 text-danger">Belum Verifikasi</p>
-                                            <p class="fs-12 mb-0 text-warning">Dalam Proses Verifikasi</p>
-                                            <p class="fs-12 mb-0 text-success">Terverifikasi</p>
+
+                                            <?php if($user->status == 0): ?>
+                                                <p class="fs-12 mb-0 text-danger">Belum Verifikasi</p>
+                                            <?php elseif($user->status == 1): ?>
+                                                <p class="fs-12 mb-0 text-warning">Dalam Proses Verifikasi</p>
+                                            <?php elseif($user->status == 2): ?>
+                                                <p class="fs-12 mb-0 text-success">Terverifikasi</p>
+                                            <?php endif; ?>
 
                                         </div>
                                     </a>
@@ -107,13 +112,16 @@
             
             <div class="deznav">
                 <div class="deznav-scroll">
-
-                    <a href="<?= site_url('admin/course/tambah')?>" class="add-menu-sidebar" >Verifikasi Tutor</a>
-                    <a href="<?= site_url('admin/course/tambah')?>" class="add-menu-sidebar" >+ Course Baru</a>
+                    
+                    <?php if($user->status != 2): ?>
+                        <a href="<?= site_url('tutor/verifikasi')?>" class="add-menu-sidebar" >Verifikasi Tutor</a>
+                    <?php elseif($user->status == 2): ?>
+                        <a href="<?= site_url('tutor/course/tambah')?>" class="add-menu-sidebar" >+ Course Baru</a>
+                    <?php endif; ?>
                     
                     <ul class="metismenu" id="menu">
                         <li>
-                            <a href="<?= site_url('admin/overview') ?>" class="ai-icon" aria-expanded="false">
+                            <a href="<?= site_url('tutor/overview') ?>" class="ai-icon" aria-expanded="false">
                                 <i class="flaticon-381-networking"></i>
                                 <span class="nav-text">Overview</span>
                             </a>
@@ -124,36 +132,15 @@
                                 <span class="nav-text">Course</span>
                             </a>
                             <ul aria-expanded="false">
-                                <li><a href="<?= site_url('admin/course')?>">Daftar Course</a></li>
-                                <li><a href="<?= site_url('admin/peserta')?>">Peserta</a></li>
-                                <li><a href="<?= site_url('admin/transaksi')?>">Transaksi</a></li>
-                                <li><a href="<?= site_url('admin/reviews')?>">Reviews</a></li>
-                                <li><a href="<?= site_url('admin/label')?>">Label</a></li>
-                                <li><a href="<?= site_url('admin/benefit')?>">Benefit</a></li>
+                                <li><a href="<?= site_url('tutor/course')?>">Daftar Course</a></li>
+                                <li><a href="<?= site_url('tutor/reviews')?>">Reviews</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="<?= site_url('admin/tutor')?>" class="ai-icon" aria-expanded="false">
-                                <i class="flaticon-381-user-9"></i>
-                                <span class="nav-text">Tutor</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= site_url('admin/akun')?>" class="ai-icon" aria-expanded="false">
+                            <a href="<?= site_url('tutor/akun')?>" class="ai-icon" aria-expanded="false">
                                 <i class="flaticon-381-user-8"></i>
                                 <span class="nav-text">Akun</span>
                             </a>
-                        </li>
-                        <li>
-                            <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                                <i class="flaticon-381-album-3"></i>
-                                <span class="nav-text">Landing Page</span>
-                            </a>
-                            <ul aria-expanded="false">
-                                <li><a href="#">Daftar Course</a></li>
-                                <li><a href="#">Tutor</a></li>
-                                <li><a href="#">Label</a></li>
-                            </ul>
                         </li>
                         <li>
                             <a href="lingkar-pengaturan.html" class="ai-icon" aria-expanded="false">

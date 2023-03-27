@@ -21,6 +21,7 @@ class Admin extends CI_Controller{
             if(md5($password) == $data->password){
                 $this->session->set_userdata('is_admin', TRUE);
                 $this->session->set_userdata('email', $data->email);
+                $this->session->set_userdata('userid', $data->id);
 
                 redirect('admin/overview');
             }else{
