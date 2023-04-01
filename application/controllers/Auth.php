@@ -14,25 +14,25 @@ class Auth extends CI_Controller{
 
     function forgotpassword(){
         $this->load->view('layout/user/header');
-        $this->load->view('user/forgotpassword');
+        $this->load->view('user/forgot-password');
         $this->load->view('layout/user/footer');
     }
 
     function verifemail(){
         $this->load->view('layout/user/header');
-        $this->load->view('user/verifemail');
+        $this->load->view('user/verif-email');
         $this->load->view('layout/user/footer');
     }
 
     function passwordbaru(){
         $this->load->view('layout/user/header');
-        $this->load->view('user/passwordbaru');
+        $this->load->view('user/password-baru');
         $this->load->view('layout/user/footer');
     }
     
     function cekemailpassword(){
         $this->load->view('layout/user/header');
-        $this->load->view('user/cekemailpassword');
+        $this->load->view('user/cek-email-password');
         $this->load->view('layout/user/footer');
     }
       
