@@ -50,9 +50,9 @@
                                                 <?php endif; ?>
                                             </td>
                                             <td class="text-center">
-                                                <a href="javascript:;" class="btn btn-secondary btn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-eye"></i></a>
-                                                <a href="javascript:;" class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-pencil"></i></a>
-                                                <a href="javascript:;" class="btn btn-danger  bbtn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-trash"></i></a>
+                                                <button type="button" data-id="<?= $row->id ?>" class="btn btn-secondary btn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-eye"></i></button>
+                                                <button type="button" data-id="<?= $row->id ?>" class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0 btn-edit"><i class="fa fa-pencil"></i></button>
+                                                <button type="button" data-id="<?= $row->id ?>" class="btn btn-danger  bbtn-sm dark ml-0 px-2 py-1 mr-0 btn-remove"><i class="fa fa-trash"></i></button>
                                             </td>
                                         </tr>
                                     <?php } ?>
