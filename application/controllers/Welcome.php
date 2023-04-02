@@ -22,11 +22,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
-	function logout(){
-		$this->session->sess_destroy();
-		redirect();
-	}
-
 	function error404(){
 		$this->load->view('404');
 	}

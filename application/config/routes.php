@@ -53,9 +53,11 @@ $route['default_controller'] = 'landing';
 $route['404_override'] = 'welcome/error404';
 $route['translate_uri_dashes'] = FALSE;
 
+/* Auth Routers */
 $route['signin'] = 'auth/signin';
 $route['signup'] = 'auth/signup';
-$route['logout'] = 'welcome/logout';
+$route['logout'] = 'auth/logout';
+$route['forgotpassword'] = 'auth/forgotpassword';
 
 $route['admin'] = 'admin/admin/index';
 $route['admin/auth'] = 'admin/admin/auth';
@@ -64,7 +66,6 @@ $route['tutor'] = 'tutor/tutor/index';
 $route['tutor/auth'] = 'tutor/tutor/auth';
 $route['tutor/verifikasi'] = 'tutor/tutor/verifikasi';
 $route['tutor/verifikasi/submit'] = 'tutor/tutor/submitVerifikasi';
-
 
 /* Courses Routes */
 $route['admin/course/(:num)'] = 'admin/course/detail/$1';
