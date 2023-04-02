@@ -13,7 +13,7 @@ class Course extends CI_Controller{
             'M_Video'
         ]);
 
-        if($this->session->userdata('is_admin') != TRUE) 
+        if($this->session->userdata('is_admin') != TRUE && $this->session->userdata('is_tutor') != TRUE) 
             redirect('admin','refresh');
     }
 

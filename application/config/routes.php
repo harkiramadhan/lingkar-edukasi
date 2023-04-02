@@ -63,6 +63,12 @@ $route['tutor/auth'] = 'tutor/tutor/auth';
 $route['tutor/verifikasi'] = 'tutor/tutor/verifikasi';
 $route['tutor/verifikasi/submit'] = 'tutor/tutor/submitVerifikasi';
 
+
+/* Courses Routes */
 $route['admin/course/(:num)'] = 'admin/course/detail/$1';
 $route['admin/course/(:num)/media'] = 'admin/course/media/$1';
 $route['admin/course/(:num)/edit'] = 'admin/course/edit/$1';
+
+$route['tutor/course/(:num)'] = 'tutor/course/detail/$1';
+$route['tutor/course/(:num)/media'] = 'tutor/course/media/$1';
+$route['tutor/course/(:num)/edit'] = 'tutor/course/edit/$1';

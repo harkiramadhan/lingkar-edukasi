@@ -1,6 +1,10 @@
 <?php
 class M_Courses extends CI_Model{
-    function getAll(){
+    function getAll($userid = FALSE){
+        if($userid){
+            $this->db->where('c.pemateriid', $userid);
+        }
+
         return $this->db->select('c.*, p.nama')
                         ->from('courses c')
                         ->join('tutor p', 'c.pemateriid = p.id', 'LEFT')
