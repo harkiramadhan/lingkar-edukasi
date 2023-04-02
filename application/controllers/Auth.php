@@ -35,5 +35,4 @@ class Auth extends CI_Controller{
         $this->load->view('user/cek-email-password');
         $this->load->view('layout/user/footer');
     }
-      
 }

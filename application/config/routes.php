@@ -53,6 +53,8 @@ $route['default_controller'] = 'landing';
 $route['404_override'] = 'welcome/error404';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['signin'] = 'auth/signin';
+$route['signup'] = 'auth/signup';
 $route['logout'] = 'welcome/logout';
 
 $route['admin'] = 'admin/admin/index';

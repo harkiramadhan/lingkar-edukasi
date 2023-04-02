@@ -41,12 +41,12 @@
         </form>
       </div>
       <nav role="navigation" class="nav-button-wrapper w-nav-menu">
-        <a href="#" class="nav-button-secondary w-nav-link">Masuk</a>
-        <a href="#" class="nav-button-primary w-nav-link">Daftar</a>
+        <a href="<?= site_url('signin') ?>" class="nav-button-secondary w-nav-link">Masuk</a>
+        <a href="<?= site_url('signup') ?>" class="nav-button-primary w-nav-link">Daftar</a>
       </nav>
       <nav role="navigation" class="nav-menu hidden w-nav-menu">
-        <a href="#" class="nav-button-secondary w-nav-link">Masuk</a>
-        <a href="#" class="nav-button-primary w-nav-link">Daftar</a>
+        <a href="<?= site_url('signin') ?>" class="nav-button-secondary w-nav-link">Masuk</a>
+        <a href="<?= site_url('signup') ?>" class="nav-button-primary w-nav-link">Daftar</a>
         <form action="/search" class="nav-search show-mobile w-form">
           <div class="search-input-relative"><input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari kelas..." id="search" required=""><input type="submit" value="" class="nav-search-button w-button"></div>
         </form>
