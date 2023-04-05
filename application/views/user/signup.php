@@ -6,13 +6,37 @@
         <div class="signin-content_left">
           <div class="siginin-form_wrapper">
             <div class="signin-form w-form">
-              <form id="email-form" name="email-form" data-name="Email Form" method="get" class="form-field"><label for="name" class="text-size-regular margin-bottom-16">Nama Lengkap</label><input type="text" class="text-field margin-bottom-16 w-input" maxlength="256" name="name" data-name="Name" placeholder="Tulis nama lengkapmu" id="name" required=""><label for="name-2" class="text-size-regular margin-bottom-16">Email</label><input type="email" class="text-field margin-bottom-16 w-input" maxlength="256" name="name-2" data-name="Name 2" placeholder="Tulis passwordmu" id="name-2" required=""><label for="name-2" class="text-size-regular margin-bottom-16">Password</label><input type="password" class="text-field margin-bottom-16 w-input" maxlength="256" name="name-2" data-name="Name 2" placeholder="email@gmail.com" id="name-2" required=""><label for="password" class="text-size-regular margin-bottom-16">No HP</label><input type="tel" class="text-field margin-bottom-20 w-input" maxlength="256" name="email" data-name="Email" placeholder="0821xxxxx" id="password" required=""><input type="submit" value="DAFTAR" data-wait="Please wait..." class="button is-yellow margin-bottom-20 w-button"></form>
+              <form name="email-form" data-name="Email Form" method="POST" class="form-field" action="<?= site_url('auth/actionSignup') ?>">
+                <label for="name" class="text-size-regular margin-bottom-16">Nama Lengkap</label>
+                <input type="text" class="text-field margin-bottom-16 w-input" maxlength="255" name="name" placeholder="Tulis nama lengkapmu" required="" value="<?= ($this->session->flashdata('name')) ? $this->session->flashdata('name') : '' ?>">
+                
+                <label for="name-2" class="text-size-regular margin-bottom-16">Email</label>
+                <input type="email" class="text-field margin-bottom-16 w-input" maxlength="255" name="email" placeholder="email@gmail.com"  required="" value="<?= ($this->session->flashdata('email')) ? $this->session->flashdata('email') : '' ?>">
+                
+                <label for="name-2" class="text-size-regular margin-bottom-16">Password</label>
+                <input type="password" class="text-field margin-bottom-16 w-input" maxlength="255" name="password"  placeholder="Tulis Password Mu"  required="">
+                
+                <label for="password" class="text-size-regular margin-bottom-16">No HP</label>
+                <input type="tel" class="text-field margin-bottom-20 w-input" maxlength="256" name="nohp" placeholder="0821xxxxx" required="" value="<?= ($this->session->flashdata('nohp')) ? $this->session->flashdata('nohp') : '' ?>">
+                <input type="hidden" name="is_robot">
+
+                <button type="submit" class="button is-yellow margin-bottom-20 w-button">DAFTAR</button>
+                <!-- <input type="submit" value="DAFTAR" data-wait="Please wait..." class=""> -->
+              </form>
+
               <div class="w-form-done">
                 <div>Thank you! Your submission has been received!</div>
               </div>
-              <div class="error-massage w-form-fail">
-                <div><em>Email sudah terdaftar, gunakan email lain</em></div>
-              </div>
+
+              <?php if($this->session->flashdata('error')): ?>
+                <div class="error-massage" style="margin-top: 10px; padding: 10px; background-color: #ffdede;">
+                  <div class="error-massage_wrapper">
+                    <img src="<?= base_url('assets/user/images/Warning.svg') ?>" loading="lazy" alt="" class="icon_error">
+                    <div><em>Email Sudah Terdaftar, Gunakan Email Lain</em></div>
+                  </div>
+                </div>
+              <?php endif; ?>
+
             </div>
             <div class="google-login-wrapper">
               <div class="blind-text">Atau</div>

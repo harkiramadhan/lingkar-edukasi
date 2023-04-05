@@ -86,8 +86,8 @@
       <div data-hover="false" data-delay="0" class="dropdown-user_nav hide-mobile_landscape w-dropdown" style="margin: 0px;">
         <div class="w-dropdown-toggle">
           <div class="dropdown-icon is-yellow w-icon-dropdown-toggle"></div>
-          <?php if($user->is_google): ?>
-              <div class="dropdown-user_foto" style="background-image:url('<?= $user->profile_picture ?>')"></div>
+            <?php if($user->is_google): ?>
+              <div class="dropdown-user_setup" style="background-image:url('<?= $user->profile_picture ?>')"></div>
             <?php else: ?>
               <div class="dropdown-user_foto"></div>
             <?php endif; ?>

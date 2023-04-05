@@ -1,5 +1,12 @@
 <?php 
 class Auth extends CI_Controller{
+    function __construct(){
+        parent::__construct();
+
+        $this->load->model([
+            'M_Users'
+        ]);
+    }
     function signin(){
         include_once APPPATH . "../vendor/autoload.php";
         $googleClient = new Google_Client();
@@ -40,6 +47,7 @@ class Auth extends CI_Controller{
                 }else{
                     $dataInsert = [
                         'is_google' => 1,
+                        'is_valid' => 1,
                         'login_oauth_uid' => $data['id'],
                         'first_name' => $data['given_name'],
                         'last_name' => $data['family_name'],
@@ -113,6 +121,7 @@ class Auth extends CI_Controller{
                 }else{
                     $dataInsert = [
                         'is_google' => 1,
+                        'is_valid' => 1,
                         'login_oauth_uid' => $data['id'],
                         'first_name' => $data['given_name'],
                         'last_name' => $data['family_name'],
@@ -174,5 +183,89 @@ class Auth extends CI_Controller{
     function logout(){
         $this->session->sess_destroy();
 		redirect();
+    }
+
+    function actionSignup(){
+        $email = $this->input->post('email', TRUE);
+        $is_robot = $this->input->post('is_robot', TRUE);
+
+        if(!$is_robot){
+            $emailCheck = $this->M_Users->getByEmail($email);
+            if(@$emailCheck->id){
+                $this->session->set_flashdata('error', TRUE);
+                $this->session->set_flashdata('name', $this->input->post('name', TRUE));
+                $this->session->set_flashdata('email', $this->input->post('email', TRUE));
+                $this->session->set_flashdata('nohp', $this->input->post('nohp', TRUE));
+    
+                redirect($_SERVER['HTTP_REFERER']);
+            }else{
+                $dataInsert = [
+                    'name' => $this->input->post('name', TRUE),
+                    'email' => $this->input->post('email', TRUE),
+                    'password' => md5($this->input->post('password', TRUE)),
+                    'nohp' => $this->input->post('nohp', TRUE),
+                ];
+                $this->db->insert('user', $dataInsert);
+    
+                redirect('auth/verifemail?mail=' . $email,'refresh');
+            }
+        }else{
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
+
+    function actionSignin(){
+        $email = $this->input->post('email', TRUE);
+        $password = md5($this->input->post('password', TRUE));
+        $emailCheck = $this->M_Users->getByEmail($email);
+
+        if(!$emailCheck->id){
+            $this->session->set_flashdata('error', "Email Yang Dimasukan Salah!");
+            redirect($_SERVER['HTTP_REFERER']);
+        }else{
+            if(!$emailCheck->password){
+                echo "Belum Ada Password";
+            }elseif($emailCheck->password == $password){
+                echo "Password Sesuai";
+            }else{
+                $this->session->set_flashdata('error', "Password Yang Dimasukan Salah!");
+                $this->session->set_flashdata('email', $email);
+                
+                redirect($_SERVER['HTTP_REFERER']);
+            }
+        }
+    }   
+
+    function sendMail($data, $type = FALSE){
+        // $this->load->library('phpmailer_lib');
+        // $email = $data['email'];
+
+        // $mail = $this->phpmailer_lib->load();
+
+        // $mail->isSMTP();
+        // $mail->Host         = 'smtp.gmail.com';
+        // $mail->SMTPAuth     = true;
+        // $mail->Username     = 'edukasilingkar@gmail.com';
+        // $mail->Password     = 'Lingkaredukasi12345';
+        // $mail->SMTPSecure   = 'ssl';
+        // $mail->Port         = 465;
+
+        // $mail->setFrom('edukasilingkar@gmail.com', 'Lingkar Edukasi');
+        // $mail->addReplyTo('edukasilingkar@gmail.com', 'Lingkar Edukasi');
+
+        // $mail->addAddress("$email");
+
+        // $mail->isHTML(true);
+
+        // $mail->Subject = 'Verifikasi Email';
+        // $mailContent = $this->load->view('mailVerification', $data , TRUE);
+
+        // $mail->Body = $mailContent;
+
+        // if(!$mail->send()){
+        //     return FALSE;
+        // }else{
+        //     return TRUE;
+        // }
     }
 }

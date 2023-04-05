@@ -9,7 +9,7 @@
             <p class="blind-text width-80">Cek email kamu dan klik link untuk mengaktifkan akunmu.</p>
             <a href="#" class="button is-yellow width-80 w-button">Buka email</a>
           </div>
-          <div class="text-size-medium text-align-center margin-top-24">Selesai aktivasi email? klik untuk ke <a href="#" class="link-span">Halaman Utama</a>
+          <div class="text-size-medium text-align-center margin-top-24">Selesai aktivasi email? klik untuk ke <a href="<?= site_url() ?>" class="link-span">Halaman Utama</a>
           </div>
         </div>
       </div>
