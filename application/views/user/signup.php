@@ -1,4 +1,3 @@
-
 <section class="section wf-section">
   <div class="padding-vertical padding-60">
     <div class="container">
@@ -17,9 +16,11 @@
             </div>
             <div class="google-login-wrapper">
               <div class="blind-text">Atau</div>
-              <a href="#" class="google-button margin-top-24 w-inline-block"><img src="<?= base_url('assets/user/images/google-icon.svg')?>" loading="lazy" alt="" class="button-image">
-                <div>Masuk dengan Google</div>
-              </a>
+              <?php if($login_button): ?>
+                <a href="<?= $auth_url ?>" class="google-button margin-top-24 w-inline-block"><img src="<?= base_url('assets/user/images/google-icon.svg')?>" loading="lazy" alt="" class="button-image">
+                  <div>Daftar dengan Google</div>
+                </a>
+              <?php endif; ?>
               <div class="text-size-medium text-align-center margin-top-24">Sudah memiliki akun? klik <a href="<?= site_url('signin') ?>" class="link-span">Masuk</a>
               </div>
             </div>

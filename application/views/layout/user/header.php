@@ -22,6 +22,7 @@
 </head>
 <body>
 
+  <?php if(!$this->session->userdata('is_user')): ?>
   <!-- Before Login -->
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
     <div class="nav-container">
@@ -58,11 +59,10 @@
       </div>
     </div>
   </div>
-
+  <?php else: ?>
   <!-- After Login -->
-
-  <!-- <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
-    <div class="nav-container" style="margin: 0px;">
+  <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
+    <div class="nav-container">
       <a href="#" class="nav-brand w-nav-brand"><img src="<?= base_url('assets/user/images/logo-main-white.svg')?>  " loading="lazy" alt=""></a>
       <div class="nav-left">
         <div data-hover="false" data-delay="0" class="nav-dropdown w-dropdown">
@@ -86,19 +86,28 @@
       <div data-hover="false" data-delay="0" class="dropdown-user_nav hide-mobile_landscape w-dropdown" style="margin: 0px;">
         <div class="w-dropdown-toggle">
           <div class="dropdown-icon is-yellow w-icon-dropdown-toggle"></div>
-          <div class="dropdown-user_foto"></div>
+          <?php if($user->is_google): ?>
+              <div class="dropdown-user_foto" style="background-image:url('<?= $user->profile_picture ?>')"></div>
+            <?php else: ?>
+              <div class="dropdown-user_foto"></div>
+            <?php endif; ?>
         </div>
         <nav class="w-dropdown-list">
-          <a href="#" class="w-dropdown-link">Link 1</a>
+          <a href="#" class="w-dropdown-link"><?= $user->name ?></a>
           <a href="#" class="w-dropdown-link">Link 2</a>
           <a href="#" class="w-dropdown-link">Link 3</a>
+          <a href="<?= site_url('logout') ?>" class="w-dropdown-link">Logout</a>
         </nav>
       </div>
       <nav role="navigation" class="nav-menu hidden w-nav-menu">
         <div data-hover="false" data-delay="1" class="dropdown-user_nav hide-desktop w-dropdown">
           <div class="profile-dropdown-toggle w-dropdown-toggle">
             <div class="dropdown-icon is-yellow w-icon-dropdown-toggle"></div>
-            <div class="dropdown-user_foto"></div>
+            <?php if($user->is_google): ?>
+              <div class="dropdown-user_foto" style="background-image: <?= $user->profile_picture ?> !important"></div>
+            <?php else: ?>
+              <div class="dropdown-user_foto"></div>
+            <?php endif; ?>
           </div>
           <nav class="dropdown-list-wrapper w-dropdown-list">
             <a href="#" class="profile-dropdown_link w-dropdown-link">Link 1</a>
@@ -116,4 +125,5 @@
         <div class="w-icon-nav-menu"></div>
       </div>
     </div>
-  </div> -->
+  </div>
+  <?php endif; ?>

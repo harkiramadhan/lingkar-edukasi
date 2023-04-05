@@ -19,9 +19,11 @@
             <a href="<?= site_url('forgotpassword') ?>" class="text-size-medium is-red text-align-center">Lupa Password anda?</a>
             <div class="google-login-wrapper">
               <div class="blind-text">Atau</div>
-              <a href="#" class="google-button margin-top-24 w-inline-block"><img src="<?= base_url('assets/user/images/google-icon.svg')?>" loading="lazy" alt="" class="button-image">
-                <div>Masuk dengan Google</div>
-              </a>
+              <?php if($login_button): ?>
+                <a href="<?= $auth_url ?>" class="google-button margin-top-24 w-inline-block"><img src="<?= base_url('assets/user/images/google-icon.svg')?>" loading="lazy" alt="" class="button-image">
+                  <div>Masuk dengan Google</div>
+                </a>
+              <?php endif; ?>
               <div class="text-size-medium text-align-center margin-top-24">Belum memiliki akun? klik <a href="<?= site_url('signup') ?>" class="link-span">Daftar</a>
               </div>
             </div>

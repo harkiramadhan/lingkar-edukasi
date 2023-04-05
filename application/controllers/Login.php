@@ -8,9 +8,9 @@ class Login extends CI_Controller{
     public function index(){
 		include_once APPPATH . "../vendor/autoload.php";
         $googleClient = new Google_Client();
-        $googleClient->setClientId('34338163443-5h1tu6h24guovdjt3c3vvui7djd6de0d.apps.googleusercontent.com');
-        $googleClient->setClientSecret('jLpFiy9QAbOSEutatXH_cSem');
-        $googleClient->setRedirectUri('http://localhost/lingkar-edukasi/login');
+        $googleClient->setClientId('842595441292-lmihklq8i6k91qnomq2cn9pb9vtfarpv.apps.googleusercontent.com');
+        $googleClient->setClientSecret('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');
+        $googleClient->setRedirectUri('http://localhost/lingkar-edukasi/');
         $googleClient->addScope('email');
         $googleClient->addScope('profile');
 
