@@ -1,8 +1,8 @@
 
 <main>
-    <div class="history-page">
+    <div class="history-page" style="padding: 8px;">
       <div class="history-container">
-        <div class="breadcrumb-wrapper">
+        <div class="breadcrumb-wrapper" style="padding: 4px 8px;">
           <a href="#" class="breadcrumb w-inline-block">
             <div class="icon-text gap-4">
               <div class="breadcrumb">Beranda</div>
@@ -47,14 +47,47 @@
               </div>
             </div>
           </div>
+
+          <div class="hero-content_right is-60">
+            <div class="cdetail-sidebar-absolute">
+              <div class="cdetail-sticky">
+                <div class="cdetail-sidebar">
+                  <div class="cdetail-kelas_card">
+                    <div class="kelas-card_image-wrapper higher"><img src="<?= base_url('assets/user/images/placeholder-1.webp')?>" loading="lazy" sizes="400px" srcset="<?= base_url('assets/user/images/placeholder-1-p-500.jpg')?> 500w, <?= base_url('assets/user/images/placeholder-1.webp')?> 576w" alt="" class="kelas-card_image"></div>
+                    <div class="kelas-card_content">
+                      <div class="kelas-card_title-wrapper">
+                        <div class="margin-bottom-16">
+                          <h2 class="heading-xtrasmall xtrabold no-margin" style="color: #333;">Apa yang kamu dapatkan</h2>
+                        </div>
+                        <ul role="list" class="kelas-lfeature_lists">
+                          <li class="kelas-feature_list-item">Akses Selamanya</li>
+                          <li class="kelas-feature_list-item">Akses Selamanya</li>
+                          <li class="kelas-feature_list-item">Akses Selamanya</li>
+                          <li class="kelas-feature_list-item">Akses Selamanya</li>
+                          <li class="kelas-feature_list-item">Akses Selamanya</li>
+                        </ul>
+                      </div>
+                      <div class="divider"></div>
+                      <div class="kelas-card_harga">Rp. 799.000</div>
+                    </div>
+                    <a href="#" class="kelas-button-full w-button">Daftar Kelas</a>
+                  </div>
+                  <div class="cdetail-tutor">
+                    <div class="cdetail-tutor_pill">
+                      <div class="pill-text">TENTANG TUTOR</div>
+                    </div><img src="<?= base_url('assets/user/images/tutor-placeholder.webp')?>" loading="lazy" alt="" class="cdetail-tutor_image">
+                    <h2 class="cdetail-tutor-name">Arif Voyager</h2>
+                    <div class="text-small text-grey">Donec nulla massa, feugiat id ornare quis, consequat non massa. Nunc pulvinar ac arcu eu rhoncus. Morbi condimentum dolor in tortor commodo cursus id euismod purus. Sed sit amet odio eget sapien tristique ultricies interdum sed nisi. Curabitur molestie porttitor elementum. Donec eu diam lectus. Nunc vel blandit nibh. Duis eget posuere augue. Quisque vehicula laoreet urna quis pulvinar.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="cdetail-sidebar-absolute">
-      <div class="cdetail-sticky">
-        <div class="cdetail-sidebar">
+
+        <div class="cdetail-sidebar show-tablet">
           <div class="cdetail-kelas_card">
-            <div class="kelas-card_image-wrapper higher"><img src="<?= base_url('assets/user/images/placeholder-1.webp')?>" loading="lazy" sizes="400px" srcset="<?= base_url('assets/user/images/placeholder-1-p-500.jpg')?> 500w, <?= base_url('assets/user/images/placeholder-1.webp')?> 576w" alt="" class="kelas-card_image"></div>
+            <div class="kelas-card_image-wrapper higher"><img src="images/placeholder-1.webp" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, (max-width: 991px) 92vw, 100vw" srcset="images/placeholder-1-p-500.jpg 500w, images/placeholder-1.webp 576w" alt="" class="kelas-card_image"></div>
             <div class="kelas-card_content">
               <div class="kelas-card_title-wrapper">
                 <div class="margin-bottom-16">
@@ -76,13 +109,14 @@
           <div class="cdetail-tutor">
             <div class="cdetail-tutor_pill">
               <div class="pill-text">TENTANG TUTOR</div>
-            </div><img src="<?= base_url('assets/user/images/tutor-placeholder.webp')?>" loading="lazy" alt="" class="cdetail-tutor_image">
+            </div><img src="images/tutor-placeholder.webp" loading="lazy" alt="" class="cdetail-tutor_image">
             <h2 class="cdetail-tutor-name">Arif Voyager</h2>
             <div class="text-small text-grey">Donec nulla massa, feugiat id ornare quis, consequat non massa. Nunc pulvinar ac arcu eu rhoncus. Morbi condimentum dolor in tortor commodo cursus id euismod purus. Sed sit amet odio eget sapien tristique ultricies interdum sed nisi. Curabitur molestie porttitor elementum. Donec eu diam lectus. Nunc vel blandit nibh. Duis eget posuere augue. Quisque vehicula laoreet urna quis pulvinar.</div>
           </div>
         </div>
       </div>
     </div>
+
     <section class="section wf-section">
       <div class="padding-top padding-60">
         <div class="container">

@@ -21,9 +21,11 @@
   <link href="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>" rel="apple-touch-icon">
 </head>
 <body>
+
+  <!-- Before Login -->
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
     <div class="nav-container">
-      <a href="#" class="w-nav-brand"></a>
+      <a href="<?= site_url('/') ?>" class="nav-brand w-nav-brand"><img src="<?= base_url('assets/user/images/logo-main-white.svg')?>  " loading="lazy" alt=""></a>
       <div class="nav-left">
         <div data-hover="false" data-delay="0" class="nav-dropdown w-dropdown">
           <div class="dropdown-toggle w-dropdown-toggle">
@@ -40,7 +42,7 @@
           <div class="search-input-relative"><input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari kelas..." id="search" required=""><input type="submit" value="" class="nav-search-button w-button"></div>
         </form>
       </div>
-      <nav role="navigation" class="nav-button-wrapper w-nav-menu">
+      <nav role="navigation" class="nav-button-wrapper w-nav-menu" style="margin-left: auto;">
         <a href="<?= site_url('signin') ?>" class="nav-button-secondary w-nav-link">Masuk</a>
         <a href="<?= site_url('signup') ?>" class="nav-button-primary w-nav-link">Daftar</a>
       </nav>
@@ -56,3 +58,62 @@
       </div>
     </div>
   </div>
+
+  <!-- After Login -->
+
+  <!-- <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
+    <div class="nav-container" style="margin: 0px;">
+      <a href="#" class="nav-brand w-nav-brand"><img src="<?= base_url('assets/user/images/logo-main-white.svg')?>  " loading="lazy" alt=""></a>
+      <div class="nav-left">
+        <div data-hover="false" data-delay="0" class="nav-dropdown w-dropdown">
+          <div class="dropdown-toggle w-dropdown-toggle">
+            <div class="dropdown-icon is-yellow w-icon-dropdown-toggle"></div>
+            <div class="text-color-white">Kategori</div>
+          </div>
+          <nav class="w-dropdown-list">
+            <a href="#" class="w-dropdown-link">Link 1</a>
+            <a href="#" class="w-dropdown-link">Link 2</a>
+            <a href="#" class="w-dropdown-link">Link 3</a>
+          </nav>
+        </div>
+        <form action="/search" class="nav-search w-form">
+          <div class="search-input-relative"><input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari kelas..." id="search" required=""><input type="submit" value="" class="nav-search-button w-button"></div>
+        </form>
+      </div>
+      <nav role="navigation" class="nav-button-wrapper w-nav-menu" style="margin-left: auto;">
+        <a href="#" class="nav-button-secondary w-nav-link">kelas saya</a>
+      </nav>
+      <div data-hover="false" data-delay="0" class="dropdown-user_nav hide-mobile_landscape w-dropdown" style="margin: 0px;">
+        <div class="w-dropdown-toggle">
+          <div class="dropdown-icon is-yellow w-icon-dropdown-toggle"></div>
+          <div class="dropdown-user_foto"></div>
+        </div>
+        <nav class="w-dropdown-list">
+          <a href="#" class="w-dropdown-link">Link 1</a>
+          <a href="#" class="w-dropdown-link">Link 2</a>
+          <a href="#" class="w-dropdown-link">Link 3</a>
+        </nav>
+      </div>
+      <nav role="navigation" class="nav-menu hidden w-nav-menu">
+        <div data-hover="false" data-delay="1" class="dropdown-user_nav hide-desktop w-dropdown">
+          <div class="profile-dropdown-toggle w-dropdown-toggle">
+            <div class="dropdown-icon is-yellow w-icon-dropdown-toggle"></div>
+            <div class="dropdown-user_foto"></div>
+          </div>
+          <nav class="dropdown-list-wrapper w-dropdown-list">
+            <a href="#" class="profile-dropdown_link w-dropdown-link">Link 1</a>
+            <a href="#" class="profile-dropdown_link w-dropdown-link">Link 2</a>
+            <a href="#" class="profile-dropdown_link w-dropdown-link">Link 3</a>
+          </nav>
+        </div>
+        <a href="#" class="nav-button-secondary w-nav-link">Masuk</a>
+        <a href="#" class="nav-button-primary w-nav-link">Daftar</a>
+        <form action="/search" class="nav-search show-mobile w-form">
+          <div class="search-input-relative"><input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari kelas..." id="search" required=""><input type="submit" value="" class="nav-search-button w-button"></div>
+        </form>
+      </nav>
+      <div class="menu-button w-nav-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div> -->

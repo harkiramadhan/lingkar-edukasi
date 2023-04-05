@@ -17,5 +17,12 @@ class Course extends CI_Controller{
     $this->load->view('layout/user/header');
     $this->load->view('user/thanks-for-join');
     $this->load->view('layout/user/footer');
-}
+  }
+
+  function kelassaya(){
+    $this->load->view('layout/user/header');
+    $this->load->view('user/kelassaya-list');
+    $this->load->view('layout/user/footer');
+  }
+
 }   
