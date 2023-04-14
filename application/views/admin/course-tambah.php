@@ -130,12 +130,12 @@
                     <div class="col-12">
                         <div class="row">
                             <div class="col-xl-12">
-                        <div class="card event-detail-bx overflow-hidden">
-                            <div class="card-media">
-                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100" id="image-preview">
+                                <div class="card event-detail-bx overflow-hidden">
+                                    <div class="card-media">
+                                        <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100" id="image-preview">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Acara - Ticketing Bootstrap Admin Dashboard</title>
+        <title>Dashboard Admin Lingkar Edukasi</title>
         <!-- Favicon icon -->
         <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>">
         <link rel="stylesheet" href="<?= base_url('assets/admin/vendor/chartist/css/chartist.min.css') ?>">
@@ -124,7 +124,7 @@
                                 <li><a href="<?= site_url('admin/peserta')?>">Peserta</a></li>
                                 <li><a href="<?= site_url('admin/transaksi')?>">Transaksi</a></li>
                                 <li><a href="<?= site_url('admin/reviews')?>">Reviews</a></li>
-                                <li><a href="<?= site_url('admin/label')?>">Label</a></li>
+                                <li><a href="<?= site_url('admin/label')?>">Label</a></li>  
                                 <li><a href="<?= site_url('admin/benefit')?>">Benefit</a></li>
                             </ul>
                         </li>
@@ -143,26 +143,14 @@
                         <li>
                             <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                                 <i class="flaticon-381-album-3"></i>
-                                <span class="nav-text">Landing Page</span>
+                                <span class="nav-text">Konten Halaman</span>
                             </a>
                             <ul aria-expanded="false">
+                                <li><a href="<?= site_url('admin/konten/landing')?>">Landing Page</a></li>
                                 <li><a href="#">Daftar Course</a></li>
-                                <li><a href="#">Tutor</a></li>
-                                <li><a href="#">Label</a></li>
+                                <li><a href="#">Footer</a></li>
                             </ul>
                         </li>
-                        <!-- <li>
-                            <a href="lingkar-transaksi.html" class="ai-icon" aria-expanded="false">
-                                <i class="flaticon-381-bookmark-1"></i>
-                                <span class="nav-text">Transaksi</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="lingkar-email.html" class="ai-icon" aria-expanded="false">
-                                <i class="flaticon-381-bookmark-1"></i>
-                                <span class="nav-text">Email</span>
-                            </a>
-                        </li> -->
                         <li>
                             <a href="lingkar-pengaturan.html" class="ai-icon" aria-expanded="false">
                                 <i class="flaticon-381-settings-9"></i>

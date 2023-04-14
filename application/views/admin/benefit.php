@@ -63,12 +63,12 @@
 			<div class="modal-body">
 				<form action="<?= site_url('admin/benefit/create') ?>" method="POST">
 					<div class="form-group">
-						<Benefit class="text-black font-w500">Nama Benefit</Benefit>
+						<label class="text-black font-w500">Nama Benefit</label>
 						<input name="benefit" type="text" class="form-control" required>
 					</div>
 					
 					<div class="form-group">
-						<Benefit class="text-black font-w500">Status</Benefit>
+						<label class="text-black font-w500">Status</label>
 						<select name="status" class="form-control default-select" required>
 							<option value="" disabled>Pilih</option>
 							<option value="1">Aktif</option>

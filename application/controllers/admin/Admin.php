@@ -36,5 +36,7 @@ class Admin extends CI_Controller{
         }
     }
 
-    
+    function lupapassword(){
+        $this->load->view('admin/lupa-password');
+    }
 }
