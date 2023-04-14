@@ -35,4 +35,6 @@ class Admin extends CI_Controller{
             redirect($_SERVER['HTTP_REFERER']);
         }
     }
+
+    
 }

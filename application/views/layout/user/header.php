@@ -26,7 +26,7 @@
   <!-- Before Login -->
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
     <div class="nav-container">
-      <a href="<?= site_url('/') ?>" class="nav-brand w-nav-brand"><img src="<?= base_url('assets/user/images/logo-main-white.svg')?>  " loading="lazy" alt=""></a>
+      <a href="<?= site_url('/') ?>" class="nav-brand w-nav-brand"><img src="<?= base_url('assets/user/images/logo-main-white.svg')?>" loading="lazy" alt=""></a>
       <div class="nav-left">
         <div data-hover="false" data-delay="0" class="nav-dropdown w-dropdown">
           <div class="dropdown-toggle w-dropdown-toggle">
