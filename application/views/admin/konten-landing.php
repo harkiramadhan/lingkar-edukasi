@@ -517,12 +517,12 @@
 	</div>
 </div>
 
-<!-- Model Tambah Benefit -->
+<!-- Model Tambah Testimoni -->
 <div class="modal fade" id="tambahTestimoni">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Tambah Konten Benefit</h5>
+				<h5 class="modal-title">Tambah Konten Testimoni</h5>
 				<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
 				</button>
 			</div>
@@ -533,7 +533,7 @@
 
                         <div class="col-lg-7 col-12 order-lg-1 order-2">
                             <div class="form-group">
-                                <label class="text-black font-w500">Logo Benefit</label>
+                                <label class="text-black font-w500">Foto Profil</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Upload</span>
@@ -546,18 +546,18 @@
                             </div>
         
                             <div class="form-group">
-                                <label class="text-black font-w500">Benefit</label>
-                                <input name="judulBenefit" type="text" class="form-control" required>
+                                <label class="text-black font-w500">Testimoni Peserta</label>
+                                <input name="testimoniPeserta" type="text" class="form-control" required>
                             </div>
         
                             <div class="form-group">
-                                <label class="text-black font-w500">Deskripsi Benefit</label>
-                                <input name="deskripsiBenefit" type="text" class="form-control" required>
+                                <label class="text-black font-w500">Nama Peserta</label>
+                                <input name="namaPeserta" type="text" class="form-control" required>
                             </div>
         
                             <div class="form-group">
-                                <label class="text-black font-w500">Deskripsi Tambahan</label>
-                                <input name="deskripsiTambahanBenefit" type="text" class="form-control" required>
+                                <label class="text-black font-w500">Jabatan Peserta</label>
+                                <input name="jabatanPeserta" type="text" class="form-control" required>
                             </div>
                             
                             <div class="form-group">
@@ -588,3 +588,4 @@
 		</div>
 	</div>
 </div>
+
