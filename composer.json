@@ -14,7 +14,8 @@
 		"php": ">=5.3.7",
 		"phpoffice/phpspreadsheet": "^1.25",
 		"mpdf/mpdf": "^8.1",
-		"google/apiclient": "^2.12"
+		"google/apiclient": "^2.12",
+		"midtrans/midtrans-php": "^2.5"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
