@@ -33,7 +33,7 @@
                                     <div id="v-pills-banner" class="tab-pane fade active show">
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
-                                                <h6 class="fs-16 text-black font-w600 mb-0">3 Total Konten Banner</h6>
+                                                <h6 class="fs-16 text-black font-w600 mb-0"><?= $banners->num_rows() ?> Total Konten Banner</h6>
                                                 <span class="fs-14">Berdasarkan preferensi anda</span>
                                             </div>
                                             <div class="d-flex mb-3">
@@ -41,7 +41,7 @@
                                             </div>
                                         </div>
                                         <div class="table-responsive">
-                                            <table id="example2" class="table card-table display dataTablesCard">
+                                            <table id="table-banner" class="table card-table display dataTablesCard">
                                                 <thead>
                                                     <tr>
                                                         <th width="5%" class="text-center">No</th>
@@ -54,7 +54,7 @@
                                                     <?php 
                                                     $noB = 1;
                                                     foreach($banners->result() as $rowB){ ?>
-                                                    <tr id="#">
+                                                    <tr id="data-banner-<?= $rowB->id ?>">
                                                         <td class="text-center"><?= $noB++ ?></td>
                                                         <td class="d-flex">
                                                             <div class="card-media">
@@ -91,7 +91,7 @@
                                             </div>
                                         </div>
                                         <div class="table-responsive">
-                                            <table id="example2" class="table card-table display dataTablesCard">
+                                            <table id="table-logo" class="table card-table display dataTablesCard">
                                                 <thead>
                                                     <tr>
                                                         <th width="5%" class="text-center">No</th>

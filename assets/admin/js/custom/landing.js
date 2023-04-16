@@ -1,3 +1,15 @@
+var tableBanner = $('#table-banner').DataTable({
+    createdRow: function ( row, data, index ) {
+       $(row).addClass('selected')
+    } 
+});
+
+var tableLogo = $('#table-logo').DataTable({
+    createdRow: function ( row, data, index ) {
+       $(row).addClass('selected')
+    } 
+});
+
 function previewImageEdit() {
     var element = document.getElementById("image-preview-edit")
     element.classList.remove("d-none")
@@ -113,7 +125,7 @@ $('.btn-remove-banner').click(function(){
                 },
                 success: function(res){
                     if(res == 1){
-                        $('#data-' + id).remove()
+                        $('#data-banner-' + id).remove()
                         Swal.fire("Deleted !!", "Hey, your imaginary file has been deleted !!", "success")
                     }else{
                         Swal.fire({
