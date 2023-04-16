@@ -12,4 +12,10 @@ class Konten extends CI_Controller{
     $this->load->view('admin/konten-landing');
     $this->load->view('layout/admin/footer');
   }
+
+  function header(){
+    $this->load->view('layout/admin/header');
+    $this->load->view('admin/konten-header');
+    $this->load->view('layout/admin/footer');
+  }
 }   

@@ -9,7 +9,7 @@
             </div>
             <div>Mulailah, beralih, atau memajukan karir mu dengan lebih dari 100 kursus dan sertifikat profesional</div>
           </div>
-          <div class="hero-slide_image-wrapper"><img src="<?= base_url('assets/user/images/home-hero-mainimage.webp')?>" loading="lazy" sizes="(max-width: 479px) 85vw, (max-width: 767px) 83vw, (max-width: 991px) 400px, 500px" srcset="<?= base_url('assets/user/images/home-hero-mainimage.webp')?> 500w, <?= base_url('assets/user/images/home-hero-mainimage.webp')?> 883w" alt="" class="hero-slide_image"></div>
+          <div class="hero-slide_image-wrapper"><img src="<?= base_url('assets/user/images/home-hero-mainimage.webp')?>" loading="lazy" sizes="(max-width: 479px) 85vw, (max-width: 500px) 83vw, (max-width: 991px) 300px, 400px" srcset="<?= base_url('assets/user/images/home-hero-mainimage.webp')?> 500w, <?= base_url('assets/user/images/home-hero-mainimage.webp')?> 883w" alt="" class="hero-slide_image"></div>
         </div>
       </div>
     </div>

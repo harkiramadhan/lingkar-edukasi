@@ -6,7 +6,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="<?= site_url('admin') ?>"><i class="fa fa-home"></i></a></li>
                 <li class="breadcrumb-item"><a href="#">Konten Halaman</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Landing Page</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Header Halaman</a></li>
             </ol>
         </div>
 
@@ -14,13 +14,13 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Pengaturan Konten Landing Page</h4>
+                        <h4 class="card-title">Pengaturan Konten Header Halaman</h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-xl-3">
                                 <div class="nav flex-column nav-pills mb-3">
-                                    <a href="#v-pills-banner" data-toggle="pill" class="nav-link active">Banner</a>
+                                    <a href="#v-pills-header-course" data-toggle="pill" class="nav-link active">Header Course</a>
                                     <a href="#v-pills-partner" data-toggle="pill" class="nav-link">Logo Partner</a>
                                     <a href="#v-pills-benefit" data-toggle="pill" class="nav-link">Benefit</a>
                                     <a href="#v-pills-course" data-toggle="pill" class="nav-link">Course</a>
@@ -30,49 +30,56 @@
                             </div>
                             <div class="col-xl-9 border-left">
                                 <div class="tab-content">
-                                    <div id="v-pills-banner" class="tab-pane fade active show">
+                                    <div id="v-pills-header-course" class="tab-pane fade active show">
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
-                                                <h6 class="fs-16 text-black font-w600 mb-0">3 Total Konten Banner</h6>
-                                                <span class="fs-14">Berdasarkan preferensi anda</span>
                                             </div>
                                             <div class="d-flex mb-3">
-                                                <button type="button" class="btn btn-primary text-nowrap" data-toggle="modal" data-target="#tambahBanner">+ Banner</button>
+                                                <a href="<?= site_url('/course')?>" target="_blank" type="button" class="btn btn-outline-primary btn-sm text-nowrap"> <i class="fas fa-eye mr-2"></i>Lihat Halaman</a>
                                             </div>
                                         </div>
-                                        <div class="table-responsive">
-                                            <table id="example2" class="table card-table display dataTablesCard">
-                                                <thead>
-                                                    <tr>
-                                                        <th width="5%" class="text-center">No</th>
-                                                        <th>Banner</th>
-                                                        <th width="10%" class="text-center">Status</th>
-                                                        <th width="15%" class="text-center">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr id="#">
-                                                        <td class="text-center">1</td>
-                                                        <td class="d-flex">
-                                                            <div class="card-media">
-                                                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="mr-3 rounded" style="width: 100px;" id="image-preview">
+                                        
+                                        <div class="row">
+                                            <div class="col-lg-7 col-12">
+                                                
+                                                <form action="#" method="POST">
+        
+                                                    <div class="form-group">
+                                                        <label class="text-black font-w500">Gambar Header</label>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Upload</span>
                                                             </div>
-                                                            <div>
-                                                                <p class="text-wrap font-weight-bold mb-0">Tingkatkan keterampilan dan Karirmu</p>
-                                                                <p class="text-wrap font-weight-normal mb-0">Mulailah, beralih, atau memajukan karir mu dengan lebih dari 100 kursus dan sertifikat profesional</p>
-                                                                <p>Link: <a href="http://localhost/lingkar-edukasi/">http://localhost/lingkar-edukasi/</a></p>
+                                                            <div class="custom-file">
+                                                                <input type="file" class="custom-file-input" name="img" id="image-source" onchange="previewImage()" required>
+                                                                <label class="custom-file-label">Pilih</label>
                                                             </div>
-                                                            
-                                                        </td>
-                                                        <td><button type="button" class="btn btn-sm btn-block text-default disabled btn-success">Aktif</button></td>
-                                                        <td class="text-center">
-                                                            <button class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0 btn-edit" data-id="#" data-toggle="modal" data-target="#tambahBanner"><i class="fa fa-pencil"></i></button>
-                                                            <button class="btn btn-danger btn-sm dark ml-0 px-2 py-1 mr-0 btn-remove" data-id="#"><i class="la la-trash"></i></button>
-                                                        </td>
-                                                    </tr>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="form-group">
+                                                        <label class="text-black font-w500">Judul Header</label>
+                                                        <input name="judulCourse" type="text" class="form-control" required>
+                                                    </div>
+        
+                                                    <div class="form-group">
+                                                        <label class="text-black font-w500">Deskripsi Header</label>
+                                                        <input name="deskripsiCourse" type="text" class="form-control" required>
+                                                    </div>
+        
+                                                    <div class="form-group mb-0 text-right">
+                                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                                    </div>
+        
+                                                </form>
+                                            </div>
+
+                                            <div class="col-lg-5 col-12 order-lg-2 order-1">
+                                                    <div class="card-media mb-4">
+                                                        <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview">
+                                                    </div>
                                                     
-                                                </tbody>
-                                            </table>
+                                                </div>
                                         </div>
                                     </div>
                                     <div id="v-pills-partner" class="tab-pane fade">
@@ -281,9 +288,9 @@
                                                     </div>
                                                     
                                                 </div>
-                                            </div>
+                                                </div>
 
-                                            <div class="form-group mb-0 text-right">
+                                                <div class="form-group mb-0 text-right">
                                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                             </div>
 
@@ -298,294 +305,5 @@
             </div>
         </div>
     </div>
-</div>
-
-
-<!-- Modal Tambah Banner -->
-<div class="modal fade" id="tambahBanner">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">Tambah Konten Banner</h5>
-				<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form action="#" method="POST">
-
-                    <div class="row">
-
-                        <div class="col-lg-7 col-12 order-lg-1 order-2">
-                            <div class="form-group">
-                                <label class="text-black font-w500">Gambar Banner</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="img" id="image-source" onchange="previewImage()" required>
-                                        <label class="custom-file-label">Pilih</label>
-                                    </div>
-                                </div>
-                            </div>
-        
-                            <div class="form-group">
-                                <label class="text-black font-w500">Judul Banner</label>
-                                <input name="judulBanner" type="text" class="form-control" required>
-                            </div>
-        
-                            <div class="form-group">
-                                <label class="text-black font-w500">Deskripsi Banner</label>
-                                <input name="deskripsiBanner" type="text" class="form-control" required>
-                            </div>
-        
-                            <div class="form-group">
-                                <label class="text-black font-w500">Text Tombol</label>
-                                <input name="textButton" type="text" class="form-control" required>
-                            </div>
-        
-                            <div class="form-group">
-                                <label class="text-black font-w500">Link Tombol</label>
-                                <input name="linkButton" type="text" class="form-control" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="text-black font-w500">Status</label>
-                                <select name="status" class="form-control default-select" required>
-                                    <option value="" disabled>Pilih</option>
-                                    <option value="1">Aktif</option>
-                                    <option value="0">Tidak Aktif</option>
-                                </select>
-                            </div>
-        
-                        </div>
-                        
-                        <div class="col-lg-5 col-12 order-lg-2 order-1">
-                            <div class="card-media mb-4">
-                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview">
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <div class="form-group mb-0 text-right">
-                        <button type="submit" class="btn btn-primary">Tambah</button>
-                    </div>
-
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- Model Tambah Logo Partner -->
-<div class="modal fade" id="tambahPartner">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">Tambah Konten Logo Partner</h5>
-				<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form action="#" method="POST">
-
-                    <div class="row">
-
-                        <div class="col-lg-7 col-12 order-lg-1 order-2">
-                            <div class="form-group">
-                                <label class="text-black font-w500">Logo Partner</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="img" id="image-source" onchange="previewImage()" required>
-                                        <label class="custom-file-label">Pilih</label>
-                                    </div>
-                                </div>
-                            </div>
-        
-                            <div class="form-group">
-                                <label class="text-black font-w500">Nama Partner</label>
-                                <input name="judulPartner" type="text" class="form-control" required>
-                            </div>
-        
-                            <div class="form-group">
-                                <label class="text-black font-w500">Link Partner</label>
-                                <input name="linkPartner" type="text" class="form-control" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="text-black font-w500">Status</label>
-                                <select name="status" class="form-control default-select" required>
-                                    <option value="" disabled>Pilih</option>
-                                    <option value="1">Aktif</option>
-                                    <option value="0">Tidak Aktif</option>
-                                </select>
-                            </div>
-        
-                        </div>
-                        
-                        <div class="col-lg-5 col-12 order-lg-2 order-1">
-                            <div class="card-media mb-4">
-                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview">
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <div class="form-group mb-0 text-right">
-                        <button type="submit" class="btn btn-primary">Tambah</button>
-                    </div>
-
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- Model Tambah Benefit -->
-<div class="modal fade" id="tambahBenefit">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">Tambah Konten Benefit</h5>
-				<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form action="#" method="POST">
-
-                    <div class="row">
-
-                        <div class="col-lg-7 col-12 order-lg-1 order-2">
-                            <div class="form-group">
-                                <label class="text-black font-w500">Logo Benefit</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="img" id="image-source" onchange="previewImage()" required>
-                                        <label class="custom-file-label">Pilih</label>
-                                    </div>
-                                </div>
-                            </div>
-        
-                            <div class="form-group">
-                                <label class="text-black font-w500">Benefit</label>
-                                <input name="judulBenefit" type="text" class="form-control" required>
-                            </div>
-        
-                            <div class="form-group">
-                                <label class="text-black font-w500">Deskripsi Benefit</label>
-                                <input name="deskripsiBenefit" type="text" class="form-control" required>
-                            </div>
-        
-                            <div class="form-group">
-                                <label class="text-black font-w500">Deskripsi Tambahan</label>
-                                <input name="deskripsiTambahanBenefit" type="text" class="form-control" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="text-black font-w500">Status</label>
-                                <select name="status" class="form-control default-select" required>
-                                    <option value="" disabled>Pilih</option>
-                                    <option value="1">Aktif</option>
-                                    <option value="0">Tidak Aktif</option>
-                                </select>
-                            </div>
-        
-                        </div>
-                        
-                        <div class="col-lg-5 col-12 order-lg-2 order-1">
-                            <div class="card-media mb-4">
-                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview">
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <div class="form-group mb-0 text-right">
-                        <button type="submit" class="btn btn-primary">Tambah</button>
-                    </div>
-
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- Model Tambah Testimoni -->
-<div class="modal fade" id="tambahTestimoni">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">Tambah Konten Testimoni</h5>
-				<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form action="#" method="POST">
-
-                    <div class="row">
-
-                        <div class="col-lg-7 col-12 order-lg-1 order-2">
-                            <div class="form-group">
-                                <label class="text-black font-w500">Foto Profil</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="img" id="image-source" onchange="previewImage()" required>
-                                        <label class="custom-file-label">Pilih</label>
-                                    </div>
-                                </div>
-                            </div>
-        
-                            <div class="form-group">
-                                <label class="text-black font-w500">Testimoni Peserta</label>
-                                <input name="testimoniPeserta" type="text" class="form-control" required>
-                            </div>
-        
-                            <div class="form-group">
-                                <label class="text-black font-w500">Nama Peserta</label>
-                                <input name="namaPeserta" type="text" class="form-control" required>
-                            </div>
-        
-                            <div class="form-group">
-                                <label class="text-black font-w500">Jabatan Peserta</label>
-                                <input name="jabatanPeserta" type="text" class="form-control" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="text-black font-w500">Status</label>
-                                <select name="status" class="form-control default-select" required>
-                                    <option value="" disabled>Pilih</option>
-                                    <option value="1">Aktif</option>
-                                    <option value="0">Tidak Aktif</option>
-                                </select>
-                            </div>
-        
-                        </div>
-                        
-                        <div class="col-lg-5 col-12 order-lg-2 order-1">
-                            <div class="card-media mb-4">
-                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview">
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <div class="form-group mb-0 text-right">
-                        <button type="submit" class="btn btn-primary">Tambah</button>
-                    </div>
-
-				</form>
-			</div>
-		</div>
-	</div>
 </div>
 

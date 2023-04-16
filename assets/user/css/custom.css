@@ -1,0 +1,11 @@
+.hero-slide_image-wrapper {
+    bottom: -38px;
+}
+
+.hero-slide_image {
+    width: 400px;
+}
+
+.footer.wf-section {
+    border-top: 0.5px rgba(128, 128, 128, 0.44) solid;
+}
