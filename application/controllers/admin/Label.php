@@ -89,12 +89,7 @@ class Label extends CI_Controller{
 
     function remove($id){
         $this->db->where('id', $id)->delete('labels');
-        if($this->db->affected_rows() > 0){
-            $res = 1;
-        }else{
-            $res = 0;
-        }
-
+        $res = ($this->db->affected_rows() > 0) ? 1 : 0;
         $this->output->set_content_type('application/json')->set_output(json_encode($res));
     }
 }   

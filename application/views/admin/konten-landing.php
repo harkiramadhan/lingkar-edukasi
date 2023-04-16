@@ -33,7 +33,7 @@
                                     <div id="v-pills-banner" class="tab-pane fade active show">
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
-                                                <h6 class="fs-16 text-black font-w600 mb-0">3 Total Konten Banner</h6>
+                                                <h6 class="fs-16 text-black font-w600 mb-0"><?= $banners->num_rows() ?> Total Konten Banner</h6>
                                                 <span class="fs-14">Berdasarkan preferensi anda</span>
                                             </div>
                                             <div class="d-flex mb-3">
@@ -41,7 +41,7 @@
                                             </div>
                                         </div>
                                         <div class="table-responsive">
-                                            <table id="example2" class="table card-table display dataTablesCard">
+                                            <table id="table-banner" class="table card-table display dataTablesCard">
                                                 <thead>
                                                     <tr>
                                                         <th width="5%" class="text-center">No</th>
@@ -51,26 +51,31 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr id="#">
-                                                        <td class="text-center">1</td>
+                                                    <?php 
+                                                    $noB = 1;
+                                                    foreach($banners->result() as $rowB){ ?>
+                                                    <tr id="data-banner-<?= $rowB->id ?>">
+                                                        <td class="text-center"><?= $noB++ ?></td>
                                                         <td class="d-flex">
                                                             <div class="card-media">
-                                                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="mr-3 rounded" style="width: 100px;" id="image-preview">
+                                                                <img src="<?= base_url('uploads/banners/' . $rowB->img) ?>" alt="" class="mr-3 rounded" style="width: 100px;">
                                                             </div>
                                                             <div>
-                                                                <p class="text-wrap font-weight-bold mb-0">Tingkatkan keterampilan dan Karirmu</p>
-                                                                <p class="text-wrap font-weight-normal mb-0">Mulailah, beralih, atau memajukan karir mu dengan lebih dari 100 kursus dan sertifikat profesional</p>
-                                                                <p>Link: <a href="http://localhost/lingkar-edukasi/">http://localhost/lingkar-edukasi/</a></p>
+                                                                <p class="text-wrap font-weight-bold mb-0"><?= $rowB->judul ?></p>
+                                                                <p class="text-wrap font-weight-normal mb-0"><?= $rowB->deskripsi ?></p>
+                                                                <p>Link: <a href="<?= $rowB->link ?>" target="__BLANK"><?= $rowB->link ?></a></p>
                                                             </div>
                                                             
                                                         </td>
-                                                        <td><button type="button" class="btn btn-sm btn-block text-default disabled btn-success">Aktif</button></td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-sm btn-block text-default disabled <?= ($rowB->status == 1) ? 'btn-success' : 'btn-danger' ?>" disabled><?= ($rowB->status == 1) ? 'Aktif' : 'Tidak Aktif' ?></button>
+                                                        </td>
                                                         <td class="text-center">
-                                                            <button class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0 btn-edit" data-id="#" data-toggle="modal" data-target="#tambahBanner"><i class="fa fa-pencil"></i></button>
-                                                            <button class="btn btn-danger btn-sm dark ml-0 px-2 py-1 mr-0 btn-remove" data-id="#"><i class="la la-trash"></i></button>
+                                                            <button class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0 btn-edit-banner" data-id="<?= $rowB->id ?>"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-danger btn-sm dark ml-0 px-2 py-1 mr-0 btn-remove-banner" data-id="<?= $rowB->id ?>"><i class="la la-trash"></i></button>
                                                         </td>
                                                     </tr>
-                                                    
+                                                    <?php } ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -78,7 +83,7 @@
                                     <div id="v-pills-partner" class="tab-pane fade">
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
-                                                <h6 class="fs-16 text-black font-w600 mb-0">3 Total Konten Logo Partner</h6>
+                                                <h6 class="fs-16 text-black font-w600 mb-0"><?= $partners->num_rows() ?> Total Konten Logo Partner</h6>
                                                 <span class="fs-14">Berdasarkan preferensi anda</span>
                                             </div>
                                             <div class="d-flex mb-3">
@@ -86,7 +91,7 @@
                                             </div>
                                         </div>
                                         <div class="table-responsive">
-                                            <table id="example2" class="table card-table display dataTablesCard">
+                                            <table id="table-logo" class="table card-table display dataTablesCard">
                                                 <thead>
                                                     <tr>
                                                         <th width="5%" class="text-center">No</th>
@@ -96,25 +101,31 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr id="#">
-                                                        <td class="text-center">1</td>
-                                                        <td class="d-flex">
-                                                            <div class="card-media">
-                                                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="mr-3 rounded" style="width: 100px;" id="image-preview">
-                                                            </div>
-                                                            <div>
-                                                                <p class="text-wrap font-weight-bold mb-0">House Of Tax</p>
-                                                                <p>Link: <a href="http://localhost/lingkar-edukasi/">http://localhost/lingkar-edukasi/</a></p>
-                                                            </div>
-                                                            
-                                                        </td>
-                                                        <td><button type="button" class="btn btn-sm btn-block text-default disabled btn-success">Aktif</button></td>
-                                                        <td class="text-center">
-                                                            <button class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0 btn-edit" data-id="#" data-toggle="modal" data-target="#tambahBanner"><i class="fa fa-pencil"></i></button>
-                                                            <button class="btn btn-danger btn-sm dark ml-0 px-2 py-1 mr-0 btn-remove" data-id="#"><i class="la la-trash"></i></button>
-                                                        </td>
-                                                    </tr>
-                                                    
+                                                    <?php 
+                                                        $noP = 1;
+                                                        foreach($partners->result() as $rowP){ 
+                                                    ?>
+                                                        <tr id="data-partner-<?= $rowP->id ?>">
+                                                            <td class="text-center"><?= $noP++ ?></td>
+                                                            <td class="d-flex">
+                                                                <div class="card-media">
+                                                                    <img src="<?= base_url('uploads/partner/' . $rowP->img) ?>" alt="" class="mr-3 rounded" style="width: 100px;">
+                                                                </div>
+                                                                <div>
+                                                                    <p class="text-wrap font-weight-bold mb-0"><?= $rowP->judul ?></p>
+                                                                    <p>Link: <a href="<?= $rowP->link ?>" target="__BLANK"><?= $rowP->link ?></a></p>
+                                                                </div>
+                                                                
+                                                            </td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-sm btn-block text-default disabled <?= ($rowP->status == 1) ? 'btn-success' : 'btn-danger' ?>" disabled><?= ($rowP->status == 1) ? 'Aktif' : 'Tidak Aktif' ?></button>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <button class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0 btn-edit-partner" data-id="<?= $rowP->id ?>"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-sm dark ml-0 px-2 py-1 mr-0 btn-remove-partner" data-id="<?= $rowP->id ?>"><i class="la la-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                    <?php } ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -145,7 +156,7 @@
                                                         <td class="text-center">1</td>
                                                         <td class="d-flex">
                                                             <div class="card-media">
-                                                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="mr-3 rounded" style="width: 100px;" id="image-preview">
+                                                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="mr-3 rounded" style="width: 100px;">
                                                             </div>
                                                             <div>
                                                                 <p class="text-wrap font-weight-bold mb-0">Benefit 1</p>
@@ -212,7 +223,7 @@
                                                         <td class="text-center">1</td>
                                                         <td class="d-flex">
                                                             <div class="card-media">
-                                                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="mr-3 rounded" style="width: 100px;" id="image-preview">
+                                                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="mr-3 rounded" style="width: 100px;">
                                                             </div>
                                                             <div>
                                                                 <p class="text-wrap font-weight-bold mb-0">Testimoni</p>
@@ -247,7 +258,7 @@
                                                                 <span class="input-group-text">Upload</span>
                                                             </div>
                                                             <div class="custom-file">
-                                                                <input type="file" class="custom-file-input" name="img" id="image-source" onchange="previewImage()" required>
+                                                                <input type="file" class="custom-file-input" name="img" id="image-source5" onchange="previewImage5()" required>
                                                                 <label class="custom-file-label">Pilih</label>
                                                             </div>
                                                         </div>
@@ -277,7 +288,7 @@
 
                                                 <div class="col-lg-5 col-12 order-lg-2 order-1">
                                                     <div class="card-media mb-4">
-                                                        <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview">
+                                                        <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview5">
                                                     </div>
                                                     
                                                 </div>
@@ -311,7 +322,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form action="#" method="POST">
+				<form action="<?= site_url('admin/konten/createBanner') ?>" method="POST" enctype="multipart/form-data">
 
                     <div class="row">
 
@@ -331,22 +342,22 @@
         
                             <div class="form-group">
                                 <label class="text-black font-w500">Judul Banner</label>
-                                <input name="judulBanner" type="text" class="form-control" required>
+                                <input name="judul" type="text" class="form-control" required>
                             </div>
         
                             <div class="form-group">
                                 <label class="text-black font-w500">Deskripsi Banner</label>
-                                <input name="deskripsiBanner" type="text" class="form-control" required>
+                                <input name="deskripsi" type="text" class="form-control" required>
                             </div>
         
                             <div class="form-group">
                                 <label class="text-black font-w500">Text Tombol</label>
-                                <input name="textButton" type="text" class="form-control" required>
+                                <input name="text" type="text" class="form-control" required>
                             </div>
         
                             <div class="form-group">
                                 <label class="text-black font-w500">Link Tombol</label>
-                                <input name="linkButton" type="text" class="form-control" required>
+                                <input name="link" type="text" class="form-control" required>
                             </div>
                             
                             <div class="form-group">
@@ -357,21 +368,18 @@
                                     <option value="0">Tidak Aktif</option>
                                 </select>
                             </div>
-        
                         </div>
                         
                         <div class="col-lg-5 col-12 order-lg-2 order-1">
                             <div class="card-media mb-4">
                                 <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview">
                             </div>
-                            
                         </div>
                     </div>
 
                     <div class="form-group mb-0 text-right">
                         <button type="submit" class="btn btn-primary">Tambah</button>
                     </div>
-
 				</form>
 			</div>
 		</div>
@@ -388,10 +396,8 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form action="#" method="POST">
-
+				<form action="<?= site_url('admin/konten/createPartner') ?>" method="POST" enctype="multipart/form-data">
                     <div class="row">
-
                         <div class="col-lg-7 col-12 order-lg-1 order-2">
                             <div class="form-group">
                                 <label class="text-black font-w500">Logo Partner</label>
@@ -400,7 +406,7 @@
                                         <span class="input-group-text">Upload</span>
                                     </div>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="img" id="image-source" onchange="previewImage()" required>
+                                        <input type="file" class="custom-file-input" name="img" id="image-source2" onchange="previewImage2()" required>
                                         <label class="custom-file-label">Pilih</label>
                                     </div>
                                 </div>
@@ -408,12 +414,12 @@
         
                             <div class="form-group">
                                 <label class="text-black font-w500">Nama Partner</label>
-                                <input name="judulPartner" type="text" class="form-control" required>
+                                <input name="judul" type="text" class="form-control" required>
                             </div>
         
                             <div class="form-group">
                                 <label class="text-black font-w500">Link Partner</label>
-                                <input name="linkPartner" type="text" class="form-control" required>
+                                <input name="link" type="text" class="form-control" required>
                             </div>
                             
                             <div class="form-group">
@@ -424,14 +430,12 @@
                                     <option value="0">Tidak Aktif</option>
                                 </select>
                             </div>
-        
                         </div>
                         
                         <div class="col-lg-5 col-12 order-lg-2 order-1">
                             <div class="card-media mb-4">
-                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview">
+                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview2">
                             </div>
-                            
                         </div>
                     </div>
 
@@ -455,7 +459,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form action="#" method="POST">
+				<form action="#" method="POST" enctype="multipart/form-data">
 
                     <div class="row">
 
@@ -467,7 +471,7 @@
                                         <span class="input-group-text">Upload</span>
                                     </div>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="img" id="image-source" onchange="previewImage()" required>
+                                        <input type="file" class="custom-file-input" name="img" id="image-source3" onchange="previewImage3()" required>
                                         <label class="custom-file-label">Pilih</label>
                                     </div>
                                 </div>
@@ -501,7 +505,7 @@
                         
                         <div class="col-lg-5 col-12 order-lg-2 order-1">
                             <div class="card-media mb-4">
-                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview">
+                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview3">
                             </div>
                             
                         </div>
@@ -527,7 +531,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form action="#" method="POST">
+				<form action="#" method="POST" enctype="multipart/form-data">
 
                     <div class="row">
 
@@ -539,7 +543,7 @@
                                         <span class="input-group-text">Upload</span>
                                     </div>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="img" id="image-source" onchange="previewImage()" required>
+                                        <input type="file" class="custom-file-input" name="img" id="image-source4" onchange="previewImage4()" required>
                                         <label class="custom-file-label">Pilih</label>
                                     </div>
                                 </div>
@@ -573,7 +577,7 @@
                         
                         <div class="col-lg-5 col-12 order-lg-2 order-1">
                             <div class="card-media mb-4">
-                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview">
+                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview4">
                             </div>
                             
                         </div>
@@ -589,3 +593,11 @@
 	</div>
 </div>
 
+<!-- Modal Edit -->
+<div class="modal fade" id="modalEdit">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content edit-content">
+			
+		</div>
+	</div>
+</div>
