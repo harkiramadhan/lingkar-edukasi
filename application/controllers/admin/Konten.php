@@ -341,4 +341,10 @@ class Konten extends CI_Controller{
     $this->load->view('layout/admin/footer');
   }
 
+  function footer(){
+    $this->load->view('layout/admin/header');
+    $this->load->view('admin/konten-footer');
+    $this->load->view('layout/admin/footer');
+  }
+
 }   

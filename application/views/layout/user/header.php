@@ -65,7 +65,7 @@
   <!-- After Login -->
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
     <div class="nav-container">
-      <a href="#" class="nav-brand w-nav-brand"><img src="<?= base_url('assets/user/images/logo-main-white.svg')?>  " loading="lazy" alt=""></a>
+      <a href="<?= site_url('/') ?>" class="nav-brand w-nav-brand"><img src="<?= base_url('assets/user/images/logo-main-white.svg')?>  " loading="lazy" alt=""></a>
       <div class="nav-left">
         <div data-hover="false" data-delay="0" class="nav-dropdown w-dropdown">
           <div class="dropdown-toggle w-dropdown-toggle">
@@ -83,7 +83,7 @@
         </form>
       </div>
       <nav role="navigation" class="nav-button-wrapper w-nav-menu" style="margin-left: auto;">
-        <a href="#" class="nav-button-secondary w-nav-link">kelas saya</a>
+        <a href="<?= site_url('/course/kelassaya') ?>" class="nav-button-secondary w-nav-link">kelas saya</a>
       </nav>
       <div data-hover="false" data-delay="0" class="dropdown-user_nav hide-mobile_landscape w-dropdown" style="margin: 0px;">
         <div class="w-dropdown-toggle">
@@ -95,9 +95,8 @@
             <?php endif; ?>
         </div>
         <nav class="w-dropdown-list">
-          <a href="#" class="w-dropdown-link"><?= $user->name ?></a>
-          <a href="#" class="w-dropdown-link">Link 2</a>
-          <a href="#" class="w-dropdown-link">Link 3</a>
+          <a href="<?= site_url('/profil') ?>" class="w-dropdown-link"><?= $user->name ?></a>
+          <a href="<?= site_url('/profil') ?>" class="w-dropdown-link">Profil</a>
           <a href="<?= site_url('logout') ?>" class="w-dropdown-link">Logout</a>
         </nav>
       </div>

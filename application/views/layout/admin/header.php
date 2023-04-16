@@ -148,7 +148,7 @@
                             <ul aria-expanded="false">
                                 <li><a href="<?= site_url('admin/konten/landing')?>">Landing Page</a></li>
                                 <li><a href="<?= site_url('admin/konten/header')?>">Judul Halaman</a></li>
-                                <li><a href="#">Footer</a></li>
+                                <li><a href="<?= site_url('admin/konten/footer')?>">Footer</a></li>
                             </ul>
                         </li>
                         <li>
