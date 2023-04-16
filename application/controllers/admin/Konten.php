@@ -183,7 +183,15 @@ class Konten extends CI_Controller{
   }
 
   function removeBanner($id){
+    $banner = $this->M_Banners->getById($id);
 
+    if($banner->img != NULL){
+      @unlink('./uploads/banners/' . @$banner->img);
+    }
+
+    $this->db->where('id', $id)->delete('banners');
+    $res = ($this->db->affected_rows() > 0) ? 1 : 0;
+    $this->output->set_content_type('application/json')->set_output(json_encode($res));
   }
 
 }   
