@@ -658,4 +658,21 @@ class Konten extends CI_Controller{
     $this->output->set_content_type('application/json')->set_output(json_encode($res));
   }
 
+  /******* Tutor CTA */
+  function updateTutorCTA(){
+    $this->db->where('id', 1)->update('setting', [
+      'cta_judul' => ($this->input->post('cta_judul', TRUE)) ? $this->input->post("cta_judul", TRUE) : NULL,
+      'cta_desc' => ($this->input->post('cta_desc', TRUE)) ? $this->input->post("cta_desc", TRUE) : NULL,
+      'cta_btn_text' => ($this->input->post('cta_btn_text', TRUE)) ? $this->input->post("cta_btn_text", TRUE) : NULL,
+      'cta_link' => ($this->input->post('cta_link', TRUE)) ? $this->input->post("cta_link", TRUE) : NULL,
+    ]);
+    if($this->db->affected_rows() > 0){
+			$this->session->set_flashdata('suecces', "Data Berhasil Di Simpan");
+		}else{
+			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
+		}
+    $this->session->set_flashdata('tab', "tab-tutor");
+		
+		redirect($_SERVER['HTTP_REFERER']);
+  }
 }   

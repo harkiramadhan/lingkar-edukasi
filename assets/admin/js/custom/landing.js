@@ -155,7 +155,6 @@ $('.btn-remove-banner').click(function(){
     })
 })
 
-
 /* Partner */
 $('.btn-edit-partner').click(function(){
     var id = $(this).attr('data-id')
