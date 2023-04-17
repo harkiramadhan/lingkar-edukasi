@@ -204,7 +204,7 @@
                                         
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
-                                                <h6 class="fs-16 text-black font-w600 mb-0">3 Total Konten Testimoni</h6>
+                                                <h6 class="fs-16 text-black font-w600 mb-0"><?= $testimoni->num_rows() ?> Total Konten Testimoni</h6>
                                                 <span class="fs-14">Berdasarkan preferensi anda</span>
                                             </div>
                                             <div class="d-flex mb-3">
@@ -212,7 +212,7 @@
                                             </div>
                                         </div>
                                         <div class="table-responsive">
-                                            <table id="example2" class="table card-table display dataTablesCard">
+                                            <table id="table-testimoni" class="table card-table display dataTablesCard">
                                                 <thead>
                                                     <tr>
                                                         <th width="5%" class="text-center">No</th>
@@ -222,26 +222,32 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr id="#">
-                                                        <td class="text-center">1</td>
+                                                    <?php 
+                                                        $noT = 1;
+                                                        foreach($testimoni->result() as $rowT){ 
+                                                    ?>
+                                                    <tr id="data-testimoni-<?= $rowT->id ?>">
+                                                        <td class="text-center"><?= $noT++ ?></td>
                                                         <td class="d-flex">
                                                             <div class="card-media">
-                                                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="mr-3 rounded" style="width: 100px;">
+                                                                <img src="<?= base_url('uploads/testimoni/' . $rowT->img) ?>" alt="" class="mr-3 rounded" style="width: 100px;">
                                                             </div>
                                                             <div>
-                                                                <p class="text-wrap font-weight-bold mb-0">Testimoni</p>
-                                                                <p class="text-wrap font-weight-normal mb-0">Nama</p>
-                                                                <p class="text-wrap font-weight-normal mb-0">Kelas yang diambil</p>
+                                                                <p class="text-wrap font-weight-bold mb-0"><?= $rowT->testimoni ?></p>
+                                                                <p class="text-wrap font-weight-normal mb-0"><?= $rowT->testimoni ?></p>
+                                                                <p class="text-wrap font-weight-normal mb-0"><?= $rowT->kelas ?></p>
                                                             </div>
                                                             
                                                         </td>
-                                                        <td><button type="button" class="btn btn-sm btn-block text-default disabled btn-success">Aktif</button></td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-sm btn-block text-default disabled <?= ($rowT->status == 1) ? 'btn-success' : 'btn-danger' ?>" disabled><?= ($rowT->status == 1) ? 'Aktif' : 'Tidak Aktif' ?></button>
+                                                        </td>
                                                         <td class="text-center">
-                                                            <button class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0 btn-edit" data-id="#" data-toggle="modal" data-target="#tambahBanner"><i class="fa fa-pencil"></i></button>
-                                                            <button class="btn btn-danger btn-sm dark ml-0 px-2 py-1 mr-0 btn-remove" data-id="#"><i class="la la-trash"></i></button>
+                                                            <button class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0 btn-edit-testimoni" data-id="<?= $rowT->id ?>"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-danger btn-sm dark ml-0 px-2 py-1 mr-0 btn-remove-testimoni" data-id="<?= $rowT->id ?>"><i class="la la-trash"></i></button>
                                                         </td>
                                                     </tr>
-                                                    
+                                                    <?php } ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -530,7 +536,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form action="#" method="POST" enctype="multipart/form-data">
+				<form action="<?= site_url('admin/konten/createTestimoni') ?>" method="POST" enctype="multipart/form-data">
 
                     <div class="row">
 
@@ -550,17 +556,17 @@
         
                             <div class="form-group">
                                 <label class="text-black font-w500">Testimoni Peserta</label>
-                                <input name="testimoniPeserta" type="text" class="form-control" required>
+                                <input name="testimoni" type="text" class="form-control" required>
                             </div>
         
                             <div class="form-group">
                                 <label class="text-black font-w500">Nama Peserta</label>
-                                <input name="namaPeserta" type="text" class="form-control" required>
+                                <input name="nama" type="text" class="form-control" required>
                             </div>
         
                             <div class="form-group">
-                                <label class="text-black font-w500">Jabatan Peserta</label>
-                                <input name="jabatanPeserta" type="text" class="form-control" required>
+                                <label class="text-black font-w500">Kelas</label>
+                                <input name="kelas" type="text" class="form-control" required>
                             </div>
                             
                             <div class="form-group">

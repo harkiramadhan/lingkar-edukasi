@@ -9,7 +9,8 @@ class Konten extends CI_Controller{
       'M_Banners',
       'M_Partner',
       'M_Benefit_Landing',
-      'M_Settings'
+      'M_Settings',
+      'M_Testimoni_Landing'
     ]);
     
     if($this->session->userdata('is_admin') != TRUE){
@@ -37,6 +38,7 @@ class Konten extends CI_Controller{
       'partners' => $this->M_Partner->getAll(),
       'benefit' => $this->M_Benefit_Landing->getAll(),
       'course' => $this->db->select('judul_section_course, deskripsi_section_course')->get_where('setting', ['id' => 1])->row(),
+      'testimoni' => $this->M_Testimoni_Landing->getAll(),
       'ajax' => [
         'landing'
       ]
@@ -252,6 +254,73 @@ class Konten extends CI_Controller{
           </div>
 				</form>
 			</div>
+    <?php
+  }
+
+  function editTestimoni($id){
+    $testimoni = $this->M_Testimoni_Landing->getById($id);
+    ?>
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Konten Testimoni</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <form action="<?= site_url('admin/konten/updateTestimoni/' . $id) ?>" method="POST" enctype="multipart/form-data">
+          <div class="row">
+
+              <div class="col-lg-7 col-12 order-lg-1 order-2">
+                  <div class="form-group">
+                      <label class="text-black font-w500">Foto Profil</label>
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text">Upload</span>
+                          </div>
+                          <div class="custom-file">
+                              <input type="file" class="custom-file-input" name="img" id="image-source4" onchange="previewImageEdit()">
+                              <label class="custom-file-label">Pilih</label>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="text-black font-w500">Testimoni Peserta</label>
+                      <input name="testimoni" type="text" class="form-control" value="<?= $testimoni->testimoni ?>" required>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="text-black font-w500">Nama Peserta</label>
+                      <input name="nama" type="text" class="form-control" value="<?= $testimoni->nama ?>" required>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="text-black font-w500">Kelas</label>
+                      <input name="kelas" type="text" class="form-control" value="<?= $testimoni->kelas ?>" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label class="text-black font-w500">Status</label>
+                      <select name="status" class="form-control default-select" required>
+                          <option value="" disabled>Pilih</option>
+                          <option <?= ($testimoni->status == 1) ? 'selected' : '1' ?> value="1">Aktif</option>
+                          <option <?= ($testimoni->status == 0) ? 'selected' : '0' ?> value="0">Tidak Aktif</option>
+                      </select>
+                  </div>
+
+              </div>
+              
+              <div class="col-lg-5 col-12 order-lg-2 order-1">
+                  <div class="card-media mb-4">
+                    <img src="<?= base_url('uploads/testimoni/' . $testimoni->img) ?>" alt="" class="w-100 rounded" id="image-preview-edit">
+                  </div>
+                  
+              </div>
+          </div>
+
+          <div class="form-group mb-0 text-right">
+              <button type="submit" class="btn btn-primary">Simpan</button>
+          </div>
+        </form>
+      </div>
     <?php
   }
 
@@ -508,6 +577,85 @@ class Konten extends CI_Controller{
     $this->session->set_flashdata('tab', "tab-course");
 		
 		redirect($_SERVER['HTTP_REFERER']);
+  }
+
+  /******* Testimoni */
+  function createTestimoni(){
+    $config['upload_path'] = './uploads/testimoni';  
+		$config['allowed_types'] = 'jpg|jpeg|png'; 
+		$config['encrypt_name'] = TRUE;
+		$this->load->library('upload', $config);
+    if($this->upload->do_upload('img')){
+      $data = $this->upload->data();
+      $filename = $data['file_name'];
+			$this->resizeImage($filename, 'testimoni'); 
+    }
+
+    $dataInsert = [
+      'testimoni' => $this->input->post('testimoni', TRUE),
+      'nama' => $this->input->post('nama', TRUE),
+      'kelas' => $this->input->post('kelas', TRUE),
+      'status' => $this->input->post('status', TRUE),
+      'img' => $filename
+    ];
+    $this->db->insert('testimoni_landing', $dataInsert);
+    if($this->db->affected_rows() > 0){
+			$this->session->set_flashdata('suecces', "Data Berhasil Di Simpan");
+		}else{
+			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
+		}
+    $this->session->set_flashdata('tab', "tab-testimoni");
+		
+		redirect($_SERVER['HTTP_REFERER']);
+  }
+
+  function updateTestimoni($id){
+    $testimoni = $this->M_Testimoni_Landing->getById($id);
+
+    $config['upload_path'] = './uploads/testimoni';  
+		$config['allowed_types'] = 'jpg|jpeg|png'; 
+		$config['encrypt_name'] = TRUE;
+		$this->load->library('upload', $config);
+    if($this->upload->do_upload('img')){
+      if($testimoni->img != NULL){
+        @unlink('./uploads/testimoni/' . @$testimoni->img);
+      }
+
+      $data = $this->upload->data();
+      $filename = $data['file_name'];
+			$this->resizeImage($filename, 'testimoni'); 
+    }else{
+			$filename = $testimoni->img;
+		}
+
+    $dataUpdate = [
+      'testimoni' => $this->input->post('testimoni', TRUE),
+      'nama' => $this->input->post('nama', TRUE),
+      'kelas' => $this->input->post('kelas', TRUE),
+      'status' => $this->input->post('status', TRUE),
+      'img' => $filename
+    ];
+    $this->db->where('id', $id)->update('testimoni_landing', $dataUpdate);
+    if($this->db->affected_rows() > 0){
+			$this->session->set_flashdata('suecces', "Data Berhasil Di Simpan");
+		}else{
+			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
+		}
+    $this->session->set_flashdata('tab', "tab-testimoni");
+		
+		redirect($_SERVER['HTTP_REFERER']);
+  }
+
+  function removeTestimoni($id){
+    $testimoni = $this->M_Testimoni_Landing->getById($id);
+
+    if($testimoni->img != NULL){
+      @unlink('./uploads/testimoni/' . @$testimoni->img);
+    }
+
+    $this->db->where('id', $id)->delete('testimoni_landing');
+    $res = ($this->db->affected_rows() > 0) ? 1 : 0;
+    $this->output->set_content_type('application/json')->set_output(json_encode($res));
   }
 
 }   
