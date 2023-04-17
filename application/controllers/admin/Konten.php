@@ -8,7 +8,8 @@ class Konten extends CI_Controller{
     $this->load->model([
       'M_Banners',
       'M_Partner',
-      'M_Benefit_Landing'
+      'M_Benefit_Landing',
+      'M_Settings'
     ]);
     
     if($this->session->userdata('is_admin') != TRUE){
@@ -35,6 +36,7 @@ class Konten extends CI_Controller{
       'banners' => $this->M_Banners->getAll(),
       'partners' => $this->M_Partner->getAll(),
       'benefit' => $this->M_Benefit_Landing->getAll(),
+      'course' => $this->db->select('judul_section_course, deskripsi_section_course')->get_where('setting', ['id' => 1])->row(),
       'ajax' => [
         'landing'
       ]
@@ -43,6 +45,18 @@ class Konten extends CI_Controller{
     $this->load->view('layout/admin/header', $var);
     $this->load->view('admin/konten-landing', $var);
     $this->load->view('layout/admin/footer', $var);
+  }
+
+  function header(){
+    $this->load->view('layout/admin/header');
+    $this->load->view('admin/konten-header');
+    $this->load->view('layout/admin/footer');
+  }
+
+  function footer(){
+    $this->load->view('layout/admin/header');
+    $this->load->view('admin/konten-footer');
+    $this->load->view('layout/admin/footer');
   }
 
   /* Modals */
@@ -480,16 +494,20 @@ class Konten extends CI_Controller{
     $this->output->set_content_type('application/json')->set_output(json_encode($res));
   }
 
-  function header(){
-    $this->load->view('layout/admin/header');
-    $this->load->view('admin/konten-header');
-    $this->load->view('layout/admin/footer');
-  }
-
-  function footer(){
-    $this->load->view('layout/admin/header');
-    $this->load->view('admin/konten-footer');
-    $this->load->view('layout/admin/footer');
+  /******* Course */
+  function actionCourse(){
+    $this->db->where('id', 1)->update('setting', [
+      'judul_section_course' => ($this->input->post('judul_section_course', TRUE)) ? $this->input->post("judul_section_course", TRUE) : NULL,
+      'deskripsi_section_course' => ($this->input->post('deskripsi_section_course', TRUE)) ? $this->input->post("deskripsi_section_course", TRUE) : NULL
+    ]);
+    if($this->db->affected_rows() > 0){
+			$this->session->set_flashdata('suecces', "Data Berhasil Di Simpan");
+		}else{
+			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
+		}
+    $this->session->set_flashdata('tab', "tab-course");
+		
+		redirect($_SERVER['HTTP_REFERER']);
   }
 
 }   

@@ -183,24 +183,22 @@
                                     </div>
                                     <div id="v-pills-course" class="tab-pane fade">
                                         
-                                        <form action="#" method="POST">
-
+                                        <form action="<?= site_url('admin/konten/actionCourse') ?>" method="POST">
                                             <div class="form-group">
                                                 <label class="text-black font-w500">Judul Section Course</label>
-                                                <input name="judulCourse" type="text" class="form-control" required>
+                                                <input name="judul_section_course" type="text" class="form-control" value="<?= @$course->judul_section_course ?>">
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="text-black font-w500">Deskripsi Section Course</label>
-                                                <input name="deskripsiCourse" type="text" class="form-control" required>
+                                                <input name="deskripsi_section_course" type="text" class="form-control" value="<?= @$course->deskripsi_section_course ?>">
                                             </div>
 
                                             <div class="form-group mb-0 text-right">
                                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                             </div>
-
                                         </form>
-                                    
+
                                     </div>
                                     <div id="v-pills-testimoni" class="tab-pane fade">
                                         
