@@ -39,6 +39,7 @@ class Konten extends CI_Controller{
       'benefit' => $this->M_Benefit_Landing->getAll(),
       'course' => $this->db->select('judul_section_course, deskripsi_section_course')->get_where('setting', ['id' => 1])->row(),
       'testimoni' => $this->M_Testimoni_Landing->getAll(),
+      'tutor' => $this->db->select('cta_judul, cta_desc, cta_btn_text, cta_link, cta_img')->get_where('setting', ['id' => 1])->row(),
       'ajax' => [
         'landing'
       ]
@@ -347,7 +348,7 @@ class Konten extends CI_Controller{
 		];
 		$this->db->insert('banners', $dataInsert);
 		if($this->db->affected_rows() > 0){
-			$this->session->set_flashdata('suecces', "Data Berhasil Di Simpan");
+			$this->session->set_flashdata('success', "Data Berhasil Di Simpan");
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
@@ -385,7 +386,7 @@ class Konten extends CI_Controller{
 		];
 		$this->db->where('id', $id)->update('banners', $dataUpdate);
 		if($this->db->affected_rows() > 0){
-			$this->session->set_flashdata('suecces', "Data Berhasil Di Simpan");
+			$this->session->set_flashdata('success', "Data Berhasil Di Simpan");
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
@@ -426,7 +427,7 @@ class Konten extends CI_Controller{
     ];
     $this->db->insert('partner', $dataInsert);
     if($this->db->affected_rows() > 0){
-			$this->session->set_flashdata('suecces', "Data Berhasil Di Simpan");
+			$this->session->set_flashdata('success', "Data Berhasil Di Simpan");
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
@@ -463,7 +464,7 @@ class Konten extends CI_Controller{
 
     $this->db->where('id', $id)->update('partner', $dataUpdate);
 		if($this->db->affected_rows() > 0){
-			$this->session->set_flashdata('suecces', "Data Berhasil Di Simpan");
+			$this->session->set_flashdata('success', "Data Berhasil Di Simpan");
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
@@ -505,7 +506,7 @@ class Konten extends CI_Controller{
 		];
 		$this->db->insert('benefit_landing', $dataInsert);
 		if($this->db->affected_rows() > 0){
-			$this->session->set_flashdata('suecces', "Data Berhasil Di Simpan");
+			$this->session->set_flashdata('success', "Data Berhasil Di Simpan");
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
@@ -542,7 +543,7 @@ class Konten extends CI_Controller{
     ];
     $this->db->where('id', $id)->update('benefit_landing', $dataUpdate);
     if($this->db->affected_rows() > 0){
-			$this->session->set_flashdata('suecces', "Data Berhasil Di Simpan");
+			$this->session->set_flashdata('success', "Data Berhasil Di Simpan");
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
@@ -570,7 +571,7 @@ class Konten extends CI_Controller{
       'deskripsi_section_course' => ($this->input->post('deskripsi_section_course', TRUE)) ? $this->input->post("deskripsi_section_course", TRUE) : NULL
     ]);
     if($this->db->affected_rows() > 0){
-			$this->session->set_flashdata('suecces', "Data Berhasil Di Simpan");
+			$this->session->set_flashdata('success', "Data Berhasil Di Simpan");
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
@@ -600,7 +601,7 @@ class Konten extends CI_Controller{
     ];
     $this->db->insert('testimoni_landing', $dataInsert);
     if($this->db->affected_rows() > 0){
-			$this->session->set_flashdata('suecces', "Data Berhasil Di Simpan");
+			$this->session->set_flashdata('success', "Data Berhasil Di Simpan");
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
@@ -637,7 +638,7 @@ class Konten extends CI_Controller{
     ];
     $this->db->where('id', $id)->update('testimoni_landing', $dataUpdate);
     if($this->db->affected_rows() > 0){
-			$this->session->set_flashdata('suecces', "Data Berhasil Di Simpan");
+			$this->session->set_flashdata('success', "Data Berhasil Di Simpan");
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
@@ -659,15 +660,34 @@ class Konten extends CI_Controller{
   }
 
   /******* Tutor CTA */
-  function updateTutorCTA(){
+  function actionCTA(){
+    $data = $this->M_Settings->get();
+
+    $config['upload_path'] = './uploads/settings';  
+		$config['allowed_types'] = 'jpg|jpeg|png'; 
+		$config['encrypt_name'] = TRUE;
+		$this->load->library('upload', $config);
+    if($this->upload->do_upload('img')){
+      if(@$data->cta_img != NULL){
+        @unlink('./uploads/settings/' . @$data->cta_img);
+      }
+
+      $data = $this->upload->data();
+      $filename = $data['file_name'];
+			$this->resizeImage($filename, 'settings'); 
+    }else{
+			$filename = $data->cta_img;
+		}
+
     $this->db->where('id', 1)->update('setting', [
+      'cta_img' => $filename,
       'cta_judul' => ($this->input->post('cta_judul', TRUE)) ? $this->input->post("cta_judul", TRUE) : NULL,
       'cta_desc' => ($this->input->post('cta_desc', TRUE)) ? $this->input->post("cta_desc", TRUE) : NULL,
       'cta_btn_text' => ($this->input->post('cta_btn_text', TRUE)) ? $this->input->post("cta_btn_text", TRUE) : NULL,
       'cta_link' => ($this->input->post('cta_link', TRUE)) ? $this->input->post("cta_link", TRUE) : NULL,
     ]);
     if($this->db->affected_rows() > 0){
-			$this->session->set_flashdata('suecces', "Data Berhasil Di Simpan");
+			$this->session->set_flashdata('success', "Data Berhasil Di Simpan");
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}

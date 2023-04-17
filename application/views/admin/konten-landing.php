@@ -255,10 +255,8 @@
                                     </div>
                                     <div id="v-pills-tutor" class="tab-pane fade">
                                         
-                                        <form action="#" method="POST">
-
+                                        <form action="<?= site_url('admin/konten/actionCTA') ?>" method="POST" enctype="multipart/form-data">
                                             <div class="row">
-
                                                 <div class="col-lg-7 col-12 order-lg-1 order-2">
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Gambar Section Tutor</label>
@@ -267,7 +265,7 @@
                                                                 <span class="input-group-text">Upload</span>
                                                             </div>
                                                             <div class="custom-file">
-                                                                <input type="file" class="custom-file-input" name="img" id="image-source5" onchange="previewImage5()" required>
+                                                                <input type="file" class="custom-file-input" name="img" id="image-source5" onchange="previewImage5()">
                                                                 <label class="custom-file-label">Pilih</label>
                                                             </div>
                                                         </div>
@@ -275,40 +273,41 @@
 
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Judul</label>
-                                                        <input name="judulTutor" type="text" class="form-control" required>
+                                                        <input name="cta_judul" type="text" class="form-control" value="<?= @$tutor->cta_judul ?>" required>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Deskripsi</label>
-                                                        <input name="deskripsiTutor" type="text" class="form-control" required>
+                                                        <input name="cta_desc" type="text" class="form-control" value="<?= @$tutor->cta_desc ?>" required>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Text Tombol</label>
-                                                        <input name="textTombolTutor" type="text" class="form-control" required>
+                                                        <input name="cta_btn_text" type="text" class="form-control" value="<?= @$tutor->cta_btn_text ?>" required>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Link Tombol</label>
-                                                        <input name="linkTombolTutor" type="text" class="form-control" required>
+                                                        <input name="cta_link" type="text" class="form-control" value="<?= @$tutor->cta_link ?>" required>
                                                     </div>
 
                                                 </div>
 
                                                 <div class="col-lg-5 col-12 order-lg-2 order-1">
                                                     <div class="card-media mb-4">
-                                                        <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview5">
+                                                        <?php if(@$tutor->cta_img): ?>
+                                                            <img src="<?= base_url('uploads/settings/' . $tutor->cta_img) ?>" alt="" class="w-100 rounded" id="image-preview5">
+                                                        <?php else: ?>
+                                                            <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview5">
+                                                        <?php endif; ?>
                                                     </div>
                                                     
                                                 </div>
                                             </div>
-
                                             <div class="form-group mb-0 text-right">
                                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                             </div>
-
                                         </form>
-
                                     </div>
                                 </div>
                             </div>
