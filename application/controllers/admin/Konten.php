@@ -7,7 +7,8 @@ class Konten extends CI_Controller{
 
     $this->load->model([
       'M_Banners',
-      'M_Partner'
+      'M_Partner',
+      'M_Benefit_Landing'
     ]);
     
     if($this->session->userdata('is_admin') != TRUE){
@@ -33,6 +34,7 @@ class Konten extends CI_Controller{
     $var = [
       'banners' => $this->M_Banners->getAll(),
       'partners' => $this->M_Partner->getAll(),
+      'benefit' => $this->M_Benefit_Landing->getAll(),
       'ajax' => [
         'landing'
       ]
@@ -111,10 +113,6 @@ class Konten extends CI_Controller{
           </div>
 				</form>
 			</div>
-
-      <script>
-
-      </script>
     <?php
   }
 
@@ -178,7 +176,73 @@ class Konten extends CI_Controller{
     <?php
   }
 
+  function editBenefit($id){
+    $benefit = $this->M_Benefit_Landing->getById($id);
+    ?>
+      <div class="modal-header">
+				<h5 class="modal-title">Edit Konten Benefit</h5>
+				<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form action="<?= site_url('admin/konten/updateBenefit/' . $id) ?>" method="POST" enctype="multipart/form-data">
+          <div class="row">
+              <div class="col-lg-7 col-12 order-lg-1 order-2">
+                  <div class="form-group">
+                    <label class="text-black font-w500">Logo Benefit</label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Upload</span>
+                      </div>
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="img" id="image-source-edit" onchange="previewImageEdit()">
+                        <label class="custom-file-label">Pilih</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="text-black font-w500">Benefit</label>
+                    <input name="benefit" type="text" class="form-control" value="<?= $benefit->benefit ?>" required>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="text-black font-w500">Deskripsi Benefit</label>
+                      <input name="deskripsi" type="text" class="form-control" value="<?= $benefit->deskripsi ?>" required>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="text-black font-w500">Deskripsi Tambahan</label>
+                      <input name="text" type="text" class="form-control" value="<?= $benefit->text ?>" required>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label class="text-black font-w500">Status</label>
+                    <select name="status" class="form-control default-select" required>
+                        <option value="" disabled>Pilih</option>
+                        <option <?= ($benefit->status == 1) ? 'selected' : '1' ?> value="1">Aktif</option>
+                        <option <?= ($benefit->status == 0) ? 'selected' : '0' ?> value="0">Tidak Aktif</option>
+                    </select>
+                  </div>
+              </div>
+              
+              <div class="col-lg-5 col-12 order-lg-2 order-1">
+                  <div class="card-media mb-4">
+                      <img src="<?= base_url('uploads/benefit/' . $benefit->img) ?>" alt="" class="w-100 rounded" id="image-preview-edit">
+                  </div>
+                  
+              </div>
+          </div>
+          <div class="form-group mb-0 text-right">
+              <button type="submit" class="btn btn-primary">Simpan</button>
+          </div>
+				</form>
+			</div>
+    <?php
+  }
+
   /* Actions */
+  /******* Banners */
   function createBanner(){
     $config['upload_path'] = './uploads/banners';  
 		$config['allowed_types'] = 'jpg|jpeg|png'; 
@@ -259,6 +323,7 @@ class Konten extends CI_Controller{
     $this->output->set_content_type('application/json')->set_output(json_encode($res));
   }
 
+  /******* Partner */ 
   function createPartner(){
     $config['upload_path'] = './uploads/partner';  
 		$config['allowed_types'] = 'jpg|jpeg|png'; 
@@ -332,6 +397,85 @@ class Konten extends CI_Controller{
     }
 
     $this->db->where('id', $id)->delete('partner');
+    $res = ($this->db->affected_rows() > 0) ? 1 : 0;
+    $this->output->set_content_type('application/json')->set_output(json_encode($res));
+  }
+
+  /******* Benefit */
+  function createBenefit(){
+    $config['upload_path'] = './uploads/benefit';  
+		$config['allowed_types'] = 'jpg|jpeg|png'; 
+		$config['encrypt_name'] = TRUE;
+		$this->load->library('upload', $config);
+    if($this->upload->do_upload('img')){
+      $data = $this->upload->data();
+      $filename = $data['file_name'];
+      $this->resizeImage($filename, 'benefit'); 
+    }
+
+    $dataInsert = [
+			'img' => $filename,
+      'benefit' => $this->input->post('benefit', TRUE),
+      'deskripsi' => $this->input->post('deskripsi', TRUE),
+      'text' => $this->input->post('text', TRUE),
+			'status' => $this->input->post('status', TRUE)
+		];
+		$this->db->insert('benefit_landing', $dataInsert);
+		if($this->db->affected_rows() > 0){
+			$this->session->set_flashdata('suecces', "Data Berhasil Di Simpan");
+		}else{
+			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
+		}
+    $this->session->set_flashdata('tab', "tab-benefit");
+		
+		redirect($_SERVER['HTTP_REFERER']);
+  }
+
+  function updateBenefit($id){
+    $benefit = $this->M_Benefit_Landing->getById($id);
+
+    $config['upload_path'] = './uploads/benefit';  
+		$config['allowed_types'] = 'jpg|jpeg|png'; 
+		$config['encrypt_name'] = TRUE;
+		$this->load->library('upload', $config);
+    if($this->upload->do_upload('img')){
+      if($benefit->img != NULL){
+        @unlink('./uploads/benefit/' . @$benefit->img);
+      }
+
+      $data = $this->upload->data();
+      $filename = $data['file_name'];
+			$this->resizeImage($filename, 'benefit'); 
+    }else{
+			$filename = $benefit->img;
+		}
+
+    $dataUpdate = [
+      'img' => $filename,
+      'benefit' => $this->input->post('benefit', TRUE),
+      'deskripsi' => $this->input->post('deskripsi', TRUE),
+      'text' => $this->input->post('text', TRUE),
+			'status' => $this->input->post('status', TRUE)
+    ];
+    $this->db->where('id', $id)->update('benefit_landing', $dataUpdate);
+    if($this->db->affected_rows() > 0){
+			$this->session->set_flashdata('suecces', "Data Berhasil Di Simpan");
+		}else{
+			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
+		}
+    $this->session->set_flashdata('tab', "tab-benefit");
+		
+		redirect($_SERVER['HTTP_REFERER']);
+  }
+
+  function removeBenefit($id){
+    $benefit = $this->M_Benefit_Landing->getById($id);
+
+    if($benefit->img != NULL){
+      @unlink('./uploads/benefit/' . @$benefit->img);
+    }
+
+    $this->db->where('id', $id)->delete('benefit_landing');
     $res = ($this->db->affected_rows() > 0) ? 1 : 0;
     $this->output->set_content_type('application/json')->set_output(json_encode($res));
   }

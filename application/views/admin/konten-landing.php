@@ -131,10 +131,9 @@
                                         </div>
                                     </div>
                                     <div id="v-pills-benefit" class="tab-pane fade">
-                                        
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
-                                                <h6 class="fs-16 text-black font-w600 mb-0">3 Total Konten Benefit</h6>
+                                                <h6 class="fs-16 text-black font-w600 mb-0"><?= $benefit->num_rows() ?> Total Konten Benefit</h6>
                                                 <span class="fs-14">Berdasarkan preferensi anda</span>
                                             </div>
                                             <div class="d-flex mb-3">
@@ -142,7 +141,7 @@
                                             </div>
                                         </div>
                                         <div class="table-responsive">
-                                            <table id="example2" class="table card-table display dataTablesCard">
+                                            <table id="table-benefit" class="table card-table display dataTablesCard">
                                                 <thead>
                                                     <tr>
                                                         <th width="5%" class="text-center">No</th>
@@ -152,26 +151,32 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr id="#">
-                                                        <td class="text-center">1</td>
+                                                    <?php 
+                                                        $noBn = 1;
+                                                        foreach($benefit->result() as $rowBn){ 
+                                                    ?>
+                                                    <tr id="data-benefit-<?= $rowBn->id ?>">
+                                                        <td class="text-center"><?= $noBn++ ?></td>
                                                         <td class="d-flex">
                                                             <div class="card-media">
-                                                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="mr-3 rounded" style="width: 100px;">
+                                                                <img src="<?= base_url('uploads/benefit/' . $rowBn->img) ?>" alt="" class="mr-3 rounded" style="width: 100px;">
                                                             </div>
                                                             <div>
-                                                                <p class="text-wrap font-weight-bold mb-0">Benefit 1</p>
-                                                                <p class="text-wrap font-weight-normal mb-0">Deskripsi benefit utama</p>
-                                                                <p class="text-wrap font-weight-normal mb-0">Benefit lanjutan yang ada di hover bawah</p>
+                                                                <p class="text-wrap font-weight-bold mb-0"><?= $rowBn->benefit ?></p>
+                                                                <p class="text-wrap font-weight-normal mb-0"><?= $rowBn->deskripsi ?></p>
+                                                                <p class="text-wrap font-weight-normal mb-0"><?= $rowBn->text ?></p>
                                                             </div>
                                                             
                                                         </td>
-                                                        <td><button type="button" class="btn btn-sm btn-block text-default disabled btn-success">Aktif</button></td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-sm btn-block text-default disabled <?= ($rowBn->status == 1) ? 'btn-success' : 'btn-danger' ?>" disabled><?= ($rowBn->status == 1) ? 'Aktif' : 'Tidak Aktif' ?></button>
+                                                        </td>
                                                         <td class="text-center">
-                                                            <button class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0 btn-edit" data-id="#" data-toggle="modal" data-target="#tambahBanner"><i class="fa fa-pencil"></i></button>
-                                                            <button class="btn btn-danger btn-sm dark ml-0 px-2 py-1 mr-0 btn-remove" data-id="#"><i class="la la-trash"></i></button>
+                                                            <button class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0 btn-edit-benefit" data-id="<?= $rowBn->id ?>"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-danger btn-sm dark ml-0 px-2 py-1 mr-0 btn-remove-benefit" data-id="<?= $rowBn->id ?>"><i class="la la-trash"></i></button>
                                                         </td>
                                                     </tr>
-                                                    
+                                                    <?php } ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -459,10 +464,8 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form action="#" method="POST" enctype="multipart/form-data">
-
+				<form action="<?= site_url('admin/konten/createBenefit') ?>" method="POST" enctype="multipart/form-data">
                     <div class="row">
-
                         <div class="col-lg-7 col-12 order-lg-1 order-2">
                             <div class="form-group">
                                 <label class="text-black font-w500">Logo Benefit</label>
@@ -479,17 +482,17 @@
         
                             <div class="form-group">
                                 <label class="text-black font-w500">Benefit</label>
-                                <input name="judulBenefit" type="text" class="form-control" required>
+                                <input name="benefit" type="text" class="form-control" required>
                             </div>
         
                             <div class="form-group">
                                 <label class="text-black font-w500">Deskripsi Benefit</label>
-                                <input name="deskripsiBenefit" type="text" class="form-control" required>
+                                <input name="deskripsi" type="text" class="form-control" required>
                             </div>
         
                             <div class="form-group">
                                 <label class="text-black font-w500">Deskripsi Tambahan</label>
-                                <input name="deskripsiTambahanBenefit" type="text" class="form-control" required>
+                                <input name="text" type="text" class="form-control" required>
                             </div>
                             
                             <div class="form-group">
@@ -510,11 +513,9 @@
                             
                         </div>
                     </div>
-
                     <div class="form-group mb-0 text-right">
                         <button type="submit" class="btn btn-primary">Tambah</button>
                     </div>
-
 				</form>
 			</div>
 		</div>
