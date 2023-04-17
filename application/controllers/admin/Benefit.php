@@ -7,8 +7,9 @@ class Benefit extends CI_Controller{
             'M_Benefit'
         ]);
 
-        if($this->session->userdata('is_admin') != TRUE) 
+        if($this->session->userdata('is_admin') != TRUE){
             redirect('admin','refresh');
+        }
     }
 
     function index(){

@@ -7,8 +7,9 @@ class Akun extends CI_Controller{
             'M_Admin'
         ]);
 
-        if($this->session->userdata('is_admin') != TRUE) 
+        if($this->session->userdata('is_admin') != TRUE){
             redirect('admin','refresh');
+        }
     }
 
     function index(){

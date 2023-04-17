@@ -7,8 +7,9 @@ class Peserta extends CI_Controller{
             'M_Users'
         ]);
 
-        if($this->session->userdata('is_admin') != TRUE) 
+        if($this->session->userdata('is_admin') != TRUE){
             redirect('admin','refresh');
+        }
     }
 
     function index(){

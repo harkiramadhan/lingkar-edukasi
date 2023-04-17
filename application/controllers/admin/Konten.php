@@ -10,8 +10,9 @@ class Konten extends CI_Controller{
       'M_Partner'
     ]);
     
-    if($this->session->userdata('is_admin') != TRUE) 
+    if($this->session->userdata('is_admin') != TRUE){
       redirect('admin','refresh');
+    }
   }
 
   private function resizeImage($filename, $dir){
