@@ -28,7 +28,6 @@
                             <div class="col-xl-9 border-left">
                                 <div class="tab-content">
                                     <div id="v-pills-sumary" class="tab-pane fade active show">
-                                        
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
                                             </div>
@@ -39,29 +38,25 @@
                                         
                                         <div class="row">
                                             <div class="col-lg-12 col-12">
-                                                
-                                                <form action="#" method="POST">
-        
+                                                <form action="<?= site_url('admin/konten/actionFooterSummary') ?>" method="POST">
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Judul Sumary</label>
-                                                        <input name="judulCourse" type="text" class="form-control" required>
+                                                        <input name="summary_footer_judul" type="text" class="form-control" value="<?= @$setting->summary_footer_judul ?>">
                                                     </div>
         
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Deskripsi Sumary</label>
-                                                        <textarea class="form-control" rows="4" id="comment"></textarea>
+                                                        <textarea class="form-control" rows="4" name="summary_footer_desc"><?= @$setting->summary_footer_desc ?></textarea>
                                                     </div>
         
                                                     <div class="form-group mb-0 text-right">
                                                         <button type="submit" class="btn btn-primary">Simpan</button>
                                                     </div>
-        
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="v-pills-social-media" class="tab-pane fade">
-                                        
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
                                             </div>
@@ -72,74 +67,71 @@
                                         
                                         <div class="row">
                                             <div class="col-lg-12 col-12">
-                                                
-                                                <form action="#" method="POST">
-
+                                                <form action="<?= site_url('admin/konten/actionFooterSocialMedia') ?>" method="POST">
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Judul Social Media</label>
-                                                        <input name="judulCourse" type="text" class="form-control" required>
+                                                        <input name="footer_desc_sosmed" type="text" class="form-control" value="<?= @$setting->footer_desc_sosmed ?>">
                                                     </div>
         
                                                     <div class="row">
-
                                                         <div class="col-lg-6 col-12">
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Username Facebook</label>
-                                                                <input name="usernameFb" type="text" class="form-control" required>
+                                                                <input name="fb_username" type="text" class="form-control" value="<?= @$setting->fb_username ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-12">
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Link Facebook</label>
-                                                                <input name="linkFb" type="text" class="form-control" required>
+                                                                <input name="fb_link" type="text" class="form-control" value="<?= @$setting->fb_link ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-12">
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Username Instagram</label>
-                                                                <input name="usernameIg" type="text" class="form-control" required>
+                                                                <input name="ig_username" type="text" class="form-control" value="<?= @$setting->ig_username ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-12">
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Link Instagram</label>
-                                                                <input name="linkIg" type="text" class="form-control" required>
+                                                                <input name="ig_link" type="text" class="form-control" value="<?= @$setting->ig_link ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-12">
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Username Youtube</label>
-                                                                <input name="usernameYt" type="text" class="form-control" required>
+                                                                <input name="yt_username" type="text" class="form-control" value="<?= @$setting->yt_username ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-12">
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Link Youtube</label>
-                                                                <input name="linkYt" type="text" class="form-control" required>
+                                                                <input name="yt_link" type="text" class="form-control" value="<?= @$setting->yt_link ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-12">
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Username Tiktok</label>
-                                                                <input name="usernameTik" type="text" class="form-control" required>
+                                                                <input name="tt_username" type="text" class="form-control" value="<?= @$setting->tt_username ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-12">
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Link Tiktok</label>
-                                                                <input name="linkTik" type="text" class="form-control" required>
+                                                                <input name="tt_link" type="text" class="form-control" value="<?= @$setting->tt_link ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-12">
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Username Twitter</label>
-                                                                <input name="usernameTt" type="text" class="form-control" required>
+                                                                <input name="tw_username" type="text" class="form-control" value="<?= @$setting->tw_username ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-12">
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Link Twitter</label>
-                                                                <input name="linkTt" type="text" class="form-control" required>
+                                                                <input name="tw_link" type="text" class="form-control" value="<?= @$setting->tw_link ?>">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -147,14 +139,11 @@
                                                     <div class="form-group mb-0 text-right">
                                                         <button type="submit" class="btn btn-primary">Simpan</button>
                                                     </div>
-        
                                                 </form>
                                             </div>
                                         </div>
-
                                     </div>
                                     <div id="v-pills-alamat" class="tab-pane fade">
-                                        
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
                                             </div>
@@ -165,43 +154,40 @@
                                         
                                         <div class="row">
                                             <div class="col-lg-12 col-12">
-                                                
-                                                <form action="#" method="POST">
-        
+                                                <form action="<?= site_url('admin/konten/actionFooterAlamat') ?>" method="POST">
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Judul Alamat</label>
-                                                        <input name="judulAlamat" type="text" class="form-control" required>
+                                                        <input name="alamat_judul" type="text" class="form-control" value="<?= @$setting->alamat_judul ?>">
                                                     </div>
         
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Alamat 1</label>
-                                                        <textarea class="form-control" rows="4" id="comment"></textarea>
+                                                        <textarea class="form-control" rows="4" id="comment" name="alamat_1"><?= @$setting->alamat_1 ?></textarea>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Alamat 2</label>
-                                                        <textarea class="form-control" rows="4" id="comment"></textarea>
+                                                        <textarea class="form-control" rows="4" id="comment" name="alamat_2"><?= @$setting->alamat_2 ?></textarea>
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label class="text-black font-w500">Telfon</label>
-                                                        <input name="textTelfon" type="text" class="form-control" required>
+                                                        <label class="text-black font-w500">Telefon</label>
+                                                        <input name="telefon" type="text" class="form-control" value="<?= @$setting->telefon ?>">
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Fax</label>
-                                                        <input name="textFax" type="text" class="form-control" required>
+                                                        <input name="fax" type="text" class="form-control" value="<?= @$setting->fax ?>">
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Email</label>
-                                                        <input name="textEmail" type="text" class="form-control" required>
+                                                        <input name="email" type="email" class="form-control" value="<?= @$setting->email ?>">
                                                     </div>
         
                                                     <div class="form-group mb-0 text-right">
                                                         <button type="submit" class="btn btn-primary">Simpan</button>
                                                     </div>
-        
                                                 </form>
                                             </div>
                                         </div>
