@@ -39,9 +39,7 @@
                                         
                                         <div class="row">
                                             <div class="col-lg-7 col-12">
-                                                
-                                                <form action="#" method="POST">
-        
+                                                <form action="<?= site_url('admin/konten/actionHeaderCourse') ?>" method="POST" enctype="multipart/form-data">
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Gambar Header</label>
                                                         <div class="input-group mb-3">
@@ -49,7 +47,7 @@
                                                                 <span class="input-group-text">Upload</span>
                                                             </div>
                                                             <div class="custom-file">
-                                                                <input type="file" class="custom-file-input" name="img" id="image-source" onchange="previewImage()" required>
+                                                                <input type="file" class="custom-file-input" name="img" id="image-source" onchange="previewImage()">
                                                                 <label class="custom-file-label">Pilih</label>
                                                             </div>
                                                         </div>
@@ -57,31 +55,32 @@
         
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Judul Header</label>
-                                                        <input name="judulCourse" type="text" class="form-control" required>
+                                                        <input name="header_judul" type="text" class="form-control" value="<?= @$setting->header_judul ?>">
                                                     </div>
         
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Deskripsi Header</label>
-                                                        <input name="deskripsiCourse" type="text" class="form-control" required>
+                                                        <input name="header_desc" type="text" class="form-control" value="<?= @$setting->header_desc ?>">
                                                     </div>
         
                                                     <div class="form-group mb-0 text-right">
                                                         <button type="submit" class="btn btn-primary">Simpan</button>
                                                     </div>
-        
                                                 </form>
                                             </div>
 
                                             <div class="col-lg-5 col-12 order-lg-2 order-1">
-                                                    <div class="card-media mb-4">
+                                                <div class="card-media mb-4">
+                                                    <?php if(@$setting->header_img): ?>
+                                                        <img src="<?= base_url('uploads/settings/' . @$setting->header_img ) ?>" alt="" class="w-100 rounded" id="image-preview">
+                                                    <?php else: ?>
                                                         <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview">
-                                                    </div>
-                                                    
+                                                    <?php endif; ?>
                                                 </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div id="v-pills-profil" class="tab-pane fade">
-                                        
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
                                             </div>
@@ -92,17 +91,15 @@
                                         
                                         <div class="row">
                                             <div class="col-lg-12 col-12">
-                                                
-                                                <form action="#" method="POST">
-        
+                                                <form action="<?= site_url('admin/konten/actionHeaderProfil') ?>" method="POST">
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Judul Header</label>
-                                                        <input name="judulCourse" type="text" class="form-control" required>
+                                                        <input name="profil_header_judul" type="text" class="form-control" value="<?= @$setting->profil_header_judul ?>">
                                                     </div>
         
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Deskripsi Header</label>
-                                                        <input name="deskripsiCourse" type="text" class="form-control" required>
+                                                        <input name="profil_hader_desc" type="text" class="form-control" value="<?= @$setting->profil_hader_desc ?>">
                                                     </div>
         
                                                     <div class="form-group mb-0 text-right">
@@ -114,7 +111,6 @@
                                         </div>
                                     </div>
                                     <div id="v-pills-kelas-saya" class="tab-pane fade">
-                                        
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
                                             </div>
@@ -125,30 +121,23 @@
                                         
                                         <div class="row">
                                             <div class="col-lg-12 col-12">
-                                                
-                                                <form action="#" method="POST">
-        
+                                                <form action="<?= site_url('admin/konten/actionHeaderMyClass') ?>" method="POST">
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Judul Header</label>
-                                                        <input name="judulCourse" type="text" class="form-control" required>
+                                                        <input name="kelas_header_judul" type="text" class="form-control" value="<?= @$setting->kelas_header_judul ?>">
                                                     </div>
-        
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Deskripsi Header</label>
-                                                        <input name="deskripsiCourse" type="text" class="form-control" required>
+                                                        <input name="kelas_header_desc" type="text" class="form-control" value="<?= @$setting->kelas_header_desc ?>">
                                                     </div>
-        
                                                     <div class="form-group mb-0 text-right">
                                                         <button type="submit" class="btn btn-primary">Simpan</button>
                                                     </div>
-        
                                                 </form>
                                             </div>
                                         </div>
-                                    
                                     </div>
                                     <div id="v-pills-detail-learning-course" class="tab-pane fade">
-                                        
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
                                             </div>
@@ -159,23 +148,18 @@
                                         
                                         <div class="row">
                                             <div class="col-lg-12 col-12">
-                                                
-                                                <form action="#" method="POST">
-        
+                                                <form action="<?= site_url('admin/konten/actionHeaderDetailLearning') ?>" method="POST">
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Judul Header</label>
-                                                        <input name="judulCourse" type="text" class="form-control" required>
+                                                        <input name="learning_header_judul" type="text" class="form-control" value="<?= @$setting->learning_header_judul ?>">
                                                     </div>
-        
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Deskripsi Header</label>
-                                                        <input name="deskripsiCourse" type="text" class="form-control" required>
+                                                        <input name="lerning_header_desc" type="text" class="form-control" value="<?= @$setting->lerning_header_desc ?>">
                                                     </div>
-        
                                                     <div class="form-group mb-0 text-right">
                                                         <button type="submit" class="btn btn-primary">Simpan</button>
                                                     </div>
-        
                                                 </form>
                                             </div>
                                         </div>
