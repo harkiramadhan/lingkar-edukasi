@@ -10,7 +10,7 @@
             </ol>
         </div>
 
-        <div class="row">
+    <div class="row">
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header">
