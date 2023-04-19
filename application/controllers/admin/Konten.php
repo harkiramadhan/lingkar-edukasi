@@ -51,15 +51,26 @@ class Konten extends CI_Controller{
   }
 
   function header(){
-    $this->load->view('layout/admin/header');
-    $this->load->view('admin/konten-header');
-    $this->load->view('layout/admin/footer');
+    $var = [
+      'setting' => $this->M_Settings->get(),
+      'ajax' => [
+        'landing-header'
+      ]
+    ];
+
+    $this->load->view('layout/admin/header', $var);
+    $this->load->view('admin/konten-header', $var);
+    $this->load->view('layout/admin/footer', $var);
   }
 
   function footer(){
-    $this->load->view('layout/admin/header');
-    $this->load->view('admin/konten-footer');
-    $this->load->view('layout/admin/footer');
+    $var = [
+      'setting' => $this->M_Settings->get()
+    ];
+
+    $this->load->view('layout/admin/header', $var);
+    $this->load->view('admin/konten-footer', $var);
+    $this->load->view('layout/admin/footer', $var);
   }
 
   /* Modals */
@@ -694,5 +705,156 @@ class Konten extends CI_Controller{
     $this->session->set_flashdata('tab', "tab-tutor");
 		
 		redirect($_SERVER['HTTP_REFERER']);
+  }
+
+  /******* Header Course */
+  function actionHeaderCourse(){
+    $data = $this->M_Settings->get();
+
+    $config['upload_path'] = './uploads/settings';  
+		$config['allowed_types'] = 'jpg|jpeg|png'; 
+		$config['encrypt_name'] = TRUE;
+		$this->load->library('upload', $config);
+    if($this->upload->do_upload('img')){
+      if(@$data->header_img != NULL){
+        @unlink('./uploads/settings/' . @$data->header_img);
+      }
+
+      $data = $this->upload->data();
+      $filename = $data['file_name'];
+			$this->resizeImage($filename, 'settings'); 
+    }else{
+			$filename = $data->header_img;
+		}
+
+    $dataUpdate = [
+      'header_img' => $filename,
+      'header_judul' => $this->input->post('header_judul', TRUE),
+      'header_desc' => $this->input->post('header_desc', TRUE)
+    ];
+    $this->db->where('id', 1)->update('setting', $dataUpdate);
+    if($this->db->affected_rows() > 0){
+			$this->session->set_flashdata('success', "Data Berhasil Di Simpan");
+		}else{
+			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
+		}
+    $this->session->set_flashdata('tab', "tab-header-course");
+		
+		redirect($_SERVER['HTTP_REFERER']);
+  }
+
+  /******* Header Profil */
+  function actionHeaderProfil(){
+    $dataUpdate = [
+      'profil_header_judul' => $this->input->post('profil_header_judul', TRUE),
+      'profil_hader_desc' => $this->input->post('profil_hader_desc', TRUE)
+    ];
+    $this->db->where('id', 1)->update('setting', $dataUpdate);
+    if($this->db->affected_rows() > 0){
+			$this->session->set_flashdata('success', "Data Berhasil Di Simpan");
+		}else{
+			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
+		}
+    $this->session->set_flashdata('tab', "tab-header-profile");
+		
+		redirect($_SERVER['HTTP_REFERER']);
+  }
+
+  /******* Header Kelas Saya */
+  function actionHeaderMyClass(){
+    $dataUpdate = [
+      'kelas_header_judul' => $this->input->post('kelas_header_judul', TRUE),
+      'kelas_header_desc' => $this->input->post('kelas_header_desc', TRUE)
+    ];
+    $this->db->where('id', 1)->update('setting', $dataUpdate);
+    if($this->db->affected_rows() > 0){
+			$this->session->set_flashdata('success', "Data Berhasil Di Simpan");
+		}else{
+			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
+		}
+    $this->session->set_flashdata('tab', "tab-header-profile");
+		
+		redirect($_SERVER['HTTP_REFERER']);
+  }
+
+  /******* Header Detail Learning Course */
+  function actionHeaderDetailLearning(){
+    $dataUpdate = [
+      'learning_header_judul' => $this->input->post('learning_header_judul', TRUE),
+      'lerning_header_desc' => $this->input->post('lerning_header_desc', TRUE)
+    ];
+    $this->db->where('id', 1)->update('setting', $dataUpdate);
+    if($this->db->affected_rows() > 0){
+			$this->session->set_flashdata('success', "Data Berhasil Di Simpan");
+		}else{
+			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
+		}
+    $this->session->set_flashdata('tab', "tab-header-profile");
+		
+		redirect($_SERVER['HTTP_REFERER']);
+  }
+
+  /******* Footer Summary */
+  function actionFooterSummary(){
+    $dataUpdate = [
+      'summary_footer_judul' => $this->input->post('summary_footer_judul', TRUE),
+      'summary_footer_desc' => $this->input->post('summary_footer_desc', TRUE)
+    ];
+    $this->db->where('id', 1)->update('setting', $dataUpdate);
+    if($this->db->affected_rows() > 0){
+      $this->session->set_flashdata('success', "Data Berhasil Di Simpan");
+    }else{
+      $this->session->set_flashdata('error', "Data Gagal Di Simpan");
+    }
+    $this->session->set_flashdata('tab', "tab-footer-summary");
+
+    redirect($_SERVER['HTTP_REFERER']);
+  }
+
+  /******* Footer Social Media */
+  function actionFooterSocialMedia(){
+    $dataUpdate = [
+      'footer_desc_sosmed' => $this->input->post('footer_desc_sosmed', TRUE),
+      'fb_username' => $this->input->post('fb_username', TRUE),
+      'fb_link' => $this->input->post('fb_link', TRUE),
+      'ig_username' => $this->input->post('ig_username', TRUE),
+      'ig_link' => $this->input->post('ig_link', TRUE),
+      'yt_username' => $this->input->post('yt_username', TRUE),
+      'yt_link' => $this->input->post('yt_link', TRUE),
+      'tt_username' => $this->input->post('tt_username', TRUE),
+      'tt_link' => $this->input->post('tt_link', TRUE),
+      'tw_username' => $this->input->post('tw_username', TRUE),
+      'tw_link' => $this->input->post('tw_link', TRUE),
+    ];
+    $this->db->where('id', 1)->update('setting', $dataUpdate);
+    if($this->db->affected_rows() > 0){
+      $this->session->set_flashdata('success', "Data Berhasil Di Simpan");
+    }else{
+      $this->session->set_flashdata('error', "Data Gagal Di Simpan");
+    }
+    $this->session->set_flashdata('tab', "tab-footer-sosmed");
+
+    redirect($_SERVER['HTTP_REFERER']);
+  }
+
+  /******* Footer Alamat */
+  function actionFooterAlamat(){
+    $dataUpdate = [
+      'alamat_judul' => $this->input->post('alamat_judul', TRUE),
+      'alamat_1' => $this->input->post('alamat_1', TRUE),
+      'alamat_2' => $this->input->post('alamat_2', TRUE),
+      'telefon' => $this->input->post('telefon', TRUE),
+      'fax' => $this->input->post('fax', TRUE),
+      'email' => $this->input->post('email', TRUE)
+    ];
+    $this->db->where('id', 1)->update('setting', $dataUpdate);
+    if($this->db->affected_rows() > 0){
+      $this->session->set_flashdata('success', "Data Berhasil Di Simpan");
+    }else{
+      $this->session->set_flashdata('error', "Data Gagal Di Simpan");
+    }
+    $this->session->set_flashdata('tab', "tab-footer-sosmed");
+
+    redirect($_SERVER['HTTP_REFERER']);
   }
 }   
