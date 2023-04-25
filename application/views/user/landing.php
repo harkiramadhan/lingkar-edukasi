@@ -11,7 +11,7 @@
                     </div>
                     <div>Mulailah, beralih, atau memajukan karir mu dengan lebih dari 100 kursus dan sertifikat profesional</div>
                     <div class="margin-top-32">
-                    <a href="#" class="button is-white w-button">DAFTAR KELAS</a>
+                    <a href="<?= site_url('/course/detail') ?>" class="button is-white w-button">DAFTAR KELAS</a>
                     </div>
                 </div>
                 <div class="hero-slide_image-wrapper"><img src="<?= base_url('assets/user/images/home-hero-mainimage.webp')?>" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 83vw, (max-width: 991px) 400px, 500px" srcset="<?= base_url('assets/user/images/home-hero-mainimage.webp')?> 500w, <?= base_url('assets/user/images/home-hero-mainimage.webp')?> 883w" alt="" class="hero-slide_image"></div>
@@ -25,7 +25,7 @@
                     </div>
                     <div>Mulailah, beralih, atau memajukan karir mu dengan lebih dari 100 kursus dan sertifikat profesional</div>
                     <div class="margin-top-32">
-                    <a href="#" class="button is-white w-button">DAFTAR KELAS</a>
+                    <a href="<?= site_url('/course/detail') ?>" class="button is-white w-button">DAFTAR KELAS</a>
                     </div>
                 </div>
                 <div class="hero-slide_image-wrapper"><img src="<?= base_url('assets/user/images/home-hero-mainimage.webp')?>" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 83vw, (max-width: 991px) 400px, 500px" srcset="<?= base_url('assets/user/images/home-hero-mainimage.webp')?> 500w, <?= base_url('assets/user/images/home-hero-mainimage.webp')?> 883w" alt="" class="hero-slide_image"></div>
@@ -39,7 +39,7 @@
                     </div>
                     <div>Mulailah, beralih, atau memajukan karir mu dengan lebih dari 100 kursus dan sertifikat profesional</div>
                     <div class="margin-top-32">
-                    <a href="#" class="button is-white w-button">DAFTAR KELAS</a>
+                    <a href="<?= site_url('/course/detail') ?>" class="button is-white w-button">DAFTAR KELAS</a>
                     </div>
                 </div>
                 <div class="hero-slide_image-wrapper"><img src="<?= base_url('assets/user/images/home-hero-mainimage.webp')?>" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 83vw, (max-width: 991px) 400px, 500px" srcset="<?= base_url('assets/user/images/home-hero-mainimage.webp')?> 500w, <?= base_url('assets/user/images/home-hero-mainimage.webp')?> 883w" alt="" class="hero-slide_image"></div>
@@ -53,7 +53,7 @@
                     </div>
                     <div>Mulailah, beralih, atau memajukan karir mu dengan lebih dari 100 kursus dan sertifikat profesional</div>
                     <div class="margin-top-32">
-                    <a href="#" class="button is-white w-button">DAFTAR KELAS</a>
+                    <a href="<?= site_url('/course/detail') ?>" class="button is-white w-button">DAFTAR KELAS</a>
                     </div>
                 </div>
                 <div class="hero-slide_image-wrapper"><img src="<?= base_url('assets/user/images/home-hero-mainimage.webp')?>" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 83vw, (max-width: 991px) 400px, 500px" srcset="<?= base_url('assets/user/images/home-hero-mainimage.webp')?> 500w, <?= base_url('assets/user/images/home-hero-mainimage.webp')?> 883w" alt="" class="hero-slide_image"></div>
@@ -155,7 +155,7 @@
                                 </div>
                                 <div class="kelas-card_harga">Rp. 799.000</div>
                                 <div class="divider"></div>
-                                <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
+                                <a href="<?= site_url('/course/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                             </div>
                         </div>
                         <div id="w-node-e660144b-2bb6-35ff-374f-59076a41254e-f92afb62" class="kelas-card_wrapper">
@@ -172,7 +172,7 @@
                                 </div>
                                 <div class="kelas-card_harga">Rp. 799.000</div>
                                 <div class="divider"></div>
-                                <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
+                                <a href="<?= site_url('/course/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                             </div>
                         </div>
                         <div id="w-node-e660144b-2bb6-35ff-374f-59076a41254e-f92afb62" class="kelas-card_wrapper">
@@ -189,7 +189,7 @@
                                 </div>
                                 <div class="kelas-card_harga">Rp. 799.000</div>
                                 <div class="divider"></div>
-                                <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
+                                <a href="<?= site_url('/course/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                             </div>
                         </div>
                         <div id="w-node-e660144b-2bb6-35ff-374f-59076a41254e-f92afb62" class="kelas-card_wrapper">
@@ -206,7 +206,7 @@
                                 </div>
                                 <div class="kelas-card_harga">Rp. 799.000</div>
                                 <div class="divider"></div>
-                                <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
+                                <a href="<?= site_url('/course/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                             </div>
                         </div>
                     </div>
@@ -227,7 +227,7 @@
                                 </div>
                                 <div class="kelas-card_harga">Rp. 799.000</div>
                                 <div class="divider"></div>
-                                <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
+                                <a href="<?= site_url('/course/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                             </div>
                         </div>
                         <div id="w-node-e660144b-2bb6-35ff-374f-59076a41254e-f92afb62" class="kelas-card_wrapper">
@@ -244,7 +244,7 @@
                                 </div>
                                 <div class="kelas-card_harga">Rp. 799.000</div>
                                 <div class="divider"></div>
-                                <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
+                                <a href="<?= site_url('/course/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                             </div>
                         </div>
                         <div id="w-node-e660144b-2bb6-35ff-374f-59076a41254e-f92afb62" class="kelas-card_wrapper">
@@ -261,7 +261,7 @@
                                 </div>
                                 <div class="kelas-card_harga">Rp. 799.000</div>
                                 <div class="divider"></div>
-                                <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
+                                <a href="<?= site_url('/course/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                             </div>
                         </div>
                         <div id="w-node-e660144b-2bb6-35ff-374f-59076a41254e-f92afb62" class="kelas-card_wrapper">
@@ -278,7 +278,7 @@
                                 </div>
                                 <div class="kelas-card_harga">Rp. 799.000</div>
                                 <div class="divider"></div>
-                                <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
+                                <a href="<?= site_url('/course/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                             </div>
                         </div>
                     </div>
@@ -299,7 +299,7 @@
                                 </div>
                                 <div class="kelas-card_harga">Rp. 799.000</div>
                                 <div class="divider"></div>
-                                <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
+                                <a href="<?= site_url('/course/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                             </div>
                         </div>
                         <div id="w-node-e660144b-2bb6-35ff-374f-59076a41254e-f92afb62" class="kelas-card_wrapper">
@@ -316,7 +316,7 @@
                                 </div>
                                 <div class="kelas-card_harga">Rp. 799.000</div>
                                 <div class="divider"></div>
-                                <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
+                                <a href="<?= site_url('/course/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                             </div>
                         </div>
                         <div id="w-node-e660144b-2bb6-35ff-374f-59076a41254e-f92afb62" class="kelas-card_wrapper">
@@ -333,7 +333,7 @@
                                 </div>
                                 <div class="kelas-card_harga">Rp. 799.000</div>
                                 <div class="divider"></div>
-                                <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
+                                <a href="<?= site_url('/course/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                             </div>
                         </div>
                         <div id="w-node-e660144b-2bb6-35ff-374f-59076a41254e-f92afb62" class="kelas-card_wrapper">
@@ -350,7 +350,7 @@
                                 </div>
                                 <div class="kelas-card_harga">Rp. 799.000</div>
                                 <div class="divider"></div>
-                                <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
+                                <a href="<?= site_url('/course/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                             </div>
                         </div>
                     </div>

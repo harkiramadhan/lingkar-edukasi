@@ -9,3 +9,18 @@
 .footer.wf-section {
     border-top: 0.5px rgba(128, 128, 128, 0.44) solid;
 }
+
+/* DETAIL COURSE */
+
+.cdetail-sidebar-absolute {
+    right: 30px;
+    top: 10px;
+}
+
+.kelas-feature_list-item {
+    color: #333;
+}
+
+.kelas-card_harga {
+    color: #333;   
+}

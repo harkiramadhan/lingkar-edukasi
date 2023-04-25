@@ -103,7 +103,7 @@ label {
 .section.testimonial {
   position: relative;
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
   padding-bottom: 120px;
 }
 
@@ -293,7 +293,6 @@ label {
   font-size: 24px;
   line-height: 30px;
   font-weight: 600;
-  color: #333;
 }
 
 .kelas-card_content {
@@ -744,6 +743,19 @@ label {
   border-color: rgba(174, 0, 0, 0.5);
   border-radius: 4px;
   background-color: #ae0000;
+  color: #fff;
+}
+
+.nav-search-input:focus {
+  color: #fff;
+}
+
+.nav-search-input:focus-visible {
+  color: #fff;
+}
+
+.nav-search-input[data-wf-focus-visible] {
+  color: #fff;
 }
 
 .nav-search-input::-moz-placeholder {
@@ -780,6 +792,14 @@ label {
 
 .nav-search {
   margin-bottom: 0px;
+}
+
+.nav-search:focus-visible {
+  color: #fff;
+}
+
+.nav-search[data-wf-focus-visible] {
+  color: #fff;
 }
 
 .nav-search.show-mobile {
@@ -945,7 +965,7 @@ label {
 
 .coursedetail-hero_section {
   position: relative;
-  padding-top: 40px;
+  padding-top: 60px;
 }
 
 .coursedetail-hero_section.testimonial {
@@ -1316,8 +1336,8 @@ label {
 
 .cdetail-sidebar-absolute {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 26vh;
+  right: 5vw;
   width: 400px;
   height: 200vh;
   flex: 1;
@@ -1325,7 +1345,7 @@ label {
 
 .cdetail-sticky {
   position: relative;
-  top: 0px;
+  top: 24px;
   right: 0px;
 }
 
@@ -1361,7 +1381,6 @@ label {
   background-position: 0% 50%;
   background-size: auto;
   background-repeat: no-repeat;
-  color: #000;
 }
 
 .kelas-button-full {
@@ -1612,20 +1631,6 @@ label {
 
 .dropdown-user_nav.hide-desktop {
   display: none;
-}
-
-.dropdown-user_setup {
-  display: flex;
-  width: 44px;
-  height: 44px;
-  justify-content: flex-end;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #ffaa46;
-  border-radius: 99px;
-  background-color: #d9d9d9;
-  background-position: 50% 50%;
-  background-size: cover;
 }
 
 .dropdown-user_foto {
@@ -2211,11 +2216,111 @@ label {
   display: none;
 }
 
+.brand-icon {
+  width: 45px;
+}
+
+.hide-desktop {
+  display: none;
+}
+
+.empty-search {
+  position: absolute;
+  display: none;
+  overflow: hidden;
+  width: 420px;
+  margin-top: 10px;
+  padding: 16px;
+  flex-direction: column;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #1b1b1b;
+  text-align: center;
+}
+
+.result-search {
+  position: absolute;
+  display: none;
+  overflow: hidden;
+  width: 420px;
+  padding: 16px;
+  flex-direction: column;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.kelas-card-vertical_wrapper {
+  display: flex;
+  border-radius: 8px;
+  color: #1b1b1b;
+}
+
+.kelas-card-vertical_image {
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.kelas-card-vertical_harga {
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.kelas-card-vertical_image-wrapper {
+  overflow: hidden;
+  height: 100px;
+  border-radius: 8px;
+  box-shadow: 0 4px 23px 0 rgba(0, 0, 0, 0.1);
+}
+
+.kelas-card-vertical_image-wrapper.higher {
+  height: 250px;
+}
+
+.kelas-card-vertical_content {
+  display: flex;
+  padding-right: 24px;
+  padding-left: 24px;
+  flex-direction: column;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  border-radius: 8px;
+}
+
+.text-color-red {
+  color: #c63c32;
+}
+
+.search-link {
+  text-align: center;
+}
+
+.dropdown-list.w--open {
+  padding-right: 64px;
+  border-radius: 8px;
+  background-color: #751119;
+}
+
+.dropdown-link {
+  padding: 12px 24px;
+  color: #fff;
+}
+
+.dropdown-profile-list.w--open {
+  background-color: #751119;
+}
+
+.dropdown-profile-link {
+  color: #fff;
+}
+
 @media screen and (min-width: 1440px) {
   .cdetail-sidebar-absolute {
-
-    top: 20px;
-    right: 20px;
+    right: 10vw;
   }
 }
 
@@ -2297,8 +2402,30 @@ label {
     background-color: #520e14;
   }
 
+  .nav-dropdown {
+    width: 100%;
+  }
+
   .nav-search-input {
-    width: 240px;
+    width: 0px;
+    padding-right: 4px;
+  }
+
+  .nav-search-input:focus {
+    width: 243px;
+  }
+
+  .nav-search-button {
+    left: 0px;
+    width: 48px;
+  }
+
+  .nav-left {
+    margin-right: 16px;
+    margin-left: 16px;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex: 1;
   }
 
   .nav-button-secondary {
@@ -2309,10 +2436,6 @@ label {
 
   .nav-button-primary {
     text-align: center;
-  }
-
-  .menu-button {
-    margin-left: auto;
   }
 
   .menu-button.w--open {
@@ -2409,6 +2532,39 @@ label {
   .kelas-nav-wrapper {
     position: static;
     margin-bottom: 32px;
+  }
+
+  .nav-brand {
+    width: auto;
+  }
+
+  .hide-desktop {
+    display: block;
+  }
+
+  .hide-tablet {
+    display: none;
+  }
+
+  .empty-search {
+    right: 0px;
+  }
+
+  .result-search {
+    right: 0px;
+  }
+
+  .dropdown-list {
+    background-color: transparent;
+  }
+
+  .dropdown-list.w--open {
+    background-color: transparent;
+  }
+
+  .dropdown-link {
+    padding: 12px 16px;
+    color: #fff;
   }
 }
 
@@ -2561,15 +2717,8 @@ label {
 
   .nav-menu.hidden {
     display: flex;
+    padding-top: 12px;
     flex-direction: column;
-  }
-
-  .nav-search-input {
-    width: 200px;
-  }
-
-  .nav-search {
-    display: none;
   }
 
   .nav-button-secondary {
@@ -2870,9 +3019,18 @@ label {
   .detail-kelas_dropdown-list.w--open {
     padding: 16px;
   }
+
+  .hide-desktop {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 479px) {
+  .nav-container {
+    padding-right: 6px;
+    padding-left: 12px;
+  }
+
   .container {
     padding-right: 16px;
     padding-left: 16px;
@@ -2930,6 +3088,15 @@ label {
 
   .kelas-card_image-wrapper.higher {
     height: 160px;
+  }
+
+  .heading-xtrasmall.no-margin.searchresult {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .kelas-card_creator.hide-mobile {
+    display: none;
   }
 
   .kelas-card_content {
@@ -3071,9 +3238,15 @@ label {
     font-size: 20px;
   }
 
+  .nav-menu.hidden {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
   .nav-search-input {
-    width: 100%;
+    max-width: 200px;
     padding-left: 42px;
+    border-radius: 8px;
   }
 
   .nav-search-button {
@@ -3081,13 +3254,18 @@ label {
     width: 48px;
   }
 
-  .nav-search {
-    display: none;
-  }
-
   .nav-search.show-mobile {
     display: block;
     margin-top: 32px;
+  }
+
+  .nav-left {
+    margin-right: 8px;
+    margin-left: 8px;
+  }
+
+  .menu-button {
+    padding: 12px;
   }
 
   .footer-container {
@@ -3302,10 +3480,54 @@ label {
     font-size: 20px;
   }
 
+  .nav-brand {
+    width: 40px;
+    padding: 4px;
+    flex: 0 0 auto;
+  }
+
   .detail-kelas_dropdown-list.w--open {
     padding-top: 8px;
     padding-right: 8px;
     padding-left: 8px;
+  }
+
+  .brand-icon {
+    width: 40px;
+  }
+
+  .result-search {
+    top: 54px;
+    right: -40px;
+    width: 320px;
+    padding: 12px;
+    grid-column-gap: 12px;
+    grid-row-gap: 12px;
+  }
+
+  .kelas-card-vertical_image {
+    width: 64px;
+    height: 64px;
+  }
+
+  .kelas-card-vertical_harga {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .kelas-card-vertical_image-wrapper {
+    width: 64px;
+    height: 64px;
+    flex: 0 0 auto;
+  }
+
+  .kelas-card-vertical_image-wrapper.higher {
+    height: 160px;
+  }
+
+  .kelas-card-vertical_content {
+    padding-right: 16px;
+    padding-left: 16px;
   }
 }
 
@@ -4936,3 +5158,4 @@ label {
   -ms-grid-row-span: 1;
   grid-row-end: span 1;
 }
+

@@ -30,31 +30,80 @@
     <div class="nav-container">
       <a href="<?= site_url('/') ?>" class="nav-brand w-nav-brand"><img src="<?= base_url('assets/user/images/logo-main-white.svg')?>" loading="lazy" alt=""></a>
       <div class="nav-left">
-        <div data-hover="false" data-delay="0" class="nav-dropdown w-dropdown">
+        <div data-hover="false" data-delay="0" class="nav-dropdown hide-tablet w-dropdown">
           <div class="dropdown-toggle w-dropdown-toggle">
             <div class="dropdown-icon is-yellow w-icon-dropdown-toggle"></div>
             <div class="text-color-white">Kategori</div>
           </div>
-          <nav class="w-dropdown-list">
-            <a href="#" class="w-dropdown-link">Link 1</a>
-            <a href="#" class="w-dropdown-link">Link 2</a>
-            <a href="#" class="w-dropdown-link">Link 3</a>
+          <nav class="dropdown-list w-dropdown-list">
+            <a href="#" class="dropdown-link w-dropdown-link">Link 1</a>
+            <a href="#" class="dropdown-link w-dropdown-link">Link 2</a>
+            <a href="#" class="dropdown-link w-dropdown-link">Link 3</a>
           </nav>
         </div>
         <form action="/search" class="nav-search w-form">
-          <div class="search-input-relative"><input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari kelas..." id="search" required=""><input type="submit" value="" class="nav-search-button w-button"></div>
+          <div class="search-input-relative">
+            <input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari kelas..." id="search" required="">
+            <input type="submit" value="" class="nav-search-button w-button">
+            <div class="empty-search">
+              <div class="empt-result_image"><img src="images/Dangerous.svg" loading="lazy" alt=""></div>
+              <div>
+                <h3 class="heading-xtrasmall no-margin">Maaf, kami tidak menemukan untuk &quot;dsadafa&quot;</h3>
+                <div class="kelas-card_creator">Gunakan istilah pencarian lainnya</div>
+              </div>
+              <h3 class="heading-xtrasmall no-margin">atau</h3>
+              <div class="divider"></div>
+              <div class="search-link">
+                <div class="text-size-medium is-red">Lihat semua kelas</div>
+              </div>
+            </div>
+            <div class="result-search">
+              <div class="kelas-card-vertical_wrapper">
+                <div class="kelas-card-vertical_image-wrapper"><img src="images/placeholder-1.webp" loading="lazy" sizes="100vw" srcset="images/placeholder-1-p-500.jpg 500w, images/placeholder-1.webp 576w" alt="" class="kelas-card-vertical_image"></div>
+                <div class="kelas-card-vertical_content">
+                  <div class="kelas-card_title-wrapper">
+                    <h3 class="heading-xtrasmall no-margin searchresult">Ini adalah kelas paling populer di Indonesia</h3>
+                    <div class="kelas-card_creator hide-mobile">By Satria Sambiring</div>
+                  </div>
+                  <div class="kelas-card-vertical_harga">Rp. 799.000</div>
+                </div>
+              </div>
+              <div class="kelas-card-vertical_wrapper">
+                <div class="kelas-card-vertical_image-wrapper"><img src="images/placeholder-1.webp" loading="lazy" sizes="100vw" srcset="images/placeholder-1-p-500.jpg 500w, images/placeholder-1.webp 576w" alt="" class="kelas-card-vertical_image"></div>
+                <div class="kelas-card-vertical_content">
+                  <div class="kelas-card_title-wrapper">
+                    <h3 class="heading-xtrasmall no-margin searchresult">Ini adalah kelas paling populer di Indonesia</h3>
+                    <div class="kelas-card_creator hide-mobile">By Satria Sambiring</div>
+                  </div>
+                  <div class="kelas-card-vertical_harga">Rp. 799.000</div>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div class="search-link">
+                <div class="text-size-medium is-red">Lihat semua kelas</div>
+              </div>
+            </div>
+          </div>
         </form>
       </div>
       <nav role="navigation" class="nav-button-wrapper w-nav-menu" style="margin-left: auto;">
         <a href="<?= site_url('signin') ?>" class="nav-button-secondary w-nav-link">Masuk</a>
         <a href="<?= site_url('signup') ?>" class="nav-button-primary w-nav-link">Daftar</a>
       </nav>
-      <nav role="navigation" class="nav-menu hidden w-nav-menu">
+      <nav role="navigation" class="nav-menu hidden show-tablet w-nav-menu">
+        <div data-hover="false" data-delay="0" class="nav-dropdown w-dropdown">
+          <div class="dropdown-toggle w-dropdown-toggle">
+            <div class="dropdown-icon is-yellow w-icon-dropdown-toggle"></div>
+            <div class="text-color-white">Kategori</div>
+          </div>
+          <nav class="dropdown-list w-dropdown-list">
+            <a href="#" class="dropdown-link w-dropdown-link">Link 1</a>
+            <a href="#" class="dropdown-link w-dropdown-link">Link 2</a>
+            <a href="#" class="dropdown-link w-dropdown-link">Link 3</a>
+          </nav>
+        </div>
         <a href="<?= site_url('signin') ?>" class="nav-button-secondary w-nav-link">Masuk</a>
         <a href="<?= site_url('signup') ?>" class="nav-button-primary w-nav-link">Daftar</a>
-        <form action="/search" class="nav-search show-mobile w-form">
-          <div class="search-input-relative"><input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari kelas..." id="search" required=""><input type="submit" value="" class="nav-search-button w-button"></div>
-        </form>
       </nav>
       <div class="menu-button w-nav-button">
         <div class="w-icon-nav-menu"></div>
@@ -63,23 +112,65 @@
   </div>
   <?php else: ?>
   <!-- After Login -->
+
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
     <div class="nav-container">
-      <a href="<?= site_url('/') ?>" class="nav-brand w-nav-brand"><img src="<?= base_url('assets/user/images/logo-main-white.svg')?>  " loading="lazy" alt=""></a>
+      <a href="<?= site_url('/') ?>" class="nav-brand w-nav-brand"><img src="<?= base_url('assets/user/images/logo-main-white.svg')?>" loading="lazy" alt=""></a>
       <div class="nav-left">
-        <div data-hover="false" data-delay="0" class="nav-dropdown w-dropdown">
+        <div data-hover="false" data-delay="0" class="nav-dropdown hide-tablet w-dropdown">
           <div class="dropdown-toggle w-dropdown-toggle">
             <div class="dropdown-icon is-yellow w-icon-dropdown-toggle"></div>
             <div class="text-color-white">Kategori</div>
           </div>
-          <nav class="w-dropdown-list">
-            <a href="#" class="w-dropdown-link">Link 1</a>
-            <a href="#" class="w-dropdown-link">Link 2</a>
-            <a href="#" class="w-dropdown-link">Link 3</a>
+          <nav class="dropdown-list w-dropdown-list">
+            <a href="#" class="dropdown-link w-dropdown-link">Link 1</a>
+            <a href="#" class="dropdown-link w-dropdown-link">Link 2</a>
+            <a href="#" class="dropdown-link w-dropdown-link">Link 3</a>
           </nav>
         </div>
         <form action="/search" class="nav-search w-form">
-          <div class="search-input-relative"><input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari kelas..." id="search" required=""><input type="submit" value="" class="nav-search-button w-button"></div>
+          <div class="search-input-relative">
+            <input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari kelas..." id="search" required="">
+            <input type="submit" value="" class="nav-search-button w-button">
+            <div class="empty-search">
+              <div class="empt-result_image"><img src="images/Dangerous.svg" loading="lazy" alt=""></div>
+              <div>
+                <h3 class="heading-xtrasmall no-margin">Maaf, kami tidak menemukan untuk &quot;dsadafa&quot;</h3>
+                <div class="kelas-card_creator">Gunakan istilah pencarian lainnya</div>
+              </div>
+              <h3 class="heading-xtrasmall no-margin">atau</h3>
+              <div class="divider"></div>
+              <div class="search-link">
+                <div class="text-size-medium is-red">Lihat semua kelas</div>
+              </div>
+            </div>
+            <div class="result-search">
+              <div class="kelas-card-vertical_wrapper">
+                <div class="kelas-card-vertical_image-wrapper"><img src="images/placeholder-1.webp" loading="lazy" sizes="100vw" srcset="images/placeholder-1-p-500.jpg 500w, images/placeholder-1.webp 576w" alt="" class="kelas-card-vertical_image"></div>
+                <div class="kelas-card-vertical_content">
+                  <div class="kelas-card_title-wrapper">
+                    <h3 class="heading-xtrasmall no-margin searchresult">Ini adalah kelas paling populer di Indonesia</h3>
+                    <div class="kelas-card_creator hide-mobile">By Satria Sambiring</div>
+                  </div>
+                  <div class="kelas-card-vertical_harga">Rp. 799.000</div>
+                </div>
+              </div>
+              <div class="kelas-card-vertical_wrapper">
+                <div class="kelas-card-vertical_image-wrapper"><img src="images/placeholder-1.webp" loading="lazy" sizes="100vw" srcset="images/placeholder-1-p-500.jpg 500w, images/placeholder-1.webp 576w" alt="" class="kelas-card-vertical_image"></div>
+                <div class="kelas-card-vertical_content">
+                  <div class="kelas-card_title-wrapper">
+                    <h3 class="heading-xtrasmall no-margin searchresult">Ini adalah kelas paling populer di Indonesia</h3>
+                    <div class="kelas-card_creator hide-mobile">By Satria Sambiring</div>
+                  </div>
+                  <div class="kelas-card-vertical_harga">Rp. 799.000</div>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div class="search-link">
+                <div class="text-size-medium is-red">Lihat semua kelas</div>
+              </div>
+            </div>
+          </div>
         </form>
       </div>
       <nav role="navigation" class="nav-button-wrapper w-nav-menu" style="margin-left: auto;">
@@ -111,13 +202,11 @@
             <?php endif; ?>
           </div>
           <nav class="dropdown-list-wrapper w-dropdown-list">
-            <a href="#" class="profile-dropdown_link w-dropdown-link">Link 1</a>
-            <a href="#" class="profile-dropdown_link w-dropdown-link">Link 2</a>
-            <a href="#" class="profile-dropdown_link w-dropdown-link">Link 3</a>
+            <a href="<?= site_url('/profil') ?>" class="w-dropdown-link"><?= $user->name ?></a>
+            <a href="<?= site_url('/profil') ?>" class="w-dropdown-link">Profil</a>
+            <a href="<?= site_url('logout') ?>" class="w-dropdown-link">Logout</a>
           </nav>
         </div>
-        <a href="#" class="nav-button-secondary w-nav-link">Masuk</a>
-        <a href="#" class="nav-button-primary w-nav-link">Daftar</a>
         <form action="/search" class="nav-search show-mobile w-form">
           <div class="search-input-relative"><input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari kelas..." id="search" required=""><input type="submit" value="" class="nav-search-button w-button"></div>
         </form>
@@ -127,4 +216,5 @@
       </div>
     </div>
   </div>
+  
   <?php endif; ?>
