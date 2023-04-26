@@ -24,3 +24,16 @@
 .kelas-card_harga {
     color: #333;   
 }
+
+.default-select{
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0px;
+    padding: 16px;
+    border: 1px solid #7186a0;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+
+}
