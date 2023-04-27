@@ -148,8 +148,8 @@
                                                 type="password"
                                                 class="text-field margin-bottom-20 w-input"
                                                 maxlength="256"
-                                                name="email"
-                                                data-name="Email"
+                                                name="Password Lama"
+                                                data-name="Password Baru"
                                                 placeholder="Tulis passwordmu"
                                                 id="password"
                                                 required="">
@@ -158,8 +158,8 @@
                                             type="password"
                                             class="text-field w-input"
                                             maxlength="256"
-                                            name="email"
-                                            data-name="Email"
+                                            name="Password Baru"
+                                            data-name="Password baru"
                                             placeholder="Tulis ulang passwordmu"
                                             id="password"
                                             required=""><input
