@@ -152,7 +152,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="lingkar-pengaturan.html" class="ai-icon" aria-expanded="false">
+                            <a href="<?= site_url('admin/pengaturan') ?>" class="ai-icon" aria-expanded="false">
                                 <i class="flaticon-381-settings-9"></i>
                                 <span class="nav-text">Pengaturan</span>
                             </a>
