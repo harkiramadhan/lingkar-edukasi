@@ -22,80 +22,44 @@
           </div>
           <div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" class="kelas-tabs w-tabs">
             <div class="kelas-tabs_menu-wrapper w-tab-menu">
-              <a data-w-tab="Tab 1" class="kelas-tabs_menu w-inline-block w-tab-link w--current">
-                <div>EKONOMI</div>
+              <?php 
+                  $noS = 1;
+                  foreach($labels->result() as $ls){
+              ?>
+              <a data-w-tab="Tab <?= $noS ?>" class="kelas-tabs_menu w-inline-block w-tab-link <?= ($noS == 1) ? 'w--current' : '' ?>">
+                  <div><?= $ls->label ?></div>
               </a>
-              <a data-w-tab="Tab 2" class="kelas-tabs_menu w-inline-block w-tab-link">
-                <div>PAJAK</div>
-              </a>
-              <a data-w-tab="Tab 3" class="kelas-tabs_menu w-inline-block w-tab-link">
-                <div>SEMUA</div>
-              </a>
+              <?php $noS++; } ?>
             </div>
             <div class="kelas-tabs_content w-tab-content">
-              <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
-                <div class="w-layout-grid grid-4-column">
-                  <div id="w-node-e660144b-2bb6-35ff-374f-59076a41254e-45ad4433" class="kelas-card_wrapper">
-                    <div class="kelas-card_image-wrapper"><img src="<?= base_url('assets/user/images/placeholder-1.webp')?>" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, (max-width: 1439px) 92vw, 1296px" srcset="<?= base_url('assets/user/images/placeholder-1-p-500.jpg')?> 500w, <?= base_url('assets/user/images/placeholder-1.webp')?> 576w" alt="" class="kelas-card_image"></div>
-                    <div class="kelas-card_content">
-                      <div class="kelas-kategori_pill">
-                        <div class="pill-text">EKONOMI</div>
+
+              <?php 
+                  $noL = 1;
+                  foreach($labels->result() as $l){
+              ?>
+              <div data-w-tab="Tab <?= $noL ?>" class="w-tab-pane <?= ($noL == 1) ? 'w--tab-active' : '' ?>">
+                  <div class="w-layout-grid grid-4-column">
+                      <div id="w-node-e660144b-2bb6-35ff-374f-59076a41254e-f92afb62" class="kelas-card_wrapper">
+                          <div class="kelas-card_image-wrapper"><img src="<?= base_url('assets/user/images/placeholder-1.webp')?>" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, (max-width: 1439px) 92vw, 1296px" srcset="<?= base_url('assets/user/images/placeholder-2.webp')?> 500w, <?= base_url('assets/user/images/placeholder-2.webp')?> 576w" alt="" class="kelas-card_image"></div>
+                          <div class="kelas-card_content">
+                              <div class="kelas-kategori_pill">
+                              <div class="pill-text"><?= $l->label ?></div>
+                              </div>
+                              <div class="kelas-card_title-wrapper">
+                              <div class="margin-bottom-8">
+                                  <h3 class="heading-xtrasmall no-margin">Ini adalah kelas paling populer di Indonesia</h3>
+                              </div>
+                              <div class="kelas-card_creator">By Satria Sambiring</div>
+                              </div>
+                              <div class="kelas-card_harga">Rp. 799.000</div>
+                              <div class="divider"></div>
+                              <a href="<?= site_url('/course/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
+                          </div>
                       </div>
-                      <div class="kelas-card_title-wrapper">
-                        <div class="margin-bottom-8">
-                          <h3 class="heading-xtrasmall no-margin">Ini adalah kelas paling populer di Indonesia</h3>
-                        </div>
-                        <div class="kelas-card_creator">By Satria Sambiring</div>
-                      </div>
-                      <div class="kelas-card_harga">Rp. 799.000</div>
-                      <div class="divider"></div>
-                      <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
-                    </div>
                   </div>
-                </div>
               </div>
-              <div data-w-tab="Tab 2" class="w-tab-pane">
-                <div class="w-layout-grid grid-4-column">
-                  <div id="w-node-e2e08830-b906-9521-435f-58d6cd2026aa-45ad4433" class="kelas-card_wrapper">
-                    <div class="kelas-card_image-wrapper"><img src="<?= base_url('assets/user/images/placeholder-1.webp')?>" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, (max-width: 1439px) 92vw, 1296px" srcset="<?= base_url('assets/user/images/placeholder-1-p-500.jpg')?> 500w, <?= base_url('assets/user/images/placeholder-1.webp')?> 576w" alt="" class="kelas-card_image"></div>
-                    <div class="kelas-card_content">
-                      <div class="kelas-kategori_pill">
-                        <div class="pill-text">EKONOMI</div>
-                      </div>
-                      <div class="kelas-card_title-wrapper">
-                        <div class="margin-bottom-8">
-                          <h3 class="heading-xtrasmall no-margin">Ini adalah kelas paling populer di Indonesia</h3>
-                        </div>
-                        <div class="kelas-card_creator">By Satria Sambiring</div>
-                      </div>
-                      <div class="kelas-card_harga">Rp. 799.000</div>
-                      <div class="divider"></div>
-                      <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div data-w-tab="Tab 3" class="w-tab-pane">
-                <div class="w-layout-grid grid-4-column">
-                  <div id="w-node-_3f78bbea-2b61-79e4-8d0b-ed933599677b-45ad4433" class="kelas-card_wrapper">
-                    <div class="kelas-card_image-wrapper"><img src="<?= base_url('assets/user/images/placeholder-1.webp')?>" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, (max-width: 1439px) 92vw, 1296px" srcset="<?= base_url('assets/user/images/placeholder-1-p-500.jpg')?> 500w, <?= base_url('assets/user/images/placeholder-1.webp')?> 576w" alt="" class="kelas-card_image"></div>
-                    <div class="kelas-card_content">
-                      <div class="kelas-kategori_pill">
-                        <div class="pill-text">EKONOMI</div>
-                      </div>
-                      <div class="kelas-card_title-wrapper">
-                        <div class="margin-bottom-8">
-                          <h3 class="heading-xtrasmall no-margin">Ini adalah kelas paling populer di Indonesia</h3>
-                        </div>
-                        <div class="kelas-card_creator">By Satria Sambiring</div>
-                      </div>
-                      <div class="kelas-card_harga">Rp. 799.000</div>
-                      <div class="divider"></div>
-                      <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <?php $noL++; } ?>
+              
             </div>
           </div>
         </div>
