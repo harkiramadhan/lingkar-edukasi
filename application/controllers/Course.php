@@ -31,33 +31,68 @@ class Course extends CI_Controller{
   }
 
   function detail(){
-    $this->load->view('layout/user/header');
-    $this->load->view('user/course-detail');
-    $this->load->view('layout/user/footer');
+    $userid = $this->session->userdata('user_id');
+    $var = [
+      'labels' => $this->M_Labels->getActive(),
+      'setting' => $this->M_Settings->get(),
+      'user' => $this->M_Users->getById($userid)
+    ];
+
+    $this->load->view('layout/user/header', $var);
+    $this->load->view('user/course-detail', $var);
+    $this->load->view('layout/user/footer', $var);
   }
 
   function joined(){
-    $this->load->view('layout/user/header');
-    $this->load->view('user/thanks-for-join');
-    $this->load->view('layout/user/footer');
+    $userid = $this->session->userdata('user_id');
+    $var = [
+      'labels' => $this->M_Labels->getActive(),
+      'setting' => $this->M_Settings->get(),
+      'user' => $this->M_Users->getById($userid)
+    ];
+
+    $this->load->view('layout/user/header', $var);
+    $this->load->view('user/thanks-for-join', $var);
+    $this->load->view('layout/user/footer', $var);
   }
 
   function kelassaya(){
-    $this->load->view('layout/user/header');
-    $this->load->view('user/kelassaya-list');
-    $this->load->view('layout/user/footer');
+    $userid = $this->session->userdata('user_id');
+    $var = [
+      'labels' => $this->M_Labels->getActive(),
+      'setting' => $this->M_Settings->get(),
+      'user' => $this->M_Users->getById($userid)
+    ];
+
+    $this->load->view('layout/user/header', $var);
+    $this->load->view('user/kelassaya-list', $var);
+    $this->load->view('layout/user/footer', $var);
   }
 
   function kelassayacourse(){
-    $this->load->view('layout/user/header');
-    $this->load->view('user/kelassaya-detail-course');
-    $this->load->view('layout/user/footer');
+    $userid = $this->session->userdata('user_id');
+    $var = [
+      'labels' => $this->M_Labels->getActive(),
+      'setting' => $this->M_Settings->get(),
+      'user' => $this->M_Users->getById($userid)
+    ];
+
+    $this->load->view('layout/user/header', $var);
+    $this->load->view('user/kelassaya-detail-course', $var);
+    $this->load->view('layout/user/footer', $var);
   }
 
   function kelassayaselesai(){
-    $this->load->view('layout/user/header');
-    $this->load->view('user/kelassaya-selesai');
-    $this->load->view('layout/user/footer');
+    $userid = $this->session->userdata('user_id');
+    $var = [
+      'labels' => $this->M_Labels->getActive(),
+      'setting' => $this->M_Settings->get(),
+      'user' => $this->M_Users->getById($userid)
+    ];
+
+    $this->load->view('layout/user/header', $var);
+    $this->load->view('user/kelassaya-selesai', $var);
+    $this->load->view('layout/user/footer', $var);
   }
 
 }   

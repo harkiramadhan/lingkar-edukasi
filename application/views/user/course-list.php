@@ -17,8 +17,8 @@
       <div class="padding-top padding-60">
         <div class="container">
           <div class="section-title-wrapper">
-            <h2>Kelas Terbaru</h2>
-            <div>Ini adalah kelas paling populer di Indonesia</div>
+            <h2><?= $setting->judul_section_course ?></h2>
+            <div><?= $setting->deskripsi_section_course ?></div>
           </div>
           <div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" class="kelas-tabs w-tabs">
             <div class="kelas-tabs_menu-wrapper w-tab-menu">
