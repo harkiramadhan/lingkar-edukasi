@@ -30,43 +30,46 @@
                                             <div id="v-pills-profil-admin" class="tab-pane fade active show">
                                                 <div class="row">
                                                     <div class="col-lg-12 col-12">
-                                                        <form action="http://localhost/lingkar-edukasi/admin/konten/actionHeaderProfil" method="POST">
+                                                        <form action="<?= site_url('admin/pengaturan/action/' . $user->id) ?>" method="POST">
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Nama Lengkap</label>
-                                                                <input name="profil_header_judul" type="text" class="form-control" value="">
+                                                                <input name="nama" type="text" class="form-control" value="<?= $user->nama ?>">
                                                             </div>
                 
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Email Aktif</label>
-                                                                <input name="profil_hader_desc" type="text" class="form-control" value="">
+                                                                <input name="email" type="text" class="form-control" value="<?= $user->email ?>">
                                                             </div>
                                                             
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">No HP</label>
-                                                                <input name="profil_hader_desc" type="text" class="form-control" value="">
+                                                                <input name="nohp" type="text" class="form-control" value="<?= $user->nohp ?>">
                                                             </div>
         
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Jenis Kelamin</label>
-                                                                <select class="form-control default-select" id="sel1" tabindex="-98">
+                                                                <select class="form-control default-select" id="sel1" tabindex="-98" name="jenkel">
                                                                     <option selected disabled>Pilih</option>
-                                                                    <option>Laki - laki</option>
-                                                                    <option>Perempuan</option>
+                                                                    <option value="L" <?= ($user->jenkel == 'L') ? 'selected' : '' ?>>Laki - laki</option>
+                                                                    <option value="P" <?= ($user->jenkel == 'P') ? 'selected' : '' ?>>Perempuan</option>
                                                                 </select>
                                                             </div>
         
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Pendidikan Terahir</label>
-                                                                <select class="form-control default-select" id="sel1" tabindex="-98">
+                                                                <select class="form-control default-select" id="sel1" tabindex="-98" name="pendidikan">
                                                                     <option selected disabled>Pilih</option>
-                                                                    <option>S1</option>
-                                                                    <option>S2</option>
+                                                                    <option value="SMP" <?= ($user->pendidikan == 'SMP') ? 'selected' : '' ?>>SMP</option>
+                                                                    <option value="SMA" <?= ($user->pendidikan == 'SMA') ? 'selected' : '' ?>>SMA</option>
+                                                                    <option value="D3" <?= ($user->pendidikan == 'D3') ? 'selected' : '' ?>>D3</option>
+                                                                    <option value="S1" <?= ($user->pendidikan == 'S1') ? 'selected' : '' ?>>S1</option>
+                                                                    <option value="S2" <?= ($user->pendidikan == 'S2') ? 'selected' : '' ?>>S2</option>
                                                                 </select>
                                                             </div>
         
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Tanggal Lahir</label>
-                                                                <input name="profil_hader_desc" type="date" class="form-control" value="">
+                                                                <input name="tgll" type="date" class="form-control" value="<?= $user->tgll ?>">
                                                             </div>
         
                                                             <div class="form-group mb-0 text-right">
@@ -80,15 +83,15 @@
                                             <div id="v-pills-password" class="tab-pane fade">
                                                 <div class="row">
                                                     <div class="col-lg-12 col-12">
-                                                        <form action="http://localhost/lingkar-edukasi/admin/konten/actionHeaderProfil" method="POST">
+                                                        <form action="<?= site_url('admin/pengaturan/actionPassword/' . $user->id) ?>" method="POST">
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Password Lama</label>
-                                                                <input name="profil_header_judul" type="password" class="form-control" value="">
+                                                                <input name="old_pwd" type="password" class="form-control" required>
                                                             </div>
                 
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Password Baru</label>
-                                                                <input name="profil_hader_desc" type="password" class="form-control" value="">
+                                                                <input name="new_pwd" type="password" class="form-control" required>
                                                             </div>
                 
                                                             <div class="form-group mb-0 text-right">
