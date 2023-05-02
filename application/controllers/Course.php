@@ -4,7 +4,13 @@ class Course extends CI_Controller{
     parent::__construct();
 
     $this->load->model([
-      'M_Users'
+      'M_Users',
+      'M_Settings',
+      'M_Labels',
+      'M_Benefit_Landing',
+      'M_Testimoni_Landing',
+      'M_Banners',
+      'M_Partner'
     ]);
 
     if(!$this->session->userdata('is_user')){
@@ -15,6 +21,8 @@ class Course extends CI_Controller{
   function index(){
     $userid = $this->session->userdata('user_id');
     $var = [
+      'labels' => $this->M_Labels->getActive(),
+      'setting' => $this->M_Settings->get(),
       'user' => $this->M_Users->getById($userid)
     ];
     $this->load->view('layout/user/header', $var);

@@ -4,10 +4,15 @@ class Auth extends CI_Controller{
         parent::__construct();
 
         $this->load->model([
-            'M_Users'
+            'M_Users',
+            'M_Settings',
+            'M_Labels'
         ]);
     }
     function signin(){
+        $var['labels'] = $this->M_Labels->getActive();
+        $var['setting'] = $this->M_Settings->get();
+
         include_once APPPATH . "../vendor/autoload.php";
         $googleClient = new Google_Client();
         $googleClient->setClientId('842595441292-lmihklq8i6k91qnomq2cn9pb9vtfarpv.apps.googleusercontent.com');
@@ -82,6 +87,9 @@ class Auth extends CI_Controller{
     }
 
     function signup(){
+        $var['labels'] = $this->M_Labels->getActive();
+        $var['setting'] = $this->M_Settings->get();
+
         include_once APPPATH . "../vendor/autoload.php";
         $googleClient = new Google_Client();
         $googleClient->setClientId('842595441292-lmihklq8i6k91qnomq2cn9pb9vtfarpv.apps.googleusercontent.com');
