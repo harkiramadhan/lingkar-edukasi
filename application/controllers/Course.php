@@ -21,7 +21,7 @@ class Course extends CI_Controller{
     // }
   }
 
-  function index(){
+  function index($categoryid=false){
     $userid = $this->session->userdata('user_id');
     $var = [
       'labels' => $this->M_Labels->getActive(),

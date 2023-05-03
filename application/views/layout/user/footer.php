@@ -15,7 +15,7 @@
           </div>
           <div class="footer-column_content">
             <?php foreach($labels->result() as $lRow){ ?>
-              <a href="#" class="footer-link w-inline-block">
+              <a href="<?= site_url('course/' . $lRow->id . '/category') ?>" class="footer-link w-inline-block">
                 <div>&gt; <?= $lRow->label ?></div>
               </a>
             <?php } ?>
