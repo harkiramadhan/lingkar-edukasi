@@ -11,7 +11,9 @@ class Course extends CI_Controller{
       'M_Benefit_Landing',
       'M_Testimoni_Landing',
       'M_Banners',
-      'M_Partner'
+      'M_Partner',
+      'M_Benefit',
+      'M_Tutor'
     ]);
 
     // if(!$this->session->userdata('is_user')){
@@ -33,12 +35,15 @@ class Course extends CI_Controller{
 
   function detail($flag){
     $userid = $this->session->userdata('user_id');
+    $course = $this->M_Courses->getByFlag($flag);
     $var = [
       'labels' => $this->M_Labels->getActive(),
       'setting' => $this->M_Settings->get(),
       'user' => $this->M_Users->getById($userid),
-      'course' => $this->M_Courses->getByFlag($flag),
-      'title' => $this->M_Courses->getByFlag($flag)->judul
+      'course' => $course,
+      'title' => $this->M_Courses->getByFlag($flag)->judul,
+      'benefit' => $this->M_Benefit->getByCourse($course->id),
+      'tutor' => $this->M_Tutor->getById($course->pemateriid)
     ];
 
     $this->load->view('layout/user/header', $var);

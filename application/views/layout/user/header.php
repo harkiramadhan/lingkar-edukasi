@@ -20,6 +20,7 @@
   <link href="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>" rel="shortcut icon" type="image/x-icon">
   <link href="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>" rel="apple-touch-icon">
   <link href="<?= base_url('assets/user/css/custom.css')?>" rel="stylesheet" type="text/css">
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
 </head>
 <body>

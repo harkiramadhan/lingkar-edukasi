@@ -53,31 +53,38 @@
               <div class="cdetail-sticky">
                 <div class="cdetail-sidebar">
                   <div class="cdetail-kelas_card">
-                    <div class="kelas-card_image-wrapper higher"><img src="<?= base_url('assets/user/images/placeholder-1.webp')?>" loading="lazy" sizes="400px" srcset="<?= base_url('assets/user/images/placeholder-1-p-500.jpg')?> 500w, <?= base_url('assets/user/images/placeholder-1.webp')?> 576w" alt="" class="kelas-card_image"></div>
+                    <div class="kelas-card_image-wrapper higher">
+                      <img src="<?= base_url('uploads/courses/' . $course->cover)?>" loading="lazy" sizes="400px" srcset="<?= base_url('uploads/courses/' . $course->cover)?> 500w, <?= base_url('uploads/courses/' . $course->cover)?> 576w" alt="" class="kelas-card_image">
+                    </div>
                     <div class="kelas-card_content">
                       <div class="kelas-card_title-wrapper">
                         <div class="margin-bottom-16">
                           <h2 class="heading-xtrasmall xtrabold no-margin" style="color: #333;">Apa yang kamu dapatkan</h2>
                         </div>
                         <ul role="list" class="kelas-lfeature_lists">
-                          <li class="kelas-feature_list-item">Akses Selamanya</li>
-                          <li class="kelas-feature_list-item">Akses Selamanya</li>
-                          <li class="kelas-feature_list-item">Akses Selamanya</li>
-                          <li class="kelas-feature_list-item">Akses Selamanya</li>
-                          <li class="kelas-feature_list-item">Akses Selamanya</li>
+                          <?php foreach($benefit->result() as $rowB){ ?>
+                            <li class="kelas-feature_list-item"><i class="<?= $rowB->icon ?>"></i>&nbsp;&nbsp; <?= $rowB->benefit ?></li>
+                          <?php } ?>
                         </ul>
                       </div>
                       <div class="divider"></div>
-                      <div class="kelas-card_harga">Rp. 799.000</div>
+                      <div class="kelas-card_harga"><?= discount($course->price, $course->discount) ?></div>
                     </div>
                     <a href="#" class="kelas-button-full w-button">Daftar Kelas</a>
                   </div>
                   <div class="cdetail-tutor">
                     <div class="cdetail-tutor_pill">
                       <div class="pill-text">TENTANG TUTOR</div>
-                    </div><img src="<?= base_url('assets/user/images/tutor-placeholder.webp')?>" loading="lazy" alt="" class="cdetail-tutor_image">
-                    <h2 class="cdetail-tutor-name">Arif Voyager</h2>
-                    <div class="text-small text-grey">Donec nulla massa, feugiat id ornare quis, consequat non massa. Nunc pulvinar ac arcu eu rhoncus. Morbi condimentum dolor in tortor commodo cursus id euismod purus. Sed sit amet odio eget sapien tristique ultricies interdum sed nisi. Curabitur molestie porttitor elementum. Donec eu diam lectus. Nunc vel blandit nibh. Duis eget posuere augue. Quisque vehicula laoreet urna quis pulvinar.</div>
+                    </div>
+                    <?php if($tutor->img): ?>
+                      <img src="<?= base_url('uploads/tutor/' . $tutor->img)?>" loading="lazy" alt="" class="cdetail-tutor_image">
+                    <?php else: ?>
+                      <img src="<?= base_url('assets/admin/images/placeholder-image.svg')?>" loading="lazy" alt="" class="cdetail-tutor_image">
+                    <?php endif; ?>
+                    <h2 class="cdetail-tutor-name"><?= $tutor->nama ?></h2>
+                    <div class="text-small text-grey">
+                      <?= $tutor->deskripsi ?>.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -94,24 +101,29 @@
                   <h2 class="heading-xtrasmall xtrabold no-margin">Apa yang kamu dapatkan</h2>
                 </div>
                 <ul role="list" class="kelas-lfeature_lists">
-                  <li class="kelas-feature_list-item">Akses Selamanya</li>
-                  <li class="kelas-feature_list-item">Akses Selamanya</li>
-                  <li class="kelas-feature_list-item">Akses Selamanya</li>
-                  <li class="kelas-feature_list-item">Akses Selamanya</li>
-                  <li class="kelas-feature_list-item">Akses Selamanya</li>
+                  <?php foreach($benefit->result() as $rowB){ ?>
+                    <li class="kelas-feature_list-item"><i class="<?= $rowB->icon ?>"></i>&nbsp;&nbsp; <?= $rowB->benefit ?></li>
+                  <?php } ?>
                 </ul>
               </div>
               <div class="divider"></div>
-              <div class="kelas-card_harga">Rp. 799.000</div>
+              <div class="kelas-card_harga"><?= discount($course->price, $course->discount) ?></div>
             </div>
             <a href="#" class="kelas-button-full w-button">Daftar Kelas</a>
           </div>
           <div class="cdetail-tutor">
             <div class="cdetail-tutor_pill">
               <div class="pill-text">TENTANG TUTOR</div>
-            </div><img src="images/tutor-placeholder.webp" loading="lazy" alt="" class="cdetail-tutor_image">
-            <h2 class="cdetail-tutor-name">Arif Voyager</h2>
-            <div class="text-small text-grey">Donec nulla massa, feugiat id ornare quis, consequat non massa. Nunc pulvinar ac arcu eu rhoncus. Morbi condimentum dolor in tortor commodo cursus id euismod purus. Sed sit amet odio eget sapien tristique ultricies interdum sed nisi. Curabitur molestie porttitor elementum. Donec eu diam lectus. Nunc vel blandit nibh. Duis eget posuere augue. Quisque vehicula laoreet urna quis pulvinar.</div>
+            </div>
+            <?php if($tutor->img): ?>
+              <img src="<?= base_url('uploads/tutor/' . $tutor->img)?>" loading="lazy" alt="" class="cdetail-tutor_image">
+            <?php else: ?>
+              <img src="<?= base_url('assets/admin/images/placeholder-image.svg')?>" loading="lazy" alt="" class="cdetail-tutor_image">
+            <?php endif; ?>
+            <h2 class="cdetail-tutor-name"><?= $tutor->nama ?></h2>
+            <div class="text-small text-grey">
+              <?= $tutor->deskripsi ?>.
+            </div>
           </div>
         </div>
       </div>
