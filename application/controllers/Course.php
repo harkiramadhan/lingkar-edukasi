@@ -5,6 +5,7 @@ class Course extends CI_Controller{
 
     $this->load->model([
       'M_Users',
+      'M_Courses',
       'M_Settings',
       'M_Labels',
       'M_Benefit_Landing',
@@ -13,9 +14,9 @@ class Course extends CI_Controller{
       'M_Partner'
     ]);
 
-    if(!$this->session->userdata('is_user')){
-      redirect('','refresh');
-    }
+    // if(!$this->session->userdata('is_user')){
+    //   redirect('','refresh');
+    // }
   }
 
   function index(){
@@ -23,19 +24,21 @@ class Course extends CI_Controller{
     $var = [
       'labels' => $this->M_Labels->getActive(),
       'setting' => $this->M_Settings->get(),
-      'user' => $this->M_Users->getById($userid)
+      'user' => $this->M_Users->getById($userid),
     ];
     $this->load->view('layout/user/header', $var);
     $this->load->view('user/course-list', $var);
     $this->load->view('layout/user/footer', $var);
   }
 
-  function detail(){
+  function detail($flag){
     $userid = $this->session->userdata('user_id');
     $var = [
       'labels' => $this->M_Labels->getActive(),
       'setting' => $this->M_Settings->get(),
-      'user' => $this->M_Users->getById($userid)
+      'user' => $this->M_Users->getById($userid),
+      'course' => $this->M_Courses->getByFlag($flag),
+      'title' => $this->M_Courses->getByFlag($flag)->judul
     ];
 
     $this->load->view('layout/user/header', $var);

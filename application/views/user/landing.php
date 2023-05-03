@@ -56,6 +56,8 @@
             </div>
         </div>
     </section>
+
+    <!-- Courses -->
     <section class="section wf-section">
         <div class="padding-top padding-60">
             <div class="container">
@@ -78,34 +80,41 @@
                         <?php 
                             $noL = 1;
                             foreach($labels->result() as $l){
+                                $getCourses = $this->M_Courses->getActiveByLabels($l->id, 10);
                         ?>
-                        <div data-w-tab="Tab <?= $noL ?>" class="w-tab-pane <?= ($noL == 1) ? 'w--tab-active' : '' ?>">
-                            <div class="w-layout-grid grid-4-column">
-                                <div id="w-node-e660144b-2bb6-35ff-374f-59076a41254e-f92afb62" class="kelas-card_wrapper">
-                                    <div class="kelas-card_image-wrapper"><img src="<?= base_url('assets/user/images/placeholder-1.webp')?>" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, (max-width: 1439px) 92vw, 1296px" srcset="<?= base_url('assets/user/images/placeholder-2.webp')?> 500w, <?= base_url('assets/user/images/placeholder-2.webp')?> 576w" alt="" class="kelas-card_image"></div>
-                                    <div class="kelas-card_content">
-                                        <div class="kelas-kategori_pill">
-                                        <div class="pill-text"><?= $l->label ?></div>
+                            <div data-w-tab="Tab <?= $noL ?>" class="w-tab-pane <?= ($noL == 1) ? 'w--tab-active' : '' ?>">
+                                <div class="w-layout-grid grid-4-column">
+                                    <?php foreach($getCourses->result() as $rowC){ ?>
+                                    <div id="w-node-e660144b-2bb6-35ff-374f-59076a41254e-f92afb62" class="kelas-card_wrapper">
+                                        <div class="kelas-card_image-wrapper">
+                                            <img src="<?= base_url('uplodas/courses/' . $rowC->cover)?>" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, (max-width: 1439px) 92vw, 1296px" srcset="<?= base_url('uplodas/courses/' . $rowC->cover)?> 500w, <?= base_url('uploads/courses/' . $rowC->cover)?> 576w" alt="" class="kelas-card_image">
                                         </div>
-                                        <div class="kelas-card_title-wrapper">
-                                        <div class="margin-bottom-8">
-                                            <h3 class="heading-xtrasmall no-margin">Ini adalah kelas paling populer di Indonesia</h3>
+                                        <div class="kelas-card_content">
+                                            <div class="kelas-kategori_pill">
+                                                <div class="pill-text"><?= $l->label ?></div>
+                                            </div>
+                                            <div class="kelas-card_title-wrapper">
+                                                <div class="margin-bottom-8">
+                                                    <h3 class="heading-xtrasmall no-margin"><?= $rowC->judul ?></h3>
+                                                </div>
+                                                <div class="kelas-card_creator">By <?= $rowC->nama ?></div>
+                                            </div>
+                                            <div class="kelas-card_harga"><?= discount($rowC->price, $rowC->discount) ?></div>
+                                            <div class="divider"></div>
+                                            <a href="<?= site_url('/course/' . $rowC->flag . '/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                                         </div>
-                                        <div class="kelas-card_creator">By Satria Sambiring</div>
-                                        </div>
-                                        <div class="kelas-card_harga">Rp. 799.000</div>
-                                        <div class="divider"></div>
-                                        <a href="<?= site_url('/course/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                                     </div>
+                                    <?php } ?>
                                 </div>
                             </div>
-                        </div>
                         <?php $noL++; } ?>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Testimoni -->
     <div class="section testimonial wf-section">
         <div class="padding-custom_testi">
             <div class="container">
@@ -140,6 +149,8 @@
             </div>
         </div>
     </div>
+
+    <!-- CTA -->
     <div class="section wf-section">
         <div class="padding-vertical padding-60">
             <div class="container">

@@ -11,12 +11,31 @@ class M_Courses extends CI_Model{
                         ->order_by('c.id', "DESC")->get();
     }
 
-    function getActive(){
+    function getActive($limit = FALSE){
+        if($limit){
+            $this->db->limit($limit);
+        }
+
         return $this->db->select('c.*, p.nama')
                         ->from('courses c')
                         ->join('tutor p', 'c.pemateriid = p.id', 'LEFT')
                         ->where([
                             'c.status' => 1
+                        ])->order_by('c.id', "DESC")->get();
+    }
+
+    function getActiveByLabels($labelid, $limit = false){
+        if($limit){
+            $this->db->limit($limit);
+        }
+
+        return $this->db->select('c.*, p.nama')
+                        ->from('courses c')
+                        ->join('tutor p', 'c.pemateriid = p.id', 'LEFT')
+                        ->join('courses_label cl', 'c.id = cl.courseid')
+                        ->where([
+                            'c.status' => 1,
+                            'cl.labelid' => $labelid
                         ])->order_by('c.id', "DESC")->get();
     }
 

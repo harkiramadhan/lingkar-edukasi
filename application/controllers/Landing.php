@@ -4,6 +4,7 @@ class Landing extends CI_Controller{
     parent::__construct();
     $this->load->model([
       'M_Users',
+      'M_Courses',
       'M_Settings',
       'M_Labels',
       'M_Benefit_Landing',

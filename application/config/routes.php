@@ -76,3 +76,5 @@ $route['admin/course/(:num)/edit'] = 'admin/course/edit/$1';
 $route['tutor/course/(:num)'] = 'tutor/course/detail/$1';
 $route['tutor/course/(:num)/media'] = 'tutor/course/media/$1';
 $route['tutor/course/(:num)/edit'] = 'tutor/course/edit/$1';
+
+$route['course/(:any)/detail'] = 'course/detail/$1';
