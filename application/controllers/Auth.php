@@ -164,27 +164,47 @@ class Auth extends CI_Controller{
     }
 
     function forgotpassword(){
-        $this->load->view('layout/user/header');
-        $this->load->view('user/forgot-password');
-        $this->load->view('layout/user/footer');
+        $var = [
+            'labels' => $this->M_Labels->getActive(),
+            'setting' => $this->M_Settings->get()
+        ];
+
+        $this->load->view('layout/user/header', $var);
+        $this->load->view('user/forgot-password', $var);
+        $this->load->view('layout/user/footer', $var);
     }
 
     function verifemail(){
-        $this->load->view('layout/user/header');
-        $this->load->view('user/verif-email');
-        $this->load->view('layout/user/footer');
+        $var = [
+            'labels' => $this->M_Labels->getActive(),
+            'setting' => $this->M_Settings->get()
+        ];
+
+        $this->load->view('layout/user/header', $var);
+        $this->load->view('user/verif-email', $var);
+        $this->load->view('layout/user/footer', $var);
     }
 
     function passwordbaru(){
-        $this->load->view('layout/user/header');
-        $this->load->view('user/password-baru');
-        $this->load->view('layout/user/footer');
+        $var = [
+            'labels' => $this->M_Labels->getActive(),
+            'setting' => $this->M_Settings->get()
+        ];
+
+        $this->load->view('layout/user/header', $var);
+        $this->load->view('user/password-baru', $var);
+        $this->load->view('layout/user/footer', $var);
     }
     
     function cekemailpassword(){
-        $this->load->view('layout/user/header');
-        $this->load->view('user/cek-email-password');
-        $this->load->view('layout/user/footer');
+        $var = [
+            'labels' => $this->M_Labels->getActive(),
+            'setting' => $this->M_Settings->get()
+        ];
+
+        $this->load->view('layout/user/header', $var);
+        $this->load->view('user/cek-email-password', $var);
+        $this->load->view('layout/user/footer', $var);
     }
 
     /* Action */
