@@ -37,9 +37,9 @@
             <div class="text-color-white">Kategori</div>
           </div>
           <nav class="dropdown-list w-dropdown-list">
-            <a href="#" class="dropdown-link w-dropdown-link">Link 1</a>
-            <a href="#" class="dropdown-link w-dropdown-link">Link 2</a>
-            <a href="#" class="dropdown-link w-dropdown-link">Link 3</a>
+            <?php foreach($labels->result() as $lRow){ ?>
+              <a href="<?= site_url('course/' . $lRow->id . '/category') ?>" class="dropdown-link w-dropdown-link"><?= $lRow->label ?></a>
+            <?php } ?>
           </nav>
         </div>
         <form action="/search" class="nav-search w-form">
@@ -98,9 +98,9 @@
             <div class="text-color-white">Kategori</div>
           </div>
           <nav class="dropdown-list w-dropdown-list">
-            <a href="#" class="dropdown-link w-dropdown-link">Link 1</a>
-            <a href="#" class="dropdown-link w-dropdown-link">Link 2</a>
-            <a href="#" class="dropdown-link w-dropdown-link">Link 3</a>
+            <?php foreach($labels->result() as $lRow){ ?>
+              <a href="<?= site_url('course/' . $lRow->id . '/category') ?>" class="dropdown-link w-dropdown-link"><?= $lRow->label ?></a>
+            <?php } ?>
           </nav>
         </div>
         <a href="<?= site_url('signin') ?>" class="nav-button-secondary w-nav-link">Masuk</a>
