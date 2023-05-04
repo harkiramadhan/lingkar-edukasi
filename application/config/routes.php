@@ -59,6 +59,7 @@ $route['signup'] = 'auth/signup';
 $route['logout'] = 'auth/logout';
 $route['forgotpassword'] = 'auth/forgotpassword';
 $route['signinWithGoogle'] = 'auth/signinWithGoogle';
+$route['newPassword'] = 'auth/passwordbaru';
 
 $route['admin'] = 'admin/admin/index';
 $route['admin/auth'] = 'admin/admin/auth';

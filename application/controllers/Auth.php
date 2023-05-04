@@ -46,7 +46,6 @@ class Auth extends CI_Controller{
                         'name' => $data['name'],
                         'email' => $data['email'],
                         'profile_picture' => $data['picture'],
-                        'password' => '',
                     ];
                     $this->db->where('id', $userCheck->row()->id)->update('user', $dataUpdate);
                 }else{
@@ -66,8 +65,6 @@ class Auth extends CI_Controller{
                 }
 
                 $userCheck2 = $this->db->get_where('user', ['email' => $data['email']])->row();
-                
-                $this->session->set_userdata('user_data', $data);
                 $this->session->set_userdata('is_user', TRUE);
                 $this->session->set_userdata('user_id', $userCheck2->id);
             }									
@@ -186,14 +183,19 @@ class Auth extends CI_Controller{
     }
 
     function passwordbaru(){
-        $var = [
-            'labels' => $this->M_Labels->getActive(),
-            'setting' => $this->M_Settings->get()
-        ];
-
-        $this->load->view('layout/user/header', $var);
-        $this->load->view('user/password-baru', $var);
-        $this->load->view('layout/user/footer', $var);
+        if(!$this->session->userdata('is_user')){
+            redirect('signin');
+        }else{
+            $var = [
+                'labels' => $this->M_Labels->getActive(),
+                'setting' => $this->M_Settings->get(),
+                'user' => $this->M_Users->getById($this->session->userdata('user_id'))
+            ];
+    
+            $this->load->view('layout/user/header', $var);
+            $this->load->view('user/password-baru', $var);
+            $this->load->view('layout/user/footer', $var);
+        }
     }
     
     function cekemailpassword(){
@@ -252,9 +254,15 @@ class Auth extends CI_Controller{
             redirect($_SERVER['HTTP_REFERER']);
         }else{
             if(!$emailCheck->password){
-                echo "Belum Ada Password";
+                $this->session->set_userdata('is_user', TRUE);
+                $this->session->set_userdata('user_id', $emailCheck->id);
+
+                redirect('newPassword','refresh');
             }elseif($emailCheck->password == $password){
-                echo "Password Sesuai";
+                $this->session->set_userdata('is_user', TRUE);
+                $this->session->set_userdata('user_id', $emailCheck->id);
+
+                redirect('course','refresh');
             }else{
                 $this->session->set_flashdata('error', "Password Yang Dimasukan Salah!");
                 $this->session->set_flashdata('email', $email);
@@ -295,5 +303,33 @@ class Auth extends CI_Controller{
         // }else{
         //     return TRUE;
         // }
+    }
+
+    function createPassword(){
+        if(!$this->session->userdata('is_user')){
+            redirect('signin');
+        }else{
+            $userid = $this->session->userdata('user_id');
+            $password = $this->input->post('pwd', TRUE);
+            $validate = $this->input->post('validate', TRUE);
+
+            if($password == $validate){
+                $this->db->where('id', $userid)->update('user', [
+                    'password' => md5($validate)
+                ]);
+
+                if($this->db->affected_rows() > 0){
+                    $this->session->set_flashdata('success', "Password Berhasil Di Perbarui");
+                    redirect('','refresh');
+                }else{
+                    $this->session->set_flashdata('error', "Password Gagal Di Perbarui");
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            }else{
+                $this->session->set_flashdata('error', "Password Tidak Sesuai");
+                redirect($_SERVER['HTTP_REFERER']);
+                
+            }
+        }
     }
 }
