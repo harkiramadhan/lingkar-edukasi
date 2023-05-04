@@ -175,7 +175,7 @@
         </form>
       </div>
       <nav role="navigation" class="nav-button-wrapper w-nav-menu" style="margin-left: auto;">
-        <a href="<?= site_url('/course/kelassaya') ?>" class="nav-button-secondary w-nav-link">kelas saya</a>
+        <a href="<?= site_url('/kelas') ?>" class="nav-button-secondary w-nav-link">kelas saya</a>
       </nav>
       <div data-hover="false" data-delay="0" class="dropdown-user_nav hide-mobile_landscape w-dropdown" style="margin: 0px;">
         <div class="w-dropdown-toggle">
