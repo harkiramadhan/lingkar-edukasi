@@ -32,4 +32,23 @@ class Profil extends CI_Controller{
     $this->load->view('layout/user/footer', $var);
   }
 
+  function action(){
+    $this->db->where('id', $this->session->userdata('user_id'))->update('user', [
+      'name' => $this->input->post('name', TRUE),
+      'nohp' => $this->input->post('nohp', TRUE),
+      'email' => $this->input->post('email', TRUE),
+      'jenkel' => $this->input->post('jenkel', TRUE),
+      'pendidikan' => $this->input->post('pendidikan', TRUE),
+      'tgll' => $this->input->post('tgll', TRUE),
+    ]);
+    if($this->db->affected_rows() > 0){
+      $this->session->set_flashdata('success', "Data Berhasil Di Simpan");
+    }else{
+      $this->session->set_flashdata('error', "Data Gagal Di Simpan");
+    }
+
+    
+    redirect($_SERVER['HTTP_REFERER']);
+  }
+
 }   

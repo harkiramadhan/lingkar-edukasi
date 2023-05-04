@@ -46,14 +46,15 @@
                                             <img src="<?= base_url('assets/user/images/Mode-edit.svg')?>" loading="lazy" alt="">
                                         </a>
                                     </div>
-                                    <form method="post" class="form-field_wrapper" action="">
+                                    <form method="post" class="form-field_wrapper" action="<?= site_url('profil/action') ?>">
                                         <label for="name" class="text-size-regular">Nama Lengkap</label>
                                         <input type="text" class="text-field w-input" maxlength="256" name="name" data-name="Name" placeholder="Tulis nama lengkapmu" required="" value="<?= $user->name ?>">
                                         
                                         <label for="password-2" class="text-size-regular">Email Aktif</label>
                                         <input type="email" class="text-field w-input" maxlength="256" name="email" placeholder="email@gmail.com" required="" value="<?= $user->email ?>">
+                                        
                                         <label for="name-2" class="text-size-regular">No HP</label>
-                                        <input type="text" class="text-field w-input" maxlength="256" placeholder="0821xxxxx" required="" value="<?= $user->nohp ?>">
+                                        <input type="number" class="text-field w-input" maxlength="256" name="nohp" placeholder="0821xxxxx" required="" value="<?= $user->nohp ?>">
                                         
                                         <label for="name-3" class="text-size-regular">Jenis Kelamin</label>
                                         <select class="form-control form-control-lg default-select" tabindex="-98" name="jenkel" required>
