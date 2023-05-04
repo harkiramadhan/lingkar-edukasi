@@ -51,4 +51,27 @@ class Profil extends CI_Controller{
     redirect($_SERVER['HTTP_REFERER']);
   }
 
+  function changePassword(){
+    $userid = $this->session->userdata('user_id');
+    $user = $this->M_Users->getById($userid);
+
+    $newPass = $this->input->post('new_pass', TRUE);
+    $oldPass = $this->input->post('old_pass', TRUE);
+
+    if(($user->password != NULL && $user->password == md5($oldPass)) || $user->password == NULL){
+      $this->db->where('id', $userid)->update('user', [
+        'password' => md5($newPass)
+      ]);
+      if($this->db->affected_rows() > 0){
+        $this->session->set_flashdata('success', "Data Berhasil Di Simpan");
+      }else{
+        $this->session->set_flashdata('error', "Data Gagal Di Simpan");
+      }
+    }else{
+      $this->session->set_flashdata('error', "Password Lama Tidak Sesuai");
+    }
+
+    redirect($_SERVER['HTTP_REFERER']);
+  }
+
 }   

@@ -95,41 +95,18 @@
                             </div>
                             <div data-w-tab="Tab 3" class="w-tab-pane">
                                 <div class="signin-form w-form">
-                                    <form
-                                        id="email-form"
-                                        name="email-form"
-                                        data-name="Email Form"
-                                        method="get"
-                                        class="form-field_wrapper">
+                                    <form method="post" class="form-field_wrapper" action="<?= site_url('profil/changePassword') ?>">
                                         <label for="name-3" class="text-size-regular">Password Lama</label>
                                         <div class="text-field_block">
-                                            <div class="eye-icon_wrapper"><img
-                                                src="<?= base_url('assets/user/images/Remove-red-eye.svg')?>"
-                                                loading="lazy"
-                                                alt=""
-                                                class="eye-icon"></div><input
-                                                type="password"
-                                                class="text-field margin-bottom-20 w-input"
-                                                maxlength="256"
-                                                name="Password Lama"
-                                                data-name="Password Baru"
-                                                placeholder="Tulis passwordmu"
-                                                id="password"
-                                                required="">
+                                            <div class="eye-icon_wrapper">
+                                                <img src="<?= base_url('assets/user/images/Remove-red-eye.svg')?>" loading="lazy" alt="" class="eye-icon">
+                                            </div>
+                                            <input type="password" class="text-field margin-bottom-20 w-input" name="old_pass" data-name="Password Baru" placeholder="Tulis passwordmu" id="password" required="">
                                         </div>
-                                        <label for="password" class="text-size-regular">Password Baru</label><input
-                                            type="password"
-                                            class="text-field w-input"
-                                            maxlength="256"
-                                            name="Password Baru"
-                                            data-name="Password baru"
-                                            placeholder="Tulis ulang passwordmu"
-                                            id="password"
-                                            required=""><input
-                                            type="submit"
-                                            value="Simpan"
-                                            data-wait="Please wait..."
-                                            class="button is-yellow margin-top-24 w-button">
+                                        
+                                        <label for="password" class="text-size-regular">Password Baru</label>
+                                        <input type="password" class="text-field w-input" name="new_pass" data-name="Password baru" placeholder="Tulis ulang passwordmu" id="new_password" required="">
+                                        <input type="submit" value="Simpan" data-wait="Please wait..." class="button is-yellow margin-top-24 w-button">
                                     </form>
                                     <div class="w-form-done">
                                         <div>Thank you! Your submission has been received!</div>
