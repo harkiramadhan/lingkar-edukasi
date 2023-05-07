@@ -24,9 +24,9 @@ class Kelas extends CI_Controller{
     function index(){
         $userid = $this->session->userdata('user_id');
         $var = [
-        'labels' => $this->M_Labels->getActive(),
-        'setting' => $this->M_Settings->get(),
-        'user' => $this->M_Users->getById($userid)
+            'labels' => $this->M_Labels->getActive(),
+            'setting' => $this->M_Settings->get(),
+            'user' => $this->M_Users->getById($userid)
         ];
 
         $this->load->view('layout/user/header', $var);
@@ -37,9 +37,9 @@ class Kelas extends CI_Controller{
     function joined(){
         $userid = $this->session->userdata('user_id');
         $var = [
-        'labels' => $this->M_Labels->getActive(),
-        'setting' => $this->M_Settings->get(),
-        'user' => $this->M_Users->getById($userid)
+            'labels' => $this->M_Labels->getActive(),
+            'setting' => $this->M_Settings->get(),
+            'user' => $this->M_Users->getById($userid)
         ];
 
         $this->load->view('layout/user/header', $var);
@@ -50,9 +50,9 @@ class Kelas extends CI_Controller{
     function kelassayacourse(){
         $userid = $this->session->userdata('user_id');
         $var = [
-        'labels' => $this->M_Labels->getActive(),
-        'setting' => $this->M_Settings->get(),
-        'user' => $this->M_Users->getById($userid)
+            'labels' => $this->M_Labels->getActive(),
+            'setting' => $this->M_Settings->get(),
+            'user' => $this->M_Users->getById($userid)
         ];
 
         $this->load->view('layout/user/header', $var);
@@ -63,9 +63,9 @@ class Kelas extends CI_Controller{
     function kelassayaselesai(){
         $userid = $this->session->userdata('user_id');
         $var = [
-        'labels' => $this->M_Labels->getActive(),
-        'setting' => $this->M_Settings->get(),
-        'user' => $this->M_Users->getById($userid)
+            'labels' => $this->M_Labels->getActive(),
+            'setting' => $this->M_Settings->get(),
+            'user' => $this->M_Users->getById($userid)
         ];
 
         $this->load->view('layout/user/header', $var);

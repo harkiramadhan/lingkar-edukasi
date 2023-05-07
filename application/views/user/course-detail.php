@@ -41,7 +41,7 @@
                 </div>
                 <div class="coursedetail-hero_pill">
                   <div class="coursedetail-pill-flex"><img src="<?= base_url('assets/user/images/Assessment.svg')?>" loading="lazy" alt="" class="coursepill-icon">
-                    <div class="coursepill-text">3 Jam, 2 Menit</div>
+                    <div class="coursepill-text"><?= ($course->level == 1) ? 'Beginner' : (($course->level == 2) ? 'Medium' : 'Advanced') ?></div>
                   </div>
                 </div>
               </div>
@@ -158,138 +158,32 @@
                 <div class="coursedetails-tabcontent">
                   <h2 class="heading-small no-margin">Daftar Materi</h2>
                   <div class="materi-accordion">
-                    <div data-w-id="94122fb6-3714-9896-362c-306bc39c0a28" class="materi_accordion-item">
-                      <div class="materi-accordion_header">
-                        <h3 class="materi-accordion_heading">Digital Marketing Pada Sebagian Orang</h3>
-                        <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)" class="materi-accordion_icon">
-                          <div class="icon-24 w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_186_211)">
-                                <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_186_211">
-                                  <rect width="24" height="24" fill="white" transform="matrix(0 1 -1 0 24 0)"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
+
+                    <?php foreach($materi->result() as $mRow){ ?>
+                      <div data-w-id="94122fb6-3714-9896-362c-306bc39c0a28-<?= $mRow->id ?>" class="materi_accordion-item">
+                        <div class="materi-accordion_header">
+                          <h3 class="materi-accordion_heading"><?= $mRow->materi ?></h3>
+                          <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)" class="materi-accordion_icon">
+                            <div class="icon-24 w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_186_211)">
+                                  <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="CurrentColor"></path>
+                                </g>
+                                <defs>
+                                  <clippath id="clip0_186_211">
+                                    <rect width="24" height="24" fill="white" transform="matrix(0 1 -1 0 24 0)"></rect>
+                                  </clippath>
+                                </defs>
+                              </svg></div>
+                          </div>
+                        </div>
+                        <div style="height:0px" class="materi-accordion_content">
+                          <div class="materi-accordion_padding">
+                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</div>
+                          </div>
                         </div>
                       </div>
-                      <div style="height:0px" class="materi-accordion_content">
-                        <div class="materi-accordion_padding">
-                          <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div data-w-id="ca92d7b7-a210-5263-76ff-74479de5e723" class="materi_accordion-item">
-                      <div class="materi-accordion_header">
-                        <h3 class="materi-accordion_heading">Digital Marketing Pada Sebagian Orang</h3>
-                        <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)" class="materi-accordion_icon">
-                          <div class="icon-24 w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_186_211)">
-                                <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_186_211">
-                                  <rect width="24" height="24" fill="white" transform="matrix(0 1 -1 0 24 0)"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                      </div>
-                      <div style="height:0px" class="materi-accordion_content">
-                        <div class="materi-accordion_padding">
-                          <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div data-w-id="f4388d49-6860-7886-65a2-73d180624a33" class="materi_accordion-item">
-                      <div class="materi-accordion_header">
-                        <h3 class="materi-accordion_heading">Digital Marketing Pada Sebagian Orang</h3>
-                        <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)" class="materi-accordion_icon">
-                          <div class="icon-24 w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_186_211)">
-                                <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_186_211">
-                                  <rect width="24" height="24" fill="white" transform="matrix(0 1 -1 0 24 0)"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                      </div>
-                      <div style="height:0px" class="materi-accordion_content">
-                        <div class="materi-accordion_padding">
-                          <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div data-w-id="fa2f058b-0cb3-7884-1d62-0259981c25b8" class="materi_accordion-item">
-                      <div class="materi-accordion_header">
-                        <h3 class="materi-accordion_heading">Digital Marketing Pada Sebagian Orang</h3>
-                        <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)" class="materi-accordion_icon">
-                          <div class="icon-24 w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_186_211)">
-                                <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_186_211">
-                                  <rect width="24" height="24" fill="white" transform="matrix(0 1 -1 0 24 0)"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                      </div>
-                      <div style="height:0px" class="materi-accordion_content">
-                        <div class="materi-accordion_padding">
-                          <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div data-w-id="eb6d45f1-279c-26bd-c77d-60fba9e24706" class="materi_accordion-item">
-                      <div class="materi-accordion_header">
-                        <h3 class="materi-accordion_heading">Digital Marketing Pada Sebagian Orang</h3>
-                        <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)" class="materi-accordion_icon">
-                          <div class="icon-24 w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_186_211)">
-                                <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_186_211">
-                                  <rect width="24" height="24" fill="white" transform="matrix(0 1 -1 0 24 0)"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                      </div>
-                      <div style="height:0px" class="materi-accordion_content">
-                        <div class="materi-accordion_padding">
-                          <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div data-w-id="b114e39c-f904-8c65-b58a-1a41ada55e41" class="materi_accordion-item">
-                      <div class="materi-accordion_header">
-                        <h3 class="materi-accordion_heading">Digital Marketing Pada Sebagian Orang</h3>
-                        <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)" class="materi-accordion_icon">
-                          <div class="icon-24 w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_186_211)">
-                                <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_186_211">
-                                  <rect width="24" height="24" fill="white" transform="matrix(0 1 -1 0 24 0)"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                      </div>
-                      <div style="height:0px" class="materi-accordion_content">
-                        <div class="materi-accordion_padding">
-                          <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</div>
-                        </div>
-                      </div>
-                    </div>
+                    <?php } ?>
+
                   </div>
                 </div>
               </div>

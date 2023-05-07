@@ -13,7 +13,8 @@ class Course extends CI_Controller{
       'M_Banners',
       'M_Partner',
       'M_Benefit',
-      'M_Tutor'
+      'M_Tutor',
+      'M_Materi'
     ]);
 
     // if(!$this->session->userdata('is_user')){
@@ -43,7 +44,8 @@ class Course extends CI_Controller{
       'course' => $course,
       'title' => $this->M_Courses->getByFlag($flag)->judul,
       'benefit' => $this->M_Benefit->getByCourse($course->id),
-      'tutor' => $this->M_Tutor->getById($course->pemateriid)
+      'tutor' => $this->M_Tutor->getById($course->pemateriid),
+      'materi' => $this->M_Materi->getByClass($course->id)
     ];
 
     $this->load->view('layout/user/header', $var);

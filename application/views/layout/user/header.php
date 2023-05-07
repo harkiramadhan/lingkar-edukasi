@@ -129,9 +129,9 @@
             <?php } ?>
           </nav>
         </div>
-        <form action="/search" class="nav-search w-form">
+        <div class="nav-search w-form">
           <div class="search-input-relative">
-            <input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari kelas..." id="search" required="">
+            <input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari Kelas..." id="search" required="">
             <input type="submit" value="" class="nav-search-button w-button">
             <div class="empty-search">
               <div class="empt-result_image"><img src="images/Dangerous.svg" loading="lazy" alt=""></div>
@@ -172,7 +172,7 @@
               </div>
             </div>
           </div>
-        </form>
+        </div>
       </div>
       <nav role="navigation" class="nav-button-wrapper w-nav-menu" style="margin-left: auto;">
         <a href="<?= site_url('/kelas') ?>" class="nav-button-secondary w-nav-link">kelas saya</a>
@@ -208,9 +208,12 @@
             <a href="<?= site_url('logout') ?>" class="w-dropdown-link">Logout</a>
           </nav>
         </div>
-        <form action="/search" class="nav-search show-mobile w-form">
-          <div class="search-input-relative"><input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari kelas..." id="search" required=""><input type="submit" value="" class="nav-search-button w-button"></div>
-        </form>
+        <div class="nav-search show-mobile w-form">
+          <div class="search-input-relative">
+            <input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari kelas..." id="search" required="">
+            <input type="submit" value="" class="nav-search-button w-button">
+          </div>
+        </div>
       </nav>
       <div class="menu-button w-nav-button">
         <div class="w-icon-nav-menu"></div>
