@@ -3,10 +3,12 @@
 <html data-wf-page="63ed53b6a4b189c2f92afb62" data-wf-site="63ed53b6a4b18967392afb61">
 <head>
   <meta charset="utf-8">
-  <title>Lingkar Edukasi</title>
+  <title>Lingkar Edukasi | <?= @$title ?></title>
   
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Webflow" name="generator">
+  <meta name="referrer" content="no-referrer" />
+
   <link href="<?= base_url('assets/user/css/normalize.css')?>" rel="stylesheet" type="text/css">
   <link href="<?= base_url('assets/user/css/webflow.css')?>" rel="stylesheet" type="text/css">
   <link href="<?= base_url('assets/user/css/lingkar-edukasi.webflow.css')?>" rel="stylesheet" type="text/css">
@@ -111,7 +113,7 @@
         <div class="w-dropdown-toggle">
           <div class="dropdown-icon is-yellow w-icon-dropdown-toggle"></div>
             <?php if($user->is_google): ?>
-              <div class="dropdown-user_setup" style="background-image:url('<?= $user->profile_picture ?>')"></div>
+              <div class="dropdown-user_foto" style="background-image:url('<?= $user->profile_picture ?>') !important" referrerPolicy="no-referrer"></div>
             <?php else: ?>
               <div class="dropdown-user_foto"></div>
             <?php endif; ?>
@@ -127,7 +129,7 @@
           <div class="profile-dropdown-toggle w-dropdown-toggle">
             <div class="dropdown-icon is-yellow w-icon-dropdown-toggle"></div>
             <?php if($user->is_google): ?>
-              <div class="dropdown-user_foto" style="background-image: <?= $user->profile_picture ?> !important"></div>
+              <div class="dropdown-user_foto" style="background-image:url('<?= $user->profile_picture ?>') !important" referrerPolicy="no-referrer"></div>
             <?php else: ?>
               <div class="dropdown-user_foto"></div>
             <?php endif; ?>

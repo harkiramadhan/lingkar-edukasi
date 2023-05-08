@@ -98,7 +98,9 @@
 
         <div class="cdetail-sidebar show-tablet">
           <div class="cdetail-kelas_card">
-            <div class="kelas-card_image-wrapper higher"><img src="images/placeholder-1.webp" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, (max-width: 991px) 92vw, 100vw" srcset="images/placeholder-1-p-500.jpg 500w, images/placeholder-1.webp 576w" alt="" class="kelas-card_image"></div>
+            <div class="kelas-card_image-wrapper higher">
+              <img src="<?= base_url('uploads/courses/' . $course->cover) ?>" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, (max-width: 991px) 92vw, 100vw" srcset="<?= base_url('uploads/courses/' .  $course->cover) ?> 500w, <?= base_url('uploads/courses/' . $course->cover) ?> 576w" alt="" class="kelas-card_image">
+            </div>
             <div class="kelas-card_content">
               <div class="kelas-card_title-wrapper">
                 <div class="margin-bottom-16">

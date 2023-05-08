@@ -1642,7 +1642,7 @@ label {
   border-color: #ffaa46;
   border-radius: 99px;
   background-color: #d9d9d9;
-  background-image: url('../images/tutor-placeholder.webp');
+  /* background-image: url('../images/tutor-placeholder.webp'); */
   background-position: 50% 50%;
   background-size: cover;
 }
