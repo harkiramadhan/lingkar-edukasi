@@ -136,9 +136,11 @@ class Course extends CI_Controller{
       <?php
     }else{
       ?>
-        <div class="empt-result_image"><img src="images/Dangerous.svg" loading="lazy" alt=""></div>
+        <div class="empt-result_image">
+          <img src="<?= base_url('assets/user/images/Dangerous.svg') ?>" loading="lazy" alt="">
+        </div>
         <div>
-          <h3 class="heading-xtrasmall no-margin">Maaf, kami tidak menemukan untuk &quot;<?= $val ?>&quot;</h3>
+          <h3 class="kelas-card_creator">Maaf, kami tidak menemukan untuk &quot;<?= $val ?>&quot;</h3>
           <div class="kelas-card_creator">Gunakan istilah pencarian lainnya</div>
         </div>
         <h3 class="heading-xtrasmall no-margin">atau</h3>
