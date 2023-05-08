@@ -3,23 +3,25 @@ $(document).ready(function() {
     var results = $('.result-search')
 
     input.on('input', function () {
-        // val = $(this).val()
-        // console.log($(this).val())
-        // $.ajax({
-        //     url: baseUrl + 'course/search/',
-        //     type: 'get',
-        //     data: {val : val},
-        //     beforeSend: function(){
+        val = $(this).val()
+        console.log($(this).val())
+        $.ajax({
+            url: baseUrl + 'course/search/',
+            type: 'get',
+            data: {val : val},
+            beforeSend: function(){
+                $('.result-search').empty()
+            },
+            success: function(res){
+                results.css('display', 'block')
+                $('.result-search').html(res)
+            }
+        })
+    })
 
-        //     },
-        //     success: function(res){
-        //         if(res.length > 0){
-
-        //         }else{
-                    $('.empty-search').css('display', 'block')
-        //         }
-        //     }
-        // })
+    $('.btn-redirect').click(function(){
+        var url = $(this).attr('data-url')
+        window.location.href = url
     })
 
     // input.on('focus', function() {

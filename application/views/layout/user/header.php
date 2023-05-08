@@ -46,43 +46,8 @@
           <div class="search-input-relative">
             <input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari kelas..." id="search" required="">
             <input type="submit" value="" class="nav-search-button w-button">
-            <div class="empty-search">
-              <div class="empt-result_image"><img src="images/Dangerous.svg" loading="lazy" alt=""></div>
-              <div>
-                <h3 class="heading-xtrasmall no-margin">Maaf, kami tidak menemukan untuk &quot;dsadafa&quot;</h3>
-                <div class="kelas-card_creator">Gunakan istilah pencarian lainnya</div>
-              </div>
-              <h3 class="heading-xtrasmall no-margin">atau</h3>
-              <div class="divider"></div>
-              <div class="search-link">
-                <div class="text-size-medium is-red">Lihat semua kelas</div>
-              </div>
-            </div>
             <div class="result-search">
-              <div class="kelas-card-vertical_wrapper">
-                <div class="kelas-card-vertical_image-wrapper"><img src="images/placeholder-1.webp" loading="lazy" sizes="100vw" srcset="images/placeholder-1-p-500.jpg 500w, images/placeholder-1.webp 576w" alt="" class="kelas-card-vertical_image"></div>
-                <div class="kelas-card-vertical_content">
-                  <div class="kelas-card_title-wrapper">
-                    <h3 class="heading-xtrasmall no-margin searchresult">Ini adalah kelas paling populer di Indonesia</h3>
-                    <div class="kelas-card_creator hide-mobile">By Satria Sambiring</div>
-                  </div>
-                  <div class="kelas-card-vertical_harga">Rp. 799.000</div>
-                </div>
-              </div>
-              <div class="kelas-card-vertical_wrapper">
-                <div class="kelas-card-vertical_image-wrapper"><img src="images/placeholder-1.webp" loading="lazy" sizes="100vw" srcset="images/placeholder-1-p-500.jpg 500w, images/placeholder-1.webp 576w" alt="" class="kelas-card-vertical_image"></div>
-                <div class="kelas-card-vertical_content">
-                  <div class="kelas-card_title-wrapper">
-                    <h3 class="heading-xtrasmall no-margin searchresult">Ini adalah kelas paling populer di Indonesia</h3>
-                    <div class="kelas-card_creator hide-mobile">By Satria Sambiring</div>
-                  </div>
-                  <div class="kelas-card-vertical_harga">Rp. 799.000</div>
-                </div>
-              </div>
-              <div class="divider"></div>
-              <div class="search-link">
-                <div class="text-size-medium is-red">Lihat semua kelas</div>
-              </div>
+
             </div>
           </div>
         </form>
@@ -133,43 +98,8 @@
           <div class="search-input-relative">
             <input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari Kelas..." id="search" required="">
             <input type="submit" value="" class="nav-search-button w-button">
-            <div class="empty-search">
-              <div class="empt-result_image"><img src="images/Dangerous.svg" loading="lazy" alt=""></div>
-              <div>
-                <h3 class="heading-xtrasmall no-margin">Maaf, kami tidak menemukan untuk &quot;dsadafa&quot;</h3>
-                <div class="kelas-card_creator">Gunakan istilah pencarian lainnya</div>
-              </div>
-              <h3 class="heading-xtrasmall no-margin">atau</h3>
-              <div class="divider"></div>
-              <div class="search-link">
-                <div class="text-size-medium is-red">Lihat semua kelas</div>
-              </div>
-            </div>
             <div class="result-search">
-              <div class="kelas-card-vertical_wrapper">
-                <div class="kelas-card-vertical_image-wrapper"><img src="images/placeholder-1.webp" loading="lazy" sizes="100vw" srcset="images/placeholder-1-p-500.jpg 500w, images/placeholder-1.webp 576w" alt="" class="kelas-card-vertical_image"></div>
-                <div class="kelas-card-vertical_content">
-                  <div class="kelas-card_title-wrapper">
-                    <h3 class="heading-xtrasmall no-margin searchresult">Ini adalah kelas paling populer di Indonesia</h3>
-                    <div class="kelas-card_creator hide-mobile">By Satria Sambiring</div>
-                  </div>
-                  <div class="kelas-card-vertical_harga">Rp. 799.000</div>
-                </div>
-              </div>
-              <div class="kelas-card-vertical_wrapper">
-                <div class="kelas-card-vertical_image-wrapper"><img src="images/placeholder-1.webp" loading="lazy" sizes="100vw" srcset="images/placeholder-1-p-500.jpg 500w, images/placeholder-1.webp 576w" alt="" class="kelas-card-vertical_image"></div>
-                <div class="kelas-card-vertical_content">
-                  <div class="kelas-card_title-wrapper">
-                    <h3 class="heading-xtrasmall no-margin searchresult">Ini adalah kelas paling populer di Indonesia</h3>
-                    <div class="kelas-card_creator hide-mobile">By Satria Sambiring</div>
-                  </div>
-                  <div class="kelas-card-vertical_harga">Rp. 799.000</div>
-                </div>
-              </div>
-              <div class="divider"></div>
-              <div class="search-link">
-                <div class="text-size-medium is-red">Lihat semua kelas</div>
-              </div>
+              
             </div>
           </div>
         </div>
