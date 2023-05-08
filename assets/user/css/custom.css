@@ -37,3 +37,17 @@
     font-weight: 400;
 
 }
+
+.materi-accordion_header_item{
+
+    padding-top: 10px;
+}
+
+.empt-result_image {
+    text-align: center;
+}
+
+.result-search {
+    border: 1px solid #7186a0;
+    /* text-align: center; */
+}

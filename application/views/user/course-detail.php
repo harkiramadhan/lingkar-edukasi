@@ -169,24 +169,13 @@
                       <div data-w-id="94122fb6-3714-9896-362c-306bc39c0a28-<?= $mRow->id ?>" class="materi_accordion-item">
                         <div class="materi-accordion_header">
                           <h3 class="materi-accordion_heading"><?= $mRow->materi ?></h3>
-                          <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)" class="materi-accordion_icon">
-                            <div class="icon-24 w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_186_211)">
-                                  <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="CurrentColor"></path>
-                                </g>
-                                <defs>
-                                  <clippath id="clip0_186_211">
-                                    <rect width="24" height="24" fill="white" transform="matrix(0 1 -1 0 24 0)"></rect>
-                                  </clippath>
-                                </defs>
-                              </svg></div>
-                          </div>
+                          <div class="coursepill-text" style="color: #000000;">3 Jam, 2 Menit</div>
                         </div>
-                        <div style="height:0px" class="materi-accordion_content">
-                          <div class="materi-accordion_padding">
-                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</div>
-                          </div>
-                        </div>
+                        <ul>
+                          <li class="materi-accordion_header_item">Alfian</li>
+                          <li class="materi-accordion_header_item">Alfian</li>
+                          <li class="materi-accordion_header_item">Alfian</li>
+                        </ul>
                       </div>
                     <?php } ?>
 
@@ -199,4 +188,4 @@
       </div>
       <div class="cdetail-spacer"></div>
     </section>
-  </main>
+</main>

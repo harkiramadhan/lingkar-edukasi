@@ -31,7 +31,7 @@
             </div>
             <div class="hero_company-wrapper">
                 <?php foreach($partner->result() as $rowP){ ?>
-                    <img src="<?= base_url('uploads/partner/' . $rowP->img)?>" loading="lazy" alt="<?= $rowP->judul ?>">
+                    <img src="<?= base_url('uploads/partner/' . $rowP->img)?>" loading="lazy" alt="<?= $rowP->judul ?>" style="height: 30px;">
                 <?php } ?>
             </div>
         </div>
