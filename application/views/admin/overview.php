@@ -76,7 +76,7 @@
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="mb-1 text-white">Peserta</p>
-                                                    <h4 class="mb-0 text-white">3280</h4>
+                                                    <h4 class="mb-0 text-white"><?= $peserta->num_rows() ?></h4>
                                                     <!-- <span class="badge badge-primary">+3.5%</span> -->
                                                 </div>
                                             </div>
@@ -96,7 +96,7 @@
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="mb-1 text-white">Kelas</p>
-                                                    <h4 class="mb-0 text-white">3280</h4>
+                                                    <h4 class="mb-0 text-white"><?= $courses->num_rows() ?></h4>
                                                     <!-- <span class="badge badge-primary">+3.5%</span> -->
                                                 </div>
                                             </div>
@@ -116,7 +116,7 @@
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="mb-1 text-white">Mentor</p>
-                                                    <h4 class="mb-0 text-white">3280</h4>
+                                                    <h4 class="mb-0 text-white"><?= $tutor->num_rows() ?></h4>
                                                     <!-- <span class="badge badge-primary">+3.5%</span> -->
                                                 </div>
                                             </div>
@@ -136,52 +136,31 @@
                                                     </svg>
                                                 </div>
                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="javascript:void(0);">Selengkapnya</a>
-                                                    <a class="dropdown-item text-danger" href="javascript:void(0);">Cancel</a>
+                                                    <a class="dropdown-item" href="<?= site_url('admin/course') ?>">Selengkapnya</a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="card-body">
                                             <div class="event-bx owl-carousel">
-                                                <div class="items">
-                                                    <div class="image-bx">
-                                                        <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="">
-                                                        <div class="info">
-                                                            <p class="fs-18 font-w600">
-                                                                <a href="#" class="text-black">
-                                                                    Kelas Mengajar digital yang ada di pajak.
-                                                                </a>
-                                                            </p> 
-                                                            <!-- <span class="fs-14 text-black d-block mb-3">London, United Kingdom</span> -->
-                                                            <p class="fs-12">Deskripsi Singkat kelas sepanjang kurang lebih 100-200 kata.</p>
-                                                            <ul>
-                                                                <li><i class="las la-dollar-sign"></i>$124,00</li>
-                                                                <li><i class="las la-user"></i>561 Peserta</li>
-                                                                <!-- <li><i class="las la-clock"></i>08:35 AM</li> -->
-                                                            </ul>
+                                                <?php foreach($news->result() as $row){ ?>
+                                                    <div class="items">
+                                                        <div class="image-bx">
+                                                            <img src="<?= base_url('uploads/courses/' . $row->cover) ?>" alt="">
+                                                            <div class="info">
+                                                                <p class="fs-18 font-w600">
+                                                                    <a href="<?= site_url('course/' . $row->flag . '/detail') ?>" class="text-black" target="__BLANK"><?= $row->judul ?></a>
+                                                                </p> 
+                                                                <!-- <span class="fs-14 text-black d-block mb-3">London, United Kingdom</span> -->
+                                                                <p class="fs-12"><?= $row->deskripsi ?></p>
+                                                                <ul>
+                                                                    <li><i class="las la-dollar-sign"></i><?= rupiah($row->price, $row->discount) ?></li>
+                                                                    <li><i class="las la-user"></i>561 Peserta</li>
+                                                                    <!-- <li><i class="las la-clock"></i>08:35 AM</li> -->
+                                                                </ul>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-
-                                                <div class="items">
-                                                    <div class="image-bx">
-                                                        <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="">
-                                                        <div class="info">
-                                                            <p class="fs-18 font-w600">
-                                                                <a href="#" class="text-black">
-                                                                    Kelas Mengajar digital yang ada di pajak.
-                                                                </a>
-                                                            </p>
-                                                            <!-- <span class="fs-14 text-black d-block mb-3">London, United Kingdom</span> -->
-                                                            <p class="fs-12">Deskripsi Singkat kelas sepanjang kurang lebih 100-200 kata.</p>
-                                                            <ul>
-                                                                <li><i class="las la-dollar-sign"></i>$124,00</li>
-                                                                <li><i class="las la-user"></i>561 Peserta</li>
-                                                                <!-- <li><i class="las la-clock"></i>08:35 AM</li> -->
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                     </div>
