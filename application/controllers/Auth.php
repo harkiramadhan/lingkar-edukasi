@@ -44,29 +44,16 @@ class Auth extends CI_Controller{
                         'first_name' => $data['given_name'],
                         'last_name' => $data['family_name'],
                         'name' => $data['name'],
-                        'email' => $data['email'],
-                        'profile_picture' => $data['picture'],
+                        'email' => $data['email']
                     ];
                     $this->db->where('id', $userCheck->row()->id)->update('user', $dataUpdate);
-                }else{
-                    $dataInsert = [
-                        'is_google' => 1,
-                        'is_valid' => 1,
-                        'login_oauth_uid' => $data['id'],
-                        'first_name' => $data['given_name'],
-                        'last_name' => $data['family_name'],
-                        'name' => $data['name'],
-                        'email' => $data['email'],
-                        'profile_picture' => $data['picture'],
-                        'password' => '',
-                        'created_at' => $current_datetime
-                    ];
-                    $this->db->insert('user', $dataInsert);
-                }
 
-                $userCheck2 = $this->db->get_where('user', ['email' => $data['email']])->row();
-                $this->session->set_userdata('is_user', TRUE);
-                $this->session->set_userdata('user_id', $userCheck2->id);
+                    $userCheck2 = $this->db->get_where('user', ['email' => $data['email']])->row();
+                    $this->session->set_userdata('is_user', TRUE);
+                    $this->session->set_userdata('user_id', $userCheck2->id);
+                }else{
+                    $this->session->set_flashdata('error', "Email Belum Terdaftar!");
+                }
             }									
         }
         $var['login_button'] = '';
@@ -89,9 +76,9 @@ class Auth extends CI_Controller{
 
         include_once APPPATH . "../vendor/autoload.php";
         $googleClient = new Google_Client();
-        $googleClient->setClientId('842595441292-lmihklq8i6k91qnomq2cn9pb9vtfarpv.apps.googleusercontent.com');
-        $googleClient->setClientSecret('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');
-        $googleClient->setRedirectUri('http://localhost/lingkar-edukasi/signin');
+        $googleClient->setClientId('842595441292-5qgo3nk3crntg4tn8951uqkqugf6aqmo.apps.googleusercontent.com');
+        $googleClient->setClientSecret('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');
+        $googleClient->setRedirectUri('http://localhost/lingkar-edukasi/signup');
         $googleClient->addScope('email');
         $googleClient->addScope('profile');
 
@@ -112,6 +99,7 @@ class Auth extends CI_Controller{
                 );
 
                 $userCheck = $this->db->get_where('user', ['email' => $data['email']]);
+
                 if($userCheck->num_rows() > 0){
                     $dataUpdate = [
                         'login_oauth_uid' => $data['id'],
@@ -119,11 +107,16 @@ class Auth extends CI_Controller{
                         'last_name' => $data['family_name'],
                         'name' => $data['name'],
                         'email' => $data['email'],
-                        'profile_picture' => $data['picture'],
+                        'profile_picture' => $filename,
                         'password' => '',
                     ];
                     $this->db->where('id', $userCheck->row()->id)->update('user', $dataUpdate);
                 }else{
+                    /* Save Image From Google To Local */
+                    $imageUrl = $data['picture'];
+                    $filename = substr($imageUrl, strrpos($imageUrl, '/') + 1) . '.jpg';
+                    file_put_contents('uploads/profile/' . $filename, file_get_contents($imageUrl));
+                    
                     $dataInsert = [
                         'is_google' => 1,
                         'is_valid' => 1,
@@ -132,7 +125,7 @@ class Auth extends CI_Controller{
                         'last_name' => $data['family_name'],
                         'name' => $data['name'],
                         'email' => $data['email'],
-                        'profile_picture' => $data['picture'],
+                        'profile_picture' => $filename,
                         'password' => '',
                         'created_at' => $current_datetime
                     ];

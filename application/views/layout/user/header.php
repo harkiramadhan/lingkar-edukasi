@@ -112,8 +112,8 @@
       <div data-hover="false" data-delay="0" class="dropdown-user_nav hide-mobile_landscape w-dropdown" style="margin: 0px;">
         <div class="w-dropdown-toggle">
           <div class="dropdown-icon is-yellow w-icon-dropdown-toggle"></div>
-            <?php if($user->is_google): ?>
-              <div class="dropdown-user_foto" style="background-image:url('<?= $user->profile_picture ?>') !important" referrerPolicy="no-referrer"></div>
+            <?php if($user->profile_picture): ?>
+              <div class="dropdown-user_foto" style="background-image:url('<?= base_url('uploads/profile/' . $user->profile_picture) ?>') !important"></div>
             <?php else: ?>
               <div class="dropdown-user_foto"></div>
             <?php endif; ?>
@@ -128,8 +128,8 @@
         <div data-hover="false" data-delay="1" class="dropdown-user_nav hide-desktop w-dropdown">
           <div class="profile-dropdown-toggle w-dropdown-toggle">
             <div class="dropdown-icon is-yellow w-icon-dropdown-toggle"></div>
-            <?php if($user->is_google): ?>
-              <div class="dropdown-user_foto" style="background-image:url('<?= $user->profile_picture ?>') !important" referrerPolicy="no-referrer"></div>
+            <?php if($user->profile_picture): ?>
+              <div class="dropdown-user_foto" style="background-image:url('<?= base_url('uploads/profile/' . $user->profile_picture) ?>') !important"></div>
             <?php else: ?>
               <div class="dropdown-user_foto"></div>
             <?php endif; ?>
