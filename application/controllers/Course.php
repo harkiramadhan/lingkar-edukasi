@@ -1,4 +1,12 @@
 <?php 
+
+use \Midtrans\Snap;
+
+\Midtrans\Config::$serverKey = 'SB-Mid-server-AF3TQXJegteEpwnV71LtYnNu';
+\Midtrans\Config::$isProduction = false;
+\Midtrans\Config::$isSanitized = true;
+\Midtrans\Config::$is3ds = true;
+
 class Course extends CI_Controller{
   function __construct(){
     parent::__construct();
@@ -47,6 +55,35 @@ class Course extends CI_Controller{
       'tutor' => $this->M_Tutor->getById($course->pemateriid),
       'materi' => $this->M_Materi->getByClass($course->id)
     ];
+
+    if($userid){
+      $transaction_details = [
+          'order_id' => rand(),
+          'gross_amount' => price($course->price, $course->discount)
+      ];
+
+      $customer_details = [
+          'first_name'    => $var['user']->name,
+          'last_name'     => "",
+          'email'         => $var['user']->email,
+          'phone'         => $var['user']->nohp,
+      ];
+
+      $item_details = [[
+          'id' => $course->id,
+          'price' => price($course->price, $course->discount),
+          'quantity' => 1,
+          'name' => $course->judul
+      ]];
+
+      $transaction = [
+          'transaction_details' => $transaction_details,
+          'customer_details' => $customer_details,
+          'item_details' => $item_details,
+      ];
+
+      $var['snapToken'] = Snap::getSnapToken($transaction);
+    }
 
     $this->load->view('layout/user/header', $var);
     $this->load->view('user/course-detail', $var);

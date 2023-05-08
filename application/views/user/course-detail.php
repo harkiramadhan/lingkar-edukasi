@@ -71,7 +71,7 @@
                       <div class="kelas-card_harga"><?= discount($course->price, $course->discount) ?></div>
                     </div>
                     <?php if($this->session->userdata('is_user')): ?>
-                      <a href="#" class="kelas-button-full w-button">Daftar Kelas</a>
+                      <a href="#" class="kelas-button-full w-button pay-button">Daftar Kelas</a>
                     <?php else: ?>
                       <a href="<?= site_url('signin') ?>" class="kelas-button-full w-button">Daftar Kelas</a>
                     <?php endif; ?>
@@ -113,7 +113,11 @@
               <div class="divider"></div>
               <div class="kelas-card_harga"><?= discount($course->price, $course->discount) ?></div>
             </div>
-            <a href="#" class="kelas-button-full w-button">Daftar Kelas</a>
+            <?php if($this->session->userdata('is_user')): ?>
+              <a href="#" class="kelas-button-full w-button pay-button">Daftar Kelas</a>
+            <?php else: ?>
+              <a href="<?= site_url('signin') ?>" class="kelas-button-full w-button">Daftar Kelas</a>
+            <?php endif; ?>
           </div>
           <div class="cdetail-tutor">
             <div class="cdetail-tutor_pill">

@@ -374,3 +374,8 @@
         }
         return $hasil_rupiah;
     }
+    
+    function price($price, $discount){
+        $total = $price - ($price * ($discount/100));
+        return $total;
+    }
