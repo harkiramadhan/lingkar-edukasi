@@ -17,7 +17,7 @@ class Auth extends CI_Controller{
         $googleClient = new Google_Client();
         $googleClient->setClientId('842595441292-lmihklq8i6k91qnomq2cn9pb9vtfarpv.apps.googleusercontent.com');
         $googleClient->setClientSecret('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');
-        $googleClient->setRedirectUri('http://localhost/lingkar-edukasi/signin');
+        $googleClient->setRedirectUri(site_url('signin'));
         $googleClient->addScope('email');
         $googleClient->addScope('profile');
 
@@ -78,7 +78,7 @@ class Auth extends CI_Controller{
         $googleClient = new Google_Client();
         $googleClient->setClientId('842595441292-5qgo3nk3crntg4tn8951uqkqugf6aqmo.apps.googleusercontent.com');
         $googleClient->setClientSecret('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');
-        $googleClient->setRedirectUri('http://localhost/lingkar-edukasi/signup');
+        $googleClient->setRedirectUri(site_url('signup'));
         $googleClient->addScope('email');
         $googleClient->addScope('profile');
 
