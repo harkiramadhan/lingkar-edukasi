@@ -25,4 +25,8 @@ class Welcome extends CI_Controller {
 	function error404(){
 		$this->load->view('404');
 	}
+
+	function info(){
+		echo phpinfo();
+	}
 }
