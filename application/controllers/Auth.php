@@ -100,18 +100,7 @@ class Auth extends CI_Controller{
 
                 $userCheck = $this->db->get_where('user', ['email' => $data['email']]);
 
-                if($userCheck->num_rows() > 0){
-                    $dataUpdate = [
-                        'login_oauth_uid' => $data['id'],
-                        'first_name' => $data['given_name'],
-                        'last_name' => $data['family_name'],
-                        'name' => $data['name'],
-                        'email' => $data['email'],
-                        'profile_picture' => $filename,
-                        'password' => '',
-                    ];
-                    $this->db->where('id', $userCheck->row()->id)->update('user', $dataUpdate);
-                }else{
+                if(!$userCheck->num_rows() > 0){
                     /* Save Image From Google To Local */
                     $imageUrl = $data['picture'];
                     $filename = substr($imageUrl, strrpos($imageUrl, '/') + 1) . '.jpg';
