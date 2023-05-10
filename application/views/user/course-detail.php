@@ -199,6 +199,8 @@
 
                     <h1 class="d-none" id="durasi-video"><?= durasi($totalDurasi) ?></h1>
 
+                    <h1 id="result-json"></h1>
+
                     <script>
                       $(document).ready(function(){
                         var totalDurasi = $('#durasi-video').text()

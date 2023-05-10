@@ -64,6 +64,7 @@
   <?php if($this->uri->segment(1) == 'course' && $this->uri->segment(3) == 'detail' && $this->session->userdata('is_user') != NULL): ?>
     <script>
       var snapToken = '<?= @$snapToken ?>'
+      var courseid = '<?= @$course->id ?>'
     </script>
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-sXV560B8LBgAVWJA"></script>
     <script src="<?= base_url('assets/user/js/course.js') ?>"></script>

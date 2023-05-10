@@ -160,4 +160,15 @@ class Course extends CI_Controller{
     }
     
   }
+
+  /* Midtrans Here! */
+  function saveTransaction(){
+    if($this->session->userdata('is_user') != TRUE)
+        redirect('','refresh');
+
+    $datas = $this->input->post('params', TRUE);
+    $courseid = $this->input->post('courseid', TRUE);
+    $course = $this->M_Courses->getById($courseid);
+    
+  }
 }   
