@@ -167,8 +167,48 @@ class Course extends CI_Controller{
         redirect('','refresh');
 
     $datas = $this->input->post('params', TRUE);
+    $userid = $this->session->userdata('user_id');
     $courseid = $this->input->post('courseid', TRUE);
     $course = $this->M_Courses->getById($courseid);
-    
+    if($datas['order_id']){
+        /* Simpan Log Transaksi Midtrans */
+        $this->db->insert('midtrans_response', [
+          'orderid' => $datas['order_id'],
+          'data' => json_encode($datas)
+        ]);
+
+        /* Simpan Detail Log Order Dari Midtrans */
+        $this->db->insert('orders', [
+          'id' => $datas['order_id'],
+          'status_code' => $datas['status_code'],
+          'transaction_status' => $datas['transaction_status'],
+          'gross_amount' => $datas['gross_amount'],
+          'userid' => $userid,
+          'metadata' => json_encode($datas),
+          'metadata_respose' => json_encode($datas) 
+        ]);
+
+        if($this->db->affected_rows() > 0){
+          /* Insert To Enrollment Before */
+          $this->db->insert('enrollment', [
+            'orderid' => $datas['order_id'],
+            'courseid' => $courseid,
+            'userid' => $userid,
+            'pay' => $datas['gross_amount']
+          ]);
+
+          if($this->db->affected_rows() > 0){
+            $res = ['status' => 200];
+          }else{
+            $res = ['status' => 400 ];  
+          }
+        }else{
+          $res = ['status' => 400 ];
+        }
+    }else{
+      $res = ['status' => 400 ];
+    }
+
+    $this->output->set_content_type('application/json')->set_output(json_encode($res));
   }
 }   

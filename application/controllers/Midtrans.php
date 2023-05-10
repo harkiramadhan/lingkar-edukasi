@@ -136,4 +136,20 @@ class Midtrans extends CI_Controller{
         </html>
         <?php
     }
+
+    function notification(){
+        $input = file_get_contents("php://input");
+        $notification = json_decode($input);
+
+        $this->db->insert('midtrans_response', [
+            'orderid' => $notification->order_id,
+            'data' => $input
+        ]);
+
+        $this->db->where('id', $notification->order_id)->update('orders', [
+            'transaction_status' => $notification->transaction_status,
+            'status_code' => $notification->status_code,
+            'metadata_respose' => json_encode($notification)
+        ]);
+    }
 }

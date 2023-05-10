@@ -28,6 +28,7 @@ function saveTransaction(params, courseid){
         data: {params : params, 'courseid' : courseid},
         success: function(response){
             console.log(response)
+            alert(response.status)
             // window.location.href = url
         }
     })

@@ -465,7 +465,7 @@
             <div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" class="kelas-tabs w-tabs">
               <div class="kelas-tabs_menu-wrapper w-tab-menu">
                 <a data-w-tab="Tab 1" class="kelas-tabs_menu w-inline-block w-tab-link w--current">
-                  <div>CHOURSE</div>
+                  <div>COURSE</div>
                 </a>
                 <a data-w-tab="Tab 2" class="kelas-tabs_menu w-inline-block w-tab-link">
                   <div>INVOICE</div>
