@@ -1,4 +1,5 @@
 
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 <main>
     <div class="breadcrumbs">
       <div class="breadcrumbs-container">
@@ -31,7 +32,7 @@
               <div class="coursepill_wrapper">
                 <div class="coursedetail-hero_pill">
                   <div class="coursedetail-pill-flex"><img src="<?= base_url('assets/user/images/Vectors-Wrapper.svg')?>" loading="lazy" alt="" class="coursepill-icon">
-                    <div class="coursepill-text">3 Jam, 2 Menit</div>
+                    <div class="coursepill-text durasi-materi"></div>
                   </div>
                 </div>
                 <div class="coursedetail-hero_pill">
@@ -165,19 +166,45 @@
                   <h2 class="heading-small no-margin">Daftar Materi</h2>
                   <div class="materi-accordion">
 
-                    <?php foreach($materi->result() as $mRow){ ?>
+                    <?php 
+                      $totalDurasi = [];
+                      foreach($materi->result() as $mRow){ 
+                        $video = $this->M_Video->getByMateri($mRow->id);
+                    ?>
                       <div data-w-id="94122fb6-3714-9896-362c-306bc39c0a28-<?= $mRow->id ?>" class="materi_accordion-item">
                         <div class="materi-accordion_header">
                           <h3 class="materi-accordion_heading"><?= $mRow->materi ?></h3>
-                          <div class="coursepill-text" style="color: #000000;">3 Jam, 2 Menit</div>
+                          <div class="coursepill-text" style="color: #000000;" id="durasi-materi-<?= $mRow->id ?>"></div>
                         </div>
                         <ul>
-                          <li class="materi-accordion_header_item">Alfian</li>
-                          <li class="materi-accordion_header_item">Alfian</li>
-                          <li class="materi-accordion_header_item">Alfian</li>
+                          <?php 
+                            $totalDurasiMateri = [];
+                            foreach($video->result() as $vRow){
+                              array_push($totalDurasiMateri, $vRow->durasi);
+                              array_push($totalDurasi, $vRow->durasi);
+                          ?>
+                            <li class="materi-accordion_header_item"><?= $vRow->judul ?></li>
+                          <?php } ?>
+                          <h1 class="d-none" id="durasi-video-<?= $mRow->id ?>"><?= durasi($totalDurasiMateri) ?></h1>
                         </ul>
                       </div>
+
+                      <script>
+                        $(document).ready(function(){
+                          var durasiVideoMateri<?= $mRow->id ?> = $('#durasi-video-<?= $mRow->id ?>').text()
+                          $('#durasi-materi-<?= $mRow->id ?>').text(durasiVideoMateri<?= $mRow->id ?>)
+                        })
+                      </script>
                     <?php } ?>
+
+                    <h1 class="d-none" id="durasi-video"><?= durasi($totalDurasi) ?></h1>
+
+                    <script>
+                      $(document).ready(function(){
+                        var totalDurasi = $('#durasi-video').text()
+                        $('.durasi-materi').text(totalDurasi)
+                      })
+                    </script>
 
                   </div>
                 </div>

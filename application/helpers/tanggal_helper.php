@@ -379,3 +379,27 @@
         $total = $price - ($price * ($discount/100));
         return $total;
     }
+
+    function durasi($time, $format = false){
+        $time_in_secs = array_map(function ($v) { return strtotime($v) - strtotime('00:00'); }, $time);
+        $total_time = array_sum($time_in_secs);
+        $hours = floor($total_time / 3600);
+        $minutes = floor(($total_time % 3600) / 60);
+        $seconds = $total_time % 60;
+
+        $jam = ($hours > 0) ? $hours ." Jam " : '';
+        $menit = ($minutes > 0) ? $minutes ." Menit " : '';
+        $detik = ($seconds > 0) ? $seconds . " Detik" : ''; 
+
+        if($format){
+            if($format == 'full'){
+                return  $jam . $menit . $detik;
+            }elseif($format == 'hourminute'){
+                return  $jam . $menit;
+            }else{
+                return  $jam . $menit . $detik;
+            }
+        }else{
+            return  $jam . $menit . $detik;
+        }
+    }

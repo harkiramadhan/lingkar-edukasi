@@ -22,7 +22,8 @@ class Course extends CI_Controller{
       'M_Partner',
       'M_Benefit',
       'M_Tutor',
-      'M_Materi'
+      'M_Materi',
+      'M_Video'
     ]);
 
     // if(!$this->session->userdata('is_user')){
