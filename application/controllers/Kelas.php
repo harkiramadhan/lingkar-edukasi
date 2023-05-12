@@ -13,7 +13,9 @@ class Kelas extends CI_Controller{
             'M_Banners',
             'M_Partner',
             'M_Benefit',
-            'M_Tutor'
+            'M_Tutor',
+            'M_Video',
+            'M_Enrollment'
         ]);
 
         if(!$this->session->userdata('is_user')){
@@ -34,6 +36,29 @@ class Kelas extends CI_Controller{
         $this->load->view('layout/user/footer', $var);
     }
 
+    function detail($flag){
+        $userid = $this->session->userdata('user_id');
+        $course = $this->M_Courses->getByFlag($flag);
+
+        $trx = $this->M_Enrollment->getByUserCourse($userid, $course->id, 'settlement');
+        if($trx->num_rows() > 0){
+            $var = [
+                'title' => $course->judul,
+                'labels' => $this->M_Labels->getActive(),
+                'setting' => $this->M_Settings->get(),
+                'user' => $this->M_Users->getById($userid),
+                'tutor' => $this->M_Tutor->getById($course->pemateriid),
+                'course' => $course
+            ];
+    
+            $this->load->view('layout/user/header', $var);
+            $this->load->view('user/kelassaya-detail-course', $var);
+            $this->load->view('layout/user/footer', $var);
+        }else{
+            redirect('course/' . $flag . '/detail','refresh');
+        }
+    }
+
     function joined(){
         $userid = $this->session->userdata('user_id');
         $var = [
@@ -44,19 +69,6 @@ class Kelas extends CI_Controller{
 
         $this->load->view('layout/user/header', $var);
         $this->load->view('user/thanks-for-join', $var);
-        $this->load->view('layout/user/footer', $var);
-    }
-
-    function kelassayacourse(){
-        $userid = $this->session->userdata('user_id');
-        $var = [
-            'labels' => $this->M_Labels->getActive(),
-            'setting' => $this->M_Settings->get(),
-            'user' => $this->M_Users->getById($userid)
-        ];
-
-        $this->load->view('layout/user/header', $var);
-        $this->load->view('user/kelassaya-detail-course', $var);
         $this->load->view('layout/user/footer', $var);
     }
 

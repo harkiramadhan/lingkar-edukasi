@@ -23,7 +23,8 @@ class Course extends CI_Controller{
       'M_Benefit',
       'M_Tutor',
       'M_Materi',
-      'M_Video'
+      'M_Video',
+      'M_Enrollment'
     ]);
 
     // if(!$this->session->userdata('is_user')){
@@ -58,6 +59,9 @@ class Course extends CI_Controller{
     ];
 
     if($userid){
+      $pendingTrx = $this->M_Enrollment->getByUserCourse($userid, $course->id, 'pending');
+      $settlementTrx = $this->M_Enrollment->getByUserCourse($userid, $course->id, 'settlement');
+
       $transaction_details = [
           'order_id' => rand(),
           'gross_amount' => price($course->price, $course->discount)
@@ -83,6 +87,7 @@ class Course extends CI_Controller{
           'item_details' => $item_details,
       ];
 
+      $var['status'] = ($settlementTrx->num_rows() > 0) ? 'settlement' : (($pendingTrx->num_rows() > 0) ? 'pending' : NULL);
       $var['snapToken'] = Snap::getSnapToken($transaction);
     }
 

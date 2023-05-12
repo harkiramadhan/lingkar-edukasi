@@ -72,7 +72,13 @@
                       <div class="kelas-card_harga"><?= discount($course->price, $course->discount) ?></div>
                     </div>
                     <?php if($this->session->userdata('is_user')): ?>
-                      <a href="#" class="kelas-button-full w-button pay-button">Daftar Kelas</a>
+                      <?php if(@$status == 'settlement'): ?>
+                        <a href="<?= site_url('kelas/' . $course->flag . '/detail') ?>" class="kelas-button-full w-button">Lihat Kelas</a>
+                      <?php elseif(@$status == 'pending'): ?>
+                        <a href="#" class="kelas-button-full w-button pay-button">Menunggu Pembayaran</a>
+                      <?php else: ?>
+                        <a href="#" class="kelas-button-full w-button pay-button">Daftar Kelas</a>
+                      <?php endif; ?>
                     <?php else: ?>
                       <a href="<?= site_url('signin') ?>" class="kelas-button-full w-button">Daftar Kelas</a>
                     <?php endif; ?>
@@ -199,7 +205,7 @@
 
                     <h1 class="d-none" id="durasi-video"><?= durasi($totalDurasi) ?></h1>
 
-                    <h1 id="result-json"></h1>
+                    <h1 id="result-json"><?= @$status ?></h1>
 
                     <script>
                       $(document).ready(function(){

@@ -80,3 +80,6 @@ $route['tutor/course/(:num)/edit'] = 'tutor/course/edit/$1';
 
 $route['course/(:any)/detail'] = 'course/detail/$1';
 $route['course/(:any)/category'] = 'course/index/$1';
+
+/* Kelas Routes */
+$route['kelas/(:any)/detail'] = 'kelas/detail/$1';
