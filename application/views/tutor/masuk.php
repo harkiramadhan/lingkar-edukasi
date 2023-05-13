@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Acara - Ticketing Bootstrap Admin Dashboard</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/admin/images/favicon.png') ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>">
+    <link href="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>" rel="shortcut icon" type="image/x-icon">
+    <link href="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>" rel="apple-touch-icon">
+    
     <link href="<?= base_url('assets/admin/css/style.css') ?>" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
@@ -21,10 +24,11 @@
                         <div class="row no-gutters">
                             <div class="col-xl-12">
                                 <div class="auth-form">
-									<div class="text-center mb-3">
-										<a href="index.html"><img src="<?= base_url('assets/admin/images/logo-full.png') ?>" alt=""></a>
-									</div>
-                                    <h4 class="text-center mb-4 text-white">Sign in your account</h4>
+                                    <div class="text-center mb-4">
+                                        <img src="<?= base_url('assets/user/images/logo-main-white.svg')?>" style="height: 40px" alt="">
+                                    </div>
+                                    <h2 class="text-center mb-2 text-white"><strong>Dashboard Tutor</strong></h2>
+                                    <h5 class="text-center mb-3 text-white">Masuk ke akun anda</h5>
                                     
                                     <?php if($this->session->flashdata('error')): ?>
                                         <h4 class="text-center mb-4 text-white"><?= $this->session->flashdata('error') ?></h4>
@@ -39,6 +43,19 @@
                                             <label class="mb-1 text-white"><strong>Password</strong></label>
                                             <input name="password" type="password" class="form-control" placeholder="Password" required>
                                         </div>
+
+                                        <div class="form-row d-flex justify-content-between mt-4 mb-2">
+                                            <div class="form-group">
+                                               <div class="custom-control custom-checkbox ml-1 text-white">
+													<input type="checkbox" class="custom-control-input" id="basic_checkbox_1">
+													<label class="custom-control-label" for="basic_checkbox_1">&nbspIngat saya</label>
+												</div>
+                                            </div>
+                                            <div class="form-group">
+                                                <a class="text-white" href="<?= site_url('/admin/admin/lupapassword') ?>">Lupa Password?</a>
+                                            </div>
+                                        </div>
+
                                         <div class="text-center">
                                             <button type="submit" class="btn bg-white text-primary btn-block">Sign Me In</button>
                                         </div>
