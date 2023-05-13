@@ -59,7 +59,6 @@ class Course extends CI_Controller{
     ];
 
     if($userid){
-      $pendingTrx = $this->M_Enrollment->getByUserCourse($userid, $course->id, 'pending');
       $settlementTrx = $this->M_Enrollment->getByUserCourse($userid, $course->id, 'settlement');
 
       $transaction_details = [
@@ -87,7 +86,7 @@ class Course extends CI_Controller{
           'item_details' => $item_details,
       ];
 
-      $var['status'] = ($settlementTrx->num_rows() > 0) ? 'settlement' : (($pendingTrx->num_rows() > 0) ? 'pending' : NULL);
+      $var['status'] = $settlementTrx;
       $var['snapToken'] = Snap::getSnapToken($transaction);
     }
 
@@ -168,6 +167,75 @@ class Course extends CI_Controller{
 
   /* Midtrans Here! */
   function saveTransaction(){
+    if($this->session->userdata('is_user') != TRUE)
+        redirect('','refresh');
+
+    $datas = $this->input->post('params', TRUE);
+    $userid = $this->session->userdata('user_id');
+    $courseid = $this->input->post('courseid', TRUE);
+    $course = $this->M_Courses->getById($courseid);
+    if($datas['order_id']){
+      if($datas['transaction_status'] == 'settlement'){
+        /* Simpan Log Transaksi Midtrans */
+        $this->db->insert('midtrans_response', [
+          'orderid' => $datas['order_id'],
+          'data' => json_encode($datas)
+        ]);
+
+        /* Simpan Detail Log Order Dari Midtrans */
+        $this->db->insert('orders', [
+          'id' => $datas['order_id'],
+          'status_code' => $datas['status_code'],
+          'transaction_status' => $datas['transaction_status'],
+          'gross_amount' => $datas['gross_amount'],
+          'userid' => $userid,
+          'metadata' => json_encode($datas),
+          'metadata_respose' => json_encode($datas) 
+        ]);
+
+        if($this->db->affected_rows() > 0){
+          /* Insert To Enrollment Before */
+          $this->db->insert('enrollment', [
+            'orderid' => $datas['order_id'],
+            'courseid' => $courseid,
+            'userid' => $userid,
+            'pay' => $datas['gross_amount']
+          ]);
+
+          if($this->db->affected_rows() > 0){
+            $res = [
+              'status' => 200,
+              'url' => site_url('kelas/' . $course->flag . '/joined')
+            ];
+          }else{
+            $res = [
+              'status' => 400,
+              'url' => site_url('course/' . $course->flag . '/detail')
+            ];  
+          }
+        }else{
+          $res = [
+            'status' => 400,
+            'url' => site_url('course/' . $course->flag . '/detail')
+          ];
+        }
+      }else{
+        $res = [
+          'status' => 400,
+          'url' => site_url('course/' . $course->flag . '/detail')
+        ];
+      }
+    }else{
+      $res = [
+        'status' => 400,
+        'url' => site_url('course/' . $course->flag . '/detail')
+      ];
+    }
+
+    $this->output->set_content_type('application/json')->set_output(json_encode($res));
+  }
+
+  function saveTransaction2(){
     if($this->session->userdata('is_user') != TRUE)
         redirect('','refresh');
 

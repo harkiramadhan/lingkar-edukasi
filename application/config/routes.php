@@ -83,3 +83,4 @@ $route['course/(:any)/category'] = 'course/index/$1';
 
 /* Kelas Routes */
 $route['kelas/(:any)/detail'] = 'kelas/detail/$1';
+$route['kelas/(:any)/joined'] = 'kelas/joined/$1';

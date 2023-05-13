@@ -59,17 +59,25 @@ class Kelas extends CI_Controller{
         }
     }
 
-    function joined(){
+    function joined($flag){
         $userid = $this->session->userdata('user_id');
-        $var = [
-            'labels' => $this->M_Labels->getActive(),
-            'setting' => $this->M_Settings->get(),
-            'user' => $this->M_Users->getById($userid)
-        ];
+        $course = $this->M_Courses->getByFlag($flag);
 
-        $this->load->view('layout/user/header', $var);
-        $this->load->view('user/thanks-for-join', $var);
-        $this->load->view('layout/user/footer', $var);
+        $trx = $this->M_Enrollment->getByUserCourse($userid, $course->id, 'settlement');
+        if($trx->num_rows() > 0){
+            $var = [
+                'labels' => $this->M_Labels->getActive(),
+                'setting' => $this->M_Settings->get(),
+                'user' => $this->M_Users->getById($userid),
+                'course' => $course
+            ];
+    
+            $this->load->view('layout/user/header', $var);
+            $this->load->view('user/thanks-for-join', $var);
+            $this->load->view('layout/user/footer', $var);
+        }else{
+            redirect('course/' . $flag . '/detail','refresh');
+        }
     }
 
     function kelassayaselesai(){

@@ -323,14 +323,21 @@
                     </div>
                     <div class="tentang-tutor_wrapper">
                       <div class="tutor-data">
-                        <div class="foto-tutor"><img src="images/tutor-placeholder.webp" loading="lazy" alt="" class="tutor-foto"></div><img src="images/linkedin-icon.png" loading="lazy" alt="">
-                        <h1 class="tutor-name">Arif Voyager</h1>
+                        <div class="foto-tutor">
+                          <?php if($tutor->img): ?>
+                            <img src="<?= base_url('uploads/tutor/' . $tutor->img)?>" loading="lazy" alt="" class="tutor-foto">
+                          <?php else: ?>
+                            <img src="<?= base_url('assets/admin/images/placeholder-image.svg')?>" loading="lazy" alt="" class="tutor-foto">
+                          <?php endif; ?>
+                        </div>
+                        
+                        <h1 class="tutor-name"><?= $tutor->nama ?></h1>
                       </div>
                       <div class="tutor-detail">
                         <div class="tutor-detail_title">
                           <div>TENTANG TUTOR</div>
                         </div>
-                        <p class="paragraph-small">Donec nulla massa, feugiat id ornare quis, consequat non massa. Nunc pulvinar ac arcu eu rhoncus. Morbi condimentum dolor in tortor commodo cursus id euismod purus. Sed sit amet odio eget sapien tristique ultricies interdum sed nisi. Curabitur molestie porttitor elementum. Donec eu diam lectus. Nunc vel blandit nibh. Duis eget posuere augue. Quisque vehicula laoreet urna quis pulvinar.</p>
+                        <p class="paragraph-small"><?= $tutor->deskripsi ?></p>
                       </div>
                     </div>
                   </div>
