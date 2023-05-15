@@ -203,8 +203,6 @@
 
                     <h1 class="d-none" id="durasi-video"><?= durasi($totalDurasi) ?></h1>
 
-                    <h1 id="result-json"><?php var_dump(@$status->result()) ?></h1>
-
                     <script>
                       $(document).ready(function(){
                         var totalDurasi = $('#durasi-video').text()
