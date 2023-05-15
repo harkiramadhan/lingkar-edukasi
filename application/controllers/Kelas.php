@@ -15,7 +15,8 @@ class Kelas extends CI_Controller{
             'M_Benefit',
             'M_Tutor',
             'M_Video',
-            'M_Enrollment'
+            'M_Enrollment',
+            'M_Materi'
         ]);
 
         if(!$this->session->userdata('is_user')){
@@ -48,7 +49,8 @@ class Kelas extends CI_Controller{
                 'setting' => $this->M_Settings->get(),
                 'user' => $this->M_Users->getById($userid),
                 'tutor' => $this->M_Tutor->getById($course->pemateriid),
-                'course' => $course
+                'course' => $course,
+                'materi' => $this->M_Materi->getByClass($course->id)
             ];
     
             $this->load->view('layout/user/header', $var);
