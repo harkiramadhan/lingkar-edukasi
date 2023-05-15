@@ -29,7 +29,8 @@ class Kelas extends CI_Controller{
         $var = [
             'labels' => $this->M_Labels->getActive(),
             'setting' => $this->M_Settings->get(),
-            'user' => $this->M_Users->getById($userid)
+            'user' => $this->M_Users->getById($userid),
+            'courses' => $this->M_Enrollment->getSettlementUser($userid)
         ];
 
         $this->load->view('layout/user/header', $var);

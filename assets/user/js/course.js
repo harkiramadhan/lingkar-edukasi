@@ -1,21 +1,10 @@
 $('.pay-button').click(function(){
     snap.pay(snapToken, {
-        // Optional
         onSuccess: function(result){
-            /* You may add your own js here, this is just example */ 
-            document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
             saveTransaction(result, courseid)
-        },
-        // Optional
-        onPending: function(result){
-            /* You may add your own js here, this is just example */ 
-            document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+        },onPending: function(result){
             saveTransaction(result, courseid)
-        },
-        // Optional
-        onError: function(result){
-            /* You may add your own js here, this is just example */ 
-            document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+        },onError: function(result){
             saveTransaction(result, courseid)
         }
     });
