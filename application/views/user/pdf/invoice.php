@@ -41,7 +41,7 @@
             <td colspan="3" style="color: black; border-bottom: 1px dotted grey; padding-bottom: 5px;"><strong>Pembayaran Berhasil</strong></td>
         </tr>
         <tr>
-            <td width="200">Tanggal Pembayaran</td>
+            <td width="200">Waktu Pembayaran</td>
             <td width="10">:</td>
             <td>
                 <?php 

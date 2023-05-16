@@ -43,7 +43,11 @@
           </div>
           <div class="footer-column_content">
             <div>
-              Ruko Dynasty Walk kav 29B/15, Jln Jalur Sutera, Alam Sutera, Tlp : 021 – 29213742 Fax : <?= $setting->fax ?>
+              <?= ($setting->alamat_judul) ? $setting->alamat_judul . '<br>' : '' ?> 
+              <?= ($setting->alamat_1) ? $setting->alamat_1 . '<br>' : '' ?> 
+              <?= ($setting->alamat_2) ? $setting->alamat_2 . '<br>' : '' ?> 
+              <?= ($setting->telefon) ? 'Tlp : ' . $setting->telefon . '<br>' : '' ?> 
+              <?= ($setting->telefon) ? 'Fax : ' . $setting->fax . '<br>' : '' ?> 
             </div>
           </div>
         </div>
