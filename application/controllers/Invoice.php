@@ -26,4 +26,18 @@ class Invoice extends CI_Controller{
         $mpdf->Output("invoice.pdf", "I");
         ob_end_flush();
     }
+
+    function sertifikat(){
+        ob_clean();
+        $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
+        $mpdf->showWatermarkImage = true;
+        $mpdf->watermarkImgBehind = true;
+        $mpdf->WriteHTML(
+            '<watermarkimage src="https://www.freepnglogos.com/uploads/bingkai-sertifikat-png/bingkai-sertifikat-keren-png-11.png" alpha="1" size="297,210" position="0,0" />'
+        );
+        $invoice = $this->load->view('user/pdf/sertifikat',true, true);
+        $mpdf->WriteHTML($invoice);
+        $mpdf->Output("Sertifikat.pdf", "I");
+        ob_end_flush();
+    }
 }
