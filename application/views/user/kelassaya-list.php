@@ -78,11 +78,11 @@
                             <div class="margin-bottom-8">
                               <h3 class="heading-xtrasmall no-margin"><?= $inv->judul ?></h3>
                             </div>
-                            <div class="kelas-card_creator">By <?= rupiah($inv->price, $row->discount) ?></div>
+                            <div class="kelas-card_creator">By <?= $inv->nama ?></div>
                           </div>
-                          <div class="kelas-card_harga">Rp. 799.000</div>
+                          <div class="kelas-card_harga">Rp. <?= rupiah($inv->price, $row->discount) ?></div>
                           <div class="divider"></div>
-                          <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
+                          <a href="<?= site_url('invoice/' . $inv->orderid . '/pdf') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                         </div>
                       </div>
                     <?php } ?>
@@ -286,7 +286,7 @@
                             <div class="kelas-card_creator">By <?= $inv->nama ?></div>
                           </div>
                           <div class="divider"></div>
-                          <a href="#" class="button is-yellow w-button">Download Invoice</a>
+                          <a href="<?= site_url('invoice/' . $inv->orderid . '/pdf') ?>" class="button is-yellow w-button">Download Invoice</a>
                         </div>
                       </div>
                     <?php } ?>
