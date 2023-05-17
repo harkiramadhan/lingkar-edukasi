@@ -56,18 +56,18 @@
                           <img src="<?= base_url('uplodas/courses/' . $rowC->cover)?>" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, (max-width: 1439px) 92vw, 1296px" srcset="<?= base_url('uplodas/courses/' . $rowC->cover)?> 500w, <?= base_url('uploads/courses/' . $rowC->cover)?> 576w" alt="" class="kelas-card_image">
                         </div>
                         <div class="kelas-card_content">
-                            <div class="kelas-kategori_pill">
-                              <div class="pill-text"><?= $l->label ?></div>
-                              </div>
-                              <div class="kelas-card_title-wrapper">
-                              <div class="margin-bottom-8">
-                                  <h3 class="heading-xtrasmall no-margin"><?= $rowC->judul ?></h3>
-                              </div>
-                              <div class="kelas-card_creator">By <?= $rowC->nama ?></div>
+                          <div class="kelas-kategori_pill">
+                            <div class="pill-text"><?= $l->label ?></div>
+                          </div>
+                          <div class="kelas-card_title-wrapper">
+                            <div class="margin-bottom-8">
+                                <h3 class="heading-xtrasmall no-margin"><?= $rowC->judul ?></h3>
                             </div>
-                            <div class="kelas-card_harga"><?= discount($rowC->price, $rowC->discount)  ?></div>
-                            <div class="divider"></div>
-                            <a href="<?= site_url('/course/' . $rowC->flag . '/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
+                            <div class="kelas-card_creator">By <?= $rowC->nama ?></div>
+                          </div>
+                          <div class="kelas-card_harga"><?= discount($rowC->price, $rowC->discount)  ?></div>
+                          <div class="divider"></div>
+                          <a href="<?= site_url('/course/' . $rowC->flag . '/detail') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                         </div>
                     </div>
                   <?php } ?>

@@ -39,14 +39,21 @@
               <div class="kelassaya-tabs_content w-tab-content">
                 <div data-w-tab="Tab 1" class="w-tab-pane">
                   <div class="w-layout-grid grid-3-column">
-                    <?php foreach($courses->result() as $row){ ?>
+                    <?php 
+                      foreach($courses->result() as $row){ 
+                        $getLabel = $this->M_Labels->getByCourse($row->id);
+                    ?>
                       <div id="w-node-_765fa7cf-7d33-c769-3fe3-7817d76ef249-9de08e24" class="kelas-card_wrapper">
                         <div class="kelas-card_image-wrapper">
                           <img src="<?= base_url('uploads/courses/' . $row->cover)?>" loading="lazy" sizes="100vw" srcset="<?= base_url('uploads/courses/' . $row->cover)?> 500w, <?= base_url('uploads/courses/' . $row->cover)?> 576w" alt="" class="kelas-card_image">
                         </div>
                         <div class="kelas-card_content">
-                          <div class="kelas-kategori_pill">
-                            <div class="pill-text">EKONOMI</div>
+                          <div style="display: flex;">
+                            <?php foreach($getLabel->result() as $ll){ ?>
+                              <div class="kelas-kategori_pill">
+                                <div class="pill-text"><?= $ll->label ?></div>
+                              </div> &nbsp;
+                            <?php } ?>
                           </div>
                           <div class="kelas-card_title-wrapper">
                             <div class="margin-bottom-8">
@@ -64,14 +71,21 @@
                 </div>
                 <div data-w-tab="Tab 2" class="w-tab-pane">
                   <div class="w-layout-grid grid-3-column">
-                    <?php foreach($courses->result() as $inv){ ?>
+                    <?php 
+                      foreach($courses->result() as $inv){ 
+                        $getLabell = $this->M_Labels->getByCourse($inv->id);
+                    ?>
                       <div id="w-node-a11dc847-0c6b-85db-8c0a-4e5cc7c0f878-9de08e24" class="kelas-card_wrapper">
                         <div class="kelas-card_image-wrapper">
                           <img src="<?= base_url('uploads/courses/' . $inv->cover)?>" loading="lazy" sizes="100vw" srcset="<?= base_url('uploads/courses/' . $inv->cover)?> 500w, <?= base_url('uploads/courses/' . $inv->cover)?> 576w" alt="" class="kelas-card_image">
                         </div>
                         <div class="kelas-card_content">
-                          <div class="kelas-kategori_pill">
-                            <div class="pill-text">EKONOMI</div>
+                          <div style="display: flex;">
+                            <?php foreach($getLabell->result() as $lll){ ?>
+                              <div class="kelas-kategori_pill">
+                                <div class="pill-text"><?= $lll->label ?></div>
+                              </div> &nbsp;
+                            <?php } ?>
                           </div>
                           <div class="kelas-card_title-wrapper">
                             <div class="margin-bottom-8">
@@ -244,14 +258,21 @@
               <div class="kelas-tabs_content marginless w-tab-content">
                 <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
                   <div class="w-layout-grid grid-3-column">
-                    <?php foreach($courses->result() as $row){ ?>
+                    <?php 
+                      foreach($courses->result() as $row){ 
+                        $getLabel = $this->M_Labels->getByCourse($row->id);
+                    ?>
                       <div id="w-node-e660144b-2bb6-35ff-374f-59076a41254e-9de08e24" class="kelas-card_wrapper">
                         <div class="kelas-card_image-wrapper">
                           <img src="<?= base_url('uploads/courses/' . $row->cover)?>" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, 457.390625px" srcset="<?= base_url('uploads/courses/' . $row->cover)?> 500w, <?= base_url('uploads/courses/' . $row->cover)?> 576w" alt="" class="kelas-card_image">
                         </div>
                         <div class="kelas-card_content">
-                          <div class="kelas-kategori_pill">
-                            <div class="pill-text">EKONOMI</div>
+                          <div style="display: flex;">
+                            <?php foreach($getLabel->result() as $l){ ?>
+                              <div class="kelas-kategori_pill">
+                                  <div class="pill-text"><?= $l->label ?></div>
+                              </div> &nbsp;
+                            <?php } ?>
                           </div>
                           <div class="kelas-card_title-wrapper">
                             <div class="margin-bottom-8">
@@ -269,14 +290,21 @@
                 </div>
                 <div data-w-tab="Tab 2" class="w-tab-pane">
                   <div class="w-layout-grid grid-3-column">
-                    <?php foreach($courses->result() as $inv){ ?>
+                    <?php 
+                      foreach($courses->result() as $inv){ 
+                        $getLabel = $this->M_Labels->getByCourse($inv->id);
+                    ?>
                       <div id="w-node-e2e08830-b906-9521-435f-58d6cd2026aa-9de08e24" class="kelas-card_wrapper">
                         <div class="kelas-card_image-wrapper">
                           <img src="<?= base_url('uploads/courses/' . $inv->cover)?>" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, 457.390625px" srcset="<?= base_url('uploads/courses/' . $inv->cover)?> 500w, <?= base_url('uploads/courses/' . $inv->cover)?> 576w" alt="" class="kelas-card_image">
                         </div>
                         <div class="kelas-card_content">
-                          <div class="kelas-kategori_pill">
-                            <div class="pill-text">EKONOMI</div>
+                          <div style="display: flex;">
+                            <?php foreach($getLabel->result() as $lli){ ?>
+                              <div class="kelas-kategori_pill">
+                                  <div class="pill-text"><?= $lli->label ?></div>
+                              </div> &nbsp;
+                            <?php } ?>
                           </div>
                           <div class="kelas-card_title-wrapper">
                             <div class="margin-bottom-8">

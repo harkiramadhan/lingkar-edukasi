@@ -11,4 +11,13 @@ class M_Labels extends CI_Model{
     function getById($id){
         return $this->db->get_where('labels', ['id' => $id])->row();
     }
+
+    function getByCourse($courseid){
+        return $this->db->select('l.label')
+                        ->from('courses_label cl')
+                        ->join('labels l', 'cl.labelid = l.id')
+                        ->where([
+                            'cl.courseid' => $courseid
+                        ])->get();
+    }
 }

@@ -84,19 +84,21 @@
                         ?>
                             <div data-w-tab="Tab <?= $noL ?>" class="w-tab-pane <?= ($noL == 1) ? 'w--tab-active' : '' ?>">
                                 <div class="w-layout-grid grid-4-column">
-                                    <?php foreach($getCourses->result() as $rowC){ ?>
+                                    <?php 
+                                        foreach($getCourses->result() as $rowC){ 
+                                            $getLabel = $this->M_Labels->getByCourse($rowC->id);
+                                    ?>
                                     <div id="w-node-e660144b-2bb6-35ff-374f-59076a41254e-f92afb62" class="kelas-card_wrapper">
                                         <div class="kelas-card_image-wrapper">
                                             <img src="<?= base_url('uplodas/courses/' . $rowC->cover)?>" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, (max-width: 1439px) 92vw, 1296px" srcset="<?= base_url('uplodas/courses/' . $rowC->cover)?> 500w, <?= base_url('uploads/courses/' . $rowC->cover)?> 576w" alt="" class="kelas-card_image">
                                         </div>
                                         <div class="kelas-card_content">
                                             <div style="display: flex;">
-                                                <div class="kelas-kategori_pill">
-                                                    <div class="pill-text"><?= $l->label ?></div>
-                                                </div>
-                                                <div class="kelas-kategori_pill">
-                                                    <div class="pill-text"><?= $l->label ?></div>
-                                                </div>
+                                                <?php foreach($getLabel->result() as $ll){ ?>
+                                                    <div class="kelas-kategori_pill">
+                                                        <div class="pill-text"><?= $ll->label ?></div>
+                                                    </div> &nbsp;
+                                                <?php } ?>
                                             </div>
                                             <div class="kelas-card_title-wrapper">
                                                 <div class="margin-bottom-8">
