@@ -8,6 +8,10 @@ class Invoice extends CI_Controller{
             'M_Settings'
         ]);
 
+        if(!$this->session->userdata('is_user')){
+            redirect('');
+        }
+
     }
 
     function index($orderid){

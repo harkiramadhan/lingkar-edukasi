@@ -1,4 +1,3 @@
-
 <main>
     <section class="section wf-section">
         <div class="breadcrumbs">
@@ -55,7 +54,7 @@
                             </div>
                             <div class="kelas-card_creator">By <?= $row->nama ?></div>
                           </div>
-                          <div class="kelas-card_harga">Rp. <?= rupiah($row->price, $row->discount) ?></div>
+                          <div class="kelas-card_harga"><?= discount($row->price, $row->discount) ?></div>
                           <div class="divider"></div>
                           <a href="<?= site_url('kelas/' . $row->flag . '/detail') ?>" class="button is-yellow w-button">Lihat Kelas</a>
                         </div>
@@ -80,7 +79,7 @@
                             </div>
                             <div class="kelas-card_creator">By <?= $inv->nama ?></div>
                           </div>
-                          <div class="kelas-card_harga">Rp. <?= rupiah($inv->price, $row->discount) ?></div>
+                          <div class="kelas-card_harga"><?= discount($inv->price, $row->discount) ?></div>
                           <div class="divider"></div>
                           <a href="<?= site_url('invoice/' . $inv->orderid . '/pdf') ?>" class="button is-yellow w-button">Daftar Kelas</a>
                         </div>
@@ -102,7 +101,7 @@
                           </div>
                           <div class="kelas-card_creator">By Satria Sambiring</div>
                         </div>
-                        <div class="kelas-card_harga">Rp. 799.000</div>
+                        <div class="kelas-card_harga">799.000</div>
                         <div class="divider"></div>
                         <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
                       </div>
@@ -119,7 +118,7 @@
                           </div>
                           <div class="kelas-card_creator">By Satria Sambiring</div>
                         </div>
-                        <div class="kelas-card_harga">Rp. 799.000</div>
+                        <div class="kelas-card_harga">799.000</div>
                         <div class="divider"></div>
                         <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
                       </div>
@@ -136,7 +135,7 @@
                           </div>
                           <div class="kelas-card_creator">By Satria Sambiring</div>
                         </div>
-                        <div class="kelas-card_harga">Rp. 799.000</div>
+                        <div class="kelas-card_harga">799.000</div>
                         <div class="divider"></div>
                         <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
                       </div>
@@ -153,7 +152,7 @@
                           </div>
                           <div class="kelas-card_creator">By Satria Sambiring</div>
                         </div>
-                        <div class="kelas-card_harga">Rp. 799.000</div>
+                        <div class="kelas-card_harga">799.000</div>
                         <div class="divider"></div>
                         <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
                       </div>
@@ -170,7 +169,7 @@
                           </div>
                           <div class="kelas-card_creator">By Satria Sambiring</div>
                         </div>
-                        <div class="kelas-card_harga">Rp. 799.000</div>
+                        <div class="kelas-card_harga">799.000</div>
                         <div class="divider"></div>
                         <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
                       </div>
@@ -187,7 +186,7 @@
                           </div>
                           <div class="kelas-card_creator">By Satria Sambiring</div>
                         </div>
-                        <div class="kelas-card_harga">Rp. 799.000</div>
+                        <div class="kelas-card_harga">799.000</div>
                         <div class="divider"></div>
                         <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
                       </div>
@@ -204,7 +203,7 @@
                           </div>
                           <div class="kelas-card_creator">By Satria Sambiring</div>
                         </div>
-                        <div class="kelas-card_harga">Rp. 799.000</div>
+                        <div class="kelas-card_harga">799.000</div>
                         <div class="divider"></div>
                         <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
                       </div>
@@ -221,7 +220,7 @@
                           </div>
                           <div class="kelas-card_creator">By Satria Sambiring</div>
                         </div>
-                        <div class="kelas-card_harga">Rp. 799.000</div>
+                        <div class="kelas-card_harga">799.000</div>
                         <div class="divider"></div>
                         <a href="#" class="button is-yellow w-button">Daftar Kelas</a>
                       </div>
@@ -260,7 +259,7 @@
                             </div>
                             <div class="kelas-card_creator">By <?= $row->nama ?></div>
                           </div>
-                          <div class="kelas-card_harga">Rp. <?= rupiah($row->price, $row->discount) ?></div>
+                          <div class="kelas-card_harga"><?= discount($row->price, $row->discount) ?></div>
                           <div class="divider"></div>
                           <a href="<?= site_url('kelas/' . $row->flag . '/detail') ?>" class="button is-yellow w-button">Lihat Kelas</a>
                         </div>

@@ -33,848 +33,78 @@
               </div>
               <nav class="detail-kelas_dropdown-list w-dropdown-list">
                 <div class="detail-tab-menu_wrapper">
-                  <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
-                    <div class="detail-dropdown_toggle w-dropdown-toggle">
-                      <div class="w-icon-dropdown-toggle"></div>
-                      <div>Materi</div>
+                  <?php
+                    foreach($materi->result() as $mRow){ 
+                      $video = $this->M_Video->getByMateri($mRow->id);
+                  ?>
+                    <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
+                      <div class="detail-dropdown_toggle w-dropdown-toggle">
+                        <div class="w-icon-dropdown-toggle"></div>
+                        <div><?= mb_strimwidth($mRow->materi, 0, 25, "...") ?> &nbsp;&nbsp;&nbsp;</div>
+                      </div>
+                      <nav class="detail-dropdown_list w-dropdown-list">
+                        <?php foreach($video->result() as $vRow){ ?>
+                          <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
+                            <div class="tabs-menu_icon">
+                              <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <g clip-path="url(#clip0_202_345)">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
+                                  </g>
+                                  <defs>
+                                    <clippath id="clip0_202_345">
+                                      <rect width="24" height="24" fill="white"></rect>
+                                    </clippath>
+                                  </defs>
+                                </svg></div>
+                            </div>
+                            <div><?= $vRow->judul ?></div>
+                          </a>
+                        <?php } ?>
+                      </nav>
                     </div>
-                    <nav class="detail-dropdown_list w-dropdown-list">
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
-                        <div class="tabs-menu_icon">
-                          <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_202_345)">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_202_345">
-                                  <rect width="24" height="24" fill="white"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                        <div>Pelajaran MPASI</div>
-                      </a>
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                        <div class="tabs-menu_icon">
-                          <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_202_345)">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_202_345">
-                                  <rect width="24" height="24" fill="white"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                        <div>Pelajaran MPASI</div>
-                        <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_203_206)">
-                              <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#27AE60"></path>
-                            </g>
-                            <defs>
-                              <clippath id="clip0_203_206">
-                                <rect width="24" height="24" fill="white"></rect>
-                              </clippath>
-                            </defs>
-                          </svg></div>
-                      </a>
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                        <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
-                        <div>Pelajaran MPASI</div>
-                      </a>
-                    </nav>
-                  </div>
-                  <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
-                    <div class="detail-dropdown_toggle w-dropdown-toggle">
-                      <div class="w-icon-dropdown-toggle"></div>
-                      <div>Materi</div>
-                    </div>
-                    <nav class="detail-dropdown_list w-dropdown-list">
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
-                        <div class="tabs-menu_icon">
-                          <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_202_345)">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_202_345">
-                                  <rect width="24" height="24" fill="white"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                        <div>Pelajaran MPASI</div>
-                      </a>
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                        <div class="tabs-menu_icon">
-                          <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_202_345)">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_202_345">
-                                  <rect width="24" height="24" fill="white"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                        <div>Pelajaran MPASI</div>
-                        <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_203_206)">
-                              <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#27AE60"></path>
-                            </g>
-                            <defs>
-                              <clippath id="clip0_203_206">
-                                <rect width="24" height="24" fill="white"></rect>
-                              </clippath>
-                            </defs>
-                          </svg></div>
-                      </a>
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                        <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
-                        <div>Pelajaran MPASI</div>
-                      </a>
-                    </nav>
-                  </div>
-                  <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
-                    <div class="detail-dropdown_toggle w-dropdown-toggle">
-                      <div class="w-icon-dropdown-toggle"></div>
-                      <div>Materi</div>
-                    </div>
-                    <nav class="detail-dropdown_list w-dropdown-list">
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
-                        <div class="tabs-menu_icon">
-                          <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_202_345)">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_202_345">
-                                  <rect width="24" height="24" fill="white"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                        <div>Pelajaran MPASI</div>
-                      </a>
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                        <div class="tabs-menu_icon">
-                          <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_202_345)">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_202_345">
-                                  <rect width="24" height="24" fill="white"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                        <div>Pelajaran MPASI</div>
-                        <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_203_206)">
-                              <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#27AE60"></path>
-                            </g>
-                            <defs>
-                              <clippath id="clip0_203_206">
-                                <rect width="24" height="24" fill="white"></rect>
-                              </clippath>
-                            </defs>
-                          </svg></div>
-                      </a>
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                        <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
-                        <div>Pelajaran MPASI</div>
-                      </a>
-                    </nav>
-                  </div>
-                  <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
-                    <div class="detail-dropdown_toggle w-dropdown-toggle">
-                      <div class="w-icon-dropdown-toggle"></div>
-                      <div>Materi</div>
-                    </div>
-                    <nav class="detail-dropdown_list w-dropdown-list">
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
-                        <div class="tabs-menu_icon">
-                          <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_202_345)">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_202_345">
-                                  <rect width="24" height="24" fill="white"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                        <div>Pelajaran MPASI</div>
-                      </a>
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                        <div class="tabs-menu_icon">
-                          <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_202_345)">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_202_345">
-                                  <rect width="24" height="24" fill="white"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                        <div>Pelajaran MPASI</div>
-                        <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_203_206)">
-                              <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#27AE60"></path>
-                            </g>
-                            <defs>
-                              <clippath id="clip0_203_206">
-                                <rect width="24" height="24" fill="white"></rect>
-                              </clippath>
-                            </defs>
-                          </svg></div>
-                      </a>
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                        <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
-                        <div>Pelajaran MPASI</div>
-                      </a>
-                    </nav>
-                  </div>
-                  <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
-                    <div class="detail-dropdown_toggle w-dropdown-toggle">
-                      <div class="w-icon-dropdown-toggle"></div>
-                      <div>Materi</div>
-                    </div>
-                    <nav class="detail-dropdown_list w-dropdown-list">
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
-                        <div class="tabs-menu_icon">
-                          <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_202_345)">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_202_345">
-                                  <rect width="24" height="24" fill="white"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                        <div>Pelajaran MPASI</div>
-                      </a>
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                        <div class="tabs-menu_icon">
-                          <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_202_345)">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_202_345">
-                                  <rect width="24" height="24" fill="white"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                        <div>Pelajaran MPASI</div>
-                        <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_203_206)">
-                              <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#27AE60"></path>
-                            </g>
-                            <defs>
-                              <clippath id="clip0_203_206">
-                                <rect width="24" height="24" fill="white"></rect>
-                              </clippath>
-                            </defs>
-                          </svg></div>
-                      </a>
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                        <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
-                        <div>Pelajaran MPASI</div>
-                      </a>
-                    </nav>
-                  </div>
-                  <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
-                    <div class="detail-dropdown_toggle w-dropdown-toggle">
-                      <div class="w-icon-dropdown-toggle"></div>
-                      <div>Materi</div>
-                    </div>
-                    <nav class="detail-dropdown_list w-dropdown-list">
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
-                        <div class="tabs-menu_icon">
-                          <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_202_345)">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_202_345">
-                                  <rect width="24" height="24" fill="white"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                        <div>Pelajaran MPASI</div>
-                      </a>
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                        <div class="tabs-menu_icon">
-                          <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_202_345)">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_202_345">
-                                  <rect width="24" height="24" fill="white"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                        <div>Pelajaran MPASI</div>
-                        <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_203_206)">
-                              <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#27AE60"></path>
-                            </g>
-                            <defs>
-                              <clippath id="clip0_203_206">
-                                <rect width="24" height="24" fill="white"></rect>
-                              </clippath>
-                            </defs>
-                          </svg></div>
-                      </a>
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                        <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
-                        <div>Pelajaran MPASI</div>
-                      </a>
-                    </nav>
-                  </div>
-                  <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
-                    <div class="detail-dropdown_toggle w-dropdown-toggle">
-                      <div class="w-icon-dropdown-toggle"></div>
-                      <div>Materi</div>
-                    </div>
-                    <nav class="detail-dropdown_list w-dropdown-list">
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
-                        <div class="tabs-menu_icon">
-                          <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_202_345)">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_202_345">
-                                  <rect width="24" height="24" fill="white"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                        <div>Pelajaran MPASI</div>
-                      </a>
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                        <div class="tabs-menu_icon">
-                          <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_202_345)">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_202_345">
-                                  <rect width="24" height="24" fill="white"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                        <div>Pelajaran MPASI</div>
-                        <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_203_206)">
-                              <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#27AE60"></path>
-                            </g>
-                            <defs>
-                              <clippath id="clip0_203_206">
-                                <rect width="24" height="24" fill="white"></rect>
-                              </clippath>
-                            </defs>
-                          </svg></div>
-                      </a>
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                        <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
-                        <div>Pelajaran MPASI</div>
-                      </a>
-                    </nav>
-                  </div>
-                  <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
-                    <div class="detail-dropdown_toggle w-dropdown-toggle">
-                      <div class="w-icon-dropdown-toggle"></div>
-                      <div>Materi</div>
-                    </div>
-                    <nav class="detail-dropdown_list w-dropdown-list">
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
-                        <div class="tabs-menu_icon">
-                          <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_202_345)">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_202_345">
-                                  <rect width="24" height="24" fill="white"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                        <div>Pelajaran MPASI</div>
-                      </a>
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                        <div class="tabs-menu_icon">
-                          <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_202_345)">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                              </g>
-                              <defs>
-                                <clippath id="clip0_202_345">
-                                  <rect width="24" height="24" fill="white"></rect>
-                                </clippath>
-                              </defs>
-                            </svg></div>
-                        </div>
-                        <div>Pelajaran MPASI</div>
-                        <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_203_206)">
-                              <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#27AE60"></path>
-                            </g>
-                            <defs>
-                              <clippath id="clip0_203_206">
-                                <rect width="24" height="24" fill="white"></rect>
-                              </clippath>
-                            </defs>
-                          </svg></div>
-                      </a>
-                      <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                        <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
-                        <div>Pelajaran MPASI</div>
-                      </a>
-                    </nav>
-                  </div>
+                  <?php } ?>
                 </div>
               </nav>
             </div>
             <div class="detail-tab-menu_wrapper hide-mobile_landscape">
+              <?php 
+                foreach($materi->result() as $mRow){ 
+                  $video = $this->M_Video->getByMateri($mRow->id);
+              ?>
               <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
                 <div class="detail-dropdown_toggle w-dropdown-toggle">
                   <div class="w-icon-dropdown-toggle"></div>
-                  <div>Materi</div>
+                  <div><?= mb_strimwidth($mRow->materi, 0, 25, "...") ?> &nbsp;&nbsp;&nbsp;</div>
                 </div>
                 <nav class="detail-dropdown_list w-dropdown-list">
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
-                    <div class="tabs-menu_icon">
-                      <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clip-path="url(#clip0_202_345)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                          </g>
-                          <defs>
-                            <clippath id="clip0_202_345">
-                              <rect width="24" height="24" fill="white"></rect>
-                            </clippath>
-                          </defs>
-                        </svg></div>
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                  </a>
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                    <div class="tabs-menu_icon">
-                      <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clip-path="url(#clip0_202_345)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                          </g>
-                          <defs>
-                            <clippath id="clip0_202_345">
-                              <rect width="24" height="24" fill="white"></rect>
-                            </clippath>
-                          </defs>
-                        </svg></div>
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                    <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_203_206)">
-                          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#27AE60"></path>
-                        </g>
-                        <defs>
-                          <clippath id="clip0_203_206">
-                            <rect width="24" height="24" fill="white"></rect>
-                          </clippath>
-                        </defs>
-                      </svg></div>
-                  </a>
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                    <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
-                    <div>Pelajaran MPASI</div>
-                  </a>
+                  <?php foreach($video->result() as $vRow){ ?>
+                    <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
+                      <div class="tabs-menu_icon">
+                        <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_202_345)">
+                              <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
+                            </g>
+                            <defs>
+                              <clippath id="clip0_202_345">
+                                <rect width="24" height="24" fill="white"></rect>
+                              </clippath>
+                            </defs>
+                          </svg></div>
+                      </div>
+                      <div><?= $vRow->judul ?></div>
+                    </a>
+                  <?php } ?>
                 </nav>
               </div>
-              <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
-                <div class="detail-dropdown_toggle w-dropdown-toggle">
-                  <div class="w-icon-dropdown-toggle"></div>
-                  <div>Materi</div>
-                </div>
-                <nav class="detail-dropdown_list w-dropdown-list">
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
-                    <div class="tabs-menu_icon">
-                      <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clip-path="url(#clip0_202_345)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                          </g>
-                          <defs>
-                            <clippath id="clip0_202_345">
-                              <rect width="24" height="24" fill="white"></rect>
-                            </clippath>
-                          </defs>
-                        </svg></div>
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                  </a>
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                    <div class="tabs-menu_icon">
-                      <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clip-path="url(#clip0_202_345)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                          </g>
-                          <defs>
-                            <clippath id="clip0_202_345">
-                              <rect width="24" height="24" fill="white"></rect>
-                            </clippath>
-                          </defs>
-                        </svg></div>
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                    <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_203_206)">
-                          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#27AE60"></path>
-                        </g>
-                        <defs>
-                          <clippath id="clip0_203_206">
-                            <rect width="24" height="24" fill="white"></rect>
-                          </clippath>
-                        </defs>
-                      </svg></div>
-                  </a>
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                    <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
-                    <div>Pelajaran MPASI</div>
-                  </a>
-                </nav>
-              </div>
-              <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
-                <div class="detail-dropdown_toggle w-dropdown-toggle">
-                  <div class="w-icon-dropdown-toggle"></div>
-                  <div>Materi</div>
-                </div>
-                <nav class="detail-dropdown_list w-dropdown-list">
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
-                    <div class="tabs-menu_icon">
-                      <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clip-path="url(#clip0_202_345)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                          </g>
-                          <defs>
-                            <clippath id="clip0_202_345">
-                              <rect width="24" height="24" fill="white"></rect>
-                            </clippath>
-                          </defs>
-                        </svg></div>
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                  </a>
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                    <div class="tabs-menu_icon">
-                      <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clip-path="url(#clip0_202_345)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                          </g>
-                          <defs>
-                            <clippath id="clip0_202_345">
-                              <rect width="24" height="24" fill="white"></rect>
-                            </clippath>
-                          </defs>
-                        </svg></div>
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                    <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_203_206)">
-                          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#27AE60"></path>
-                        </g>
-                        <defs>
-                          <clippath id="clip0_203_206">
-                            <rect width="24" height="24" fill="white"></rect>
-                          </clippath>
-                        </defs>
-                      </svg></div>
-                  </a>
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                    <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
-                    <div>Pelajaran MPASI</div>
-                  </a>
-                </nav>
-              </div>
-              <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
-                <div class="detail-dropdown_toggle w-dropdown-toggle">
-                  <div class="w-icon-dropdown-toggle"></div>
-                  <div>Materi</div>
-                </div>
-                <nav class="detail-dropdown_list w-dropdown-list">
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
-                    <div class="tabs-menu_icon">
-                      <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clip-path="url(#clip0_202_345)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                          </g>
-                          <defs>
-                            <clippath id="clip0_202_345">
-                              <rect width="24" height="24" fill="white"></rect>
-                            </clippath>
-                          </defs>
-                        </svg></div>
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                  </a>
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                    <div class="tabs-menu_icon">
-                      <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clip-path="url(#clip0_202_345)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                          </g>
-                          <defs>
-                            <clippath id="clip0_202_345">
-                              <rect width="24" height="24" fill="white"></rect>
-                            </clippath>
-                          </defs>
-                        </svg></div>
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                    <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_203_206)">
-                          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#27AE60"></path>
-                        </g>
-                        <defs>
-                          <clippath id="clip0_203_206">
-                            <rect width="24" height="24" fill="white"></rect>
-                          </clippath>
-                        </defs>
-                      </svg></div>
-                  </a>
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                    <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
-                    <div>Pelajaran MPASI</div>
-                  </a>
-                </nav>
-              </div>
-              <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
-                <div class="detail-dropdown_toggle w-dropdown-toggle">
-                  <div class="w-icon-dropdown-toggle"></div>
-                  <div>Materi</div>
-                </div>
-                <nav class="detail-dropdown_list w-dropdown-list">
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
-                    <div class="tabs-menu_icon">
-                      <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clip-path="url(#clip0_202_345)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                          </g>
-                          <defs>
-                            <clippath id="clip0_202_345">
-                              <rect width="24" height="24" fill="white"></rect>
-                            </clippath>
-                          </defs>
-                        </svg></div>
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                  </a>
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                    <div class="tabs-menu_icon">
-                      <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clip-path="url(#clip0_202_345)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                          </g>
-                          <defs>
-                            <clippath id="clip0_202_345">
-                              <rect width="24" height="24" fill="white"></rect>
-                            </clippath>
-                          </defs>
-                        </svg></div>
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                    <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_203_206)">
-                          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#27AE60"></path>
-                        </g>
-                        <defs>
-                          <clippath id="clip0_203_206">
-                            <rect width="24" height="24" fill="white"></rect>
-                          </clippath>
-                        </defs>
-                      </svg></div>
-                  </a>
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                    <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
-                    <div>Pelajaran MPASI</div>
-                  </a>
-                </nav>
-              </div>
-              <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
-                <div class="detail-dropdown_toggle w-dropdown-toggle">
-                  <div class="w-icon-dropdown-toggle"></div>
-                  <div>Materi</div>
-                </div>
-                <nav class="detail-dropdown_list w-dropdown-list">
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
-                    <div class="tabs-menu_icon">
-                      <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clip-path="url(#clip0_202_345)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                          </g>
-                          <defs>
-                            <clippath id="clip0_202_345">
-                              <rect width="24" height="24" fill="white"></rect>
-                            </clippath>
-                          </defs>
-                        </svg></div>
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                  </a>
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                    <div class="tabs-menu_icon">
-                      <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clip-path="url(#clip0_202_345)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                          </g>
-                          <defs>
-                            <clippath id="clip0_202_345">
-                              <rect width="24" height="24" fill="white"></rect>
-                            </clippath>
-                          </defs>
-                        </svg></div>
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                    <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_203_206)">
-                          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#27AE60"></path>
-                        </g>
-                        <defs>
-                          <clippath id="clip0_203_206">
-                            <rect width="24" height="24" fill="white"></rect>
-                          </clippath>
-                        </defs>
-                      </svg></div>
-                  </a>
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                    <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
-                    <div>Pelajaran MPASI</div>
-                  </a>
-                </nav>
-              </div>
-              <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
-                <div class="detail-dropdown_toggle w-dropdown-toggle">
-                  <div class="w-icon-dropdown-toggle"></div>
-                  <div>Materi</div>
-                </div>
-                <nav class="detail-dropdown_list w-dropdown-list">
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
-                    <div class="tabs-menu_icon">
-                      <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clip-path="url(#clip0_202_345)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                          </g>
-                          <defs>
-                            <clippath id="clip0_202_345">
-                              <rect width="24" height="24" fill="white"></rect>
-                            </clippath>
-                          </defs>
-                        </svg></div>
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                  </a>
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                    <div class="tabs-menu_icon">
-                      <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clip-path="url(#clip0_202_345)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                          </g>
-                          <defs>
-                            <clippath id="clip0_202_345">
-                              <rect width="24" height="24" fill="white"></rect>
-                            </clippath>
-                          </defs>
-                        </svg></div>
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                    <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_203_206)">
-                          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#27AE60"></path>
-                        </g>
-                        <defs>
-                          <clippath id="clip0_203_206">
-                            <rect width="24" height="24" fill="white"></rect>
-                          </clippath>
-                        </defs>
-                      </svg></div>
-                  </a>
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                    <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
-                    <div>Pelajaran MPASI</div>
-                  </a>
-                </nav>
-              </div>
-              <div data-hover="false" data-delay="0" class="detail-dropdown w-dropdown">
-                <div class="detail-dropdown_toggle w-dropdown-toggle">
-                  <div class="w-icon-dropdown-toggle"></div>
-                  <div>Materi</div>
-                </div>
-                <nav class="detail-dropdown_list w-dropdown-list">
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
-                    <div class="tabs-menu_icon">
-                      <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clip-path="url(#clip0_202_345)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                          </g>
-                          <defs>
-                            <clippath id="clip0_202_345">
-                              <rect width="24" height="24" fill="white"></rect>
-                            </clippath>
-                          </defs>
-                        </svg></div>
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                  </a>
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                    <div class="tabs-menu_icon">
-                      <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clip-path="url(#clip0_202_345)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
-                          </g>
-                          <defs>
-                            <clippath id="clip0_202_345">
-                              <rect width="24" height="24" fill="white"></rect>
-                            </clippath>
-                          </defs>
-                        </svg></div>
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                    <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_203_206)">
-                          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#27AE60"></path>
-                        </g>
-                        <defs>
-                          <clippath id="clip0_203_206">
-                            <rect width="24" height="24" fill="white"></rect>
-                          </clippath>
-                        </defs>
-                      </svg></div>
-                  </a>
-                  <a id="tab_menu-1b" href="#" class="accordion-tab_menu w-inline-block">
-                    <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
-                    <div>Pelajaran MPASI</div>
-                  </a>
-                </nav>
-              </div>
+              <?php } ?>
             </div>
             <div class="detail-tab-content">
               <div data-current="Tab 2" data-easing="ease" data-duration-in="300" data-duration-out="100" class="accordion-tabs active w-tabs">
                 <div class="accordion-tabs_menu-wrapper hidden w-tab-menu">
                   <a data-w-tab="Tab 1" class="accordion-tabs_menu w-inline-block w-tab-link">
-                    <div class="tabs-menu_icon"><img loading="lazy" src="images/Play-circle-filled.svg" alt=""></div>
+                    <div class="tabs-menu_icon">
+                      <img loading="lazy" src="<?= base_url('assets/user/images/Play-circle-filled.svg') ?>" alt="">
+                    </div>
                     <div>Pelajaran MPASI</div>
                     <div class="tabs-menu_icon_done"></div>
                   </a>
@@ -897,7 +127,9 @@
                       </a>
                     </div>
                     <div class="video-detail_kelas">
-                      <div style="padding-top:56.17021276595745%" class="video w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7judyqwqmKo%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7judyqwqmKo&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F7judyqwqmKo%2Fhqdefault.jpg&key=c4e54deccf4d4ec997a64902e9a30300&type=text%2Fhtml&schema=youtube" scrolling="no" allowfullscreen="" title="New CSS viewport units and minimum heights - Webflow tutorial"></iframe></div>
+                      <div style="padding-top:56.17021276595745%" class="video w-video w-embed">
+                        <iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7judyqwqmKo%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7judyqwqmKo&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F7judyqwqmKo%2Fhqdefault.jpg&key=c4e54deccf4d4ec997a64902e9a30300&type=text%2Fhtml&schema=youtube" scrolling="no" allowfullscreen="" title="New CSS viewport units and minimum heights - Webflow tutorial"></iframe>
+                      </div>
                     </div>
                     <div class="deskripsi-detail_kelas">
                       <div class="deskripsi-title">
@@ -915,14 +147,20 @@
                     </div>
                     <div class="tentang-tutor_wrapper">
                       <div class="tutor-data">
-                        <div class="foto-tutor"><img loading="lazy" src="images/tutor-placeholder.webp" alt="" class="tutor-foto"></div><img loading="lazy" src="images/linkedin-icon.png" alt="">
-                        <h1 class="tutor-name">Arif Voyager</h1>
+                        <div class="foto-tutor">
+                          <?php if($tutor->img): ?>
+                            <img src="<?= base_url('uploads/tutor/' . $tutor->img)?>" loading="lazy" alt="" class="tutor-foto">
+                          <?php else: ?>
+                            <img src="<?= base_url('assets/admin/images/placeholder-image.svg')?>" loading="lazy" alt="" class="tutor-foto">
+                          <?php endif; ?>
+                        </div>
+                        <h1 class="tutor-name"><?= $tutor->nama ?></h1>
                       </div>
                       <div class="tutor-detail">
                         <div class="tutor-detail_title">
                           <div>TENTANG TUTOR</div>
                         </div>
-                        <p class="paragraph-small">Donec nulla massa, feugiat id ornare quis, consequat non massa. Nunc pulvinar ac arcu eu rhoncus. Morbi condimentum dolor in tortor commodo cursus id euismod purus. Sed sit amet odio eget sapien tristique ultricies interdum sed nisi. Curabitur molestie porttitor elementum. Donec eu diam lectus. Nunc vel blandit nibh. Duis eget posuere augue. Quisque vehicula laoreet urna quis pulvinar.</p>
+                        <p class="paragraph-small"><?= $tutor->deskripsi ?></p>
                       </div>
                     </div>
                   </div>
@@ -937,7 +175,9 @@
                       </a>
                     </div>
                     <div class="video-detail_kelas">
-                      <div style="padding-top:56.17021276595745%" class="video w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7judyqwqmKo%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7judyqwqmKo&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F7judyqwqmKo%2Fhqdefault.jpg&key=c4e54deccf4d4ec997a64902e9a30300&type=text%2Fhtml&schema=youtube" scrolling="no" allowfullscreen="" title="New CSS viewport units and minimum heights - Webflow tutorial"></iframe></div>
+                      <div style="padding-top:56.17021276595745%" class="video w-video w-embed">
+                        <iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7judyqwqmKo%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7judyqwqmKo&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F7judyqwqmKo%2Fhqdefault.jpg&key=c4e54deccf4d4ec997a64902e9a30300&type=text%2Fhtml&schema=youtube" scrolling="no" allowfullscreen="" title="New CSS viewport units and minimum heights - Webflow tutorial"></iframe>
+                      </div>
                     </div>
                     <div class="deskripsi-detail_kelas">
                       <div class="deskripsi-title">
@@ -955,14 +195,20 @@
                     </div>
                     <div class="tentang-tutor_wrapper">
                       <div class="tutor-data">
-                        <div class="foto-tutor"><img loading="lazy" src="images/tutor-placeholder.webp" alt="" class="tutor-foto"></div><img loading="lazy" src="images/linkedin-icon.png" alt="">
-                        <h1 class="tutor-name">Arif Voyager</h1>
+                        <div class="foto-tutor">
+                          <?php if($tutor->img): ?>
+                            <img src="<?= base_url('uploads/tutor/' . $tutor->img)?>" loading="lazy" alt="" class="tutor-foto">
+                          <?php else: ?>
+                            <img src="<?= base_url('assets/admin/images/placeholder-image.svg')?>" loading="lazy" alt="" class="tutor-foto">
+                          <?php endif; ?>
+                        </div>
+                        <h1 class="tutor-name"><?= $tutor->nama ?></h1>
                       </div>
                       <div class="tutor-detail">
                         <div class="tutor-detail_title">
                           <div>TENTANG TUTOR</div>
                         </div>
-                        <p class="paragraph-small">Donec nulla massa, feugiat id ornare quis, consequat non massa. Nunc pulvinar ac arcu eu rhoncus. Morbi condimentum dolor in tortor commodo cursus id euismod purus. Sed sit amet odio eget sapien tristique ultricies interdum sed nisi. Curabitur molestie porttitor elementum. Donec eu diam lectus. Nunc vel blandit nibh. Duis eget posuere augue. Quisque vehicula laoreet urna quis pulvinar.</p>
+                        <p class="paragraph-small"><?= $tutor->deskripsi ?></p>
                       </div>
                     </div>
                   </div>
@@ -977,7 +223,9 @@
                       </a>
                     </div>
                     <div class="video-detail_kelas">
-                      <div style="padding-top:56.17021276595745%" class="video w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7judyqwqmKo%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7judyqwqmKo&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F7judyqwqmKo%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube" scrolling="no" allowfullscreen="" title="New CSS viewport units and minimum heights - Webflow tutorial"></iframe></div>
+                      <div style="padding-top:56.17021276595745%" class="video w-video w-embed">
+                        <iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7judyqwqmKo%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7judyqwqmKo&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F7judyqwqmKo%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube" scrolling="no" allowfullscreen="" title="New CSS viewport units and minimum heights - Webflow tutorial"></iframe>
+                      </div>
                     </div>
                     <div class="deskripsi-detail_kelas">
                       <div class="deskripsi-title">
@@ -995,14 +243,20 @@
                     </div>
                     <div class="tentang-tutor_wrapper">
                       <div class="tutor-data">
-                        <div class="foto-tutor"><img loading="lazy" src="images/tutor-placeholder.webp" alt="" class="tutor-foto"></div><img loading="lazy" src="images/linkedin-icon.png" alt="">
-                        <h1 class="tutor-name">Arif Voyager</h1>
+                        <div class="foto-tutor">
+                          <?php if($tutor->img): ?>
+                            <img src="<?= base_url('uploads/tutor/' . $tutor->img)?>" loading="lazy" alt="" class="tutor-foto">
+                          <?php else: ?>
+                            <img src="<?= base_url('assets/admin/images/placeholder-image.svg')?>" loading="lazy" alt="" class="tutor-foto">
+                          <?php endif; ?>
+                        </div>
+                        <h1 class="tutor-name"><?= $tutor->nama ?></h1>
                       </div>
                       <div class="tutor-detail">
                         <div class="tutor-detail_title">
                           <div>TENTANG TUTOR</div>
                         </div>
-                        <p class="paragraph-small">Donec nulla massa, feugiat id ornare quis, consequat non massa. Nunc pulvinar ac arcu eu rhoncus. Morbi condimentum dolor in tortor commodo cursus id euismod purus. Sed sit amet odio eget sapien tristique ultricies interdum sed nisi. Curabitur molestie porttitor elementum. Donec eu diam lectus. Nunc vel blandit nibh. Duis eget posuere augue. Quisque vehicula laoreet urna quis pulvinar.</p>
+                        <p class="paragraph-small"><?= $tutor->deskripsi ?></p>
                       </div>
                     </div>
                   </div>
