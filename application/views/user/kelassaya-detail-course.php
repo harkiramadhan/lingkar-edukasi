@@ -99,17 +99,23 @@
               <?php } ?>
             </div>
             <div class="detail-tab-content">
-              <div class="kelas-nav-wrapper">
-                <a href="#" class="video-before-nav w-inline-block">
-                  <div class="w-icon-slider-left"></div>
-                </a>
-                <a href="#" class="video-after-nav w-inline-block">
-                  <p class="slide-arrow_text">Video Berikutnya</p>
-                  <div class="arrow-icon w-icon-slider-right"></div>
-                </a>
+
+              <div id="data-video">
+                <div class="kelas-nav-wrapper">
+                  <a href="#" class="video-before-nav w-inline-block">
+                    <div class="w-icon-slider-left"></div>
+                  </a>
+                  <a href="#" class="video-after-nav w-inline-block">
+                    <p class="slide-arrow_text">Video Berikutnya</p>
+                    <div class="arrow-icon w-icon-slider-right"></div>
+                  </a>
+                </div>
               </div>
+
               <div class="video-detail_kelas">
-                <div style="padding-top:56.17021276595745%" class="video w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7judyqwqmKo%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7judyqwqmKo&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F7judyqwqmKo%2Fhqdefault.jpg&key=c4e54deccf4d4ec997a64902e9a30300&type=text%2Fhtml&schema=youtube" scrolling="no" allowfullscreen="" title="New CSS viewport units and minimum heights - Webflow tutorial"></iframe></div>
+                <div style="padding-top:56.17021276595745%" class="video w-video w-embed">
+                  <iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7judyqwqmKo%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7judyqwqmKo&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F7judyqwqmKo%2Fhqdefault.jpg&key=c4e54deccf4d4ec997a64902e9a30300&type=text%2Fhtml&schema=youtube" scrolling="no" allowfullscreen="" title="New CSS viewport units and minimum heights - Webflow tutorial"></iframe>
+                </div>
               </div>
               <div class="deskripsi-detail_kelas">
                 <div class="deskripsi-title">
@@ -118,8 +124,7 @@
                 <div class="deskripsi-content">
                   <div class="deskripsi-content_content">
                     <h1 class="heading-detail_kelas">Deskripsi</h1>
-                    <p class="paragraph-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</p>
-                    <p class="paragraph-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</p>
+                    <p class="paragraph-small"><?= $course->deskripsi ?></p>
                     <h1 class="heading-detail_kelas">Apa yang kamu pelajari</h1>
                     <p class="paragraph-small">Donec nulla massa, feugiat id ornare quis, consequat non massa. Nunc pulvinar ac arcu eu rhoncus. Morbi condimentum dolor in tortor commodo cursus id euismod purus. Sed sit amet odio eget sapien tristique ultricies interdum sed nisi. Curabitur molestie porttitor elementum. Donec eu diam lectus. Nunc vel blandit nibh. Duis eget posuere augue. Quisque vehicula laoreet urna quis pulvinar.</p>
                   </div>
@@ -127,14 +132,20 @@
               </div>
               <div class="tentang-tutor_wrapper">
                 <div class="tutor-data">
-                  <div class="foto-tutor"><img loading="lazy" src="images/tutor-placeholder.webp" alt="" class="tutor-foto"></div><img loading="lazy" src="images/linkedin-icon.png" alt="">
-                  <h1 class="tutor-name">Arif Voyager</h1>
+                  <div class="foto-tutor">
+                    <?php if($tutor->img): ?>
+                      <img src="<?= base_url('uploads/tutor/' . $tutor->img)?>" loading="lazy" alt="" class="tutor-foto">
+                    <?php else: ?>
+                      <img src="<?= base_url('assets/admin/images/placeholder-image.svg')?>" loading="lazy" alt="" class="tutor-foto">
+                    <?php endif; ?>
+                  </div>
+                  <h1 class="tutor-name"><?= $tutor->nama ?></h1>
                 </div>
                 <div class="tutor-detail">
                   <div class="tutor-detail_title">
                     <div>TENTANG TUTOR</div>
                   </div>
-                  <p class="paragraph-small">Donec nulla massa, feugiat id ornare quis, consequat non massa. Nunc pulvinar ac arcu eu rhoncus. Morbi condimentum dolor in tortor commodo cursus id euismod purus. Sed sit amet odio eget sapien tristique ultricies interdum sed nisi. Curabitur molestie porttitor elementum. Donec eu diam lectus. Nunc vel blandit nibh. Duis eget posuere augue. Quisque vehicula laoreet urna quis pulvinar.</p>
+                  <p class="paragraph-small"><?= $tutor->deskripsi ?></p>
                 </div>
               </div>
             </div>

@@ -1990,6 +1990,10 @@ label {
   border-radius: 16px;
 }
 
+.detail-tab-content {
+  position: relative;
+}
+
 .detail-tab-menu_wrapper {
   grid-column-gap: 20px;
   grid-row-gap: 20px;
@@ -3407,6 +3411,10 @@ label {
     padding-right: 16px;
   }
 
+  .accordion-tab_menu {
+    padding: 12px;
+  }
+
   .materi-accordion_header {
     align-items: center;
     padding: 14px 16px;
@@ -3480,6 +3488,20 @@ label {
   .kelas-card-vertical_content {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .detail-dropdown_toggle {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .detail-dropdown {
+    padding: 6px 8px;
+  }
+
+  .detail-dropdown_list.w--open {
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
   }
 }
 
