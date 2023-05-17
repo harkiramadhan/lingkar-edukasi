@@ -48,7 +48,7 @@
                             <div class="tabs-menu_icon">
                               <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <g clip-path="url(#clip0_202_345)">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
+                                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17X.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="CurrentColor"></path>
                                   </g>
                                   <defs>
                                     <clippath id="clip0_202_345">
@@ -99,167 +99,42 @@
               <?php } ?>
             </div>
             <div class="detail-tab-content">
-              <div data-current="Tab 2" data-easing="ease" data-duration-in="300" data-duration-out="100" class="accordion-tabs active w-tabs">
-                <div class="accordion-tabs_menu-wrapper hidden w-tab-menu">
-                  <a data-w-tab="Tab 1" class="accordion-tabs_menu w-inline-block w-tab-link">
-                    <div class="tabs-menu_icon">
-                      <img loading="lazy" src="<?= base_url('assets/user/images/Play-circle-filled.svg') ?>" alt="">
-                    </div>
-                    <div>Pelajaran MPASI</div>
-                    <div class="tabs-menu_icon_done"></div>
-                  </a>
-                  <a data-w-tab="Tab 2" class="accordion-tabs_menu w-inline-block w-tab-link w--current">
-                    <div>Pelajaran MPASI</div>
-                  </a>
-                  <a data-w-tab="Tab 3" class="accordion-tabs_menu w-inline-block w-tab-link">
-                    <div>Pelajaran MPASI</div>
-                  </a>
+              <div class="kelas-nav-wrapper">
+                <a href="#" class="video-before-nav w-inline-block">
+                  <div class="w-icon-slider-left"></div>
+                </a>
+                <a href="#" class="video-after-nav w-inline-block">
+                  <p class="slide-arrow_text">Video Berikutnya</p>
+                  <div class="arrow-icon w-icon-slider-right"></div>
+                </a>
+              </div>
+              <div class="video-detail_kelas">
+                <div style="padding-top:56.17021276595745%" class="video w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7judyqwqmKo%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7judyqwqmKo&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F7judyqwqmKo%2Fhqdefault.jpg&key=c4e54deccf4d4ec997a64902e9a30300&type=text%2Fhtml&schema=youtube" scrolling="no" allowfullscreen="" title="New CSS viewport units and minimum heights - Webflow tutorial"></iframe></div>
+              </div>
+              <div class="deskripsi-detail_kelas">
+                <div class="deskripsi-title">
+                  <div class="semibolld is-white">DESKRIPSI</div>
                 </div>
-                <div class="accordion-tabs_content w-tab-content">
-                  <div id="tab_pane-1a" data-w-tab="Tab 1" class="tab_pane-1a w-tab-pane">
-                    <div class="kelas-nav-wrapper">
-                      <a href="#" class="video-before-nav w-inline-block">
-                        <div class="w-icon-slider-left"></div>
-                      </a>
-                      <a href="#" class="video-after-nav w-inline-block">
-                        <p class="slide-arrow_text">Video Berikutnya</p>
-                        <div class="arrow-icon w-icon-slider-right"></div>
-                      </a>
-                    </div>
-                    <div class="video-detail_kelas">
-                      <div style="padding-top:56.17021276595745%" class="video w-video w-embed">
-                        <iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7judyqwqmKo%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7judyqwqmKo&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F7judyqwqmKo%2Fhqdefault.jpg&key=c4e54deccf4d4ec997a64902e9a30300&type=text%2Fhtml&schema=youtube" scrolling="no" allowfullscreen="" title="New CSS viewport units and minimum heights - Webflow tutorial"></iframe>
-                      </div>
-                    </div>
-                    <div class="deskripsi-detail_kelas">
-                      <div class="deskripsi-title">
-                        <div class="semibolld is-white">DESKRIPSI</div>
-                      </div>
-                      <div class="deskripsi-content">
-                        <div class="deskripsi-content_content">
-                          <h1 class="heading-detail_kelas">Deskripsi</h1>
-                          <p class="paragraph-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</p>
-                          <p class="paragraph-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</p>
-                          <h1 class="heading-detail_kelas">Apa yang kamu pelajari</h1>
-                          <p class="paragraph-small">Donec nulla massa, feugiat id ornare quis, consequat non massa. Nunc pulvinar ac arcu eu rhoncus. Morbi condimentum dolor in tortor commodo cursus id euismod purus. Sed sit amet odio eget sapien tristique ultricies interdum sed nisi. Curabitur molestie porttitor elementum. Donec eu diam lectus. Nunc vel blandit nibh. Duis eget posuere augue. Quisque vehicula laoreet urna quis pulvinar.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="tentang-tutor_wrapper">
-                      <div class="tutor-data">
-                        <div class="foto-tutor">
-                          <?php if($tutor->img): ?>
-                            <img src="<?= base_url('uploads/tutor/' . $tutor->img)?>" loading="lazy" alt="" class="tutor-foto">
-                          <?php else: ?>
-                            <img src="<?= base_url('assets/admin/images/placeholder-image.svg')?>" loading="lazy" alt="" class="tutor-foto">
-                          <?php endif; ?>
-                        </div>
-                        <h1 class="tutor-name"><?= $tutor->nama ?></h1>
-                      </div>
-                      <div class="tutor-detail">
-                        <div class="tutor-detail_title">
-                          <div>TENTANG TUTOR</div>
-                        </div>
-                        <p class="paragraph-small"><?= $tutor->deskripsi ?></p>
-                      </div>
-                    </div>
+                <div class="deskripsi-content">
+                  <div class="deskripsi-content_content">
+                    <h1 class="heading-detail_kelas">Deskripsi</h1>
+                    <p class="paragraph-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</p>
+                    <p class="paragraph-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</p>
+                    <h1 class="heading-detail_kelas">Apa yang kamu pelajari</h1>
+                    <p class="paragraph-small">Donec nulla massa, feugiat id ornare quis, consequat non massa. Nunc pulvinar ac arcu eu rhoncus. Morbi condimentum dolor in tortor commodo cursus id euismod purus. Sed sit amet odio eget sapien tristique ultricies interdum sed nisi. Curabitur molestie porttitor elementum. Donec eu diam lectus. Nunc vel blandit nibh. Duis eget posuere augue. Quisque vehicula laoreet urna quis pulvinar.</p>
                   </div>
-                  <div id="tab_pane-1b" data-w-tab="Tab 2" class="tab_pane-1b w-tab-pane w--tab-active">
-                    <div class="kelas-nav-wrapper">
-                      <a href="#" class="video-before-nav w-inline-block">
-                        <div class="w-icon-slider-left"></div>
-                      </a>
-                      <a href="#" class="video-after-nav w-inline-block">
-                        <p class="slide-arrow_text">Video Berikutnya</p>
-                        <div class="arrow-icon w-icon-slider-right"></div>
-                      </a>
-                    </div>
-                    <div class="video-detail_kelas">
-                      <div style="padding-top:56.17021276595745%" class="video w-video w-embed">
-                        <iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7judyqwqmKo%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7judyqwqmKo&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F7judyqwqmKo%2Fhqdefault.jpg&key=c4e54deccf4d4ec997a64902e9a30300&type=text%2Fhtml&schema=youtube" scrolling="no" allowfullscreen="" title="New CSS viewport units and minimum heights - Webflow tutorial"></iframe>
-                      </div>
-                    </div>
-                    <div class="deskripsi-detail_kelas">
-                      <div class="deskripsi-title">
-                        <div class="semibolld is-white">DESKRIPSI</div>
-                      </div>
-                      <div class="deskripsi-content">
-                        <div class="deskripsi-content_content">
-                          <h1 class="heading-detail_kelas">Deskripsi</h1>
-                          <p class="paragraph-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</p>
-                          <p class="paragraph-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</p>
-                          <h1 class="heading-detail_kelas">Apa yang kamu pelajari</h1>
-                          <p class="paragraph-small">Donec nulla massa, feugiat id ornare quis, consequat non massa. Nunc pulvinar ac arcu eu rhoncus. Morbi condimentum dolor in tortor commodo cursus id euismod purus. Sed sit amet odio eget sapien tristique ultricies interdum sed nisi. Curabitur molestie porttitor elementum. Donec eu diam lectus. Nunc vel blandit nibh. Duis eget posuere augue. Quisque vehicula laoreet urna quis pulvinar.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="tentang-tutor_wrapper">
-                      <div class="tutor-data">
-                        <div class="foto-tutor">
-                          <?php if($tutor->img): ?>
-                            <img src="<?= base_url('uploads/tutor/' . $tutor->img)?>" loading="lazy" alt="" class="tutor-foto">
-                          <?php else: ?>
-                            <img src="<?= base_url('assets/admin/images/placeholder-image.svg')?>" loading="lazy" alt="" class="tutor-foto">
-                          <?php endif; ?>
-                        </div>
-                        <h1 class="tutor-name"><?= $tutor->nama ?></h1>
-                      </div>
-                      <div class="tutor-detail">
-                        <div class="tutor-detail_title">
-                          <div>TENTANG TUTOR</div>
-                        </div>
-                        <p class="paragraph-small"><?= $tutor->deskripsi ?></p>
-                      </div>
-                    </div>
+                </div>
+              </div>
+              <div class="tentang-tutor_wrapper">
+                <div class="tutor-data">
+                  <div class="foto-tutor"><img loading="lazy" src="images/tutor-placeholder.webp" alt="" class="tutor-foto"></div><img loading="lazy" src="images/linkedin-icon.png" alt="">
+                  <h1 class="tutor-name">Arif Voyager</h1>
+                </div>
+                <div class="tutor-detail">
+                  <div class="tutor-detail_title">
+                    <div>TENTANG TUTOR</div>
                   </div>
-                  <div id="tab_pane-1c" data-w-tab="Tab 3" class="tab_pane-1c w-tab-pane">
-                    <div class="kelas-nav-wrapper">
-                      <a href="#" class="video-before-nav w-inline-block">
-                        <div class="w-icon-slider-left"></div>
-                      </a>
-                      <a href="#" class="video-after-nav w-inline-block">
-                        <p class="slide-arrow_text">Video Berikutnya</p>
-                        <div class="arrow-icon w-icon-slider-right"></div>
-                      </a>
-                    </div>
-                    <div class="video-detail_kelas">
-                      <div style="padding-top:56.17021276595745%" class="video w-video w-embed">
-                        <iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7judyqwqmKo%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7judyqwqmKo&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F7judyqwqmKo%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube" scrolling="no" allowfullscreen="" title="New CSS viewport units and minimum heights - Webflow tutorial"></iframe>
-                      </div>
-                    </div>
-                    <div class="deskripsi-detail_kelas">
-                      <div class="deskripsi-title">
-                        <div class="semibolld is-white">DESKRIPSI</div>
-                      </div>
-                      <div class="deskripsi-content">
-                        <div class="deskripsi-content_content">
-                          <h2 class="heading-detail_kelas">Deskripsi</h2>
-                          <p class="paragraph-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</p>
-                          <p class="paragraph-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt mauris. Praesent sagittis rutrum augue id sodales. Morbi vulputate interdum ullamcorper. In in lorem sed risus suscipit laoreet. Donec laoreet sapien nec purus tempor auctor. Integer at magna nec elit fringilla ultrices ut ac felis. Cras nec blandit arcu. Curabitur ex ipsum, rhoncus ac dictum et, varius sit amet tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ipsum a leo maximus varius a in sapien.</p>
-                          <h2 class="heading-detail_kelas">Apa yang kamu pelajari</h2>
-                          <p class="paragraph-small">Donec nulla massa, feugiat id ornare quis, consequat non massa. Nunc pulvinar ac arcu eu rhoncus. Morbi condimentum dolor in tortor commodo cursus id euismod purus. Sed sit amet odio eget sapien tristique ultricies interdum sed nisi. Curabitur molestie porttitor elementum. Donec eu diam lectus. Nunc vel blandit nibh. Duis eget posuere augue. Quisque vehicula laoreet urna quis pulvinar.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="tentang-tutor_wrapper">
-                      <div class="tutor-data">
-                        <div class="foto-tutor">
-                          <?php if($tutor->img): ?>
-                            <img src="<?= base_url('uploads/tutor/' . $tutor->img)?>" loading="lazy" alt="" class="tutor-foto">
-                          <?php else: ?>
-                            <img src="<?= base_url('assets/admin/images/placeholder-image.svg')?>" loading="lazy" alt="" class="tutor-foto">
-                          <?php endif; ?>
-                        </div>
-                        <h1 class="tutor-name"><?= $tutor->nama ?></h1>
-                      </div>
-                      <div class="tutor-detail">
-                        <div class="tutor-detail_title">
-                          <div>TENTANG TUTOR</div>
-                        </div>
-                        <p class="paragraph-small"><?= $tutor->deskripsi ?></p>
-                      </div>
-                    </div>
-                  </div>
+                  <p class="paragraph-small">Donec nulla massa, feugiat id ornare quis, consequat non massa. Nunc pulvinar ac arcu eu rhoncus. Morbi condimentum dolor in tortor commodo cursus id euismod purus. Sed sit amet odio eget sapien tristique ultricies interdum sed nisi. Curabitur molestie porttitor elementum. Donec eu diam lectus. Nunc vel blandit nibh. Duis eget posuere augue. Quisque vehicula laoreet urna quis pulvinar.</p>
                 </div>
               </div>
             </div>
