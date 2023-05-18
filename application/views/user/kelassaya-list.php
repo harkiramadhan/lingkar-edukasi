@@ -23,19 +23,6 @@
           </div>
           <div class="kelassaya-tabs-wrapper">
             <div data-current="Tab 3" data-easing="ease" data-duration-in="300" data-duration-out="100" class="kelassaya-tabs w-tabs">
-              
-              <div class="kelassaya-tabs_menu-wrapper w-tab-menu">
-                <a data-w-tab="Tab 1" class="kelassaya-tabs_menu w-inline-block w-tab-link w--current">
-                  <div>SEMUA</div>
-                </a>
-                <a data-w-tab="Tab 2" class="kelassaya-tabs_menu w-inline-block w-tab-link">
-                  <div>DALAM PROGRESS</div>
-                </a>
-                <a data-w-tab="Tab 3" class="kelassaya-tabs_menu w-inline-block w-tab-link">
-                  <div>SELESAI</div>
-                </a>
-              </div>
-
               <div class="kelassaya-tabs_content w-tab-content">
                 <div data-w-tab="Tab 1" class="w-tab-pane">
                   <div class="w-layout-grid grid-3-column">
