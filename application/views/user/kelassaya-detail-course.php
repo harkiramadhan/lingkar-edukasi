@@ -22,8 +22,8 @@
       <div class="padding-top">
         <div class="container">
           <div class="section-title-wrapper">
-            <h2>Kelas Saya</h2>
-            <div>Ini adalah kelas paling populer di Indonesia</div>
+            <h2>Perpajakan V2</h2>
+            <!-- <div>Ini adalah kelas paling populer di Indonesia</div> -->
           </div>
           <div class="detail-kelas_wrapper">
             <div data-hover="false" data-delay="0" class="detail-kelas_dropdown w-dropdown">

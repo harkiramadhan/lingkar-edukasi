@@ -99,3 +99,6 @@
     display: none;
   }
   
+  .kelas-nav-wrapper {
+    grid-column-gap: 10px !important ;
+  }

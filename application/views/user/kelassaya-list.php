@@ -254,6 +254,8 @@
                           <img src="<?= base_url('uploads/courses/' . $row->cover)?>" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, 457.390625px" srcset="<?= base_url('uploads/courses/' . $row->cover)?> 500w, <?= base_url('uploads/courses/' . $row->cover)?> 576w" alt="" class="kelas-card_image">
                         </div>
                         <div class="kelas-card_content">
+                        <p style="margin-bottom: 0px; color: orange;"><i class="fa fa-clock-o" aria-hidden="true"></i><i style="margin-left: 8px;">Dalam proses</i></p>
+                        <p style="margin-bottom: 0px; color: green;"><i class="fa fa-check" aria-hidden="true"></i><i style="margin-left: 8px;">Course selesai</i></p>
                           <div style="display: flex;">
                             <?php foreach($getLabel->result() as $l){ ?>
                               <div class="kelas-kategori_pill">
