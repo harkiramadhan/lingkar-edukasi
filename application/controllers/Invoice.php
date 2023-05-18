@@ -8,7 +8,7 @@ class Invoice extends CI_Controller{
             'M_Settings'
         ]);
 
-        if(!$this->session->userdata('is_user')){
+        if($this->session->userdata('is_admin') != TRUE && $this->session->userdata('is_tutor') != TRUE && $this->session->userdata('is_user') != TRUE){
             redirect('');
         }
 

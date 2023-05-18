@@ -33,14 +33,10 @@
 									<tr>
 										<td class="text-center"><?= $no++ ?></td>
 										<td class="d-flex align-items-end">
-											<?php if($row->is_google): ?>
-												<img src="<?= $row->profile_picture ?>" alt="" width="42" class="rounded-circle mr-2">
-											<?php else: ?>
-												<?php if($row->profile_picture): ?>
-													<img src="<?= base_url('uploads/profile/' . $row->profile_picture) ?>" alt="" width="42" class="rounded-circle mr-2">
-												<?php else: ?> 
-													<img src="<?= base_url('assets/admin/images/profile/20.jpg') ?>" alt="" width="42" class="rounded-circle mr-2">
-												<?php endif; ?>
+											<?php if($row->profile_picture): ?>
+												<img src="<?= base_url('uploads/profile/' . $row->profile_picture) ?>" alt="" width="42" class="rounded-circle mr-2">
+											<?php else: ?> 
+												<img src="<?= base_url('assets/admin/images/profile/20.jpg') ?>" alt="" width="42" class="rounded-circle mr-2">
 											<?php endif; ?>
 											<div class="mr-auto">
 												<h4 class="text-nowrap font-weight-bold fs-14 mb-0"><?= $row->name ?></h4>
