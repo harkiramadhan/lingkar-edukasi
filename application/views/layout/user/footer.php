@@ -3,10 +3,10 @@
       <div class="w-layout-grid footer-grid-content">
         <div class="footer-column">
           <div class="footer-column_heading-wrapper">
-            <h2 class="footer-column-heading">LINGKAR EDUKASI</h2>
+            <h2 class="footer-column-heading"><?= $setting->summary_footer_judul ?></h2>
           </div>
           <div class="footer-column_content">
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet pellentesque velit. Cras aliquam pretium urna, nec faucibus nisi consectetur a</div>
+            <div><?= $setting->summary_footer_desc ?></div>
           </div>
         </div>
         <div class="footer-column">
@@ -23,7 +23,7 @@
         </div>
         <div class="footer-column">
           <div class="footer-column_heading-wrapper">
-            <h2 class="footer-column-heading">SOCIAL MEDIA</h2>
+            <h2 class="footer-column-heading"><?= $setting->footer_desc_sosmed ?></h2>
           </div>
           <div class="footer-column_content">
             <a href="<?= $setting->fb_link ?>" class="footer-link w-inline-block">
@@ -39,11 +39,10 @@
         </div>
         <div class="footer-column">
           <div class="footer-column_heading-wrapper">
-            <h2 class="footer-column-heading">LINGKAR EDUKASI</h2>
+            <h2 class="footer-column-heading"><?= $setting->alamat_judul ?></h2>
           </div>
           <div class="footer-column_content">
             <div>
-              <?= ($setting->alamat_judul) ? $setting->alamat_judul . '<br>' : '' ?> 
               <?= ($setting->alamat_1) ? $setting->alamat_1 . '<br>' : '' ?> 
               <?= ($setting->alamat_2) ? $setting->alamat_2 . '<br>' : '' ?> 
               <?= ($setting->telefon) ? 'Tlp : ' . $setting->telefon . '<br>' : '' ?> 
