@@ -76,7 +76,7 @@
                   <div class="w-icon-dropdown-toggle"></div>
                   <div><?= mb_strimwidth($mRow->materi, 0, 25, "...") ?> &nbsp;&nbsp;&nbsp;</div>
                 </div>
-                <nav class="detail-dropdown_list w-dropdown-list">
+                <nav class="detail-dropdown_list w-dropdown-list w--open">
                   <?php foreach($video->result() as $vRow){ ?>
                     <a id="tab_menu-1b" href="<?= site_url('kelas/' . $course->flag . '/detail?video=' . md5($vRow->id)) ?>" class="accordion-tab_menu w-inline-block <?= ($this->input->get('video', TRUE) == md5($vRow->id)) ? 'current' : '' ?>">
                       <div class="tabs-menu_icon">
