@@ -78,7 +78,7 @@
                 </div>
                 <nav class="detail-dropdown_list w-dropdown-list">
                   <?php foreach($video->result() as $vRow){ ?>
-                    <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
+                    <a id="tab_menu-1b" href="<?= site_url('kelas/' . $course->flag . '/detail?video=' . md5($vRow->id)) ?>" class="accordion-tab_menu w-inline-block <?= ($this->input->get('video', TRUE) == md5($vRow->id)) ? 'current' : '' ?>">
                       <div class="tabs-menu_icon">
                         <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_202_345)">
@@ -100,7 +100,7 @@
             </div>
             <div class="detail-tab-content">
 
-              <div id="data-video">
+              <?php if(@$videos): ?>
                 <div class="kelas-nav-wrapper">
                   <a href="#" class="video-before-nav w-inline-block">
                     <div class="w-icon-slider-left"></div>
@@ -110,13 +110,14 @@
                     <div class="arrow-icon w-icon-slider-right"></div>
                   </a>
                 </div>
-              </div>
 
-              <div class="video-detail_kelas">
-                <div style="padding-top:56.17021276595745%" class="video w-video w-embed">
-                  <iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7judyqwqmKo%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7judyqwqmKo&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F7judyqwqmKo%2Fhqdefault.jpg&key=c4e54deccf4d4ec997a64902e9a30300&type=text%2Fhtml&schema=youtube" scrolling="no" allowfullscreen="" title="New CSS viewport units and minimum heights - Webflow tutorial"></iframe>
+                <div class="video-detail_kelas">
+                  <div style="padding-top:56.17021276595745%" class="video w-video w-embed">
+                    <iframe class="embedly-embed" src="<?= base_url('uploads/courses/videos/' . $videos->video) ?>" scrolling="no" allowfullscreen="" title="Lingkar Edukasi - Video - <?= $videos->video ?>"></iframe>
+                  </div>
                 </div>
-              </div>
+              <?php endif; ?>
+
               <div class="deskripsi-detail_kelas">
                 <div class="deskripsi-title">
                   <div class="semibolld is-white">DESKRIPSI</div>

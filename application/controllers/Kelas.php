@@ -42,6 +42,11 @@ class Kelas extends CI_Controller{
         $userid = $this->session->userdata('user_id');
         $course = $this->M_Courses->getByFlag($flag);
 
+        $videoid = $this->input->get('video', TRUE);
+        if($videoid){
+            $video = $this->M_Video->getByIdHash($videoid);
+        }
+
         $trx = $this->M_Enrollment->getByUserCourse($userid, $course->id, 'settlement');
         if($trx->num_rows() > 0){
             $var = [
@@ -51,7 +56,8 @@ class Kelas extends CI_Controller{
                 'user' => $this->M_Users->getById($userid),
                 'tutor' => $this->M_Tutor->getById($course->pemateriid),
                 'course' => $course,
-                'materi' => $this->M_Materi->getByClass($course->id)
+                'materi' => $this->M_Materi->getByClass($course->id),
+                'videos' => @$video
             ];
     
             $this->load->view('layout/user/header', $var);

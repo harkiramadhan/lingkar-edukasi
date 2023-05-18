@@ -16,4 +16,8 @@ class M_Video extends CI_Model{
     function getByMateri($materiid){
         return $this->db->get_where('video', ['materiid' => $materiid]);
     }
+
+    function getByIdHash($hash){
+        return $this->db->get_where('video', ["md5(id)" => $hash])->row();
+    }
 }
