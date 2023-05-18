@@ -41,12 +41,44 @@
                         <div class="profile-tabs_content w-tab-content">
                             <div data-w-tab="Tab 2" class="w-tab-pane w--tab-active">
                                 <div class="signin-form w-form">
-                                    <div class="profile-foto_wrapper">
-                                        <a href="#" class="profile-foto_edit w-inline-block">
-                                            <img src="<?= base_url('assets/user/images/Mode-edit.svg')?>" loading="lazy" alt="">
-                                        </a>
-                                    </div>
                                     <form method="post" class="form-field_wrapper" action="<?= site_url('profil/action') ?>">
+
+                                            
+                                        <!-- <div class="profile-foto_wrapper">
+                                            <a href="#" class="profile-foto_edit w-inline-block">
+                                                <img src="<?= base_url('assets/user/images/Mode-edit.svg')?>" loading="lazy" alt="">
+                                            </a>
+                                        </div> -->
+
+                                        <div style="position: relative; width: 200px; height: 200px; border-radius: 50%; background-color: maroon; display: flex; align-items: center; justify-content: center; cursor: pointer;" onmouseover="showPencil()" onmouseout="hidePencil()">
+                                            <label for="file-input">
+                                                <div style="position: relative; width: 190px; height: 190px; border-radius: 50%; overflow: hidden;">
+                                                <img id="avatar-img" src="https://www.charitycomms.org.uk/wp-content/uploads/2019/02/placeholder-image-square.jpg" alt="Preview" style="width: 200px; height: 200px; object-fit: cover;">
+                                                </div>
+                                                <div id="pencil-icon" style="position: absolute; top: 5px; right: 5px; display: none; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background-color: maroon; border-radius: 50%;">
+                                                    <img src="https://cdn-icons-png.flaticon.com/512/650/650143.png" alt="Edit" style="width: 20px; height: 20px;">
+                                                </div>
+                                            </label>
+                                            <input id="file-input" type="file" onchange="previewImage(event);" style="display: none;">
+                                        </div>
+
+                                        <script>
+
+                                                function previewImage(event) {
+                                                var input = event.target;
+                                                var reader = new FileReader();
+                                                
+                                                reader.onload = function() {
+                                                    var imgElement = document.getElementById("avatar-img");
+                                                    imgElement.src = reader.result;
+                                                };
+                                                
+                                                reader.readAsDataURL(input.files[0]);
+                                                }
+
+                                        </script>
+
+
                                         <label for="name" class="text-size-regular">Nama Lengkap</label>
                                         <input type="text" class="text-field w-input" maxlength="256" name="name" data-name="Name" placeholder="Tulis nama lengkapmu" required="" value="<?= $user->name ?>">
                                         
