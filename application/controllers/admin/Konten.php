@@ -18,20 +18,6 @@ class Konten extends CI_Controller{
     }
   }
 
-  private function resizeImage($filename, $dir){
-    $config['image_library'] = 'gd2';  
-    $config['source_image'] = './uploads/'. $dir . '/' . $filename;  
-    $config['create_thumb'] = FALSE;  
-    $config['maintain_ratio'] = TRUE;  
-    $config['quality'] = '75%';  
-    $config['new_image'] = './uploads/' . $dir . '/' . $filename;  
-    $config['width'] = 500;              
-
-    $this->image_lib->initialize($config);
-    $this->image_lib->resize();  
-    $this->image_lib->clear();
-  }
-
   function landing(){
     $var = [
       'banners' => $this->M_Banners->getAll(),
@@ -346,7 +332,6 @@ class Konten extends CI_Controller{
     if($this->upload->do_upload('img')){
       $data = $this->upload->data();
       $filename = $data['file_name'];
-      $this->resizeImage($filename, 'banners'); 
     }
 
 		$dataInsert = [
@@ -382,7 +367,6 @@ class Konten extends CI_Controller{
 
       $data = $this->upload->data();
       $filename = $data['file_name'];
-			$this->resizeImage($filename, 'banners'); 
     }else{
 			$filename = $banner->img;
 		}
@@ -427,7 +411,6 @@ class Konten extends CI_Controller{
     if($this->upload->do_upload('img')){
       $data = $this->upload->data();
       $filename = $data['file_name'];
-      $this->resizeImage($filename, 'partner'); 
     }
 
     $dataInsert = [
@@ -461,7 +444,6 @@ class Konten extends CI_Controller{
 
       $data = $this->upload->data();
       $filename = $data['file_name'];
-			$this->resizeImage($filename, 'partner'); 
     }else{
 			$filename = $partner->img;
 		}
@@ -505,7 +487,6 @@ class Konten extends CI_Controller{
     if($this->upload->do_upload('img')){
       $data = $this->upload->data();
       $filename = $data['file_name'];
-      $this->resizeImage($filename, 'benefit'); 
     }
 
     $dataInsert = [
@@ -540,7 +521,6 @@ class Konten extends CI_Controller{
 
       $data = $this->upload->data();
       $filename = $data['file_name'];
-			$this->resizeImage($filename, 'benefit'); 
     }else{
 			$filename = $benefit->img;
 		}
@@ -600,7 +580,6 @@ class Konten extends CI_Controller{
     if($this->upload->do_upload('img')){
       $data = $this->upload->data();
       $filename = $data['file_name'];
-			$this->resizeImage($filename, 'testimoni'); 
     }
 
     $dataInsert = [
@@ -635,7 +614,6 @@ class Konten extends CI_Controller{
 
       $data = $this->upload->data();
       $filename = $data['file_name'];
-			$this->resizeImage($filename, 'testimoni'); 
     }else{
 			$filename = $testimoni->img;
 		}
@@ -685,7 +663,6 @@ class Konten extends CI_Controller{
 
       $data = $this->upload->data();
       $filename = $data['file_name'];
-			$this->resizeImage($filename, 'settings'); 
     }else{
 			$filename = $data->cta_img;
 		}
@@ -722,7 +699,6 @@ class Konten extends CI_Controller{
 
       $data = $this->upload->data();
       $filename = $data['file_name'];
-			$this->resizeImage($filename, 'settings'); 
     }else{
 			$filename = $data->header_img;
 		}

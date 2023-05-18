@@ -33,6 +33,24 @@ class Profil extends CI_Controller{
   }
 
   function action(){
+    $config['upload_path'] = './uploads/profile';  
+		$config['allowed_types'] = 'jpg|jpeg|png'; 
+		$config['encrypt_name'] = TRUE;
+
+    $getUser = $this->M_Users->getById($this->session->userdata('user_id'));
+    $this->load->library('upload', $config);
+    if($this->upload->do_upload('profile_picture')){
+      if(@$getUser->profile_picture != NULL){
+        @unlink('./uploads/profile/' . @$getUser->profile_picture);
+      }
+
+      $data = $this->upload->data();
+      $filename = $data['file_name'];
+    }else{
+      $filename = $getUser->profile_picture;
+    }
+
+
     $this->db->where('id', $this->session->userdata('user_id'))->update('user', [
       'name' => $this->input->post('name', TRUE),
       'nohp' => $this->input->post('nohp', TRUE),
@@ -40,6 +58,7 @@ class Profil extends CI_Controller{
       'jenkel' => $this->input->post('jenkel', TRUE),
       'pendidikan' => $this->input->post('pendidikan', TRUE),
       'tgll' => $this->input->post('tgll', TRUE),
+      'profile_picture' => $filename
     ]);
     if($this->db->affected_rows() > 0){
       $this->session->set_flashdata('success', "Data Berhasil Di Simpan");
@@ -47,8 +66,7 @@ class Profil extends CI_Controller{
       $this->session->set_flashdata('error', "Data Gagal Di Simpan");
     }
 
-    
-    redirect($_SERVER['HTTP_REFERER']);
+    redirect('profil');
   }
 
   function changePassword(){
