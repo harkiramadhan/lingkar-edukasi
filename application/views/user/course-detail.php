@@ -27,7 +27,6 @@
             <div class="margin-bottom-20">
               <h1 class="heading-xxlarge is-white no-margin"><?= $course->judul ?></h1>
             </div>
-            <div>Mulailah, beralih, atau memajukan karir mu dengan lebih dari 100 kursus dan sertifikat profesional</div>
             <div class="margin-top-24">
               <div class="coursepill_wrapper">
                 <div class="coursedetail-hero_pill">
