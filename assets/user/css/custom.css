@@ -102,3 +102,11 @@
   .kelas-nav-wrapper {
     grid-column-gap: 10px !important ;
   }
+
+  .accordion-tab_menu {
+    cursor: hover;
+  }
+
+  .pencil-icon {
+    cursor: hover;
+  }

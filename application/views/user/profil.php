@@ -52,8 +52,8 @@
                                                         <img id="avatar-img" src="https://www.charitycomms.org.uk/wp-content/uploads/2019/02/placeholder-image-square.jpg" alt="Preview" style="width: 200px; height: 200px; object-fit: cover;">
                                                     <?php endif; ?>
                                                 </div>
-                                                <div id="pencil-icon" style="position: absolute; top: 5px; right: 5px; display: none; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background-color: maroon; border-radius: 50%;">
-                                                    <img src="https://cdn-icons-png.flaticon.com/512/650/650143.png" alt="Edit" style="width: 20px; height: 20px;">
+                                                <div id="pencil-icon" class="pencil-icon" style="position: absolute; top: 5px; right: 5px; display: none; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background-color: maroon; border-radius: 50%;">
+                                                    <i class="fa fa-pencil fa-lg" aria-hidden="true" style="color: white;"></i>
                                                 </div>
                                             </label>
                                             <input id="file-input" name="profile_picture" type="file" onchange="previewImage(event);" style="display: none;">

@@ -58,6 +58,7 @@
                                 </svg></div>
                             </div>
                             <div><?= $vRow->judul ?></div>
+                            <div class="tabs-menu_icon_done"></div>
                           </a>
                         <?php } ?>
                       </nav>
@@ -92,6 +93,7 @@
                           </svg></div>
                       </div>
                       <div><?= $vRow->judul ?></div>
+                      <i class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #f7b755;"></i>
                     </a>
                   <?php } ?>
                 </nav>
