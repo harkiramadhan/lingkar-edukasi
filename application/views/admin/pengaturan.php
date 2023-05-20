@@ -22,7 +22,6 @@
                                     <a href="#v-pills-profil-admin" data-toggle="pill" class="nav-link active">Profil Admin</a>
                                     <a href="#v-pills-password" data-toggle="pill" class="nav-link">Password</a>
                                     <a href="#v-pills-sertifikat" data-toggle="pill" class="nav-link">Sertifikat</a>
-                                    <!-- <a href="#v-pills-password" data-toggle="pill" class="nav-link">Password</a> -->
                                 </div>
                             </div>
                             <div class="col-xl-9 border-left">
