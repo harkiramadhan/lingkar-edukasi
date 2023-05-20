@@ -21,16 +21,30 @@
                                 <div class="nav flex-column nav-pills mb-3">
                                     <a href="#v-pills-profil-admin" data-toggle="pill" class="nav-link active">Profil Admin</a>
                                     <a href="#v-pills-password" data-toggle="pill" class="nav-link">Password</a>
+                                    <a href="#v-pills-sertifikat" data-toggle="pill" class="nav-link">Sertifikat</a>
+                                    <!-- <a href="#v-pills-password" data-toggle="pill" class="nav-link">Password</a> -->
                                 </div>
                             </div>
                             <div class="col-xl-9 border-left">
                                 <div class="row">
-                                    <div class="col-lg-7 col-12">
+                                    <div class="col-lg-12 col-12">
                                         <div class="tab-content">
                                             <div id="v-pills-profil-admin" class="tab-pane fade active show">
                                                 <div class="row">
-                                                    <div class="col-lg-12 col-12">
+                                                    <div class="col-lg-7 col-12">
                                                         <form action="<?= site_url('admin/pengaturan/action/' . $user->id) ?>" method="POST">
+                                                            <div class="form-group">
+                                                                <label class="text-black font-w500">Foto Profil</label>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">Upload</span>
+                                                                    </div>
+                                                                    <div class="custom-file">
+                                                                        <input type="file" class="custom-file-input" name="img" id="image-source4" onchange="previewImage4()" required>
+                                                                        <label class="custom-file-label">Pilih</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Nama Lengkap</label>
                                                                 <input name="nama" type="text" class="form-control" value="<?= $user->nama ?>">
@@ -78,6 +92,11 @@
                 
                                                         </form>
                                                     </div>
+                                                    <div class="col-lg-5 col-12 order-lg-2 order-1">
+                                                        <div class="card-media mb-4">
+                                                                <img src="http://localhost/lingkar-edukasi/assets/admin/images/placeholder-image.svg" alt="" class="w-100 rounded" id="image-preview">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div id="v-pills-password" class="tab-pane fade">
@@ -102,11 +121,68 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 col-12 order-lg-2 order-1">
-                                        <div class="card-media mb-4">
-                                                <img src="http://localhost/lingkar-edukasi/assets/admin/images/placeholder-image.svg" alt="" class="w-100 rounded" id="image-preview">
+
+                                            <div id="v-pills-sertifikat" class="tab-pane fade">
+                                                <div class="row">
+                                                    <div class="col-lg-7 col-12 order-lg-1 order-2">
+                                                        <form action="<?= site_url('admin/pengaturan/action/' . $user->id) ?>" method="POST">
+                                                            <div class="form-group">
+                                                                <label class="text-black font-w500">Latar Belakang Sertifikat</label>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">Upload</span>
+                                                                    </div>
+                                                                    <div class="custom-file">
+                                                                        <input type="file" class="custom-file-input" name="img" id="image-source4" onchange="previewImage4()" required>
+                                                                        <label class="custom-file-label">Pilih</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="text-black font-w500">Tanda Tangan Sertifikat</label>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">Upload</span>
+                                                                    </div>
+                                                                    <div class="custom-file">
+                                                                        <input type="file" class="custom-file-input" name="img" id="image-source4" onchange="previewImage4()" required>
+                                                                        <label class="custom-file-label">Pilih</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="text-black font-w500">Nama Tanda Tangan</label>
+                                                                <input name="text" type="text" class="form-control" value="<?= $user->nama ?>">
+                                                            </div>
+                
+                                                            <div class="form-group">
+                                                                <label class="text-black font-w500">Jabatan Tanda Tangan</label>
+                                                                <input name="text" type="text" class="form-control" value="<?= $user->email ?>">
+                                                            </div>
+        
+                                                            <div class="form-group mb-0 text-right">
+                                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                                            </div>
+                
+                                                        </form>
+                                                    </div>
+                                                    <div class="col-lg-5 col-12 order-lg-2 order-1">
+                                                        <div class="form-group mb-2">
+                                                            <label class="text-black font-w500">Preview Latar Belakang</label>
+                                                        </div>
+                                                        <div class="card-media mb-4">
+                                                            <img src="http://localhost/lingkar-edukasi/assets/admin/images/placeholder-image.svg" alt="" class="w-100 rounded" id="image-preview">
+                                                        </div>
+
+                                                        <div class="form-group mb-2">
+                                                            <label class="text-black font-w500">Preview Tanda Tangan</label>
+                                                        </div>
+                                                        <div class="card-media mb-4">
+                                                            <img src="http://localhost/lingkar-edukasi/assets/admin/images/placeholder-image.svg" alt="" class="w-100 rounded" id="image-preview">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

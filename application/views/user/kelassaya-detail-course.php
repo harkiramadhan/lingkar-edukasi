@@ -115,7 +115,7 @@
 
                 <div class="video-detail_kelas">
                   <div style="padding-top:56.17021276595745%" class="video w-video w-embed">
-                    <iframe class="embedly-embed" src="<?= base_url('uploads/courses/videos/' . $videos->video) ?>" scrolling="no" allowfullscreen="" title="Lingkar Edukasi - Video - <?= $videos->video ?>"></iframe>
+                    <iframe class="embedly-embed" src="<?= base_url('uploads/courses/videos/' . $videos->video) ?>" scrolling="no" allowfullscreen="" title="Lingkar Edukasi - Video - <?= $videos->video ?>" style="border-radius: 16px;"></iframe>
                   </div>
                 </div>
               <?php endif; ?>
