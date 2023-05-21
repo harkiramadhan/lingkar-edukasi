@@ -29,7 +29,7 @@
     <table width="100%" style="padding-top: 90px;">
         <tr>
             <td align="center">
-                <h1 style="font-family: 'Dancing Script', cursive !important;">CERTIFICATE OF EXCELLENCE</h1>
+                <h1 style="font-family: 'Dancing Script', cursive !important;">CERTIFICATE OF COMPLETION</h1>
             </td>
         </tr>
         <tr>

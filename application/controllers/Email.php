@@ -23,4 +23,16 @@ class Email extends CI_Controller{
     $this->load->view('user/email/email-daftar');
   }
 
+  function pembeliankelas(){
+    $this->load->view('user/email/email-beli-kelas');
+  }
+
+  function kelasselesai(){
+    $this->load->view('user/email/email-kelas-selesai');
+  }
+
+  function updatepassword(){
+    $this->load->view('user/email/email-password-reset');
+  }
+
 }   
