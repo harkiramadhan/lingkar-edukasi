@@ -49,6 +49,23 @@ class Kelas extends CI_Controller{
 
         $trx = $this->M_Enrollment->getByUserCourse($userid, $course->id, 'settlement');
         if($trx->num_rows() > 0){
+            $log = $this->input->get('log', TRUE);
+            if($log){
+                $checkLog = $this->db->get_where('courses_video_log', [
+                    'userid' => $userid,
+                    'videoid' => $log,
+                    'courseid' => $course->id
+                ]);
+    
+                if($checkLog->num_rows() > 0){}else{
+                    $this->db->insert('courses_video_log', [
+                        'userid' => $userid,
+                        'videoid' => $log,
+                        'courseid' => $course->id
+                    ]);
+                }
+            }
+
             $var = [
                 'title' => $course->judul,
                 'labels' => $this->M_Labels->getActive(),
@@ -57,7 +74,8 @@ class Kelas extends CI_Controller{
                 'tutor' => $this->M_Tutor->getById($course->pemateriid),
                 'course' => $course,
                 'materi' => $this->M_Materi->getByClass($course->id),
-                'videos' => @$video
+                'videos' => @$video,
+                'courseVideo' => $this->M_Video->getByClass($course->id)
             ];
     
             $this->load->view('layout/user/header', $var);
@@ -89,16 +107,49 @@ class Kelas extends CI_Controller{
         }
     }
 
-    function kelassayaselesai(){
+    function done($flag){
         $userid = $this->session->userdata('user_id');
-        $var = [
-            'labels' => $this->M_Labels->getActive(),
-            'setting' => $this->M_Settings->get(),
-            'user' => $this->M_Users->getById($userid)
-        ];
+        $course = $this->M_Courses->getByFlag($flag);
 
-        $this->load->view('layout/user/header', $var);
-        $this->load->view('user/kelassaya-selesai', $var);
-        $this->load->view('layout/user/footer', $var);
+        $trx = $this->M_Enrollment->getByUserCourse($userid, $course->id, 'settlement');
+        if($trx->num_rows() > 0){
+            $var = [
+                'labels' => $this->M_Labels->getActive(),
+                'setting' => $this->M_Settings->get(),
+                'user' => $this->M_Users->getById($userid),
+                'course' => $course
+            ];
+    
+            $this->load->view('layout/user/header', $var);
+            $this->load->view('user/kelassaya-selesai', $var);
+            $this->load->view('layout/user/footer', $var);
+        }else{
+            redirect('course/' . $flag . '/detail','refresh');
+        }
+    }
+
+    function actionDone(){
+        $id = $this->input->get('video', TRUE);
+        $courseid = $this->input->get('cls', TRUE);
+        $flag = $this->input->get('flag', TRUE);
+
+        $userid = $this->session->userdata('user_id');
+        $checkLog = $this->db->get_where('courses_video_log', [
+            'userid' => $userid,
+            'videoid' => $id,
+            'courseid' => $courseid
+        ]);
+
+        if($checkLog->num_rows() > 0){}else{
+            $this->db->insert('courses_video_log', [
+                'userid' => $userid,
+                'videoid' => $id,
+                'courseid' => $courseid
+            ]);
+
+            $this->db->where(['courseid' => $courseid, 'userid' => $userid])->update('enrollment', ['is_done' => 1]);
+        }
+        
+        redirect('kelas/' . $flag . '/done', 'refresh');
     }
 }

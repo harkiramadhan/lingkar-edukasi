@@ -43,8 +43,14 @@
                         <div><?= mb_strimwidth($mRow->materi, 0, 25, "...") ?> &nbsp;&nbsp;&nbsp;</div>
                       </div>
                       <nav class="detail-dropdown_list w-dropdown-list">
-                        <?php foreach($video->result() as $vRow){ ?>
-                          <a id="tab_menu-1b" href="#" class="accordion-tab_menu current w-inline-block">
+                        <?php foreach($video->result() as $vRow){ 
+                                $log = $this->db->get_where('courses_video_log', [
+                                  'userid' => $this->session->userdata('user_id'),
+                                  'courseid' => $course->id,
+                                  'videoid' => md5($vRow->id)
+                                ]);  
+                        ?>
+                          <a href="<?= site_url('kelas/' . $course->flag . '/detail?video=' . md5($vRow->id)) ?>" class="accordion-tab_menu w-inline-block <?= ($this->input->get('video', TRUE) == md5($vRow->id)) ? 'current' : '' ?>">
                             <div class="tabs-menu_icon">
                               <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <g clip-path="url(#clip0_202_345)">
@@ -58,7 +64,9 @@
                                 </svg></div>
                             </div>
                             <div><?= $vRow->judul ?></div>
-                            <div class="tabs-menu_icon_done"></div>
+                            <?php if($log->num_rows() > 0): ?>
+                              <i class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #f7b755;"></i>
+                            <?php endif; ?>
                           </a>
                         <?php } ?>
                       </nav>
@@ -78,8 +86,14 @@
                   <div><?= mb_strimwidth($mRow->materi, 0, 25, "...") ?> &nbsp;&nbsp;&nbsp;</div>
                 </div>
                 <nav class="detail-dropdown_list w-dropdown-list w--open">
-                  <?php foreach($video->result() as $vRow){ ?>
-                    <a id="tab_menu-1b" href="<?= site_url('kelas/' . $course->flag . '/detail?video=' . md5($vRow->id)) ?>" class="accordion-tab_menu w-inline-block <?= ($this->input->get('video', TRUE) == md5($vRow->id)) ? 'current' : '' ?>">
+                  <?php foreach($video->result() as $vRow){ 
+                    $log = $this->db->get_where('courses_video_log', [
+                      'userid' => $this->session->userdata('user_id'),
+                      'courseid' => $course->id,
+                      'videoid' => md5($vRow->id)
+                    ]);
+                  ?>
+                    <a href="<?= site_url('kelas/' . $course->flag . '/detail?video=' . md5($vRow->id)) ?>" class="accordion-tab_menu w-inline-block <?= ($this->input->get('video', TRUE) == md5($vRow->id)) ? 'current' : '' ?>">
                       <div class="tabs-menu_icon">
                         <div class="icon-embed-small w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_202_345)">
@@ -93,7 +107,9 @@
                           </svg></div>
                       </div>
                       <div><?= $vRow->judul ?></div>
-                      <i class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #f7b755;"></i>
+                      <?php if($log->num_rows() > 0): ?>
+                        <i class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #f7b755;"></i>
+                      <?php endif; ?>
                     </a>
                   <?php } ?>
                 </nav>
@@ -102,15 +118,52 @@
             </div>
             <div class="detail-tab-content">
 
-              <?php if(@$videos): ?>
+              <?php 
+                if(@$videos): 
+                  $vidar = [];
+                  foreach($courseVideo->result() as $res){
+                    if($res->id == $videos->id){
+                      array_push($vidar, [
+                        'id' => $res->id,
+                        'current' => 1
+                      ]);
+                    }else{
+                      array_push($vidar, [
+                        'id' => $res->id,
+                        'current' => 0
+                      ]);
+                    }
+                  }
+                  
+                  foreach($vidar as $key => $v){
+                    if($v['current'] == 1 && @$vidar[@$key+1] != NULL){
+                      $next = @$vidar[@$key+1]['id'];
+                    }
+
+                    if($v['current'] == 1 && @$vidar[@$key-1] != NULL){
+                      $prev = @$vidar[@$key-1]['id'];
+                    }
+                  };
+              ?>
                 <div class="kelas-nav-wrapper">
-                  <a href="#" class="video-before-nav w-inline-block">
-                    <div class="w-icon-slider-left"></div>
-                  </a>
-                  <a href="#" class="video-after-nav w-inline-block">
-                    <p class="slide-arrow_text">Video Berikutnya</p>
-                    <div class="arrow-icon w-icon-slider-right"></div>
-                  </a>
+
+                  <?php if(@$prev): ?>
+                    <a href="<?= site_url('kelas/' . $course->flag . '/detail?video=' . md5(@$prev) ) ?>" class="video-before-nav w-inline-block" id="prev">
+                      <div class="w-icon-slider-left"></div>
+                    </a>
+                  <?php endif; ?>
+
+                  <?php if(@$next): ?>
+                    <a href="<?= site_url('kelas/' . $course->flag . '/detail?video=' . md5(@$next) . '&log=' . md5($videos->id)) ?>" class="video-after-nav w-inline-block" id="next" data-current="<?= md5($course->id) ?>">
+                      <p class="slide-arrow_text">Video Berikutnya</p>
+                      <div class="arrow-icon w-icon-slider-right"></div>
+                    </a>
+                  <?php else: ?>
+                    <a href="<?= site_url('kelas/' . $course->flag . '/actionDone?video=' . md5(@$next) . '&cls=' . $course->id) . '&flag=' . $course->flag ?>" class="video-after-nav w-inline-block" id="next" data-current="<?= md5($course->id) ?>">
+                      <p class="slide-arrow_text">&nbsp;&nbsp;Selesai</p>
+                      <div class="arrow-icon w-icon-slider-right"></div>
+                    </a>
+                  <?php endif; ?>
                 </div>
 
                 <div class="video-detail_kelas">
