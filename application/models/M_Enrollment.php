@@ -17,7 +17,7 @@ class M_Enrollment extends CI_Model{
     }
 
     function getSettlementUser($userid){
-        return $this->db->select('c.*, p.nama, e.orderid')
+        return $this->db->select('c.*, p.nama, e.orderid, e.is_done')
                         ->from('enrollment e')
                         ->join('orders o', 'e.orderid = o.id')
                         ->join('courses c', 'e.courseid = c.id')
