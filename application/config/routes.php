@@ -89,3 +89,6 @@ $route['kelas/(:any)/joined'] = 'kelas/joined/$1';
 
 /* Invoice */
 $route['invoice/(:num)/pdf'] = 'invoice/index/$1';
+
+/* Sertifikat */
+$route['sertifikat/(:any)/info'] = 'sertifikat/info/$1';
