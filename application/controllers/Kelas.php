@@ -146,10 +146,9 @@ class Kelas extends CI_Controller{
                 'videoid' => $id,
                 'courseid' => $courseid
             ]);
-
-            $this->db->where(['courseid' => $courseid, 'userid' => $userid])->update('enrollment', ['is_done' => 1]);
         }
         
+        $this->db->where(['courseid' => $courseid, 'userid' => $userid])->update('enrollment', ['is_done' => 1]);
         redirect('kelas/' . $flag . '/done', 'refresh');
     }
 }
