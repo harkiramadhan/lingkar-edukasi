@@ -1,4 +1,8 @@
 <?php 
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 class Email extends CI_Controller{
   function __construct(){
     parent::__construct();
@@ -13,14 +17,50 @@ class Email extends CI_Controller{
       'M_Partner'
     ]);
 
-    if(!$this->session->userdata('is_user')){
-      redirect('','refresh');
-    }
+    // if(!$this->session->userdata('is_user')){
+    //   redirect('','refresh');
+    // }
   }
 
   function index(){
+    $userid = $this->session->userdata('user_id');
+    $user = $this->M_Users->getById($userid);
+    $data = [
+      'nama' => 'AlfianRHT',
+      'email' => 'alvianrht@gmail.com'
+    ];
+    
+    // $this->load->library('phpmailer_lib');
+    $email = $data['email'];
 
-    $this->load->view('user/email/email-daftar');
+    $mail = new PHPMailer(true);
+
+    $mail->isSMTP();
+    $mail->SMTPDebug = 2;
+    $mail->Host         = 'mail.lingkaredukasi.com';
+    $mail->SMTPAuth     = true;
+    $mail->Username     = 'norep@lingkaredukasi.com';
+    $mail->Password     = 'Lingkar12345';
+    $mail->SMTPSecure   = 'ssl';
+    $mail->Port         = 465;
+
+    $mail->setFrom('norep@lingkaredukasi.com', 'No Reply - Lingkar Edukasi');
+    $mail->addReplyTo('admin@lingkaredukasi.com', 'Lingkar Edukasi');
+
+    $mail->addAddress('alvianrht@gmail.com');
+
+    $mail->isHTML(true);
+
+    $mail->Subject = 'Verifikasi Email';
+    $mailContent = $this->load->view('user/email/email-daftar', $data , TRUE);
+
+    $mail->Body = $mailContent;
+
+    if(!$mail->send()){
+        return FALSE;
+    }else{
+        return TRUE;
+    }
   }
 
   function pembeliankelas(){
@@ -32,7 +72,11 @@ class Email extends CI_Controller{
   }
 
   function updatepassword(){
-    $this->load->view('user/email/email-password-reset');
+    $data = [
+      'nama' => 'AlfianRHT',
+      'email' => 'harkiramadhan@gmail.com'
+    ];
+    $this->load->view('user/email/email-password-reset', $data);
   }
 
 }   

@@ -1,4 +1,8 @@
 <?php 
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 class Auth extends CI_Controller{
     function __construct(){
         parent::__construct();
@@ -218,7 +222,10 @@ class Auth extends CI_Controller{
                     'nohp' => $this->input->post('nohp', TRUE),
                 ];
                 $this->db->insert('user', $dataInsert);
-    
+                $this->sendMail([
+                    'nama' => $this->input->post('name', TRUE),
+                    'email' => $this->input->post('email', TRUE),
+                ]);
                 redirect('auth/verifemail?mail=' . $email,'refresh');
             }
         }else{
@@ -254,39 +261,6 @@ class Auth extends CI_Controller{
         }
     }   
 
-    function sendMail($data, $type = FALSE){
-        // $this->load->library('phpmailer_lib');
-        // $email = $data['email'];
-
-        // $mail = $this->phpmailer_lib->load();
-
-        // $mail->isSMTP();
-        // $mail->Host         = 'smtp.gmail.com';
-        // $mail->SMTPAuth     = true;
-        // $mail->Username     = 'edukasilingkar@gmail.com';
-        // $mail->Password     = 'Lingkaredukasi12345';
-        // $mail->SMTPSecure   = 'ssl';
-        // $mail->Port         = 465;
-
-        // $mail->setFrom('edukasilingkar@gmail.com', 'Lingkar Edukasi');
-        // $mail->addReplyTo('edukasilingkar@gmail.com', 'Lingkar Edukasi');
-
-        // $mail->addAddress("$email");
-
-        // $mail->isHTML(true);
-
-        // $mail->Subject = 'Verifikasi Email';
-        // $mailContent = $this->load->view('mailVerification', $data , TRUE);
-
-        // $mail->Body = $mailContent;
-
-        // if(!$mail->send()){
-        //     return FALSE;
-        // }else{
-        //     return TRUE;
-        // }
-    }
-
     function createPassword(){
         if(!$this->session->userdata('is_user')){
             redirect('signin');
@@ -312,6 +286,109 @@ class Auth extends CI_Controller{
                 redirect($_SERVER['HTTP_REFERER']);
                 
             }
+        }
+    }
+
+    function mailVerification(){
+        $mail = $this->input->get('mail', TRUE);
+        $userCheck = $this->M_Users->getByEmail($mail);
+        if(@$userCheck->email){
+            $this->db->where('id', $userCheck->id)->update('user', [
+                'is_valid' => 1
+            ]);
+
+            if($this->db->affected_rows() > 0){
+                $this->session->set_userdata('is_user', TRUE);
+                $this->session->set_userdata('user_id', $userCheck->id);
+                redirect('','refresh');
+            }else{
+                redirect('','refresh');
+            }
+        }else{
+            redirect('','refresh');
+        }
+    }
+
+    function requestPasswordReset(){
+        $email = $this->input->post('email', TRUE);
+        $userCheck = $this->M_Users->getByEmail($email);
+        if(@$userCheck->email){
+            $this->sendMailResetPassword([
+                'nama' => $userCheck->name,
+                'email' => $userCheck->email
+            ]);
+        }else{
+            $this->session->set_flashdata('error', "Email Tidak Terdaftar");
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
+
+    function setSession(){
+        $email = $this->input->get('u', TRUE);
+        $userCheck = $this->db->get_where('user', ['md5(email)' => $email])->row();
+        if(@$userCheck->email){
+            $this->session->set_userdata('is_user', TRUE);
+            $this->session->set_userdata('user_id', $userCheck->id);
+            redirect('auth/passwordbaru','refresh');
+        }
+    }
+
+    /* Mail Function */
+    function sendMail($data){
+        $email = $data['email'];
+        $mail = new PHPMailer(true);
+
+        $mail->isSMTP();
+        $mail->Host         = 'mail.lingkaredukasi.com';
+        $mail->SMTPAuth     = true;
+        $mail->Username     = 'norep@lingkaredukasi.com';
+        $mail->Password     = 'Lingkar12345';
+        $mail->SMTPSecure   = 'ssl';
+        $mail->Port         = 465;
+
+        $mail->setFrom('norep@lingkaredukasi.com', 'No Reply - Lingkar Edukasi');
+        $mail->addReplyTo('admin@lingkaredukasi.com', 'Lingkar Edukasi');
+        $mail->addAddress("$email");
+        $mail->isHTML(true);
+
+        $mail->Subject = 'Verifikasi Email';
+        $mailContent = $this->load->view('user/email/email-daftar', $data , TRUE);
+
+        $mail->Body = $mailContent;
+
+        if(!$mail->send()){
+            return FALSE;
+        }else{
+            return TRUE;
+        }
+    }
+
+    function sendMailResetPassword($data){
+        $email = $data['email'];
+        $mail = new PHPMailer(true);
+
+        $mail->isSMTP();
+        $mail->Host         = 'mail.lingkaredukasi.com';
+        $mail->SMTPAuth     = true;
+        $mail->Username     = 'norep@lingkaredukasi.com';
+        $mail->Password     = 'Lingkar12345';
+        $mail->SMTPSecure   = 'ssl';
+        $mail->Port         = 465;
+
+        $mail->setFrom('norep@lingkaredukasi.com', 'No Reply - Lingkar Edukasi');
+        $mail->addReplyTo('admin@lingkaredukasi.com', 'Lingkar Edukasi');
+        $mail->addAddress("$email");
+        $mail->isHTML(true);
+
+        $mail->Subject = 'Atur Ulang Password';
+        $mailContent = $this->load->view('user/email/email-password-reset', $data , TRUE);
+
+        $mail->Body = $mailContent;
+
+        if(!$mail->send()){
+            return FALSE;
+        }else{
+            return TRUE;
         }
     }
 }
