@@ -180,7 +180,7 @@ class Midtrans extends CI_Controller{
         $mail = new PHPMailer(true);
 
         $mail->isSMTP();
-        $mail->SMTPDebug    = 2;
+        // $mail->SMTPDebug    = 2;
         $mail->Host         = 'mail.lingkaredukasi.com';
         $mail->SMTPAuth     = true;
         $mail->Username     = 'norep@lingkaredukasi.com';
