@@ -1,4 +1,3 @@
-
 <section class="section wf-section">
   <div class="padding-vertical padding-80">
     <div class="container">
@@ -8,7 +7,9 @@
           <div class="siginin-form_wrapper">
             <p class="text-lupa_password margin-bottom-20">Masukan email aktifmu untuk kami kirimkan instruksi pembuatan password baru</p>
             <div class="signin-form w-form">
-              <form id="email-form" name="email-form" data-name="Email Form" method="get" class="form-field"><label for="password" class="text-size-regular margin-bottom-16">Masukan Email</label><input type="email" class="text-field margin-bottom-20 w-input" maxlength="256" name="email" data-name="Email" placeholder="email@gmail.com" id="password" required=""><input type="submit" value="MASUK" data-wait="Please wait..." class="button is-yellow margin-bottom-20 w-button"></form>
+              <form id="email-form" name="email-form" data-name="Email Form" method="post" action="<?= site_url('auth/requestPasswordReset') ?>" class="form-field">
+              <label for="password" class="text-size-regular margin-bottom-16">Masukan Email</label>
+              <input type="email" class="text-field margin-bottom-20 w-input" maxlength="256" name="email" data-name="Email" placeholder="email@gmail.com" id="password" required=""><input type="submit" value="MASUK" data-wait="Please wait..." class="button is-yellow margin-bottom-20 w-button"></form>
               <div class="w-form-done">
                 <div>Thank you! Your submission has been received!</div>
               </div>

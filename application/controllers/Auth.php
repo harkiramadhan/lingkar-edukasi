@@ -317,6 +317,8 @@ class Auth extends CI_Controller{
                 'nama' => $userCheck->name,
                 'email' => $userCheck->email
             ]);
+
+            /* Redirect View Check Emailmu */
         }else{
             $this->session->set_flashdata('error', "Email Tidak Terdaftar");
             redirect($_SERVER['HTTP_REFERER']);
