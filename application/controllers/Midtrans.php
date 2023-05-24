@@ -160,9 +160,43 @@ class Midtrans extends CI_Controller{
             'metadata_respose' => json_encode($notification)
         ]);
 
-        if($notification->transaction_status == 'settlement'){
-            @$this->sendMail($notification->order_id);
-        }
+        $orderid = $notification->order_id;
+        $order = $this->M_Enrollment->getByOrderId($orderid);
+        $detail = $this->M_Enrollment->getOrderByOrderId($orderid);
+        $data = [
+            'orderid' => $orderid,
+            'order' => $order,
+            'detail' => $detail,
+            'metadata' => json_decode($detail->metadata_respose),
+            'setting' => $this->M_Settings->get(),
+        ];
+        
+        $email = $detail->email;
+        $mail = new PHPMailer(true);
+
+        $mail->isSMTP();
+        $mail->SMTPDebug    = 2;
+        $mail->Host         = 'mail.lingkaredukasi.com';
+        $mail->SMTPAuth     = true;
+        $mail->Username     = 'norep@lingkaredukasi.com';
+        $mail->Password     = 'Lingkar12345';
+        $mail->SMTPSecure   = 'ssl';
+        $mail->Port         = 465;
+
+        $mail->setFrom('norep@lingkaredukasi.com', 'No Reply - Lingkar Edukasi');
+        $mail->addReplyTo('admin@lingkaredukasi.com', 'Lingkar Edukasi');
+        $mail->addAddress("$email");
+        $mail->isHTML(true);
+
+        $mail->Subject = 'Pembelian Berhasil - Course ' . $order->judul;
+        $mailContent = $this->load->view('user/email/email-beli-kelas', $data , TRUE);
+
+        $mail->Body = $mailContent;
+
+        $mail->send();
+        // if($notification->transaction_status == 'settlement'){
+        //     @$this->sendMail($notification->order_id);
+        // }
     }
 
     function sendMail($orderid){
