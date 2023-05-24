@@ -27,7 +27,7 @@ class Email extends CI_Controller{
     $user = $this->M_Users->getById($userid);
     $data = [
       'nama' => 'AlfianRHT',
-      'email' => 'alvianrht@gmail.com'
+      'email' => 'madanzdanz@gmail.com'
     ];
     
     // $this->load->library('phpmailer_lib');
@@ -47,12 +47,12 @@ class Email extends CI_Controller{
     $mail->setFrom('norep@lingkaredukasi.com', 'No Reply - Lingkar Edukasi');
     $mail->addReplyTo('admin@lingkaredukasi.com', 'Lingkar Edukasi');
 
-    $mail->addAddress('alvianrht@gmail.com');
+    $mail->addAddress('madanzdanz@gmail.com');
 
     $mail->isHTML(true);
 
     $mail->Subject = 'Verifikasi Email';
-    $mailContent = $this->load->view('user/email/email-daftar', $data , TRUE);
+    $mailContent = $this->load->view('user/email/email-beli-kelas', $data , TRUE);
 
     $mail->Body = $mailContent;
 

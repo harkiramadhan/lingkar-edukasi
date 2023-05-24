@@ -42,8 +42,9 @@ class M_Enrollment extends CI_Model{
     }
 
     function getOrderByOrderId($orderid){
-        return $this->db->select('o.*')
+        return $this->db->select('o.*, u.name, u.email')
                         ->from('orders o')
+                        ->join('user u', 'o.userid = u.id')
                         ->where([
                             'o.id' => $orderid
                         ])->get()->row();

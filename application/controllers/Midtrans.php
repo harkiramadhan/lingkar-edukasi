@@ -1,5 +1,8 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 use \Midtrans\Snap;
 
 \Midtrans\Config::$serverKey = 'SB-Mid-server-AF3TQXJegteEpwnV71LtYnNu';
@@ -10,6 +13,11 @@ use \Midtrans\Snap;
 class Midtrans extends CI_Controller{
     function __construct(){
         parent::__construct();
+
+        $this->load->model([
+            'M_Enrollment',
+            'M_Settings'
+        ]);
     }
 
     function checkoutProcess(){
@@ -151,5 +159,49 @@ class Midtrans extends CI_Controller{
             'status_code' => $notification->status_code,
             'metadata_respose' => json_encode($notification)
         ]);
+
+        if($notification->transaction_status == 'settlement'){
+            @$this->sendMail($orderid);
+        }
+    }
+
+    function sendMail($orderid){
+        $order = $this->M_Enrollment->getByOrderId($orderid);
+        $detail = $this->M_Enrollment->getOrderByOrderId($orderid);
+        $data = [
+            'orderid' => $orderid,
+            'order' => $order,
+            'detail' => $detail,
+            'metadata' => json_decode($detail->metadata_respose),
+            'setting' => $this->M_Settings->get(),
+        ];
+        
+        $email = $detail->email;
+        $mail = new PHPMailer(true);
+
+        $mail->isSMTP();
+        $mail->SMTPDebug    = 2;
+        $mail->Host         = 'mail.lingkaredukasi.com';
+        $mail->SMTPAuth     = true;
+        $mail->Username     = 'norep@lingkaredukasi.com';
+        $mail->Password     = 'Lingkar12345';
+        $mail->SMTPSecure   = 'ssl';
+        $mail->Port         = 465;
+
+        $mail->setFrom('norep@lingkaredukasi.com', 'No Reply - Lingkar Edukasi');
+        $mail->addReplyTo('admin@lingkaredukasi.com', 'Lingkar Edukasi');
+        $mail->addAddress("$email");
+        $mail->isHTML(true);
+
+        $mail->Subject = 'Pembelian Berhasil - Course ' . $order->judul;
+        $mailContent = $this->load->view('user/email/email-beli-kelas', $data , TRUE);
+
+        $mail->Body = $mailContent;
+
+        if(!$mail->send()){
+            return FALSE;
+        }else{
+            return TRUE;
+        }
     }
 }

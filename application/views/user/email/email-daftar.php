@@ -1,3 +1,6 @@
+<?php
+	$setting = $this->M_Settings->get();
+?>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 	<head>
 		<!--[if gte mso 9]>
@@ -374,8 +377,9 @@
 																										<td style="overflow-wrap:break-word;word-break:break-word;padding:25px 10px;font-family:'Open Sans',sans-serif;" align="left">
 																											<div style="font-size: 14px; color: #e4e4eb; line-height: 140%; text-align: center; word-wrap: break-word;">
 																												<p style="font-size: 14px; line-height: 140%;"><strong>Lingkar Edukasi</strong></p>
-																												<p style="font-size: 14px; line-height: 140%;">Office Tower A Lantai 9 Unit D Perkantoran Kota Kasablanka, Jl Casablanka Kav 88, Desa/Kelurahan Menteng Dalam, Kec. Tebet, Kota Adm. Jakarta Selatan, Provinsi DKI Jakarta, Kode Pos: 12780</p>
-																												<p style="font-size: 14px; line-height: 140%;">Tlp : 021 – 29213742 Fax : 021 – 29213743</p>
+																												<p style="font-size: 14px; line-height: 140%;"><?= $setting->alamat_1 ?></p>
+																												<p style="font-size: 14px; line-height: 140%;"><?= $setting->alamat_2 ?></p>
+																												<p style="font-size: 14px; line-height: 140%;">Tlp : <?= $setting->telefon ?> Fax : <?= $setting->fax ?></p>
 																											</div>
 																										</td>
 																									</tr>
@@ -401,8 +405,8 @@
 																																				<tbody>
 																																					<tr style="vertical-align: top">
 																																						<td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-																																							<a href="https://facebook.com/" title="Facebook" target="_blank">
-																																							<img src="<?= base_url('assets/user/images/email/email-daftar/image-1.png') ?>" alt="Facebook" title="Facebook" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+																																							<a href="<?= $setting->fb_link ?>" title="Facebook" target="_blank">
+																																								<img src="<?= base_url('assets/user/images/email/email-daftar/image-1.png') ?>" alt="Facebook" title="Facebook" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
 																																							</a>
 																																						</td>
 																																					</tr>
@@ -418,7 +422,7 @@
 																																				<tbody>
 																																					<tr style="vertical-align: top">
 																																						<td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-																																							<a href="https://twitter.com/" title="Twitter" target="_blank">
+																																							<a href="<?= $setting->tw_link ?>" title="Twitter" target="_blank">
 																																							<img src="<?= base_url('assets/user/images/email/email-daftar/image-3.png') ?>" alt="Twitter" title="Twitter" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
 																																							</a>
 																																						</td>
@@ -431,7 +435,8 @@
 																																		<!--[if (mso)|(IE)]>
 																																		<td width="32" style="width:32px; padding-right: 0px;" valign="top">
 																																			<![endif]-->
-																																			<table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 0px">
+																																			
+																																			<!-- <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 0px">
 																																				<tbody>
 																																					<tr style="vertical-align: top">
 																																						<td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
@@ -441,7 +446,8 @@
 																																						</td>
 																																					</tr>
 																																				</tbody>
-																																			</table>
+																																			</table> -->
+
 																																			<!--[if (mso)|(IE)]>
 																																		</td>
 																																		<![endif]-->
