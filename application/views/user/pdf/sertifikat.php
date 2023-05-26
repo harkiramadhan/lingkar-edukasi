@@ -33,7 +33,7 @@
             </td>
         </tr>
         <tr>
-            <td align="center" style="font-size:18px;">NO: dca</td>
+            <td align="center" style="font-size:18px;">NO: <?= md5($detail->id) ?></td>
         </tr>
     </table>
     <table width="100%" style="margin-top: 20px;">
@@ -70,26 +70,24 @@
         
         <tr>
             <td align="center">
-                <img src="https://i.ibb.co/k0bXXFp/Salinan-dari-Desain-tanpa-nama-4.png" alt="" style="height:90px; width: auto; ">
+                <?php if($setting->ttd_sertifikat): ?>
+                    <img src="<?= base_url('uploads/settings/' . $setting->ttd_sertifikat) ?>" alt="" style="height:90px; width: auto; ">
+                <?php endif; ?>
             </td>
         </tr>
         <tr>
-            <td align="center">
-                Nurul Fahimah, M.Si
-            </td>
+            <td align="center"><?= $setting->nama_sertifikat ?></td>
         </tr><tr>
             <!-- <td align="center" width="50%">
                 Makan
             </td> -->
-            <td align="center" width="50%">
-                Director Lingkar Edukasi
-            </td>
+            <td align="center" width="50%">Director Lingkar Edukasi</td>
         </tr>
     </table>
     <table  width="100%" style="font-size:14px; margin-top: 70px; text-align: center; color: grey;">
         <tr>
             <td>
-                <strong><i>Sertifikat dapat diverifikasi di <a href="https://paudtalk.com/sertifikat">lingkaredukasi.com/sertifikat</a></i></strong>
+                <strong><i>Sertifikat dapat diverifikasi di <a href="<?= site_url('sertifikat') ?>">lingkaredukasi.com/sertifikat</a></i></strong>
                 <br>
                 <i>Lingkar Edukasi telah mengkonfirmasi keikutsertaan peserta dengan nama tertera di sertifikat ini</i>
             </td>

@@ -19,19 +19,19 @@
                         <div class="row">
                             <div class="col-xl-3">
                                 <div class="nav flex-column nav-pills mb-3">
-                                    <a href="#v-pills-profil-admin" data-toggle="pill" class="nav-link active">Profil Admin</a>
-                                    <a href="#v-pills-password" data-toggle="pill" class="nav-link">Password</a>
-                                    <a href="#v-pills-sertifikat" data-toggle="pill" class="nav-link">Sertifikat</a>
+                                    <a href="#v-pills-profil-admin" data-toggle="pill" class="nav-link <?= ($this->session->userdata('is_profil') ? 'active' : (($this->session->userdata('is_password') != TRUE && $this->session->userdata('is_sertifikat') != TRUE) ? 'active' : '')) ?>">Profil Admin</a>
+                                    <a href="#v-pills-password" data-toggle="pill" class="nav-link <?= ($this->session->userdata('is_password') ? 'active' : '') ?>">Password</a>
+                                    <a href="#v-pills-sertifikat" data-toggle="pill" class="nav-link <?= ($this->session->userdata('is_sertifikat') ? 'active' : '') ?>">Sertifikat</a>
                                 </div>
                             </div>
                             <div class="col-xl-9 border-left">
                                 <div class="row">
                                     <div class="col-lg-12 col-12">
                                         <div class="tab-content">
-                                            <div id="v-pills-profil-admin" class="tab-pane fade active show">
+                                            <div id="v-pills-profil-admin" class="tab-pane fade <?= ($this->session->userdata('is_profil') ? 'active show' : (($this->session->userdata('is_password') != TRUE && $this->session->userdata('is_sertifikat') != TRUE) ? 'active show' : '')) ?>">
                                                 <div class="row">
                                                     <div class="col-lg-7 col-12">
-                                                        <form action="<?= site_url('admin/pengaturan/action/' . $user->id) ?>" method="POST">
+                                                        <form action="<?= site_url('admin/pengaturan/action/' . $user->id) ?>" method="POST" enctype="multipart/form-data">
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Foto Profil</label>
                                                                 <div class="input-group mb-3">
@@ -39,7 +39,7 @@
                                                                         <span class="input-group-text">Upload</span>
                                                                     </div>
                                                                     <div class="custom-file">
-                                                                        <input type="file" class="custom-file-input" name="img" id="image-source4" onchange="previewImage4()" required>
+                                                                        <input type="file" class="custom-file-input" name="img" id="image-source" onchange="previewImage()">
                                                                         <label class="custom-file-label">Pilih</label>
                                                                     </div>
                                                                 </div>
@@ -93,12 +93,17 @@
                                                     </div>
                                                     <div class="col-lg-5 col-12 order-lg-2 order-1">
                                                         <div class="card-media mb-4">
-                                                                <img src="http://localhost/lingkar-edukasi/assets/admin/images/placeholder-image.svg" alt="" class="w-100 rounded" id="image-preview">
+                                                            <?php if($user->img): ?>
+                                                                <img src="<?= base_url('uploads/profile/' . $user->img) ?>" alt="" class="w-100 rounded" id="image-preview">
+                                                            <?php else: ?>
+                                                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview">
+                                                            <?php endif; ?>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="v-pills-password" class="tab-pane fade">
+
+                                            <div id="v-pills-password" class="tab-pane fade <?= ($this->session->userdata('is_password') ? 'active show' : '') ?>">
                                                 <div class="row">
                                                     <div class="col-lg-12 col-12">
                                                         <form action="<?= site_url('admin/pengaturan/actionPassword/' . $user->id) ?>" method="POST">
@@ -121,10 +126,10 @@
                                                 </div>
                                             </div>
 
-                                            <div id="v-pills-sertifikat" class="tab-pane fade">
+                                            <div id="v-pills-sertifikat" class="tab-pane fade <?= ($this->session->userdata('is_sertifikat') ? 'active show' : '') ?>">
                                                 <div class="row">
                                                     <div class="col-lg-7 col-12 order-lg-1 order-2">
-                                                        <form action="<?= site_url('admin/pengaturan/action/' . $user->id) ?>" method="POST">
+                                                        <form action="<?= site_url('admin/pengaturan/actionSertifikat') ?>" method="POST" enctype="multipart/form-data">
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Latar Belakang Sertifikat</label>
                                                                 <div class="input-group mb-3">
@@ -132,7 +137,7 @@
                                                                         <span class="input-group-text">Upload</span>
                                                                     </div>
                                                                     <div class="custom-file">
-                                                                        <input type="file" class="custom-file-input" name="img" id="image-source4" onchange="previewImage4()" required>
+                                                                        <input type="file" class="custom-file-input" name="bg_sertifikat" id="image-source2" onchange="previewImage2()">
                                                                         <label class="custom-file-label">Pilih</label>
                                                                     </div>
                                                                 </div>
@@ -144,19 +149,19 @@
                                                                         <span class="input-group-text">Upload</span>
                                                                     </div>
                                                                     <div class="custom-file">
-                                                                        <input type="file" class="custom-file-input" name="img" id="image-source4" onchange="previewImage4()" required>
+                                                                        <input type="file" class="custom-file-input" name="ttd_sertifikat" id="image-source3" onchange="previewImage3()">
                                                                         <label class="custom-file-label">Pilih</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Nama Tanda Tangan</label>
-                                                                <input name="text" type="text" class="form-control" value="<?= $user->nama ?>">
+                                                                <input name="nama_sertifikat" type="text" class="form-control" value="<?= $setting->nama_sertifikat ?>">
                                                             </div>
                 
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Jabatan Tanda Tangan</label>
-                                                                <input name="text" type="text" class="form-control" value="<?= $user->email ?>">
+                                                                <input name="jabatan_sertifikat" type="text" class="form-control" value="<?= $setting->jabatan_sertifikat ?>">
                                                             </div>
         
                                                             <div class="form-group mb-0 text-right">
@@ -170,14 +175,22 @@
                                                             <label class="text-black font-w500">Preview Latar Belakang</label>
                                                         </div>
                                                         <div class="card-media mb-4">
-                                                            <img src="http://localhost/lingkar-edukasi/assets/admin/images/placeholder-image.svg" alt="" class="w-100 rounded" id="image-preview">
+                                                            <?php if(@$setting->bg_sertifikat): ?>
+                                                                <img src="<?= base_url('uploads/settings/' . $setting->bg_sertifikat) ?>" alt="" class="w-100 rounded" id="image-preview2">
+                                                            <?php else: ?>
+                                                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview2">
+                                                            <?php endif; ?>
                                                         </div>
 
                                                         <div class="form-group mb-2">
                                                             <label class="text-black font-w500">Preview Tanda Tangan</label>
                                                         </div>
                                                         <div class="card-media mb-4">
-                                                            <img src="http://localhost/lingkar-edukasi/assets/admin/images/placeholder-image.svg" alt="" class="w-100 rounded" id="image-preview">
+                                                            <?php if(@$setting->ttd_sertifikat): ?>
+                                                                <img src="<?= base_url('uploads/settings/' . $setting->ttd_sertifikat) ?>" alt="" class="w-100 rounded" id="image-preview3">
+                                                            <?php else: ?>
+                                                                <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview3">
+                                                            <?php endif; ?>
                                                         </div>
                                                     </div>
                                                 </div>

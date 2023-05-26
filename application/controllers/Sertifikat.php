@@ -42,6 +42,7 @@ class Sertifikat extends CI_Controller{
     $userid = $this->session->userdata('user_id');
     $course = $this->M_Courses->getByFlag($flag);
 
+    $setting = $this->M_Settings->get();
     $trx = $this->M_Enrollment->getByUserCourse($userid, $course->id, 'settlement');
     $done = $this->db
                   ->select('u.name, s.*')
@@ -54,7 +55,8 @@ class Sertifikat extends CI_Controller{
     if($trx->num_rows() > 0 && $done->num_rows() > 0){
       $data = [
         'course' => $course,
-        'detail' => $done->row()
+        'detail' => $done->row(),
+        'setting' => $setting,
       ];
       // $this->output->set_content_type('application/json')->set_output(json_encode($data));
       
@@ -62,8 +64,9 @@ class Sertifikat extends CI_Controller{
       $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
       $mpdf->showWatermarkImage = true;
       $mpdf->watermarkImgBehind = true;
+      $bg = ($setting->bg_sertifikat) ? base_url('uploads/settings/' . $setting->bg_sertifikat) : 'https://www.freepnglogos.com/uploads/bingkai-sertifikat-png/bingkai-sertifikat-keren-png-11.png';
       $mpdf->WriteHTML(
-          '<watermarkimage src="https://www.freepnglogos.com/uploads/bingkai-sertifikat-png/bingkai-sertifikat-keren-png-11.png" alpha="1" size="297,210" position="0,0" />'
+          '<watermarkimage src="' . $bg . '" alpha="1" size="297,210" position="0,0" />'
       );
       $invoice = $this->load->view('user/pdf/sertifikat',$data, true);
       $mpdf->WriteHTML($invoice);
