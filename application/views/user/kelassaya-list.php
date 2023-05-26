@@ -114,7 +114,7 @@
                           </div>
                           <div class="divider"></div>
                           <?php if($cert->is_done == 1): ?>
-                            <a href="<?= site_url('sertifikat/' . $cert->flag . '/info') ?>" class="button is-yellow w-button">DOWNLOAD SERTIFIKAT</a>
+                            <a href="<?= site_url('sertifikat/' . $cert->flag . '/download') ?>" class="button is-yellow w-button">DOWNLOAD SERTIFIKAT</a>
                           <?php else: ?>
                             <a href="<?= site_url('kelas/' . $cert->flag . '/detail') ?>" class="button is-yellow w-button">SELESAIKAN KELAS</a>
                           <?php endif; ?>
@@ -234,7 +234,7 @@
                           </div>
                           <div class="divider"></div>
                           <?php if($cert->is_done == 1): ?>
-                            <a href="<?= site_url('sertifikat/' . $cert->flag . '/info') ?>" class="button is-yellow w-button">DOWNLOAD SERTIFIKAT</a>
+                            <a href="<?= site_url('sertifikat/' . $cert->flag . '/download') ?>" class="button is-yellow w-button">DOWNLOAD SERTIFIKAT</a>
                           <?php else: ?>
                             <a href="<?= site_url('kelas/' . $cert->flag . '/detail') ?>" class="button is-yellow w-button">SELESAIKAN KELAS</a>
                           <?php endif; ?>

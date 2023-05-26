@@ -92,3 +92,4 @@ $route['invoice/(:num)/pdf'] = 'invoice/index/$1';
 
 /* Sertifikat */
 $route['sertifikat/(:any)/info'] = 'sertifikat/info/$1';
+$route['sertifikat/(:any)/download'] = 'sertifikat/download/$1';

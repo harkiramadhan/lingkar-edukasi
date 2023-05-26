@@ -146,6 +146,11 @@ class Kelas extends CI_Controller{
                 'videoid' => $id,
                 'courseid' => $courseid
             ]);
+
+            $this->db->insert('sertifikat', [
+                'userid' => $userid,
+                'courseid' => $courseid
+            ]);
         }
         
         $this->db->where(['courseid' => $courseid, 'userid' => $userid])->update('enrollment', ['is_done' => 1]);

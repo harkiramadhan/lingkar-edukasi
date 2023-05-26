@@ -42,7 +42,7 @@
         </tr>
         <tr>
             <td align="center" style="font-size:18px;">
-                <h3>Alfian Rahmatullah</h3>
+                <h3><?= $detail->name ?></h3>
             </td>
         </tr>
     </table>
@@ -53,7 +53,7 @@
         </tr>
         <tr>
             <td align="center" style="font-size:18px;">
-                <h4>Menyusun Pajak dalam 1 Minggu untuk Yayasan atau Perusahaan Pribadi</h4>
+                <h4><?= $course->judul ?></h4>
             </td>
         </tr>
     </table>
@@ -63,9 +63,7 @@
             <td align="center" style="font-size:18px;">yang diselenggarakan pada </td>
         </tr> -->
         <tr>
-            <td align="center">
-                26 Maret 2023
-            </td>
+            <td align="center"><?= longdate_indo(date('Y-m-d', strtotime($detail->timestamp))) ?></td>
         </tr>
     </table>
     <table width="100%" style="font-size:18px; margin-top: 20px;">
@@ -93,7 +91,7 @@
             <td>
                 <strong><i>Sertifikat dapat diverifikasi di <a href="https://paudtalk.com/sertifikat">lingkaredukasi.com/sertifikat</a></i></strong>
                 <br>
-                <i>Paudtalk telah mengkonfirmasi keikutsertaan peserta dengan nama tertera di sertifikat ini</i>
+                <i>Lingkar Edukasi telah mengkonfirmasi keikutsertaan peserta dengan nama tertera di sertifikat ini</i>
             </td>
         </tr>
     </table>
