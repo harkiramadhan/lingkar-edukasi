@@ -138,7 +138,7 @@ class Pengaturan extends CI_Controller{
             $dataTtd = $this->upload->data();
             $ttd = $dataTtd['file_name'];
         }else{
-            $ttd = $dataTtd->ttd_sertifikat;
+            $ttd = $setting->ttd_sertifikat;
         }
 
         $this->db->where('id', 1)->update('setting', [

@@ -81,7 +81,7 @@
             <!-- <td align="center" width="50%">
                 Makan
             </td> -->
-            <td align="center" width="50%">Director Lingkar Edukasi</td>
+            <td align="center" width="50%"><?= $setting->jabatan_sertifikat ?></td>
         </tr>
     </table>
     <table  width="100%" style="font-size:14px; margin-top: 70px; text-align: center; color: grey;">
