@@ -309,7 +309,7 @@ class Course extends CI_Controller{
     $dataUrl = $this->input->get('order_id', TRUE);
     $data = explode('_', $dataUrl);
     $trxStatus = Transaction::status($data[0]);
-
+    $course = $this->M_Courses->getById($data[2]);
     $this->db->insert('orders', [
       'id' => $data[0],
       'status_code' => $trxStatus->status_code,
