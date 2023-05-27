@@ -89,8 +89,9 @@ class Course extends CI_Controller{
 
       $var['orderid'] = $orderid;
       $var['status'] = $settlementTrx;
-      $var['snapToken'] = Snap::getSnapToken($transaction);
-      $var['savedSnapToken'] = $this->db->get_where('midtrans_snap', ['userid' => $userid, 'courseid' => $course->id]);
+
+      $savedSnapToken = $this->db->get_where('midtrans_snap', ['userid' => $userid, 'courseid' => $course->id])->row();
+      $var['snapToken'] = (@$savedSnapToken->snapToken) ? @$savedSnapToken->snapToken : Snap::getSnapToken($transaction);
     }
 
     $this->load->view('layout/user/header', $var);
