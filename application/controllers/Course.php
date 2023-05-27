@@ -327,9 +327,7 @@ class Course extends CI_Controller{
         'pay' => $trxStatus->gross_amount
       ]);
       
-      redirect('kelas/' . $course->flag . '/detail' ,'refresh');
+      redirect('kelas/' . $course->flag . '/joined' ,'refresh');
     }
-
-    // $this->output->set_content_type('application/json')->set_output(json_encode($trxStatus));
   }
 }   
