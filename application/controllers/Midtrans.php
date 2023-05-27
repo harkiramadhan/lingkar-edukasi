@@ -171,32 +171,34 @@ class Midtrans extends CI_Controller{
             'setting' => $this->M_Settings->get(),
         ];
         
-        $email = $detail->email;
-        $mail = new PHPMailer(true);
-
-        $mail->isSMTP();
-        $mail->SMTPDebug    = 2;
-        $mail->Host         = 'mail.lingkaredukasi.com';
-        $mail->SMTPAuth     = true;
-        $mail->Username     = 'norep@lingkaredukasi.com';
-        $mail->Password     = 'Lingkar12345';
-        $mail->SMTPSecure   = 'ssl';
-        $mail->Port         = 465;
-
-        $mail->setFrom('norep@lingkaredukasi.com', 'No Reply - Lingkar Edukasi');
-        $mail->addReplyTo('admin@lingkaredukasi.com', 'Lingkar Edukasi');
-        $mail->addAddress("$email");
-        $mail->isHTML(true);
-
-        $mail->Subject = 'Pembelian Berhasil - Course ' . $order->judul;
-        $mailContent = $this->load->view('user/email/email-beli-kelas', $data , TRUE);
-
-        $mail->Body = $mailContent;
-
-        $mail->send();
-        // if($notification->transaction_status == 'settlement'){
-        //     @$this->sendMail($notification->order_id);
-        // }
+        
+        if($notification->transaction_status == 'settlement'){
+            $email = $detail->email;
+            $mail = new PHPMailer(true);
+    
+            $mail->isSMTP();
+            $mail->SMTPDebug    = 2;
+            $mail->Host         = 'mail.lingkaredukasi.com';
+            $mail->SMTPAuth     = true;
+            $mail->Username     = 'norep@lingkaredukasi.com';
+            $mail->Password     = 'Lingkar12345';
+            $mail->SMTPSecure   = 'ssl';
+            $mail->Port         = 465;
+    
+            $mail->setFrom('norep@lingkaredukasi.com', 'No Reply - Lingkar Edukasi');
+            $mail->addReplyTo('admin@lingkaredukasi.com', 'Lingkar Edukasi');
+            $mail->addAddress("$email");
+            $mail->isHTML(true);
+    
+            $mail->Subject = 'Pembelian Berhasil - Course ' . $order->judul;
+            $mailContent = $this->load->view('user/email/email-beli-kelas', $data , TRUE);
+    
+            $mail->Body = $mailContent;
+    
+            $mail->send();
+        }elseif($notification->transaction_status == 'expire'){
+            $this->db->where('orderid', $orderid)->delete('midtrans_snap');
+        }
     }
 
     function sendMail($orderid){

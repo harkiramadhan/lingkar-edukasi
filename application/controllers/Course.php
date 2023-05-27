@@ -1,6 +1,7 @@
 <?php 
 
 use \Midtrans\Snap;
+use \Midtrans\Transaction;
 
 \Midtrans\Config::$serverKey = 'SB-Mid-server-AF3TQXJegteEpwnV71LtYnNu';
 \Midtrans\Config::$isProduction = false;
@@ -56,9 +57,10 @@ class Course extends CI_Controller{
 
     if($userid){
       $settlementTrx = $this->M_Enrollment->getByUserCourse($userid, $course->id, 'settlement');
+      $orderid = rand();
 
       $transaction_details = [
-          'order_id' => rand(),
+          'order_id' => $orderid,
           'gross_amount' => price($course->price, $course->discount)
       ];
 
@@ -80,8 +82,12 @@ class Course extends CI_Controller{
           'transaction_details' => $transaction_details,
           'customer_details' => $customer_details,
           'item_details' => $item_details,
+          'callbacks' => [
+              'finish' => site_url('finishPayment?order_id=' . $orderid . '&uid=' . md5($userid) . '&cid=' . md5($course->id))
+          ]
       ];
 
+      $var['orderid'] = $orderid;
       $var['status'] = $settlementTrx;
       $var['snapToken'] = Snap::getSnapToken($transaction);
       $var['savedSnapToken'] = $this->db->get_where('midtrans_snap', ['userid' => $userid, 'courseid' => $course->id]);
@@ -236,12 +242,14 @@ class Course extends CI_Controller{
     $userid = $this->session->userdata('user_id');
     $courseid = $this->input->post('courseid', TRUE); 
     $snapToken = $this->input->post('snapToken', TRUE); 
+    $orderid = $this->input->post('orderid', TRUE);
 
     $cek = $this->db->get_where('midtrans_snap', ['userid' => $userid, 'courseid' => $courseid, 'snapToken' => $snapToken]);
     if($cek->num_rows() > 0){}else{
       $this->db->insert('midtrans_snap', [
         'userid' => $userid,
         'courseid' => $courseid,
+        'orderid' => $orderid,
         'snapToken' => $snapToken
       ]);
     }
@@ -295,5 +303,12 @@ class Course extends CI_Controller{
     }
 
     $this->output->set_content_type('application/json')->set_output(json_encode($res));
+  }
+
+  function finishPayment(){
+    $orderid = $this->input->get('order_id', TRUE);
+
+    $status = Transaction::status($orderid);
+    $this->output->set_content_type('application/json')->set_output(json_encode($status));
   }
 }   

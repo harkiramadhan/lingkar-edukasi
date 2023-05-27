@@ -1,5 +1,5 @@
 $('.pay-button').click(function(){
-    saveSnapToken(snapToken, courseid)
+    saveSnapToken(snapToken, courseid, orderid)
     snap.pay(snapToken, {
         onSuccess: function(result){
             saveTransaction(result, courseid)
@@ -11,11 +11,11 @@ $('.pay-button').click(function(){
     });
 })
 
-function saveSnapToken(snapToken, courseid){
+function saveSnapToken(snapToken, courseid, orderid){
     $.ajax({
         url: baseUrl + 'course/saveSnapTransaction',
         type: 'post',
-        data: {snapToken : snapToken, 'courseid' : courseid},
+        data: {snapToken : snapToken, 'courseid' : courseid, 'orderid' : orderid},
         success: function(response){
             console.log(response)
         }
