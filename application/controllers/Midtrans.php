@@ -171,7 +171,6 @@ class Midtrans extends CI_Controller{
             'setting' => $this->M_Settings->get(),
         ];
         
-        
         if($notification->transaction_status == 'settlement'){
             $email = $detail->email;
             $mail = new PHPMailer(true);
@@ -197,7 +196,7 @@ class Midtrans extends CI_Controller{
     
             $mail->send();
         }elseif($notification->transaction_status == 'expire'){
-            $this->db->where('orderid', $orderid)->delete('midtrans_snap');
+            $this->db->where('orderid', $notification->order_id)->delete('midtrans_snap');
         }
     }
 

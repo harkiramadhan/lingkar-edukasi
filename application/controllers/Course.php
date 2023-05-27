@@ -83,7 +83,7 @@ class Course extends CI_Controller{
           'customer_details' => $customer_details,
           'item_details' => $item_details,
           'callbacks' => [
-              'finish' => site_url('finishPayment?order_id=' . $orderid . '&uid=' . md5($userid) . '&cid=' . md5($course->id))
+              'finish' => site_url('course/finishPayment?order_id=' . $orderid . '_' . $userid . '_' . $course->id)
           ]
       ];
 
@@ -306,9 +306,30 @@ class Course extends CI_Controller{
   }
 
   function finishPayment(){
-    $orderid = $this->input->get('order_id', TRUE);
+    $dataUrl = $this->input->get('order_id', TRUE);
+    $data = explode('_', $dataUrl);
+    $trxStatus = Transaction::status($data[0]);
 
-    $status = Transaction::status($orderid);
-    $this->output->set_content_type('application/json')->set_output(json_encode($status));
+    $this->db->insert('orders', [
+      'id' => $datas[0],
+      'status_code' => $trxStatus['status_code'],
+      'transaction_status' => $trxStatus['transaction_status'],
+      'gross_amount' => $trxStatus['gross_amount'],
+      'userid' => $data[1],
+      'metadata' => json_encode($trxStatus),
+      'metadata_respose' => json_encode($trxStatus) 
+    ]);
+    if($this->db->affected_rows() > 0){
+      $this->db->insert('enrollment', [
+        'orderid' => $datas[0],
+        'courseid' => $datas[2],
+        'userid' => $datas[1],
+        'pay' => $trxStatus['gross_amount']
+      ]);
+      
+      redirect('kelas/' . $course->flag . '/detail' ,'refresh');
+    }
+
+    // $this->output->set_content_type('application/json')->set_output(json_encode($trxStatus));
   }
 }   
