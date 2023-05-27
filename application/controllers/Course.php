@@ -311,7 +311,7 @@ class Course extends CI_Controller{
     $trxStatus = Transaction::status($data[0]);
 
     $this->db->insert('orders', [
-      'id' => $datas[0],
+      'id' => $data[0],
       'status_code' => $trxStatus->status_code,
       'transaction_status' => $trxStatus->transaction_status,
       'gross_amount' => $trxStatus->gross_amount,
@@ -321,9 +321,9 @@ class Course extends CI_Controller{
     ]);
     if($this->db->affected_rows() > 0){
       $this->db->insert('enrollment', [
-        'orderid' => $datas[0],
-        'courseid' => $datas[2],
-        'userid' => $datas[1],
+        'orderid' => $data[0],
+        'courseid' => $data[2],
+        'userid' => $data[1],
         'pay' => $trxStatus->gross_amount
       ]);
       
