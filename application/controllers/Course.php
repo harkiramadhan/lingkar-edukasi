@@ -3,9 +3,6 @@
 use \Midtrans\Snap;
 use \Midtrans\Transaction;
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
 \Midtrans\Config::$serverKey = 'SB-Mid-server-AF3TQXJegteEpwnV71LtYnNu';
 \Midtrans\Config::$isProduction = false;
 \Midtrans\Config::$isSanitized = true;
@@ -210,40 +207,6 @@ class Course extends CI_Controller{
           ]);
 
           if($this->db->affected_rows() > 0){
-            $order = $this->M_Enrollment->getByOrderId($datas['order_id']);
-            $detail = $this->M_Enrollment->getOrderByOrderId($datas['order_id']);
-            $data = [
-                'orderid' => $datas['order_id'],
-                'order' => $order,
-                'detail' => $detail,
-                'metadata' => json_encode($datas),
-                'setting' => $this->M_Settings->get(),
-            ];
-
-            $email = $detail->email;
-            $mail = new PHPMailer(true);
-    
-            $mail->isSMTP();
-            $mail->SMTPDebug    = 2;
-            $mail->Host         = 'mail.lingkaredukasi.com';
-            $mail->SMTPAuth     = true;
-            $mail->Username     = 'norep@lingkaredukasi.com';
-            $mail->Password     = 'Lingkar12345';
-            $mail->SMTPSecure   = 'ssl';
-            $mail->Port         = 465;
-    
-            $mail->setFrom('norep@lingkaredukasi.com', 'No Reply - Lingkar Edukasi');
-            $mail->addReplyTo('admin@lingkaredukasi.com', 'Lingkar Edukasi');
-            $mail->addAddress("$email");
-            $mail->isHTML(true);
-    
-            $mail->Subject = 'Pembelian Berhasil - Course ' . $order->judul;
-            $mailContent = $this->load->view('user/email/email-beli-kelas', $data , TRUE);
-    
-            $mail->Body = $mailContent;
-    
-            $mail->send();
-
             $res = [
               'status' => 200,
               'url' => site_url('kelas/' . $course->flag . '/joined')
@@ -367,9 +330,5 @@ class Course extends CI_Controller{
       
       redirect('kelas/' . $course->flag . '/joined' ,'refresh');
     }
-  }
-
-  function sendSuccessMail(){
-
   }
 }   
