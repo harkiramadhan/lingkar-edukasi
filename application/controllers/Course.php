@@ -181,6 +181,7 @@ class Course extends CI_Controller{
         /* Simpan Log Transaksi Midtrans */
         $this->db->insert('midtrans_response', [
           'orderid' => $datas['order_id'],
+          'trx_status' => $datas['transaction_status'],
           'data' => json_encode($datas)
         ]);
 
