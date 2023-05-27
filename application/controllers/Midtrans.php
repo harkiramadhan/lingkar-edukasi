@@ -149,9 +149,9 @@ class Midtrans extends CI_Controller{
         $input = file_get_contents("php://input");
         $notification = json_decode($input);
 
-        // if($notification->transaction_status == 'expire'){
+        if($notification->transaction_status == 'expire'){
             $this->db->where('orderid', $notification->order_id)->delete('midtrans_snap');
-        // }else{
+        }elseif($notification->transaction_status == 'settlement'){
             $this->db->insert('midtrans_response', [
                 'orderid' => $notification->order_id,
                 'data' => $input
@@ -197,7 +197,7 @@ class Midtrans extends CI_Controller{
             $mail->Body = $mailContent;
     
             $mail->send();
-        // }
+        }
     }
 
     function sendMail($orderid){
