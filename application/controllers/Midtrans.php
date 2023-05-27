@@ -149,29 +149,31 @@ class Midtrans extends CI_Controller{
         $input = file_get_contents("php://input");
         $notification = json_decode($input);
 
-        $this->db->insert('midtrans_response', [
-            'orderid' => $notification->order_id,
-            'data' => $input
-        ]);
-
-        $this->db->where('id', $notification->order_id)->update('orders', [
-            'transaction_status' => $notification->transaction_status,
-            'status_code' => $notification->status_code,
-            'metadata_respose' => json_encode($notification)
-        ]);
-
-        $orderid = $notification->order_id;
-        $order = $this->M_Enrollment->getByOrderId($orderid);
-        $detail = $this->M_Enrollment->getOrderByOrderId($orderid);
-        $data = [
-            'orderid' => $orderid,
-            'order' => $order,
-            'detail' => $detail,
-            'metadata' => json_decode($detail->metadata_respose),
-            'setting' => $this->M_Settings->get(),
-        ];
-        
-        if($notification->transaction_status == 'settlement'){
+        if($notification->transaction_status == 'expire'){
+            $this->db->where('orderid', $notification->order_id)->delete('midtrans_snap');
+        }else{
+            $this->db->insert('midtrans_response', [
+                'orderid' => $notification->order_id,
+                'data' => $input
+            ]);
+    
+            $this->db->where('id', $notification->order_id)->update('orders', [
+                'transaction_status' => $notification->transaction_status,
+                'status_code' => $notification->status_code,
+                'metadata_respose' => json_encode($notification)
+            ]);
+    
+            $orderid = $notification->order_id;
+            $order = $this->M_Enrollment->getByOrderId($orderid);
+            $detail = $this->M_Enrollment->getOrderByOrderId($orderid);
+            $data = [
+                'orderid' => $orderid,
+                'order' => $order,
+                'detail' => $detail,
+                'metadata' => json_decode($detail->metadata_respose),
+                'setting' => $this->M_Settings->get(),
+            ];
+            
             $email = $detail->email;
             $mail = new PHPMailer(true);
     
@@ -195,8 +197,6 @@ class Midtrans extends CI_Controller{
             $mail->Body = $mailContent;
     
             $mail->send();
-        }elseif($notification->transaction_status == 'expire'){
-            $this->db->where('orderid', $notification->order_id)->delete('midtrans_snap');
         }
     }
 
