@@ -150,10 +150,16 @@ class Midtrans extends CI_Controller{
         $notification = json_decode($input);
 
         if($notification->transaction_status == 'expire'){
+            $this->db->insert('midtrans_response', [
+                'orderid' => $notification->order_id,
+                'trx_status' => $notification->transaction_status,
+                'data' => $input
+            ]);
             $this->db->where('orderid', $notification->order_id)->delete('midtrans_snap');
         }elseif($notification->transaction_status == 'settlement'){
             $this->db->insert('midtrans_response', [
                 'orderid' => $notification->order_id,
+                'trx_status' => $notification->transaction_status,
                 'data' => $input
             ]);
     
