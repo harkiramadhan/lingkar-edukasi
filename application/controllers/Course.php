@@ -256,6 +256,15 @@ class Course extends CI_Controller{
     }
   }
 
+  function checkTransaction(){
+    $orderid = $this->input->post('orderid', TRUE);
+    $checkTrx = Transaction::status($orderid);
+
+    if($checkTrx->transaction_status == 'expire'){
+      $this->db->where('orderid', $orderid)->delete('midtrans_snap');
+    }
+  }
+
   function saveTransaction2(){
     if($this->session->userdata('is_user') != TRUE)
         redirect('','refresh');

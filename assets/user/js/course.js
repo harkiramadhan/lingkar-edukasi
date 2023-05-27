@@ -7,6 +7,8 @@ $('.pay-button').click(function(){
             saveTransaction(result, courseid)
         },onError: function(result){
             saveTransaction(result, courseid)
+        },onClose: function(){
+            checkTransaction(orderid)
         }
     });
 })
@@ -29,6 +31,17 @@ function saveTransaction(params, courseid){
         data: {params : params, 'courseid' : courseid},
         success: function(response){
             window.location.href = response.url
+        }
+    })
+}
+
+function checkTransaction(orderid){
+    $.ajax({
+        url: baseUrl + 'course/checkTransaction',
+        type: 'post',
+        data: {orderid: orderid},
+        success: function(response){
+            location.reload()
         }
     })
 }
