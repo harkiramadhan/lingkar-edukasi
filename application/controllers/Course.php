@@ -26,10 +26,6 @@ class Course extends CI_Controller{
       'M_Video',
       'M_Enrollment'
     ]);
-
-    // if(!$this->session->userdata('is_user')){
-    //   redirect('','refresh');
-    // }
   }
 
   function index($categoryid=false){
@@ -88,6 +84,7 @@ class Course extends CI_Controller{
 
       $var['status'] = $settlementTrx;
       $var['snapToken'] = Snap::getSnapToken($transaction);
+      $var['savedSnapToken'] = $this->db->get_where('midtrans_snap', ['userid' => $userid, 'courseid' => $course->id]);
     }
 
     $this->load->view('layout/user/header', $var);
@@ -233,6 +230,21 @@ class Course extends CI_Controller{
     }
 
     $this->output->set_content_type('application/json')->set_output(json_encode($res));
+  }
+
+  function saveSnapTransaction(){
+    $userid = $this->session->userdata('user_id');
+    $courseid = $this->input->post('courseid', TRUE); 
+    $snapToken = $this->input->post('snapToken', TRUE); 
+
+    $cek = $this->db->get_where('midtrans_snap', ['userid' => $userid, 'courseid' => $courseid, 'snapToken' => $snapToken]);
+    if($cek->num_rows() > 0){}else{
+      $this->db->insert('midtrans_snap', [
+        'userid' => $userid,
+        'courseid' => $courseid,
+        'snapToken' => $snapToken
+      ]);
+    }
   }
 
   function saveTransaction2(){

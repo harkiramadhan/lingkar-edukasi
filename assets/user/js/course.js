@@ -1,4 +1,5 @@
 $('.pay-button').click(function(){
+    saveSnapToken(snapToken, courseid)
     snap.pay(snapToken, {
         onSuccess: function(result){
             saveTransaction(result, courseid)
@@ -10,6 +11,17 @@ $('.pay-button').click(function(){
     });
 })
 
+function saveSnapToken(snapToken, courseid){
+    $.ajax({
+        url: baseUrl + 'course/saveSnapTransaction',
+        type: 'post',
+        data: {snapToken : snapToken, 'courseid' : courseid},
+        success: function(response){
+            console.log(response)
+        }
+    })
+}
+
 function saveTransaction(params, courseid){
     $.ajax({
         url: baseUrl + 'course/saveTransaction',
@@ -19,8 +31,4 @@ function saveTransaction(params, courseid){
             window.location.href = response.url
         }
     })
-}
-
-window.onbeforeunload = function() {
-    return "Dude, are you sure you want to leave? Think of the kittens!";
 }
