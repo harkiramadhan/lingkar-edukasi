@@ -312,9 +312,9 @@ class Course extends CI_Controller{
 
     $this->db->insert('orders', [
       'id' => $datas[0],
-      'status_code' => $trxStatus['status_code'],
-      'transaction_status' => $trxStatus['transaction_status'],
-      'gross_amount' => $trxStatus['gross_amount'],
+      'status_code' => $trxStatus->status_code,
+      'transaction_status' => $trxStatus->transaction_status,
+      'gross_amount' => $trxStatus->gross_amount,
       'userid' => $data[1],
       'metadata' => json_encode($trxStatus),
       'metadata_respose' => json_encode($trxStatus) 
@@ -324,7 +324,7 @@ class Course extends CI_Controller{
         'orderid' => $datas[0],
         'courseid' => $datas[2],
         'userid' => $datas[1],
-        'pay' => $trxStatus['gross_amount']
+        'pay' => $trxStatus->gross_amount
       ]);
       
       redirect('kelas/' . $course->flag . '/detail' ,'refresh');
