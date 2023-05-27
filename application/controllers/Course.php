@@ -59,8 +59,9 @@ class Course extends CI_Controller{
       $settlementTrx = $this->M_Enrollment->getByUserCourse($userid, $course->id, 'settlement');
       $savedSnapToken = $this->db->get_where('midtrans_snap', ['userid' => $userid, 'courseid' => $course->id])->row();
       $orderid = rand();
+      $idorder = (@$savedSnapToken->orderid) ? @$savedSnapToken->orderid : $orderid;
       $transaction_details = [
-          'order_id' => (@$savedSnapToken->orderid) ? @$savedSnapToken->orderid : $orderid,
+          'order_id' => $idorder,
           'gross_amount' => price($course->price, $course->discount)
       ];
 
@@ -83,13 +84,13 @@ class Course extends CI_Controller{
           'customer_details' => $customer_details,
           'item_details' => $item_details,
           'callbacks' => [
-              'finish' => site_url('course/finishPayment?order_id=' . (@$savedSnapToken->orderid) ? @$savedSnapToken->orderid : $orderid . '_' . $userid . '_' . $course->id)
+              'finish' => site_url('course/finishPayment?order_id=' . $idorder . '_' . $userid . '_' . $course->id)
           ]
       ];
 
       $var['status'] = $settlementTrx;
       $var['snapToken'] = (@$savedSnapToken->snapToken) ? @$savedSnapToken->snapToken : Snap::getSnapToken($transaction);
-      $var['orderid'] = (@$savedSnapToken->orderid) ? @$savedSnapToken->orderid : $orderid;
+      $var['orderid'] = $idorder;
     }
 
     $this->load->view('layout/user/header', $var);
