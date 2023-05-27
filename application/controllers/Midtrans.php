@@ -154,7 +154,7 @@ class Midtrans extends CI_Controller{
         }elseif($notification->transaction_status == 'settlement'){
             $this->db->insert('midtrans_response', [
                 'orderid' => $notification->order_id,
-                'data' => $input
+                'data' => "Notification : " . $input
             ]);
     
             $this->db->where('id', $notification->order_id)->update('orders', [
