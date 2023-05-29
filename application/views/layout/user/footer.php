@@ -75,6 +75,8 @@
 
   <?php elseif($this->uri->segment(1) == 'kelas' && $this->uri->segment(3) == 'detail' && $this->session->userdata('is_user') != NULL): ?>
     <script src="<?= base_url('assets/user/js/video.js') ?>"></script>
+  <?php elseif($this->uri->segment(1) == 'sertifikat' && $this->uri->segment(2) == NULL): ?>
+    <script src="<?= base_url('assets/user/js/certificate.js') ?>"></script>
   <?php endif; ?>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>

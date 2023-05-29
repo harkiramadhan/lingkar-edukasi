@@ -33,7 +33,7 @@
             </td>
         </tr>
         <tr>
-            <td align="center" style="font-size:18px;">NO: <?= md5($detail->id) ?></td>
+            <td align="center" style="font-size:18px;">NO: LE<?= str_pad($detail->id, 8, '0', STR_PAD_LEFT) ?></td>
         </tr>
     </table>
     <table width="100%" style="margin-top: 20px;">
