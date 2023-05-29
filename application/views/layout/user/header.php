@@ -83,8 +83,9 @@
 
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
     <div class="nav-container">
-    <a href="<?= site_url('/') ?>" class="nav-brand w-nav-brand"><img src="<?= base_url('assets/user/images/logo-main-white.svg')?>" loading="lazy" alt="" style="max-height: 40px;"></a>
+      <a href="<?= site_url('/') ?>" class="nav-brand w-nav-brand" style="margin-right: 30px;"><img src="<?= base_url('assets/user/images/logo-main-white.svg')?>" loading="lazy" alt="" style="max-height: 40px;"></a>
       <div class="nav-left">
+        <a href="<?= site_url('/course') ?>" class="nav-button-secondary w-nav-link" style="border: none; text-transform: none;font-size: 16px; margin: 0px 5px; padding: 14px 14px;">Course</a>
         <div data-hover="false" data-delay="0" class="nav-dropdown hide-tablet w-dropdown">
           <div class="dropdown-toggle w-dropdown-toggle">
             <div class="dropdown-icon is-yellow w-icon-dropdown-toggle"></div>
