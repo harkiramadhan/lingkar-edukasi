@@ -423,7 +423,7 @@
 																																					<tr style="vertical-align: top">
 																																						<td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
 																																							<a href="<?= $setting->tw_link ?>" title="Twitter" target="_blank">
-																																							<img src="<?= base_url('assets/user/images/email/email-daftar/image-3.png') ?>" alt="Twitter" title="Twitter" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+																																								<img src="<?= base_url('assets/user/images/email/email-daftar/image-3.png') ?>" alt="Twitter" title="Twitter" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
 																																							</a>
 																																						</td>
 																																					</tr>

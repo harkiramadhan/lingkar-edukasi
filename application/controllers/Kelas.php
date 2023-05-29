@@ -1,4 +1,8 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 class Kelas extends CI_Controller{
     function __construct(){
         parent::__construct();
@@ -147,10 +151,43 @@ class Kelas extends CI_Controller{
                 'courseid' => $courseid
             ]);
 
-            $this->db->insert('sertifikat', [
-                'userid' => $userid,
-                'courseid' => $courseid
-            ]);
+            if($this->db->affected_rows() > 0){
+                $this->db->insert('sertifikat', [
+                    'userid' => $userid,
+                    'courseid' => $courseid
+                ]);
+
+                $user = $this->M_Users->getById($userid);
+                $course = $this->M_Courses->getById($courseid);
+
+                $data = [
+                    'user' => $user,
+                    'course' => $course,
+                    'setting' => $this->M_Settings->get()
+                ];
+                $email = $user->email;
+                $mail = new PHPMailer(true);
+        
+                $mail->isSMTP();
+                // $mail->SMTPDebug    = 2;
+                $mail->Host         = 'mail.lingkaredukasi.com';
+                $mail->SMTPAuth     = true;
+                $mail->Username     = 'norep@lingkaredukasi.com';
+                $mail->Password     = 'Lingkar12345';
+                $mail->SMTPSecure   = 'ssl';
+                $mail->Port         = 465;
+        
+                $mail->setFrom('norep@lingkaredukasi.com', 'No Reply - Lingkar Edukasi');
+                $mail->addReplyTo('admin@lingkaredukasi.com', 'Lingkar Edukasi');
+                $mail->addAddress("$email");
+                $mail->isHTML(true);
+        
+                $mail->Subject = 'Kelas Selesai - Course ' . $course->judul;
+                $mailContent = $this->load->view('user/email/email-kelas-selesai', $data , TRUE);
+                $mail->Body = $mailContent;
+        
+                $mail->send();
+            }
         }
         
         $this->db->where(['courseid' => $courseid, 'userid' => $userid])->update('enrollment', ['is_done' => 1]);
