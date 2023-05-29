@@ -23,6 +23,7 @@ class Pendaftaran extends CI_Controller{
         ];
         $this->db->insert('tutor', $dataInsert);
         if($this->db->affected_rows() > 0){
+          $this->session->set_userdata('userid', $this->db->insert_id());
           $this->session->set_userdata('nama', $this->input->post('nama', TRUE));
           $this->session->set_userdata('email', $this->input->post('email', TRUE));
           $this->session->set_userdata('is_tutor', TRUE);
