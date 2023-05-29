@@ -72,11 +72,11 @@
                                             <span class="text-black"><strong><?= $this->session->userdata('nama') ?></strong></span>
                                             <p class="fs-12 mb-0">Tutor</p>
 
-                                            <?php if($user->status == 0): ?>
+                                            <?php if(@$user->status == 0): ?>
                                                 <p class="fs-12 mb-0 text-danger">Belum Verifikasi</p>
-                                            <?php elseif($user->status == 1): ?>
+                                            <?php elseif(@$user->status == 1): ?>
                                                 <p class="fs-12 mb-0 text-warning">Dalam Proses Verifikasi</p>
-                                            <?php elseif($user->status == 2): ?>
+                                            <?php elseif(@$user->status == 2): ?>
                                                 <p class="fs-12 mb-0 text-success">Terverifikasi</p>
                                             <?php endif; ?>
 
@@ -117,44 +117,45 @@
             <div class="deznav">
                 <div class="deznav-scroll">
                     
-                    <?php if($user->status != 2): ?>
+                    <?php if(@$user->status != 2): ?>
                         <a href="<?= site_url('tutor/verifikasi')?>" class="add-menu-sidebar" >Verifikasi Tutor</a>
-                    <?php elseif($user->status == 2): ?>
+                    <?php elseif(@$user->status == 2): ?>
                         <a href="<?= site_url('tutor/course/tambah')?>" class="add-menu-sidebar" >+ Course Baru</a>
+
+                        <ul class="metismenu" id="menu">
+                            <li>
+                                <a href="<?= site_url('tutor/overview') ?>" class="ai-icon" aria-expanded="false">
+                                    <i class="flaticon-381-networking"></i>
+                                    <span class="nav-text">Overview</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                                    <i class="flaticon-381-news"></i>
+                                    <span class="nav-text">Course</span>
+                                </a>
+                                <ul aria-expanded="false">
+                                    <li><a href="<?= site_url('tutor/course')?>">Daftar Course</a></li>
+                                    <li><a href="<?= site_url('tutor/reviews')?>">Reviews</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="<?= site_url('tutor/akun')?>" class="ai-icon" aria-expanded="false">
+                                    <i class="flaticon-381-user-8"></i>
+                                    <span class="nav-text">Akun</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="lingkar-pengaturan.html" class="ai-icon" aria-expanded="false">
+                                    <i class="flaticon-381-settings-9"></i>
+                                    <span class="nav-text">Pengaturan</span>
+                                </a>
+                            </li>
+                        </ul>
                     <?php endif; ?>
-                    
-                    <ul class="metismenu" id="menu">
-                        <li>
-                            <a href="<?= site_url('tutor/overview') ?>" class="ai-icon" aria-expanded="false">
-                                <i class="flaticon-381-networking"></i>
-                                <span class="nav-text">Overview</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                                <i class="flaticon-381-news"></i>
-                                <span class="nav-text">Course</span>
-                            </a>
-                            <ul aria-expanded="false">
-                                <li><a href="<?= site_url('tutor/course')?>">Daftar Course</a></li>
-                                <li><a href="<?= site_url('tutor/reviews')?>">Reviews</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="<?= site_url('tutor/akun')?>" class="ai-icon" aria-expanded="false">
-                                <i class="flaticon-381-user-8"></i>
-                                <span class="nav-text">Akun</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="lingkar-pengaturan.html" class="ai-icon" aria-expanded="false">
-                                <i class="flaticon-381-settings-9"></i>
-                                <span class="nav-text">Pengaturan</span>
-                            </a>
-                        </li>
-                    </ul>
+
                     <div class="copyright">
-                        <p><strong>Lingkar Edukasi Admin Dashboard</strong> © 2023 All Rights Reserved</p>
+                        <p><strong>Lingkar Edukasi Admin Dashboard</strong> ©<?= date('Y') ?> All Rights Reserved</p>
                     </div>
                 </div>
             </div>

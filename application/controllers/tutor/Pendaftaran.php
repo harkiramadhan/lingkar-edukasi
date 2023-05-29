@@ -28,7 +28,7 @@ class Pendaftaran extends CI_Controller{
           $this->session->set_userdata('is_tutor', TRUE);
 
           $this->session->set_flashdata('success', "Selamat, Akun Anda Telah Terdaftar");
-          redirect('tutor/course','refresh');
+          redirect('tutor/verifikasi','refresh');
         }else{
           $this->session->set_flashdata('error', "Data Gagal Di Simpan, Silahkan Di Coba Kembali");
           redirect($_SERVER['HTTP_REFERER']);

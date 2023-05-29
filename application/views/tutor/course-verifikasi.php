@@ -19,7 +19,7 @@
                     </div>
                 </div>
 
-                <?php if($user->status == 0): ?>
+                <?php if(@$user->status == 0): ?>
                     <div class="card event-detail-bx overflow-hidden h-auto">
                         <div class="card-body">
                             <div class="basic-form">
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                <?php elseif($user->status == 1): ?>
+                <?php elseif(@$user->status == 1): ?>
                     <div class="card event-detail-bx overflow-hidden h-auto">
                         <div class="card-body text-center"><strong>Verifikasi Sedang Berlangsung, Harap tunggu</strong></div>
                     </div>
