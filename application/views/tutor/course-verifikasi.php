@@ -19,7 +19,17 @@
                     </div>
                 </div>
 
-                <?php if(@$user->status == 0): ?>
+                <?php if(@$user->status == 0 || @$user->status == 3): ?>
+
+                    <?php if(@$user->answer): ?>
+                        <div class="border rounded mb-3 bg-danger">
+                            <div class="card-body py-3 text-white">
+                                <h4 class="fs-20 text-white font-w600">Pengajuan Ditolak, Berikut Catatan Dari Admin !!</h4>
+                                <p class="fs-14 mb-0 text-white"><strong><?= $user->answer ?></strong></p>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
                     <div class="card event-detail-bx overflow-hidden h-auto">
                         <div class="card-body">
                             <div class="basic-form">
@@ -29,14 +39,14 @@
                                         <label class="col-sm-3 col-form-label">Deskripsi</label>
                                         <div class="col-sm-9">
                                             <p class="fs-14 mb-3"><strong>Jelaskan secara singkat course yang akan anda upload pada platform Lingkar Edukasi di kolom berikut. Jangan lupa untuk sertakan link drive di kolom berikutnya.</strong></p>
-                                            <textarea id="summernotes" name="deskripsi" required></textarea>
+                                            <textarea id="summernotes" name="deskripsi" required><?= @$user->deskripsi ?></textarea>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Link Google Drive</label>
                                         <div class="col-sm-9">
-                                            <input name="link" type="text" class="form-control" placeholder="Link" required="">
+                                            <input name="link" type="text" class="form-control" placeholder="Link" required="" value="<?= @$user->link ?>">
                                         </div>
                                     </div>
 
