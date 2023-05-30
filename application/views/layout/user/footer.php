@@ -8,6 +8,11 @@
           <div class="footer-column_content">
             <div><?= $setting->summary_footer_desc ?></div>
           </div>
+
+          <a href="<?= site_url('sertifikat/') ?>" class="footer-column-heading footer-link w-inline-block" style="margin-top: 10px;">
+            <div>Verifikasi Sertifikat</div>
+          </a>
+
         </div>
         <div class="footer-column">
           <div class="footer-column_heading-wrapper">
