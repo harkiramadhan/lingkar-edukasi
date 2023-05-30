@@ -7,7 +7,8 @@ class Overview extends CI_Controller{
       'M_Courses',
       'M_Users',
       'M_Tutor',
-      'M_Transaksi'
+      'M_Transaksi',
+      'M_Enrollment'
     ]);
     
     if($this->session->userdata('is_admin') != TRUE){

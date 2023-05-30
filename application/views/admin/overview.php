@@ -142,7 +142,10 @@
                             </div>
                             <div class="card-body">
                                 <div class="event-bx owl-carousel">
-                                    <?php foreach($news->result() as $row){ ?>
+                                    <?php 
+                                        foreach($news->result() as $row){ 
+                                            $participant = $this->M_Enrollment->getByParticipantCourse($row->id)
+                                    ?>
                                         <div class="items">
                                             <div class="image-bx">
                                                 <img src="<?= base_url('uploads/courses/' . $row->cover) ?>" alt="">
@@ -154,7 +157,7 @@
                                                     <p class="fs-12"><?= $row->deskripsi ?></p>
                                                     <ul>
                                                         <li><i class="las la-dollar-sign"></i><?= rupiah($row->price, $row->discount) ?></li>
-                                                        <li><i class="las la-user"></i>561 Peserta</li>
+                                                        <li><i class="las la-user"></i><?= $participant->num_rows() ?> Peserta</li>
                                                         <!-- <li><i class="las la-clock"></i>08:35 AM</li> -->
                                                     </ul>
                                                 </div>
