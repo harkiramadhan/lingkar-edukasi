@@ -154,7 +154,8 @@
                                                         <a href="<?= site_url('course/' . $row->flag . '/detail') ?>" class="text-black" target="__BLANK"><?= $row->judul ?></a>
                                                     </p> 
                                                     <!-- <span class="fs-14 text-black d-block mb-3">London, United Kingdom</span> -->
-                                                    <p class="fs-12"><?= $row->deskripsi ?></p>
+                                                    <!-- Desc -->
+                                                    <!-- <p class="fs-12"></p> -->
                                                     <ul>
                                                         <li><i class="las la-dollar-sign"></i><?= rupiah($row->price, $row->discount) ?></li>
                                                         <li><i class="las la-user"></i><?= $participant->num_rows() ?> Peserta</li>
