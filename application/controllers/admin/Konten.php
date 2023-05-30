@@ -715,7 +715,7 @@ class Konten extends CI_Controller{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
 
-    $this->session->set_flashdata('tab', "tab-header-course");
+    $this->session->set_flashdata('is_daftar_course', TRUE);
 		redirect($_SERVER['HTTP_REFERER']);
   }
 
@@ -731,8 +731,8 @@ class Konten extends CI_Controller{
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
-    $this->session->set_flashdata('tab', "tab-header-profile");
-		
+    
+		$this->session->set_flashdata('is_profil', TRUE);
 		redirect($_SERVER['HTTP_REFERER']);
   }
 
@@ -748,8 +748,8 @@ class Konten extends CI_Controller{
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
-    $this->session->set_flashdata('tab', "tab-header-profile");
-		
+    
+		$this->session->set_flashdata('is_kelas_saya', TRUE);
 		redirect($_SERVER['HTTP_REFERER']);
   }
 
@@ -765,8 +765,8 @@ class Konten extends CI_Controller{
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
-    $this->session->set_flashdata('tab', "tab-header-profile");
-		
+    
+		$this->session->set_flashdata('is_detail_learning', TRUE);
 		redirect($_SERVER['HTTP_REFERER']);
   }
 
@@ -782,8 +782,8 @@ class Konten extends CI_Controller{
     }else{
       $this->session->set_flashdata('error', "Data Gagal Di Simpan");
     }
-    $this->session->set_flashdata('tab', "tab-footer-summary");
-
+    
+    $this->session->set_flashdata('is_summary', TRUE);
     redirect($_SERVER['HTTP_REFERER']);
   }
 
@@ -808,8 +808,8 @@ class Konten extends CI_Controller{
     }else{
       $this->session->set_flashdata('error', "Data Gagal Di Simpan");
     }
-    $this->session->set_flashdata('tab', "tab-footer-sosmed");
-
+    
+    $this->session->set_flashdata('is_sosmed', TRUE);
     redirect($_SERVER['HTTP_REFERER']);
   }
 
@@ -829,8 +829,8 @@ class Konten extends CI_Controller{
     }else{
       $this->session->set_flashdata('error', "Data Gagal Di Simpan");
     }
-    $this->session->set_flashdata('tab', "tab-footer-sosmed");
-
+    
+    $this->session->set_flashdata('is_alamat', TRUE);
     redirect($_SERVER['HTTP_REFERER']);
   }
 }   

@@ -20,14 +20,14 @@
                         <div class="row">
                             <div class="col-xl-3">
                                 <div class="nav flex-column nav-pills mb-3">
-                                    <a href="#v-pills-sumary" data-toggle="pill" class="nav-link active">Sumary</a>
-                                    <a href="#v-pills-social-media" data-toggle="pill" class="nav-link">Social Media</a>
-                                    <a href="#v-pills-alamat" data-toggle="pill" class="nav-link">Alamat & Kontak</a>
+                                    <a href="#v-pills-sumary" data-toggle="pill" class="nav-link <?= ($this->session->flashdata('is_summary')) ? 'active' : (($this->session->flashdata('is_sosmed') != TRUE && $this->session->flashdata('is_alamat') != TRUE) ? 'active' : '') ?>">Sumary</a>
+                                    <a href="#v-pills-social-media" data-toggle="pill" class="nav-link <?= ($this->session->flashdata('is_sosmed')) ? 'active' : '' ?>">Social Media</a>
+                                    <a href="#v-pills-alamat" data-toggle="pill" class="nav-link <?= ($this->session->flashdata('is_alamat')) ? 'active' : '' ?>">Alamat & Kontak</a>
                                 </div>
                             </div>
                             <div class="col-xl-9 border-left">
                                 <div class="tab-content">
-                                    <div id="v-pills-sumary" class="tab-pane fade active show">
+                                    <div id="v-pills-sumary" class="tab-pane fade <?= ($this->session->flashdata('is_summary')) ? 'active' : (($this->session->flashdata('is_sosmed') != TRUE && $this->session->flashdata('is_alamat') != TRUE) ? 'active show' : '') ?>">
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
                                             </div>
@@ -56,7 +56,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="v-pills-social-media" class="tab-pane fade">
+                                    <div id="v-pills-social-media" class="tab-pane fade <?= ($this->session->flashdata('is_sosmed')) ? 'active show' : '' ?>">
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
                                             </div>
@@ -143,7 +143,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="v-pills-alamat" class="tab-pane fade">
+                                    <div id="v-pills-alamat" class="tab-pane fade <?= ($this->session->flashdata('is_alamat')) ? 'active show' : '' ?>">
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
                                             </div>

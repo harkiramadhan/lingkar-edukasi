@@ -20,15 +20,15 @@
                         <div class="row">
                             <div class="col-xl-3">
                                 <div class="nav flex-column nav-pills mb-3">
-                                    <a href="#v-pills-header-course" data-toggle="pill" class="nav-link active">Daftar Course</a>
-                                    <a href="#v-pills-profil" data-toggle="pill" class="nav-link">Profil</a>
-                                    <a href="#v-pills-kelas-saya" data-toggle="pill" class="nav-link">Kelas Saya</a>
-                                    <a href="#v-pills-detail-learning-course" data-toggle="pill" class="nav-link">Detail Learning Course</a>
+                                    <a href="#v-pills-header-course" data-toggle="pill" class="nav-link <?= ($this->session->flashdata('is_daftar_course')) ? 'active' : (($this->session->flashdata('is_profil') != TRUE && $this->session->flashdata('is_kelas_saya') != TRUE && $this->session->flashdata('is_detail_learning') != TRUE) ? 'active' : '') ?>">Daftar Course</a>
+                                    <a href="#v-pills-profil" data-toggle="pill" class="nav-link <?= ($this->session->flashdata('is_profil')) ? 'active' : '' ?>">Profil</a>
+                                    <a href="#v-pills-kelas-saya" data-toggle="pill" class="nav-link <?= ($this->session->flashdata('is_kelas_saya')) ? 'active' : '' ?>">Kelas Saya</a>
+                                    <a href="#v-pills-detail-learning-course" data-toggle="pill" class="nav-link <?= ($this->session->flashdata('is_detail_learning')) ? 'active' : '' ?>">Detail Learning Course</a>
                                 </div>
                             </div>
                             <div class="col-xl-9 border-left">
                                 <div class="tab-content">
-                                    <div id="v-pills-header-course" class="tab-pane fade active show">
+                                    <div id="v-pills-header-course" class="tab-pane fade <?= ($this->session->flashdata('is_daftar_course')) ? 'active show' : (($this->session->flashdata('is_profil') != TRUE && $this->session->flashdata('is_kelas_saya') != TRUE && $this->session->flashdata('is_detail_learning') != TRUE) ? 'active show' : '') ?>">
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
                                             </div>
@@ -80,7 +80,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="v-pills-profil" class="tab-pane fade">
+                                    <div id="v-pills-profil" class="tab-pane fade <?= ($this->session->flashdata('is_profil')) ? 'active show' : '' ?>">
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
                                             </div>
@@ -110,7 +110,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="v-pills-kelas-saya" class="tab-pane fade">
+                                    <div id="v-pills-kelas-saya" class="tab-pane fade <?= ($this->session->flashdata('is_kelas_saya')) ? 'active show' : '' ?>">
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
                                             </div>
@@ -137,7 +137,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="v-pills-detail-learning-course" class="tab-pane fade">
+                                    <div id="v-pills-detail-learning-course" class="tab-pane fade <?= ($this->session->flashdata('is_detail_learning')) ? 'active show' : '' ?>">
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
                                             </div>
