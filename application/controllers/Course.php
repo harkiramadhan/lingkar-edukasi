@@ -103,7 +103,7 @@ class Course extends CI_Controller{
   function search(){
     $val = $this->input->get('val', TRUE);
     $getData = $this->db->select("lower(concat_ws(' ', judul, nama)) as hasil")
-                        ->select("c.judul, c.cover, t.nama, c.price, c.discount")
+                        ->select("c.judul, c.cover, t.nama, c.price, c.discount, c.flag")
                         ->from('courses c')
                         ->join('tutor t', 'c.pemateriid = t.id')
                         ->where([
@@ -116,7 +116,7 @@ class Course extends CI_Controller{
     if($getData->num_rows() > 0){
       foreach($getData->result() as $row){
         ?>
-          <div class="kelas-card-vertical_wrapper">
+          <div class="kelas-card-vertical_wrapper btn-redirect" style="margin-top: 10px; cursor: pointer" data-url="<?= site_url('course/' . $row->flag . '/detail') ?>">
             <div class="kelas-card-vertical_image-wrapper">
               <img src="<?= site_url('uploads/courses/' . $row->cover) ?>" loading="lazy" sizes="100vw" srcset="<?= base_url('uploads/courses/' . $row->cover) ?> 500w, <?= base_url('uploads/courses/' . $row->cover) ?> 576w" alt="" class="kelas-card-vertical_image">
             </div>
