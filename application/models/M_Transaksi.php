@@ -26,29 +26,44 @@ class M_Transaksi extends CI_Model{
                         ])->get()->row();
     }
 
-    function getByDate($date){
+    function getByDate($date, $tutorid = FALSE){
+        if(@$tutorid){
+            $this->db->where('c.pemateriid', $tutorid);
+        }
         return $this->db->select('SUM(gross_amount) AS total')
-                        ->from('orders')
+                        ->from('orders o')
+                        ->join('enrollment e', 'e.orderid = o.id')
+                        ->join('courses c', 'e.courseid = c.id')
                         ->where([
-                            'DATE(timestamp)' => $date
+                            'DATE(o.timestamp)' => $date
                         ])->get()->row();
     }
 
-    function getByWeek($week){
+    function getByWeek($week, $tutorid = FALSE){
+        if(@$tutorid){
+            $this->db->where('c.pemateriid', $tutorid);
+        }
         return $this->db->select('SUM(gross_amount) AS total')
-                        ->from('orders')
+                        ->from('orders o')
+                        ->join('enrollment e', 'e.orderid = o.id')
+                        ->join('courses c', 'e.courseid = c.id')
                         ->where([
-                            'WEEK(timestamp)' => $week,
-                            'YEAR(timestamp)' => date('Y')
+                            'WEEK(o.timestamp)' => $week,
+                            'YEAR(o.timestamp)' => date('Y')
                         ])->get()->row();
     }
 
-    function getByMonth($month){
+    function getByMonth($month, $tutorid = FALSE){
+        if(@$tutorid){
+            $this->db->where('c.pemateriid', $tutorid);
+        }
         return $this->db->select('SUM(gross_amount) AS total')
-                        ->from('orders')
+                        ->from('orders o')
+                        ->join('enrollment e', 'e.orderid = o.id')
+                        ->join('courses c', 'e.courseid = c.id')
                         ->where([
-                            'MONTH(timestamp)' => $month,
-                            'YEAR(timestamp)' => date('Y')
+                            'MONTH(o.timestamp)' => $month,
+                            'YEAR(o.timestamp)' => date('Y')
                         ])->get()->row();
     }
 }
