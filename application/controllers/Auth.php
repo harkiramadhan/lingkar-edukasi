@@ -197,8 +197,16 @@ class Auth extends CI_Controller{
 
     /* Action */
     function logout(){
+        if($this->session->userdata('is_admin')){
+            $url = 'admin';
+        }elseif($this->session->userdata('is_tutor')){
+            $url = 'tutor';
+        }else{
+            $url = '';
+        }
+
         $this->session->sess_destroy();
-		redirect();
+        redirect($url);
     }
 
     function actionSignup(){
