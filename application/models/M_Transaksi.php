@@ -26,6 +26,17 @@ class M_Transaksi extends CI_Model{
                         ])->get()->row();
     }
 
+    function getSumByCourse($courseid){
+        return $this->db->select('o.*')
+                        ->from('orders o')
+                        ->join('enrollment e', 'e.orderid = o.id')
+                        ->join('courses c', 'e.courseid = c.id')
+                        ->where([
+                            'c.id' => $courseid,
+                            'o.transaction_status' => 'settlement'
+                        ])->get();
+    }
+
     function getByCourse($courseid){
         return $this->db->select('SUM(gross_amount) AS total')
                         ->from('orders o')

@@ -30,6 +30,8 @@
 									<?php 
 										$no = 1;
 										foreach($courses->result() as $row){
+											$trx = $this->M_Transaksi->getSumByCourse($row->id);
+											$video = $this->M_Video->getByClass($row->id);
 									?>
 										<tr id="data-<?= $row->id ?>">
 											<td class="text-center"><?= $no++ ?></td>
@@ -47,14 +49,14 @@
 													</div>
 												</div>
 											</td>
-											<td class="text-center">8</td>
-											<td class="text-center">9x</td>
+											<td class="text-center"><?= $video->num_rows() ?></td>
+											<td class="text-center"><?= $trx->num_rows() ?>x</td>
 											<td>Rp. <?= rupiah($row->price) ?></td>
 											<td class="text-center">
 												<a href="<?= site_url('admin/course/' . $row->id) ?>" class="btn btn-secondary btn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-eye"></i></a>
 												<a href="<?= site_url('admin/course/' . $row->id . '/media') ?>" class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-video"></i></a>
 												<a href="<?= site_url('admin/course/' . $row->id . '/edit') ?>" class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-pencil"></i></a>
-												<button type="button" data-id="<?= $row->id ?>" class="btn btn-danger btn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-trash"></i></button>
+												<button type="button" data-id="<?= $row->id ?>" class="btn btn-danger btn-sm dark ml-0 px-2 py-1 mr-0 btn-remove"><i class="fa fa-trash"></i></button>
 											</td>
 										</tr>
 									<?php } ?>
