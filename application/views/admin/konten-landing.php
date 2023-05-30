@@ -20,17 +20,17 @@
                         <div class="row">
                             <div class="col-xl-3">
                                 <div class="nav flex-column nav-pills mb-3">
-                                    <a href="#v-pills-banner" data-toggle="pill" class="nav-link active">Banner</a>
-                                    <a href="#v-pills-partner" data-toggle="pill" class="nav-link">Logo Partner</a>
-                                    <a href="#v-pills-benefit" data-toggle="pill" class="nav-link">Benefit</a>
-                                    <a href="#v-pills-course" data-toggle="pill" class="nav-link">Course</a>
-                                    <a href="#v-pills-testimoni" data-toggle="pill" class="nav-link">Testimoni</a>
-                                    <a href="#v-pills-tutor" data-toggle="pill" class="nav-link">Tutor CTA</a>
+                                    <a href="#v-pills-banner" data-toggle="pill" class="nav-link <?= ($this->session->flashdata('is_banner') ? 'active' : (($this->session->flashdata('is_logo') != TRUE && $this->session->flashdata('is_benefit') != TRUE && $this->session->flashdata('is_course') != TRUE && $this->session->flashdata('is_testimoni') != TRUE && $this->session->flashdata('is_tutor_cta') != TRUE) ? 'active' : '')) ?>">Banner</a>
+                                    <a href="#v-pills-partner" data-toggle="pill" class="nav-link <?= ($this->session->flashdata('is_logo')) ? 'active' : '' ?>">Logo Partner</a>
+                                    <a href="#v-pills-benefit" data-toggle="pill" class="nav-link <?= ($this->session->flashdata('is_benefit')) ? 'active' : '' ?>">Benefit</a>
+                                    <a href="#v-pills-course" data-toggle="pill" class="nav-link <?= ($this->session->flashdata('is_course')) ? 'active' : '' ?>">Course</a>
+                                    <a href="#v-pills-testimoni" data-toggle="pill" class="nav-link <?= ($this->session->flashdata('is_testimoni')) ? 'active' : '' ?>">Testimoni</a>
+                                    <a href="#v-pills-tutor" data-toggle="pill" class="nav-link <?= ($this->session->flashdata('is_tutor_cta')) ? 'active' : '' ?>">Tutor CTA</a>
                                 </div>
                             </div>
                             <div class="col-xl-9 border-left">
                                 <div class="tab-content">
-                                    <div id="v-pills-banner" class="tab-pane fade active show">
+                                    <div id="v-pills-banner" class="tab-pane fade <?= ($this->session->flashdata('is_banner') ? 'active show' : (($this->session->flashdata('is_logo') != TRUE && $this->session->flashdata('is_benefit') != TRUE && $this->session->flashdata('is_course') != TRUE && $this->session->flashdata('is_testimoni') != TRUE && $this->session->flashdata('is_tutor_cta') != TRUE) ? 'active show' : '')) ?>">
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
                                                 <h6 class="fs-16 text-black font-w600 mb-0"><?= $banners->num_rows() ?> Total Konten Banner</h6>
@@ -80,7 +80,7 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div id="v-pills-partner" class="tab-pane fade">
+                                    <div id="v-pills-partner" class="tab-pane fade <?= ($this->session->flashdata('is_logo')) ? 'active show' : '' ?>">
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
                                                 <h6 class="fs-16 text-black font-w600 mb-0"><?= $partners->num_rows() ?> Total Konten Logo Partner</h6>
@@ -130,7 +130,7 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div id="v-pills-benefit" class="tab-pane fade">
+                                    <div id="v-pills-benefit" class="tab-pane fade <?= ($this->session->flashdata('is_benefit')) ? 'active show' : '' ?>">
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
                                                 <h6 class="fs-16 text-black font-w600 mb-0"><?= $benefit->num_rows() ?> Total Konten Benefit</h6>
@@ -181,7 +181,7 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div id="v-pills-course" class="tab-pane fade">
+                                    <div id="v-pills-course" class="tab-pane fade <?= ($this->session->flashdata('is_course')) ? 'active show' : '' ?>">
                                         
                                         <form action="<?= site_url('admin/konten/actionCourse') ?>" method="POST">
                                             <div class="form-group">
@@ -200,7 +200,7 @@
                                         </form>
 
                                     </div>
-                                    <div id="v-pills-testimoni" class="tab-pane fade">
+                                    <div id="v-pills-testimoni" class="tab-pane fade <?= ($this->session->flashdata('is_testimoni')) ? 'active show' : '' ?>">
                                         
                                         <div class="d-flex flex-wrap mb-2 align-items-center justify-content-between">
                                             <div class="mb-3 mr-3">
@@ -253,7 +253,7 @@
                                         </div>
 
                                     </div>
-                                    <div id="v-pills-tutor" class="tab-pane fade">
+                                    <div id="v-pills-tutor" class="tab-pane fade <?= ($this->session->flashdata('is_tutor_cta')) ? 'active show' : '' ?>">
                                         
                                         <form action="<?= site_url('admin/konten/actionCTA') ?>" method="POST" enctype="multipart/form-data">
                                             <div class="row">

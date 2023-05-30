@@ -348,8 +348,8 @@ class Konten extends CI_Controller{
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
-    $this->session->set_flashdata('tab', "tab-banner");
-		
+
+    $this->session->set_flashdata('is_banner', TRUE);
 		redirect($_SERVER['HTTP_REFERER']);
   }
 
@@ -385,8 +385,8 @@ class Konten extends CI_Controller{
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
-    $this->session->set_flashdata('tab', "tab-banner");
-		
+
+    $this->session->set_flashdata('is_banner', TRUE);
 		redirect($_SERVER['HTTP_REFERER']);
   }
 
@@ -425,8 +425,8 @@ class Konten extends CI_Controller{
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
-    $this->session->set_flashdata('tab', "tab-partner");
-		
+    
+		$this->session->set_flashdata('is_logo', TRUE);
 		redirect($_SERVER['HTTP_REFERER']);
   }
 
@@ -461,8 +461,8 @@ class Konten extends CI_Controller{
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
-    $this->session->set_flashdata('tab', "tab-banner");
-		
+    
+		$this->session->set_flashdata('is_logo', TRUE);
 		redirect($_SERVER['HTTP_REFERER']);
   }
 
@@ -502,8 +502,8 @@ class Konten extends CI_Controller{
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
-    $this->session->set_flashdata('tab', "tab-benefit");
 		
+    $this->session->set_flashdata('is_benefit', TRUE);
 		redirect($_SERVER['HTTP_REFERER']);
   }
 
@@ -538,8 +538,8 @@ class Konten extends CI_Controller{
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
-    $this->session->set_flashdata('tab', "tab-benefit");
-		
+    
+		$this->session->set_flashdata('is_benefit', TRUE);
 		redirect($_SERVER['HTTP_REFERER']);
   }
 
@@ -566,8 +566,8 @@ class Konten extends CI_Controller{
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
-    $this->session->set_flashdata('tab', "tab-course");
-		
+    
+		$this->session->set_flashdata('is_course', TRUE);
 		redirect($_SERVER['HTTP_REFERER']);
   }
 
@@ -595,8 +595,8 @@ class Konten extends CI_Controller{
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
-    $this->session->set_flashdata('tab', "tab-testimoni");
 		
+    $this->session->set_flashdata('is_testimoni', TRUE);
 		redirect($_SERVER['HTTP_REFERER']);
   }
 
@@ -631,8 +631,8 @@ class Konten extends CI_Controller{
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
-    $this->session->set_flashdata('tab', "tab-testimoni");
-		
+    
+		$this->session->set_flashdata('is_testimoni', TRUE);
 		redirect($_SERVER['HTTP_REFERER']);
   }
 
@@ -679,8 +679,8 @@ class Konten extends CI_Controller{
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
-    $this->session->set_flashdata('tab', "tab-tutor");
-		
+    
+		$this->session->set_flashdata('is_tutor_cta', TRUE);
 		redirect($_SERVER['HTTP_REFERER']);
   }
 
@@ -714,8 +714,8 @@ class Konten extends CI_Controller{
 		}else{
 			$this->session->set_flashdata('error', "Data Gagal Di Simpan");
 		}
+
     $this->session->set_flashdata('tab', "tab-header-course");
-		
 		redirect($_SERVER['HTTP_REFERER']);
   }
 
