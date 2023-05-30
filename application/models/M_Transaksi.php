@@ -25,4 +25,30 @@ class M_Transaksi extends CI_Model{
                             'o.id' => $orderid
                         ])->get()->row();
     }
+
+    function getByDate($date){
+        return $this->db->select('SUM(gross_amount) AS total')
+                        ->from('orders')
+                        ->where([
+                            'DATE(timestamp)' => $date
+                        ])->get()->row();
+    }
+
+    function getByWeek($week){
+        return $this->db->select('SUM(gross_amount) AS total')
+                        ->from('orders')
+                        ->where([
+                            'WEEK(timestamp)' => $week,
+                            'YEAR(timestamp)' => date('Y')
+                        ])->get()->row();
+    }
+
+    function getByMonth($month){
+        return $this->db->select('SUM(gross_amount) AS total')
+                        ->from('orders')
+                        ->where([
+                            'MONTH(timestamp)' => $month,
+                            'YEAR(timestamp)' => date('Y')
+                        ])->get()->row();
+    }
 }

@@ -41,7 +41,7 @@
         <div id="main-wrapper">
                 
             <div class="nav-header">
-                <a href="index.html" class="brand-logo">
+                <a href="<?= site_url('') ?>" class="brand-logo">
                     <img class="logo-abbr" src="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>" alt="">
                     <img class="logo-compact" src="<?= base_url('assets/admin/images/brand/logo-text-only-main.svg') ?>" alt="">
                     <img class="brand-title" src="<?= base_url('assets/admin/images/brand/logo-text-main.svg') ?>" alt="">

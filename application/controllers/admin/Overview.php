@@ -7,6 +7,7 @@ class Overview extends CI_Controller{
       'M_Courses',
       'M_Users',
       'M_Tutor',
+      'M_Transaksi'
     ]);
     
     if($this->session->userdata('is_admin') != TRUE){
@@ -19,7 +20,10 @@ class Overview extends CI_Controller{
       'peserta' => $this->M_Users->getAll(),
       'courses' => $this->M_Courses->getAll(),
       'tutor' => $this->M_Tutor->getAll(),
-      'news' => $this->M_Courses->getActive(10)
+      'news' => $this->M_Courses->getActive(10),
+      'trx_day' => $this->M_Transaksi->getByDate(date('Y-m-d')),
+      'trx_week' => $this->M_Transaksi->getByWeek(date('W')),
+      'trx_month' => $this->M_Transaksi->getByMonth(date('m')),
     ];
 
     $this->load->view('layout/admin/header', $var);
