@@ -260,7 +260,7 @@
 
                     <div class="form-group">
                         <label class="text-black font-w500">Video</label>
-                        <input name="video" type="file" class="form-control" value="" placeholder="Upload Video" id='videoUpload2' accept="video/mp4,video/x-m4v,video/*" required>
+                        <input name="video" type="file" class="form-control" value="" placeholder="Upload Video" id='videoUpload2' accept="video/mp4,video/x-m4v,video/*" >
                     </div>
 
                     <div class="embed-responsive embed-responsive-16by9 mb-3 video-upload2">

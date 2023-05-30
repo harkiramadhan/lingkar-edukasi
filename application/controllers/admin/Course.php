@@ -318,6 +318,41 @@ class Course extends CI_Controller{
         }
     }
 
+    function updateVideo(){
+        $id = $this->input->post('id', TRUE);
+        $video = $this->M_Video->getById($id);
+        $filename = $video->video;
+		$config['upload_path'] = './uploads/courses/videos';  
+		$config['allowed_types'] = '3g2|3gp|aaf|asf|avchd|avi|drc|flv|m2v|m3u8|m4p|m4v|mkv|mng|mov|mp2|mp4|mpe|mpeg|mpg|mpv|mxf|nsv|ogg|ogv|qt|rm|rmvb|roq|svi|vob|webm|wmv|yuv'; 
+		$config['encrypt_name'] = TRUE;
+		$this->load->library('upload', $config);
+
+        if($this->upload->do_upload('video')){
+            if(@$video->video){
+                @unlink('./uploads/courses/videos/' . @$video->video);
+            }
+
+            $data = $this->upload->data();
+            $filename = $data['file_name'];
+        }
+
+        $this->db->where('id', $id)->update('video', [
+            'judul' => $this->input->post('judul', TRUE),
+            'durasi' => $this->input->post('durasi', TRUE),
+            'status' => $this->input->post('status', TRUE),
+            'video' => $filename
+        ]);
+
+        if($this->db->affected_rows() > 0){
+            $this->session->set_flashdata('success', "Video Berhasil Di Simpan");
+            $this->session->set_flashdata('collapse', $this->input->post('materiid', TRUE));
+            redirect($_SERVER['HTTP_REFERER']);
+        }else{
+            $this->session->set_flashdata('error', "Video Gagal Di Simpan");
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
+
     function removeMateri($id){
         $video = $this->M_Video->getByMateri($id);
         foreach($video->result() as $row){

@@ -11,4 +11,3 @@ function previewImage() {
 }
 
 $('#summernote').summernote();
-
