@@ -49,4 +49,16 @@ class M_Enrollment extends CI_Model{
                             'o.id' => $orderid
                         ])->get()->row();
     }
+
+    function getByParticipantCourse($courseid){
+        return $this->db->select('c.id, p.nama, e.orderid, e.is_done')
+                        ->from('enrollment e')
+                        ->join('orders o', 'e.orderid = o.id')
+                        ->join('courses c', 'e.courseid = c.id')
+                        ->join('tutor p', 'c.pemateriid = p.id', 'LEFT')
+                        ->where([
+                            'c.id' => $courseid,
+                            'o.transaction_status' => 'settlement'
+                        ])->get();
+    }
 }

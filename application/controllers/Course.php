@@ -52,7 +52,9 @@ class Course extends CI_Controller{
       'title' => $this->M_Courses->getByFlag($flag)->judul,
       'benefit' => $this->M_Benefit->getByCourse($course->id),
       'tutor' => $this->M_Tutor->getById($course->pemateriid),
-      'materi' => $this->M_Materi->getByClass($course->id)
+      'materi' => $this->M_Materi->getByClass($course->id),
+      'durasi' => $this->M_Video->sumDurationByClass($course->id),
+      'participant' => $this->M_Enrollment->getByParticipantCourse($course->id)
     ];
 
     if($userid){

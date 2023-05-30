@@ -30,12 +30,12 @@
               <div class="coursepill_wrapper">
                 <div class="coursedetail-hero_pill">
                   <div class="coursedetail-pill-flex"><img src="<?= base_url('assets/user/images/Vectors-Wrapper.svg')?>" loading="lazy" alt="" class="coursepill-icon">
-                    <div class="coursepill-text durasi-materi"></div>
+                    <div class="coursepill-text durasi-materi"><?= @$durasi->jumlah ?></div>
                   </div>
                 </div>
                 <div class="coursedetail-hero_pill">
                   <div class="coursedetail-pill-flex"><img src="<?= base_url('assets/user/images/Account-circle.svg')?>" loading="lazy" alt="" class="coursepill-icon">
-                    <div class="coursepill-text">3 Jam, 2 Menit</div>
+                    <div class="coursepill-text"><?= @$participant->num_rows() ?> Participant</div>
                   </div>
                 </div>
                 <div class="coursedetail-hero_pill">
