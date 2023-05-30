@@ -10,7 +10,8 @@ class Course extends CI_Controller{
             'M_Labels',
             'M_Benefit',
             'M_Materi',
-            'M_Video'
+            'M_Video',
+            'M_Transaksi'
         ]);
 
         if($this->session->userdata('is_admin') != TRUE && $this->session->userdata('is_tutor') != TRUE){
@@ -63,6 +64,8 @@ class Course extends CI_Controller{
     function detail($id){
         $var = [
             'course' => $this->M_Courses->getById($id),
+            'trx' => $this->M_Transaksi->getByCourse($id),
+            'video' => $this->M_Video->getByClass($id),
             'ajax' => [
                 'edit-course'
             ]
