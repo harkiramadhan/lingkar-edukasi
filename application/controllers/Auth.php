@@ -331,11 +331,11 @@ class Auth extends CI_Controller{
                 'email' => $userCheck->email
             ]);
 
-            /* Redirect View Check Emailmu */
+            $this->session->set_flashdata('success', "Cek Email Untuk Konfirmasi Perubahan Password");
         }else{
             $this->session->set_flashdata('error', "Email Tidak Terdaftar");
-            redirect($_SERVER['HTTP_REFERER']);
         }
+        redirect('forgotpassword');
     }
 
     function setSession(){
@@ -383,6 +383,7 @@ class Auth extends CI_Controller{
         $mail = new PHPMailer(true);
 
         $mail->isSMTP();
+        // $mail->SMTPDebug    = 2;
         $mail->Host         = 'mail.lingkaredukasi.com';
         $mail->SMTPAuth     = true;
         $mail->Username     = 'norep@lingkaredukasi.com';

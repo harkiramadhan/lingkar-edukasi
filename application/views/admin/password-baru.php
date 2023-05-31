@@ -26,22 +26,27 @@
 									<div class="text-center mb-4">
 										<img src="<?= base_url('assets/user/images/logo-main-white.svg')?>" style="height: 40px" alt="">
 									</div>
-                                    <h2 class="text-center mb-2 text-white"><strong>Lupa Password</strong></h2>
-                                    <h5 class="text-center mb-3 text-white">Input email admin anda, kami akan mengirimkan informasi akun anda.</h5>
+                                    <h2 class="text-center mb-2 text-white"><strong>Buat Password Barumu</strong></h2>
+                                    <h5 class="text-center mb-3 text-white">Password barumumu harus berbeda dengan sebelumnya.</h5>
                                     
                                     <?php if($this->session->flashdata('error')): ?>
                                         <h4 class="text-center mb-3 text-white"><?= $this->session->flashdata('error') ?></h4>
                                     <?php endif; ?>
 
-                                    <form action="<?= site_url('admin/admin/sendMailForgotPassword') ?>" method="POST">
+                                    <form action="<?= site_url('admin/admin/actionNewPassword') ?>" method="POST">
                                         <div class="form-group">
-                                            <label class="mb-1 text-white"><strong>Email</strong></label>
-                                            <input name="email" type="email" class="form-control" value="<?= ($this->session->flashdata('email')) ? $this->session->flashdata('email') : '' ?>" placeholder="hello@example.com" reqiored>
+                                            <label class="mb-1 text-white"><strong>Password</strong></label>
+                                            <input name="pwd1" type="password" class="form-control" value="" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="mb-1 text-white"><strong>Ulangi Password</strong></label>
+                                            <input name="pwd2" type="password" class="form-control" value="" required>
                                         </div>
 
                                         <div class="text-center">
                                             <button type="submit" class="btn bg-white text-primary btn-block">SUBMIT</button>
-                                            <a href="<?= site_url('/admin') ?>" type="submit" class="btn border-1 text-white btn-block">ke Halaman Login</a>
+                                            <a href="<?= site_url('/logout') ?>" type="submit" class="btn border-1 text-white btn-block">ke Halaman Login</a>
                                         </div>
                                     </form>
                                 </div>
