@@ -79,20 +79,6 @@
                       <a href="<?= site_url('signin') ?>" class="kelas-button-full w-button">Daftar Kelas</a>
                     <?php endif; ?>
                   </div>
-                  <div class="cdetail-tutor">
-                    <div class="cdetail-tutor_pill">
-                      <div class="pill-text">TENTANG TUTOR</div>
-                    </div>
-                    <?php if($tutor->img): ?>
-                      <img src="<?= base_url('uploads/tutor/' . $tutor->img)?>" loading="lazy" alt="" class="cdetail-tutor_image">
-                    <?php else: ?>
-                      <img src="<?= base_url('assets/admin/images/placeholder-image.svg')?>" loading="lazy" alt="" class="cdetail-tutor_image">
-                    <?php endif; ?>
-                    <h2 class="cdetail-tutor-name"><?= $tutor->nama ?></h2>
-                    <div class="text-small text-grey">
-                      <?= $tutor->deskripsi ?>.
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -124,20 +110,7 @@
               <a href="<?= site_url('signin') ?>" class="kelas-button-full w-button">Daftar Kelas</a>
             <?php endif; ?>
           </div>
-          <div class="cdetail-tutor">
-            <div class="cdetail-tutor_pill">
-              <div class="pill-text">TENTANG TUTOR</div>
-            </div>
-            <?php if($tutor->img): ?>
-              <img src="<?= base_url('uploads/tutor/' . $tutor->img)?>" loading="lazy" alt="" class="cdetail-tutor_image">
-            <?php else: ?>
-              <img src="<?= base_url('assets/admin/images/placeholder-image.svg')?>" loading="lazy" alt="" class="cdetail-tutor_image">
-            <?php endif; ?>
-            <h2 class="cdetail-tutor-name"><?= $tutor->nama ?></h2>
-            <div class="text-small text-grey">
-              <?= $tutor->deskripsi ?>.
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -212,9 +185,69 @@
                 </div>
               </div>
             </div>
-          </div>
+            <br>
+            <div class="cdetail-tutor" style="flex-direction: row;flex-wrap: nowrap;">
+              <div class="" style="display: flex; flex-direction: column;">
+                <div class="cdetail-tutor_pill" style="margin-bottom: 15px;">
+                  <div class="pill-text">TENTANG TUTOR</div>
+                </div>
+                
+                <?php if($tutor->img): ?>
+                  <img src="<?= base_url('uploads/tutor/' . $tutor->img)?>" loading="lazy" alt="" class="cdetail-tutor_image" style="min-width: 150px;max-width: 150px; max-height: 150px;">
+                <?php else: ?>
+                  <img src="<?= base_url('assets/admin/images/placeholder-image.svg')?>" loading="lazy" alt="" class="cdetail-tutor_image" style="min-width: 150px;max-width: 150px; max-height: 150px;">
+                <?php endif; ?>
+                
+                <h4 class="cdetail-tutor-name" style="margin-top: 10px;"><?= $tutor->nama ?></h4>
+              </div>
+              <div class="text-small text-grey">
+                <?= $tutor->deskripsi ?>.
+              </div>
+            </div>
+            <br>
+            <div class="cdetail-tabs_menu-wrapper w-tab-menu">
+              <a" class="cdetails-tabs_menu w-inline-block w--current">
+                <div>REVIEWS</div>
+              </a>
+            </div>
+            <div class="cdetail-tutor" style="flex-direction: row;flex-wrap: nowrap;">
+              <div class="materi-accordion">
+                <div data-w-id="94122fb6-3714-9896-362c-306bc39c0a28-14" class="materi_accordion-item">
+                  <div class="materi-accordion_header">
+                    <style>
+                        .star {
+                        cursor: pointer;
+                        }
+
+                        .star .fa-star {
+                        color: gray;
+                        }
+
+                        .star.active .fa-star {
+                        color: gold;
+                        }
+                    </style>
+
+                    <div>
+                      <div class="rating" style="margin-bottom: 10px;">
+                        <span class="star" data-rating="1"><i class="fas fa-star"></i></span>
+                        <span class="star" data-rating="2"><i class="fas fa-star"></i></span>
+                        <span class="star" data-rating="3"><i class="fas fa-star"></i></span>
+                        <span class="star" data-rating="4"><i class="fas fa-star"></i></span>
+                        <span class="star" data-rating="5"><i class="fas fa-star"></i></span>
+                      </div>
+                      <h3 class="materi-accordion_heading" style="margin-bottom: 5px;">Alfian Rahmatullah</h3>
+                      <p class="materi-accordion_heading" style="font-weight: 300;">Sub 1 - Membahas Pajak Secara Khusus Membahas Pajak Secara Khusus Membahas Pajak Secara Khusus</p>
+                    </div>
+                  </div>
+                <div>
+              </div>
+            </div>
+            <a href="http://localhost/lingkar-edukasi/course/perpajakan-v2/detail" class="button is-yellow w-button" style="background: #dddddd;border: 1px solid rgba(40, 40, 40, .1);">LOAD MORE</a>
+          </div>  
         </div>
+        <br>
       </div>
-      <div class="cdetail-spacer"></div>
+      <div class="cdetail-spacer" style="padding-bottom: 50px;"></div>
     </section>
 </main>

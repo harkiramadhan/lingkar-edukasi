@@ -85,5 +85,26 @@
     <script src="<?= base_url('assets/user/js/certificate.js') ?>"></script>
   <?php endif; ?>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+
+
+  <!-- JS Rate US -->
+  <script>
+      $(document).ready(function() {
+        $('.star').click(function() {
+          var rating = $(this).data('rating');
+          
+          // Menghapus class active dari semua bintang
+          $('.star').removeClass('active');
+          
+          // Menambahkan class active pada bintang yang diberi rating dan semua bintang sebelumnya
+          $(this).addClass('active');
+          $(this).prevAll('.star').addClass('active');
+          
+          // Mengatur nilai input tersembunyi sesuai dengan rating yang dipilih
+          $('#rating-input').val(rating);
+        });
+      });
+  </script>
+
 </body>
 </html>

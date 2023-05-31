@@ -110,3 +110,30 @@
   .pencil-icon {
     cursor: hover;
   }
+
+
+.cdetail-tutor {
+
+  background-color: #fff;
+  border: 1px solid rgba(40, 40, 40, .1);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: none !important;
+}
+
+.cdetail-sidebar-absolute{
+  height: fit-content !important;
+}
+
+.cdetail-tutor-name {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.kelas-feature_list-item{
+  background-image: none;
+  background-position: 0%;
+  background-repeat: no-repeat;
+  background-size: auto;
+  padding-left: 0px;
+}

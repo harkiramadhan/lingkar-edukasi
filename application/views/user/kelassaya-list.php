@@ -22,110 +22,6 @@
             <div>Ini adalah kelas paling populer di Indonesia</div>
           </div>
           <div class="kelassaya-tabs-wrapper">
-            <div data-current="Tab 3" data-easing="ease" data-duration-in="300" data-duration-out="100" class="kelassaya-tabs w-tabs">
-              <div class="kelassaya-tabs_content w-tab-content">
-                <div data-w-tab="Tab 1" class="w-tab-pane">
-                  <div class="w-layout-grid grid-3-column">
-                    <?php 
-                      foreach($courses->result() as $row){ 
-                        $getLabel = $this->M_Labels->getByCourse($row->id);
-                    ?>
-                      <div id="w-node-_765fa7cf-7d33-c769-3fe3-7817d76ef249-9de08e24" class="kelas-card_wrapper">
-                        <div class="kelas-card_image-wrapper">
-                          <img src="<?= base_url('uploads/courses/' . $row->cover)?>" loading="lazy" sizes="100vw" srcset="<?= base_url('uploads/courses/' . $row->cover)?> 500w, <?= base_url('uploads/courses/' . $row->cover)?> 576w" alt="" class="kelas-card_image">
-                        </div>
-                        <div class="kelas-card_content">
-                          <div style="display: flex;">
-                            <?php foreach($getLabel->result() as $ll){ ?>
-                              <div class="kelas-kategori_pill">
-                                <div class="pill-text"><?= $ll->label ?></div>
-                              </div> &nbsp;
-                            <?php } ?>
-                          </div>
-                          <div class="kelas-card_title-wrapper">
-                            <div class="margin-bottom-8">
-                              <h3 class="heading-xtrasmall no-margin"><?= $row->judul ?></h3>
-                            </div>
-                            <div class="kelas-card_creator">By <?= $row->nama ?></div>
-                          </div>
-                          <div class="kelas-card_harga"><?= discount($row->price, $row->discount) ?></div>
-                          <div class="divider"></div>
-                          <a href="<?= site_url('kelas/' . $row->flag . '/detail') ?>" class="button is-yellow w-button">Lihat Kelas</a>
-                        </div>
-                      </div>
-                    <?php } ?>
-                  </div>
-                </div>
-                <div data-w-tab="Tab 2" class="w-tab-pane">
-                  <div class="w-layout-grid grid-3-column">
-                    <?php 
-                      foreach($courses->result() as $inv){ 
-                        $getLabell = $this->M_Labels->getByCourse($inv->id);
-                    ?>
-                      <div id="w-node-a11dc847-0c6b-85db-8c0a-4e5cc7c0f878-9de08e24" class="kelas-card_wrapper">
-                        <div class="kelas-card_image-wrapper">
-                          <img src="<?= base_url('uploads/courses/' . $inv->cover)?>" loading="lazy" sizes="100vw" srcset="<?= base_url('uploads/courses/' . $inv->cover)?> 500w, <?= base_url('uploads/courses/' . $inv->cover)?> 576w" alt="" class="kelas-card_image">
-                        </div>
-                        <div class="kelas-card_content">
-                          <div style="display: flex;">
-                            <?php foreach($getLabell->result() as $lll){ ?>
-                              <div class="kelas-kategori_pill">
-                                <div class="pill-text"><?= $lll->label ?></div>
-                              </div> &nbsp;
-                            <?php } ?>
-                          </div>
-                          <div class="kelas-card_title-wrapper">
-                            <div class="margin-bottom-8">
-                              <h3 class="heading-xtrasmall no-margin"><?= $inv->judul ?></h3>
-                            </div>
-                            <div class="kelas-card_creator">By <?= $inv->nama ?></div>
-                          </div>
-                          <div class="kelas-card_harga"><?= discount($inv->price, $row->discount) ?></div>
-                          <div class="divider"></div>
-                          <a href="<?= site_url('invoice/' . $inv->orderid . '/pdf') ?>" class="button is-yellow w-button">Daftar Kelas</a>
-                        </div>
-                      </div>
-                    <?php } ?>
-                  </div>
-                </div>
-                <div data-w-tab="Tab 3" class="w-tab-pane w--tab-active">
-                  <div class="w-layout-grid grid-3-column">
-                  <?php 
-                      foreach($courses->result() as $cert){ 
-                        $getLabelc = $this->M_Labels->getByCourse($cert->id);
-                    ?>
-                      <div id="w-node-_3f78bbea-2b61-79e4-8d0b-ed933599677b-9de08e24" class="kelas-card_wrapper">
-                        <div class="kelas-card_image-wrapper">
-                          <img src="<?= base_url('uploads/courses/' . $cert->cover)?>" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, 457.390625px" srcset="<?= base_url('uploads/courses/' . $cert->cover)?> 500w, <?= base_url('uploads/courses/' . $cert->cover)?> 576w" alt="" class="kelas-card_image">
-                        </div>
-                        <div class="kelas-card_content">
-                          <div style="display: flex;">
-                            <?php foreach($getLabelc->result() as $lc){ ?>
-                              <div class="kelas-kategori_pill">
-                                <div class="pill-text"><?= $lc->label ?></div>
-                              </div> &nbsp;
-                            <?php } ?>
-                          </div>
-                          <div class="kelas-card_title-wrapper">
-                            <div class="margin-bottom-8">
-                              <h3 class="heading-xtrasmall no-margin"><?= $cert->judul ?></h3>
-                            </div>
-                            <div class="kelas-card_creator">By <?= $cert->nama ?></div>
-                          </div>
-                          <div class="divider"></div>
-                          <?php if($cert->is_done == 1): ?>
-                            <a href="<?= site_url('sertifikat/' . $cert->flag . '/download') ?>" class="button is-yellow w-button">DOWNLOAD SERTIFIKAT</a>
-                          <?php else: ?>
-                            <a href="<?= site_url('kelas/' . $cert->flag . '/detail') ?>" class="button is-yellow w-button">SELESAIKAN KELAS</a>
-                          <?php endif; ?>
-                        </div>
-                      </div>
-                    <?php } ?>
-
-                  </div>
-                </div>
-              </div>
-            </div>
             <div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" class="kelas-tabs w-tabs">
               <div class="kelas-tabs_menu-wrapper w-tab-menu">
                 <a data-w-tab="Tab 1" class="kelas-tabs_menu w-inline-block w-tab-link w--current">
@@ -136,6 +32,9 @@
                 </a>
                 <a data-w-tab="Tab 3" class="kelas-tabs_menu w-inline-block w-tab-link">
                   <div>CERTIFICATE</div>
+                </a>
+                <a data-w-tab="Tab 4" class="kelas-tabs_menu w-inline-block w-tab-link">
+                  <div>REVIEW</div>
                 </a>
               </div>
               <div class="kelas-tabs_content marginless w-tab-content">
@@ -238,6 +137,38 @@
                           <?php else: ?>
                             <a href="<?= site_url('kelas/' . $cert->flag . '/detail') ?>" class="button is-yellow w-button">SELESAIKAN KELAS</a>
                           <?php endif; ?>
+                        </div>
+                      </div>
+                    <?php } ?>
+
+                  </div>
+                </div>
+                <div data-w-tab="Tab 4" class="w-tab-pane">
+                  <div class="w-layout-grid grid-3-column">
+                    <?php 
+                      foreach($courses->result() as $cert){ 
+                        $getLabelc = $this->M_Labels->getByCourse($cert->id);
+                    ?>
+                      <div id="w-node-_3f78bbea-2b61-79e4-8d0b-ed933599677b-9de08e24" class="kelas-card_wrapper">
+                        <div class="kelas-card_image-wrapper">
+                          <img src="<?= base_url('uploads/courses/' . $cert->cover)?>" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, 457.390625px" srcset="<?= base_url('uploads/courses/' . $cert->cover)?> 500w, <?= base_url('uploads/courses/' . $cert->cover)?> 576w" alt="" class="kelas-card_image">
+                        </div>
+                        <div class="kelas-card_content">
+                          <div style="display: flex;">
+                            <?php foreach($getLabelc->result() as $lc){ ?>
+                              <div class="kelas-kategori_pill">
+                                <div class="pill-text"><?= $lc->label ?></div>
+                              </div> &nbsp;
+                            <?php } ?>
+                          </div>
+                          <div class="kelas-card_title-wrapper">
+                            <div class="margin-bottom-8">
+                              <h3 class="heading-xtrasmall no-margin"><?= $cert->judul ?></h3>
+                            </div>
+                            <div class="kelas-card_creator">By <?= $cert->nama ?></div>
+                          </div>
+                          <div class="divider"></div>
+                          <a href="<?= site_url('sertifikat/' . $cert->flag . '/download') ?>" class="button is-yellow w-button">BERI NILAI</a>
                         </div>
                       </div>
                     <?php } ?>

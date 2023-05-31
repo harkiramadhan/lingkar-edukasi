@@ -26,7 +26,7 @@ class Review extends CI_Controller{
     ];
 
     $this->load->view('layout/user/header', $var);
-    $this->load->view('user/kelassaya-selesai', $var);
+    $this->load->view('user/kelassaya-review', $var);
     $this->load->view('layout/user/footer', $var);
   }
 }
