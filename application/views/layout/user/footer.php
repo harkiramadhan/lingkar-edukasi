@@ -68,6 +68,7 @@
   <script src="<?= base_url('assets/user/js/webflow.js')?>" type="text/javascript"></script>
   <script src="<?= base_url('assets/user/js/custom.js')?>" type="text/javascript"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+  <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
 
   <?php if($this->uri->segment(1) == 'course' && $this->uri->segment(3) == 'detail' && $this->session->userdata('is_user') != NULL): ?>
     <script>

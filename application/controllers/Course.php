@@ -342,4 +342,5 @@ class Course extends CI_Controller{
       redirect('kelas/' . $course->flag . '/joined' ,'refresh');
     }
   }
+
 }   

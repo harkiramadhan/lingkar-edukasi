@@ -22,6 +22,10 @@
   <link href="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>" rel="shortcut icon" type="image/x-icon">
   <link href="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>" rel="apple-touch-icon">
   <link href="<?= base_url('assets/user/css/custom.css')?>" rel="stylesheet" type="text/css">
+
+  <!-- Video js -->
+  <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet" />
+
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
 </head>
@@ -97,15 +101,15 @@
             <?php } ?>
           </nav>
         </div>
-        <div class="nav-search w-form">
+        <form action="/search" class="nav-search w-form">
           <div class="search-input-relative">
-            <input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari Kelas..." id="search" required="">
+            <input type="search" class="nav-search-input w-input" maxlength="256" name="query" placeholder="Cari kelas..." id="search" required="">
             <input type="submit" value="" class="nav-search-button w-button">
             <div class="result-search">
-              
+
             </div>
           </div>
-        </div>
+        </form>
       </div>
       <nav role="navigation" class="nav-button-wrapper w-nav-menu" style="margin-left: auto;">
         <a href="<?= site_url('/kelas') ?>" class="nav-button-secondary w-nav-link">kelas saya</a>
@@ -136,9 +140,9 @@
             <?php endif; ?>
           </div>
           <nav class="dropdown-list-wrapper w-dropdown-list">
-            <a href="<?= site_url('/profil') ?>" class="w-dropdown-link"><?= $user->name ?></a>
-            <a href="<?= site_url('/profil') ?>" class="w-dropdown-link">Profil</a>
-            <a href="<?= site_url('logout') ?>" class="w-dropdown-link">Logout</a>
+            <a href="<?= site_url('/profil') ?>" class="w-dropdown-link" style="color: white;"><?= $user->name ?></a>
+            <a href="<?= site_url('/profil') ?>" class="w-dropdown-link" style="color: white;">Profil</a>
+            <a href="<?= site_url('logout') ?>" class="w-dropdown-link" style="color: white;">Logout</a>
           </nav>
         </div>
         <div class="nav-search show-mobile w-form">
@@ -147,10 +151,13 @@
             <input type="submit" value="" class="nav-search-button w-button">
           </div>
         </div>
+        <a href="<?= site_url('/kelas') ?>" class="nav-button-secondary w-nav-link">kelas saya</a>
+
       </nav>
       <div class="menu-button w-nav-button">
         <div class="w-icon-nav-menu"></div>
       </div>
+      
     </div>
   </div>
   

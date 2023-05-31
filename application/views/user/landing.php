@@ -115,6 +115,22 @@
                                 </div>
                             </div>
                         <?php $noL++; } ?>
+                        <a class="" tabindex="-1" id="" href="<?= site_url('course') ?>" style="
+                            text-align: center;
+                            margin-left: auto;
+                            width: 100%;
+                            margin-top: 30px;
+                            border: 1px solid #dbdbdb;
+                            border-radius: 100px;
+                            padding: 8px 24px;
+                            display: inline-block;
+                            text-decoration: none;
+                            padding: 9px 30px;
+                            cursor: pointer;
+                            color: #222222;
+                        ">
+                            Semua Course
+                        </a>
                     </div>
                 </div>
             </div>
