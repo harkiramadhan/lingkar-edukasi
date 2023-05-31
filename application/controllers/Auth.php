@@ -204,9 +204,14 @@ class Auth extends CI_Controller{
         }else{
             $url = '';
         }
-
         $this->session->sess_destroy();
-        redirect($url);
+        ?>
+            <script>
+                localStorage.removeItem('token')
+                window.location.href = '<?= site_url($url) ?>'
+            </script>
+        <?php
+        // redirect($url);
     }
 
     function actionSignup(){

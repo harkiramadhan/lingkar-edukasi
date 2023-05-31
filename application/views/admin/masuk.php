@@ -33,32 +33,31 @@
                                         <h4 class="text-center mb-4 text-white"><?= $this->session->flashdata('error') ?></h4>
                                     <?php endif; ?>
 
-                                    <form action="<?= site_url('admin/auth') ?>" method="POST">
+                                    <div class="form-group">
+                                        <label class="mb-1 text-white"><strong>Email</strong></label>
+                                        <input id="email" name="email" type="email" class="form-control" value="<?= ($this->session->flashdata('email')) ? $this->session->flashdata('email') : '' ?>" placeholder="hello@example.com" reqiored>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label class="mb-1 text-white"><strong>Password</strong></label>
+                                        <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
+                                    </div>
+
+                                    <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                         <div class="form-group">
-                                            <label class="mb-1 text-white"><strong>Email</strong></label>
-                                            <input name="email" type="email" class="form-control" value="<?= ($this->session->flashdata('email')) ? $this->session->flashdata('email') : '' ?>" placeholder="hello@example.com" reqiored>
-                                        </div>
-                                        <div class="form-group mb-4">
-                                            <label class="mb-1 text-white"><strong>Password</strong></label>
-                                            <input name="password" type="password" class="form-control" placeholder="Password" required>
-                                        </div>
-
-                                        <div class="form-row d-flex justify-content-between mt-4 mb-2">
-                                            <div class="form-group">
-                                               <div class="custom-control custom-checkbox ml-1 text-white">
-													<input type="checkbox" class="custom-control-input" id="basic_checkbox_1">
-													<label class="custom-control-label" for="basic_checkbox_1">&nbspIngat saya</label>
-												</div>
-                                            </div>
-                                            <div class="form-group">
-                                                <a class="text-white" href="<?= site_url('/admin/admin/lupapassword') ?>">Lupa Password?</a>
+                                            <div class="custom-control custom-checkbox ml-1 text-white">
+                                                <input type="checkbox" class="custom-control-input checkbox_check" id="basic_checkbox_1" value="true">
+                                                <label class="custom-control-label" for="basic_checkbox_1">&nbspIngat saya</label>
                                             </div>
                                         </div>
-
-                                        <div class="text-center">
-                                            <button type="submit" class="btn bg-white text-primary btn-block">MASUK</button>
+                                        <div class="form-group">
+                                            <a class="text-white" href="<?= site_url('/admin/admin/lupapassword') ?>">Lupa Password?</a>
                                         </div>
-                                    </form>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="submit" class="btn bg-white text-primary btn-block btn-action">MASUK</button>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -73,10 +72,13 @@
         Scripts
     ***********************************-->
     <!-- Required vendors -->
+    <script>
+        var baseUrl = '<?= site_url() ?>'
+    </script>
     <script src="<?= base_url('assets/admin/vendor/global/global.min.js') ?>"></script>
     <script src="<?= base_url('assets/admin/js/custom.min.js') ?>"></script>
     <script src="<?= base_url('assets/admin/js/deznav-init.js') ?>"></script>
-
+    <script src="<?= base_url('assets/admin/js/custom/login.js') ?>"></script>
 </body>
 
 </html>
