@@ -24,26 +24,15 @@
 								<div class="d-flex flex-wrap align-items-center mb-4">
 									<h2 class="text-black col-xl-6 p-0 col-xxl-12 mr-auto title mb-3"><?= $course->judul ?></h2>
 									<div class="d-flex align-items-center">
-										<a href="javascript:void(0)" class="btn btn-primary light mr-3"><i class="fa fa-video-camera mr-3 scale5" aria-hidden="true"></i>Upload Media</a>
-										<a href="javascript:void(0)" class="share-icon mr-3">
+										<a href="<?= site_url('tutor/course/' . $course->id . '/media') ?>" class="btn btn-primary light mr-3"><i class="fa fa-video-camera mr-3 scale5" aria-hidden="true"></i>Upload Media</a>
+										<a href="<?= site_url('tutor/course/' . $course->id . '/edit') ?>" class="share-icon mr-3">
+											<i class="fas fa-pencil-alt" style="color: #C63C32"></i>
+										</a>
+										<a href="<?= site_url('course/' . $course->flag . '/detail') ?>" class="share-icon mr-3" target="__BLANK">
 											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" clip-rule="evenodd" d="M11 2H6C3.791 2 2 3.791 2 6V18C2 20.209 3.791 22 6 22H18C20.209 22 22 20.209 22 18C22 15.729 22 13 22 13C22 12.448 21.552 12 21 12C20.448 12 20 12.448 20 13V18C20 19.104 19.104 20 18 20C14.67 20 9.329 20 6 20C4.895 20 4 19.104 4 18C4 14.67 4 9.329 4 6C4 4.895 4.895 4 6 4H11C11.552 4 12 3.552 12 3C12 2.448 11.552 2 11 2ZM18.586 4H15C14.448 4 14 3.552 14 3C14 2.448 14.448 2 15 2H21C21.552 2 22 2.448 22 3V9C22 9.552 21.552 10 21 10C20.448 10 20 9.552 20 9V5.414L12.707 12.707C12.317 13.097 11.683 13.097 11.293 12.707C10.902 12.317 10.902 11.683 11.293 11.293L18.586 4Z" fill="#FE634E"/>
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M11 2H6C3.791 2 2 3.791 2 6V18C2 20.209 3.791 22 6 22H18C20.209 22 22 20.209 22 18C22 15.729 22 13 22 13C22 12.448 21.552 12 21 12C20.448 12 20 12.448 20 13V18C20 19.104 19.104 20 18 20C14.67 20 9.329 20 6 20C4.895 20 4 19.104 4 18C4 14.67 4 9.329 4 6C4 4.895 4.895 4 6 4H11C11.552 4 12 3.552 12 3C12 2.448 11.552 2 11 2ZM18.586 4H15C14.448 4 14 3.552 14 3C14 2.448 14.448 2 15 2H21C21.552 2 22 2.448 22 3V9C22 9.552 21.552 10 21 10C20.448 10 20 9.552 20 9V5.414L12.707 12.707C12.317 13.097 11.683 13.097 11.293 12.707C10.902 12.317 10.902 11.683 11.293 11.293L18.586 4Z" fill="#FE634E"/>
 											</svg>
 										</a>
-										<div class="dropdown">
-											<div class="share-icon" role="button" data-toggle="dropdown" aria-expanded="false">
-												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" stroke="#FE634E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-												<path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" stroke="#FE634E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-												<path d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z" stroke="#FE634E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</div>
-											<div class="dropdown-menu dropdown-menu-right">
-												<a class="dropdown-item" href="javascript:void(0);">View Detail</a>
-												<a class="dropdown-item" href="javascript:void(0);">Edit</a>
-												<a class="dropdown-item" href="javascript:void(0);">Delete</a>
-											</div>
-										</div>
 									</div>
 								</div>
 								<div class="row">
@@ -89,7 +78,7 @@
 								<div id="radialBar"></div>
 								<div class="d-flex justify-content-between align-items-center">
 									<div>
-										<p class="fs-28 text-black font-w600 mb-0">200.000</p>
+										<p class="fs-28 text-black font-w600 mb-0">Rp. <?= rupiah($trx->total) ?></p>
 										<span>Penjualan</span>
 									</div>
 								</div>
@@ -111,7 +100,7 @@
 										<div id="radialBar"></div>
 										<div class="d-flex justify-content-between align-items-center">
 											<div>
-												<p class="fs-28 text-black font-w600 mb-0">40</p>
+												<p class="fs-28 text-black font-w600 mb-0"><?= $video->num_rows() ?></p>
 												<span>Video Belajar</span>
 											</div>
 										</div>
