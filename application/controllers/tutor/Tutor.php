@@ -81,4 +81,12 @@ class Tutor extends CI_Controller{
             redirect('tutor','refresh');
         }
     }
+
+    function pengaturan(){
+        $this->load->view('layout/tutor/header', $var);
+        $this->load->view('tutor/pengaturan', $var);
+        $this->load->view('layout/tutor/footer', $var);
+    }
+
+
 }

@@ -56,7 +56,7 @@
                                                 <th>Reviews</th>
                                                 <th>Kelas</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
+                                                <!-- <th>Action</th> -->
                                             </tr>
                                         </thead>
 										<tbody>
@@ -78,10 +78,10 @@
 												</td>
 												<td class="d-none d-lg-table-cell">The Story of Danau Toba (Musical Drama)</td>
 												<td><button type="button" class="btn btn-sm btn-block text-default disabled btn-success">Aktif</button></td>
-												<td>
+												<!-- <td>
 													<button type="button" class="btn btn-dark btn-sm dark ml-0 px-2 py-1 mr-0" data-toggle="modal" data-target="#peserta-edit" data-id=""><i class="fa fa-pencil"></i></button>
 													<a href="javascript:;" class="btn btn-danger btn-sm dark ml-0 px-2 py-1 mr-0"><i class="fa fa-trash"></i></a>
-												</td>
+												</td> -->
 											</tr>
 										</tbody>
 									</table>
@@ -93,7 +93,7 @@
             </div>
         </div>
 
-<div class="modal fade" id="peserta-edit">
+<!-- <div class="modal fade" id="peserta-edit">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content detail-content">            
 			<div class="modal-header">
@@ -120,4 +120,4 @@
 			</div>
         </div>
 	</div>
-</div>
+</div> -->

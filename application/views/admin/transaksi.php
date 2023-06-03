@@ -41,7 +41,7 @@
 												<span class="badge light badge-success">Lunas</span>
 											</td>
 											<td class="text-center" width="15%">
-												<div class="btn-group text-center">
+												<div class="text-center">
 													<button type="button" class="btn btn-info btn-sm dark ml-0 px-2 py-1 mr-0 btn-detail" data-id="<?= $row->orderid ?>"><i class="fa fa-eye"></i></button>
 													<a href="<?= site_url('invoice/' . $row->orderid . '/pdf') ?>" class="btn btn-success btn-sm dark ml-0 px-2 py-1 mr-0 ml-1" target="__BLANK"><i class="fa fa-download mr-1"></i> Invoice</a>
 												</div>

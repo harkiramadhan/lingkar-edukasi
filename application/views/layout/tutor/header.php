@@ -136,15 +136,15 @@
                                 </a>
                                 <ul aria-expanded="false">
                                     <li><a href="<?= site_url('tutor/course')?>">Daftar Course</a></li>
-                                    <li><a href="<?= site_url('tutor/reviews')?>">Reviews</a></li>
+                                    <li><a href="<?= site_url('tutor/course/courseReview')?>">Reviews</a></li>
                                 </ul>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="<?= site_url('tutor/akun')?>" class="ai-icon" aria-expanded="false">
                                     <i class="flaticon-381-user-8"></i>
                                     <span class="nav-text">Akun</span>
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="lingkar-pengaturan.html" class="ai-icon" aria-expanded="false">
                                     <i class="flaticon-381-settings-9"></i>

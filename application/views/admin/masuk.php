@@ -33,6 +33,7 @@
                                         <h4 class="text-center mb-4 text-white"><?= $this->session->flashdata('error') ?></h4>
                                     <?php endif; ?>
 
+                                    <form action="<?= site_url('admin/auth') ?>" method="POST">
                                     <div class="form-group">
                                         <label class="mb-1 text-white"><strong>Email</strong></label>
                                         <input id="email" name="email" type="email" class="form-control" value="<?= ($this->session->flashdata('email')) ? $this->session->flashdata('email') : '' ?>" placeholder="hello@example.com" reqiored>
@@ -57,7 +58,7 @@
                                     <div class="text-center">
                                         <button type="submit" class="btn bg-white text-primary btn-block btn-action">MASUK</button>
                                     </div>
-                                    
+                                    <form>
                                 </div>
                             </div>
                         </div>

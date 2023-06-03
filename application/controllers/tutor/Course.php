@@ -386,4 +386,19 @@ class Course extends CI_Controller{
         $res = ($this->db->affected_rows() > 0) ? 1 : 0;
         $this->output->set_content_type('application/json')->set_output(json_encode(1));
     }
+
+    function courseReview(){
+        $userid = $this->session->userdata('userid');
+        $var = [
+            'user' => $this->M_Tutor->getById($userid),
+            'courses' => $this->M_Courses->getAll($userid),
+            'ajax' => [
+                'course'
+            ]
+        ];
+
+        $this->load->view('layout/tutor/header', $var);
+        $this->load->view('tutor/reviews', $var);
+        $this->load->view('layout/tutor/footer', $var);
+    }
 }   
