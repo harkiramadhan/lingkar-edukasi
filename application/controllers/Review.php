@@ -53,7 +53,8 @@ class Review extends CI_Controller{
         'courseid' => $this->input->post('courseid', TRUE),
         'userid' => $this->session->userdata('user_id', TRUE),
         'rating' => $this->input->post('rating', TRUE),
-        'review' => $this->input->post('review', TRUE)
+        'review' => $this->input->post('review', TRUE),
+        'status' => 1
       ]);
 
       if($this->db->affected_rows() > 0){
