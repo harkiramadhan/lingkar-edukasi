@@ -99,6 +99,7 @@ class Tutor extends CI_Controller{
 
     function detail($id){
         $tutor = $this->M_Tutor->getById($id);
+        $courses = $this->db->select('id')->get_where('courses', ['pemateriid' => $id])->num_rows();
         ?>
              <div class="modal-header">
 				<h5 class="modal-title">Detail Peserta</h5>
@@ -132,7 +133,7 @@ class Tutor extends CI_Controller{
                                 }
                             ?>
 							<td width="50%"><button type="button" class="btn btn-sm btn-block <?= $color ?>"><?= $status ?></button></td>
-							<td width="50%" ><button type="button" class="btn btn-sm btn-block btn-primary">8 Course</button></td>
+							<td width="50%" ><button type="button" class="btn btn-sm btn-block btn-primary"><?= $courses ?> Course</button></td>
 						</tr>
 						<tr>
 							<td width="40%">Nama Lengkap</td>
@@ -184,7 +185,7 @@ class Tutor extends CI_Controller{
 
     function action($id){
         $this->db->where('id', $id)->update('tutor', ['status' => $this->input->post('status', TRUE)]);
-        
+
         if($this->db->affected_rows() > 0){
             $this->session->set_flashdata('success', "Data Berhasil Di Simpan");
         }else{
