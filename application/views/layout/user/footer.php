@@ -70,7 +70,22 @@
   <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
   <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
 
-  <?php if($this->uri->segment(1) == 'course' && $this->uri->segment(3) == 'detail' && $this->session->userdata('is_user') != NULL): ?>
+  <?php if($this->uri->segment(1) == 'course' && $this->uri->segment(3) == 'detail'): ?>
+    <script>
+      $('.btn-load-other').click(function(){
+          var course = $(this).attr('data-course')
+          $.ajax({
+              url: baseUrl + 'course/getOtherReview',
+              type: 'get',
+              data: {course: course},
+              success: function(res){
+                  $('.cdetail-tutor').html(res)
+              }
+          })
+      })
+    </script>
+
+    <?php if($this->session->userdata('is_user')): ?>
     <script>
       var snapToken = '<?= @$snapToken ?>'
       var courseid = '<?= @$course->id ?>'
@@ -78,6 +93,7 @@
     </script>
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-sXV560B8LBgAVWJA"></script>
     <script src="<?= base_url('assets/user/js/course.js') ?>"></script>
+    <?php endif; ?>
 
   <?php elseif($this->uri->segment(1) == 'kelas' && $this->uri->segment(3) == 'detail' && $this->session->userdata('is_user') != NULL): ?>
     <script src="<?= base_url('assets/user/js/video.js') ?>"></script>

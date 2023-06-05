@@ -225,30 +225,30 @@
             </div>
             <div class="cdetail-tutor" style="flex-direction: row;flex-wrap: nowrap;">
               <?php foreach($reviews->result() as $row){ ?>
-              <div class="materi-accordion">
-                <div data-w-id="94122fb6-3714-9896-362c-306bc39c0a28-14" class="materi_accordion-item">
-                  <div class="materi-accordion_header">
-                    <div>
-                      <div class="rating" style="margin: auto;">
-                        <?php for($i=1; $i<= 5; $i++){ ?>
-                          <?php if($i <= $row->rating): ?>
-                            <span class="star active" data-rating="<?= $i ?>"><i class="fas fa-star"></i></span>
-                          <?php else: ?>
-                            <span class="star" data-rating="<?= $i ?>"><i class="fas fa-star"></i></span>
-                          <?php endif; ?>
-                        <?php } ?>
+                <div class="materi-accordion">
+                  <div data-w-id="94122fb6-3714-9896-362c-306bc39c0a28-14" class="materi_accordion-item">
+                    <div class="materi-accordion_header">
+                      <div>
+                        <div class="rating" style="margin: auto;">
+                          <?php for($i=1; $i<= 5; $i++){ ?>
+                            <?php if($i <= $row->rating): ?>
+                              <span class="star active" data-rating="<?= $i ?>"><i class="fas fa-star"></i></span>
+                            <?php else: ?>
+                              <span class="star" data-rating="<?= $i ?>"><i class="fas fa-star"></i></span>
+                            <?php endif; ?>
+                          <?php } ?>
+                        </div>
+                        <h3 class="materi-accordion_heading" style="margin-bottom: 5px;"><?= $row->name ?></h3>
+                        <p class="materi-accordion_heading" style="font-weight: 300;"><?= $row->review ?></p>
                       </div>
-                      <h3 class="materi-accordion_heading" style="margin-bottom: 5px;"><?= $row->name ?></h3>
-                      <p class="materi-accordion_heading" style="font-weight: 300;"><?= $row->review ?></p>
                     </div>
-                  </div>
-                <div>
-              </div>
+                  <div>
+                </div>
               <?php } ?>
             </div>
             
-            <?php if(@$countReviews > 10): ?>
-              <button type="button" class="button is-yellow w-button" style="background: #dddddd;border: 1px solid rgba(40, 40, 40, .1);">LOAD MORE</button>
+            <?php if(@$countReviews > 5): ?>
+              <button type="button" class="button is-yellow w-button btn-load-other" data-course="<?= $course->id ?>" style="background: #dddddd;border: 1px solid rgba(40, 40, 40, .1);">LOAD MORE</button>
             <?php endif; ?>
           </div>  
         </div>

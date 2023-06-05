@@ -16,6 +16,7 @@ class Sertifikat extends CI_Controller{
   function index(){
     $userid = $this->session->userdata('user_id');
     $var = [
+      'title' => 'Verifikasi Sertifikat',
       'labels' => $this->M_Labels->getActive(),
       'setting' => $this->M_Settings->get(),
       'user' => $this->M_Users->getById($userid)

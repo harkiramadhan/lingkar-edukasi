@@ -16,6 +16,7 @@ class Landing extends CI_Controller{
 
   function index(){
     $var = [
+      'title' => 'Dashboard',
       'setting' => $this->M_Settings->get(),
       'banners' => $this->M_Banners->getActive(),
       'partner' => $this->M_Partner->getActive(),

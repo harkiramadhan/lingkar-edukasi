@@ -30,6 +30,34 @@ class Tutor extends CI_Controller{
         $tutor = $this->M_Tutor->getById($id);
         ?>
             <div class="modal-header">
+				<h5 class="modal-title">Status Tutor</h5>
+				<button type="button" class="close" data-dismiss="modal"><span>×</span>
+				</button>
+			</div>
+
+            <div class="modal-body">
+				<form action="<?= site_url('admin/tutor/action/' . $id) ?>" method="POST">
+					<div class="form-group">
+						<label class="text-black font-w500">Status</label>
+						<select class="form-control default-select " name="status" required="">
+							<option value="" disabled="">Pilih</option>
+							<option <?= ($tutor->status == '2') ? 'selected' : '' ?> value="2">Diterima</option>
+							<option <?= ($tutor->status == '3') ? 'selected' : '' ?> value="3">Ditolak</option>
+						</select>
+					</div>
+					<div class="form-group mb-0 text-right">
+						<button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Simpan</button>
+					</div>
+				</form>
+			</div>
+        <?php
+    }
+
+    function ajuan($id){
+        $tutor = $this->M_Tutor->getById($id);
+        ?>
+            <div class="modal-header">
                 <h5 class="modal-title">Pengajuan Tutor</h5>
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                 </button>
@@ -69,6 +97,76 @@ class Tutor extends CI_Controller{
         <?php
     }
 
+    function detail($id){
+        $tutor = $this->M_Tutor->getById($id);
+        ?>
+             <div class="modal-header">
+				<h5 class="modal-title">Detail Peserta</h5>
+				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+			</div>
+
+            <div class="modal-body">
+				<div class="card-media mb-4 mx-auto" style="max-width: 200px;">
+                    <?php if($tutor->img): ?>
+                        <img src="<?= base_url('uploads/tutor/' . $tutor->img) ?>" alt="" class="w-100 rounded" id="image-preview" style="display: block;">
+                    <?php else: ?>
+					    <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview" style="display: block;">
+                    <?php endif; ?>
+				</div>
+                <table id="example2" class="table card-table display dataTable">
+                    <tbody>
+						<tr>
+                            <?php 
+                                if($tutor->status == 0){
+                                    $color = 'bg-danger text-white';
+                                    $status = 'BELUM MENGAJUKAN';
+                                }elseif($tutor->status == 1){
+                                    $color = 'bg-warning text-white';
+                                    $status = 'MENUNGGU APPROVAL';
+                                }elseif($tutor->status == 2){
+                                    $color = 'bg-success text-white';
+                                    $status = 'AKTIF';
+                                }elseif($tutor->status == 3){
+                                    $color = 'bg-danger text-white';
+                                    $status = 'DITOLAK';
+                                }
+                            ?>
+							<td width="50%"><button type="button" class="btn btn-sm btn-block <?= $color ?>"><?= $status ?></button></td>
+							<td width="50%" ><button type="button" class="btn btn-sm btn-block btn-primary">8 Course</button></td>
+						</tr>
+						<tr>
+							<td width="40%">Nama Lengkap</td>
+							<td><?= $tutor->nama ?></td>
+						</tr>
+						<tr>
+							<td width="40%">Email</td>
+							<td><?= $tutor->email ?></td>
+						</tr>
+						<tr>
+							<td width="40%">No WA/HP</td>
+							<td><?= $tutor->nohp ?></td>
+						</tr>
+						<tr>
+							<td width="40%">Jenis Kelamin</td>
+							<td><?= ($tutor->jenkel == 'L') ? 'Laki - Laki' : (($tutor->jenkel == 'P') ? 'Perempuan' : ' - ') ?></td>
+						</tr>
+						<tr>
+							<td width="40%">Pendidikan Terahir</td>
+							<td><?= ($tutor->pendidikan_terakhir) ? $tutor->pendidikan_terakhir : ' - ' ?></td>
+						</tr>
+						<tr>
+							<td width="40%">Tanggal Lahir</td>
+							<td><?= ($tutor->tgll) ? longdate_indo(date('Y-m-d', strtotime($tutor->tgll))) : ' - ' ?></td>
+						</tr>                  
+                    </tbody>
+                </table>
+            </div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
+			</div>
+        <?php
+    }
+
     function submit(){
         $this->db->where('id', $this->input->post('id', TRUE))->update('tutor', [
             'status' => $this->input->post('status', TRUE),
@@ -82,5 +180,17 @@ class Tutor extends CI_Controller{
         }
 
         redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    function action($id){
+        $this->db->where('id', $id)->update('tutor', ['status' => $this->input->post('status', TRUE)]);
+        
+        if($this->db->affected_rows() > 0){
+            $this->session->set_flashdata('success', "Data Berhasil Di Simpan");
+        }else{
+            $this->session->set_flashdata('error', "Data Gagal Di Simpan");
+        }
+
+        redirect($_SERVER['HTTP_REFERER']);        
     }
 }   

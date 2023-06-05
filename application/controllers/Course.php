@@ -32,6 +32,7 @@ class Course extends CI_Controller{
   function index($categoryid=false){
     $userid = $this->session->userdata('user_id');
     $var = [
+      'title' => 'Courses',
       'labels' => $this->M_Labels->getActive(),
       'setting' => $this->M_Settings->get(),
       'user' => $this->M_Users->getById($userid),
@@ -50,7 +51,7 @@ class Course extends CI_Controller{
                       ->where([
                         'r.courseid' => $course->id,
                         'r.status' => 1
-                      ])->limit(10)->get();
+                      ])->limit(5)->get();
     
     $countReviews = $this->db->select('id')->get_where('review', ['courseid' => $course->id, 'status' => 1])->num_rows();
 
@@ -180,6 +181,41 @@ class Course extends CI_Controller{
       <?php
     }
     
+  }
+
+  function getOtherReview(){
+    $courseid = $this->input->get('course', TRUE);
+    $reviews = $this->db->select('u.name, r.*')
+                      ->from('review r')
+                      ->join('user u','r.userid = u.id')
+                      ->where([
+                        'r.courseid' => $courseid,
+                        'r.status' => 1
+                      ])->get();
+
+    foreach($reviews->result() as $row){
+      ?>
+        <div class="materi-accordion">
+          <div data-w-id="94122fb6-3714-9896-362c-306bc39c0a28-14" class="materi_accordion-item">
+            <div class="materi-accordion_header">
+              <div>
+                <div class="rating" style="margin: auto;">
+                  <?php for($i=1; $i<= 5; $i++){ ?>
+                    <?php if($i <= $row->rating): ?>
+                      <span class="star active" data-rating="<?= $i ?>"><i class="fas fa-star"></i></span>
+                    <?php else: ?>
+                      <span class="star" data-rating="<?= $i ?>"><i class="fas fa-star"></i></span>
+                    <?php endif; ?>
+                  <?php } ?>
+                </div>
+                <h3 class="materi-accordion_heading" style="margin-bottom: 5px;"><?= $row->name ?></h3>
+                <p class="materi-accordion_heading" style="font-weight: 300;"><?= $row->review ?></p>
+              </div>
+            </div>
+          <div>
+        </div>
+      <?php
+    }
   }
 
   /* Midtrans Here! */

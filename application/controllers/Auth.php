@@ -16,6 +16,7 @@ class Auth extends CI_Controller{
     function signin(){
         $var['labels'] = $this->M_Labels->getActive();
         $var['setting'] = $this->M_Settings->get();
+        $var['title'] = 'Masuk';
 
         include_once APPPATH . "../vendor/autoload.php";
         $googleClient = new Google_Client();
@@ -77,6 +78,7 @@ class Auth extends CI_Controller{
     function signup(){
         $var['labels'] = $this->M_Labels->getActive();
         $var['setting'] = $this->M_Settings->get();
+        $var['title'] = 'Daftar';
 
         include_once APPPATH . "../vendor/autoload.php";
         $googleClient = new Google_Client();
@@ -149,7 +151,8 @@ class Auth extends CI_Controller{
     function forgotpassword(){
         $var = [
             'labels' => $this->M_Labels->getActive(),
-            'setting' => $this->M_Settings->get()
+            'setting' => $this->M_Settings->get(),
+            'title' => 'Lupa Password'
         ];
 
         $this->load->view('layout/user/header', $var);
@@ -160,7 +163,8 @@ class Auth extends CI_Controller{
     function verifemail(){
         $var = [
             'labels' => $this->M_Labels->getActive(),
-            'setting' => $this->M_Settings->get()
+            'setting' => $this->M_Settings->get(),
+            'title' => 'Verifikasi Email'
         ];
 
         $this->load->view('layout/user/header', $var);
@@ -175,7 +179,8 @@ class Auth extends CI_Controller{
             $var = [
                 'labels' => $this->M_Labels->getActive(),
                 'setting' => $this->M_Settings->get(),
-                'user' => $this->M_Users->getById($this->session->userdata('user_id'))
+                'user' => $this->M_Users->getById($this->session->userdata('user_id')),
+                'title' => 'Password Baru'
             ];
     
             $this->load->view('layout/user/header', $var);

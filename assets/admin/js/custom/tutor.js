@@ -2,7 +2,7 @@ $('.btn-detail-ajuan').click(function(){
     var id = $(this).attr('data-id')
 
     $.ajax({
-        url: baseUrl + 'admin/tutor/edit/' + id,
+        url: baseUrl + 'admin/tutor/ajuan/' + id,
         type: 'get',
         beforeSend: function(){
 
@@ -20,11 +20,26 @@ $('.btn-edit').click(function(){
         url: baseUrl + 'admin/tutor/edit/' + id,
         type: 'get',
         beforeSend: function(){
-            $('.edit-content').empty()
-            $('#modal-edit').modal('show')
+            $('.ajuan-content').empty()
+            $('#modal-ajuan').modal('show')
         },
         success: function(res){
-            $('.edit-content').html(res)
+            $('.ajuan-content').html(res)
+        }
+    })
+})
+
+$('.btn-detail').click(function(){
+    var id = $(this).attr('data-id')
+    $.ajax({
+        url: baseUrl + 'admin/tutor/detail/' + id,
+        type: 'get',
+        beforeSend: function(){
+            $('.ajuan-content').empty()
+            $('#modal-ajuan').modal('show')
+        },
+        success: function(res){
+            $('.ajuan-content').html(res)
         }
     })
 })
