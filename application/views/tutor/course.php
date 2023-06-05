@@ -40,7 +40,7 @@
 													<?php if($row->cover): ?>
 														<img class="img-fluid rounded mr-3 d-none d-xl-inline-block" width="70" height="70" src="<?= base_url('uploads/courses/' . $row->cover) ?>" style="object-fit: cover; height: 60px;" alt="DexignZone">
 													<?php else: ?>
-														<img class="img-fluid rounded mr-3 d-none d-xl-inline-block" width="70" height="70" src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" style="object-fit: cover; height: 60px;" alt="DexignZone">
+														<img class="img-fluid rounded mr-3 d-none d-xl-inline-block" width="70" height="70" src="<?= base_url('assets/tutor/images/placeholder-image.svg') ?>" style="object-fit: cover; height: 60px;" alt="DexignZone">
 													<?php endif; ?>
 
 													<div class="media-body">
@@ -69,5 +69,3 @@
 		</div>
 	</div>
 </div>
-
-        
