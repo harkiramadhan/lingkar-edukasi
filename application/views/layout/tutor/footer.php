@@ -103,6 +103,7 @@
         <script>
             var baseUrl = '<?= site_url() ?>'
         </script>
+
         <?php 
             if(@$ajax) {
                 foreach(@$ajax as $a){

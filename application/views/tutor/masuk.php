@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Acara - Ticketing Bootstrap Admin Dashboard</title>
+    <title>Dashboard Tutor Lingkar Edukasi</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>">
     <link href="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>" rel="shortcut icon" type="image/x-icon">
@@ -34,32 +34,31 @@
                                         <h4 class="text-center mb-4 text-white"><?= $this->session->flashdata('error') ?></h4>
                                     <?php endif; ?>
 
-                                    <form action="<?= site_url('tutor/auth') ?>" method="POST">
-                                        <div class="form-group">
-                                            <label class="mb-1 text-white"><strong>Email</strong></label>
-                                            <input name="email" type="email" class="form-control" value="<?= ($this->session->flashdata('email')) ? $this->session->flashdata('email') : '' ?>" placeholder="hello@example.com" reqiored>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="mb-1 text-white"><strong>Password</strong></label>
-                                            <input name="password" type="password" class="form-control" placeholder="Password" required>
-                                        </div>
+                                    <div class="form-group">
+                                        <label class="mb-1 text-white"><strong>Email</strong></label>
+                                        <input name="email" id="email" type="email" class="form-control" value="<?= ($this->session->flashdata('email')) ? $this->session->flashdata('email') : '' ?>" placeholder="hello@example.com" reqiored>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="mb-1 text-white"><strong>Password</strong></label>
+                                        <input name="password" id="password" type="password" class="form-control" placeholder="Password" required>
+                                    </div>
 
-                                        <div class="form-row d-flex justify-content-between mt-4 mb-2">
-                                            <div class="form-group">
-                                               <div class="custom-control custom-checkbox ml-1 text-white">
-													<input type="checkbox" class="custom-control-input" id="basic_checkbox_1">
-													<label class="custom-control-label" for="basic_checkbox_1">&nbspIngat saya</label>
-												</div>
-                                            </div>
-                                            <div class="form-group">
-                                                <a class="text-white" href="<?= site_url('/admin/admin/lupapassword') ?>">Lupa Password?</a>
+                                    <div class="form-row d-flex justify-content-between mt-4 mb-2">
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox ml-1 text-white">
+                                                <input type="checkbox" class="custom-control-input checkbox_check" id="basic_checkbox_1" value="true">
+                                                <label class="custom-control-label" for="basic_checkbox_1">&nbspIngat saya</label>
                                             </div>
                                         </div>
-
-                                        <div class="text-center">
-                                            <button type="submit" class="btn bg-white text-primary btn-block">Sign Me In</button>
+                                        <div class="form-group">
+                                            <a class="text-white" href="<?= site_url('/tutor/tutor/lupapassword') ?>">Lupa Password?</a>
                                         </div>
-                                    </form>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="button" class="btn bg-white text-primary btn-block btn-action">MASUK</button>
+                                    </div>
+                                
                                 </div>
                             </div>
                         </div>
@@ -77,7 +76,58 @@
     <script src="<?= base_url('assets/admin/vendor/global/global.min.js') ?>"></script>
     <script src="<?= base_url('assets/admin/js/custom.min.js') ?>"></script>
     <script src="<?= base_url('assets/admin/js/deznav-init.js') ?>"></script>
+    <script>
+        var baseUrl = '<?= site_url() ?>';
+    </script>
+    <script>
+        var token = localStorage.getItem('token')
+        if(token){
+            $.ajax({
+                url: baseUrl + 'tutor/tutor/ajaxTokenAuth',
+                type: 'post',
+                data: {token : token},
+                success: function(res){
+                    if(res.status === 200){
+                        window.location.href = res.redirect_url
+                    }else{
+                        localStorage.removeItem('token')
+                    }
+                }
+            })
+        }
 
+        $('.btn-action').click(function(){
+            actionLogin()
+        })
+
+        $(document).on('keypress',function(e) {
+            if(e.which == 13) {
+                actionLogin()
+            }
+        });
+
+        function actionLogin(){
+            var email = $('#email').val()
+            var pwd = $('#password').val()
+
+            var token = localStorage.getItem('token')
+
+            $.ajax({
+                url: baseUrl + 'tutor/tutor/ajaxAuth',
+                type: 'post',
+                data: {email: email, pwd : pwd},
+                success: function(res){
+                    if(res.status === 200){
+                        if($('input.checkbox_check').is(':checked')){
+                            localStorage.setItem('token', res.token)
+                        }
+                    }
+
+                    window.location.href = res.redirect_url
+                }
+            })
+        }
+    </script>
 </body>
 
 </html>

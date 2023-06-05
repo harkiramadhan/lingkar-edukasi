@@ -33,7 +33,6 @@
                                         <h4 class="text-center mb-4 text-white"><?= $this->session->flashdata('error') ?></h4>
                                     <?php endif; ?>
 
-                                    <form action="<?= site_url('admin/auth') ?>" method="POST">
                                     <div class="form-group">
                                         <label class="mb-1 text-white"><strong>Email</strong></label>
                                         <input id="email" name="email" type="email" class="form-control" value="<?= ($this->session->flashdata('email')) ? $this->session->flashdata('email') : '' ?>" placeholder="hello@example.com" reqiored>
@@ -58,7 +57,6 @@
                                     <div class="text-center">
                                         <button type="submit" class="btn bg-white text-primary btn-block btn-action">MASUK</button>
                                     </div>
-                                    <form>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +77,55 @@
     <script src="<?= base_url('assets/admin/vendor/global/global.min.js') ?>"></script>
     <script src="<?= base_url('assets/admin/js/custom.min.js') ?>"></script>
     <script src="<?= base_url('assets/admin/js/deznav-init.js') ?>"></script>
-    <script src="<?= base_url('assets/admin/js/custom/login.js') ?>"></script>
+    <script>
+        var token = localStorage.getItem('token')
+        if(token){
+            $.ajax({
+                url: baseUrl + 'admin/admin/ajaxTokenAuth',
+                type: 'post',
+                data: {token : token},
+                success: function(res){
+                    if(res.status === 200){
+                        window.location.href = res.redirect_url
+                    }else{
+                        localStorage.removeItem('token')
+                    }
+                }
+            })
+        }
+
+        $('.btn-action').click(function(){
+            actionLogin()
+        })
+
+        $(document).on('keypress',function(e) {
+            if(e.which == 13) {
+                actionLogin()
+            }
+        });
+
+        function actionLogin(){
+            var email = $('#email').val()
+            var pwd = $('#password').val()
+
+            var token = localStorage.getItem('token')
+
+            $.ajax({
+                url: baseUrl + 'admin/admin/ajaxAuth',
+                type: 'post',
+                data: {email: email, pwd : pwd},
+                success: function(res){
+                    if(res.status === 200){
+                        if($('input.checkbox_check').is(':checked')){
+                            localStorage.setItem('token', res.token)
+                        }
+                    }
+
+                    window.location.href = res.redirect_url
+                }
+            })
+        }
+    </script>
 </body>
 
 </html>

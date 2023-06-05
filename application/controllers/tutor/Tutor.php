@@ -82,11 +82,75 @@ class Tutor extends CI_Controller{
         }
     }
 
-    function pengaturan(){
-        $this->load->view('layout/tutor/header', $var);
-        $this->load->view('tutor/pengaturan', $var);
-        $this->load->view('layout/tutor/footer', $var);
+    function ajaxAuth(){
+        $email = $this->input->post('email', TRUE);
+        $password = $this->input->post('pwd', TRUE);
+
+        $checkUser = $this->M_Tutor->getUser($email);
+        if($checkUser->num_rows() > 0){
+            $data = $checkUser->row();
+            if($password == $data->password){
+                $this->session->set_userdata('is_tutor', TRUE);
+                $this->session->set_userdata('userid', $data->id);
+                $this->session->set_userdata('email', $data->email);
+                $this->session->set_userdata('nama', $data->nama);
+
+                $token = md5($email) . "&" . md5($password);
+                
+                $res = [
+                    'status' => 200,
+                    'token' => $token,
+                    'message' => 'Success',
+                    'redirect_url' => site_url('tutor/overview')
+                ];
+            }else{
+                $this->session->set_flashdata('error', "Password Salah!");
+                $this->session->set_flashdata('email', $email);
+
+                $res = [
+                    'status' => 400,
+                    'message' => 'Error, Password Salah!',
+                    'email' => $email,
+                    'redirect_url' => site_url('tutor')
+                ];
+            }
+        }else{
+            $this->session->set_flashdata('error', "User Tidak Tersedia!");
+            $res = [
+                'status' => 400,
+                'message' => 'Error, User Tidak Tersedia!',
+                'redirect_url' => site_url('tutor')
+            ];
+        }
+
+        $this->output->set_content_type('application/json')->set_output(json_encode($res));
     }
 
+    function ajaxTokenAuth(){
+        $token = $this->input->post('token', TRUE);
+        $explode = explode('&', $token);
+        $email = $explode[0];
+        $pwd = $explode[1];
 
+        $getUser = $this->db->get_where('tutor', [
+            'md5(email)' => $email,
+            'md5(password)' => $pwd
+        ]);
+        if($getUser->num_rows() > 0){
+            $this->session->set_userdata('is_admin', TRUE);
+            $this->session->set_userdata('email', $getUser->row()->email);
+            $this->session->set_userdata('userid', $getUser->row()->id);
+
+            $res = [
+                'status' => 200,
+                'redirect_url' => site_url('tutor/overview')
+            ];
+        }else{
+            $res = [
+                'status' => 400
+            ];
+        }
+
+        $this->output->set_content_type('application/json')->set_output(json_encode($res));
+    }
 }
