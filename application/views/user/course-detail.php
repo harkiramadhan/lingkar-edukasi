@@ -1,3 +1,16 @@
+<style>
+  .star {
+    cursor: pointer;
+  }
+
+  .star .fa-star {
+    color: gray;
+  }
+
+  .star.active .fa-star {
+    color: gold;
+  }
+</style>
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 <main>
     <div class="breadcrumbs">
@@ -211,39 +224,32 @@
               </a>
             </div>
             <div class="cdetail-tutor" style="flex-direction: row;flex-wrap: nowrap;">
+              <?php foreach($reviews->result() as $row){ ?>
               <div class="materi-accordion">
                 <div data-w-id="94122fb6-3714-9896-362c-306bc39c0a28-14" class="materi_accordion-item">
                   <div class="materi-accordion_header">
-                    <style>
-                        .star {
-                        cursor: pointer;
-                        }
-
-                        .star .fa-star {
-                        color: gray;
-                        }
-
-                        .star.active .fa-star {
-                        color: gold;
-                        }
-                    </style>
-
                     <div>
-                      <div class="rating" style="margin-bottom: 10px;">
-                        <span class="star" data-rating="1"><i class="fas fa-star"></i></span>
-                        <span class="star" data-rating="2"><i class="fas fa-star"></i></span>
-                        <span class="star" data-rating="3"><i class="fas fa-star"></i></span>
-                        <span class="star" data-rating="4"><i class="fas fa-star"></i></span>
-                        <span class="star" data-rating="5"><i class="fas fa-star"></i></span>
+                      <div class="rating" style="margin: auto;">
+                        <?php for($i=1; $i<= 5; $i++){ ?>
+                          <?php if($i <= $row->rating): ?>
+                            <span class="star active" data-rating="<?= $i ?>"><i class="fas fa-star"></i></span>
+                          <?php else: ?>
+                            <span class="star" data-rating="<?= $i ?>"><i class="fas fa-star"></i></span>
+                          <?php endif; ?>
+                        <?php } ?>
                       </div>
-                      <h3 class="materi-accordion_heading" style="margin-bottom: 5px;">Alfian Rahmatullah</h3>
-                      <p class="materi-accordion_heading" style="font-weight: 300;">Sub 1 - Membahas Pajak Secara Khusus Membahas Pajak Secara Khusus Membahas Pajak Secara Khusus</p>
+                      <h3 class="materi-accordion_heading" style="margin-bottom: 5px;"><?= $row->name ?></h3>
+                      <p class="materi-accordion_heading" style="font-weight: 300;"><?= $row->review ?></p>
                     </div>
                   </div>
                 <div>
               </div>
+              <?php } ?>
             </div>
-            <a href="http://localhost/lingkar-edukasi/course/perpajakan-v2/detail" class="button is-yellow w-button" style="background: #dddddd;border: 1px solid rgba(40, 40, 40, .1);">LOAD MORE</a>
+            
+            <?php if(@$countReviews > 10): ?>
+              <button type="button" class="button is-yellow w-button" style="background: #dddddd;border: 1px solid rgba(40, 40, 40, .1);">LOAD MORE</button>
+            <?php endif; ?>
           </div>  
         </div>
         <br>

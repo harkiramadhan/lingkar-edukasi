@@ -44,6 +44,16 @@ class Course extends CI_Controller{
   function detail($flag){
     $userid = $this->session->userdata('user_id');
     $course = $this->M_Courses->getByFlag($flag);
+    $reviews = $this->db->select('u.name, r.*')
+                      ->from('review r')
+                      ->join('user u','r.userid = u.id')
+                      ->where([
+                        'r.courseid' => $course->id,
+                        'r.status' => 1
+                      ])->limit(10)->get();
+    
+    $countReviews = $this->db->select('id')->get_where('review', ['courseid' => $course->id, 'status' => 1])->num_rows();
+
     $var = [
       'labels' => $this->M_Labels->getActive(),
       'setting' => $this->M_Settings->get(),
@@ -54,7 +64,9 @@ class Course extends CI_Controller{
       'tutor' => $this->M_Tutor->getById($course->pemateriid),
       'materi' => $this->M_Materi->getByClass($course->id),
       'durasi' => $this->M_Video->sumDurationByClass($course->id),
-      'participant' => $this->M_Enrollment->getByParticipantCourse($course->id)
+      'participant' => $this->M_Enrollment->getByParticipantCourse($course->id),
+      'reviews' => $reviews,
+      'countReviews' => $countReviews
     ];
 
     if($userid){
