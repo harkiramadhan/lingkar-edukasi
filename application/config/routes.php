@@ -93,3 +93,7 @@ $route['invoice/(:num)/pdf'] = 'invoice/index/$1';
 /* Sertifikat */
 $route['sertifikat/(:any)/info'] = 'sertifikat/info/$1';
 $route['sertifikat/(:any)/download'] = 'sertifikat/download/$1';
+
+/* Reviews */
+$route['review/(:any)/form'] = 'review/index/$1';
+$route['review/(:any)/action'] = 'review/action/$1';

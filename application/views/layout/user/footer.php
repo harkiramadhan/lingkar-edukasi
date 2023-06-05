@@ -83,12 +83,9 @@
     <script src="<?= base_url('assets/user/js/video.js') ?>"></script>
   <?php elseif($this->uri->segment(1) == 'sertifikat' && $this->uri->segment(2) == NULL): ?>
     <script src="<?= base_url('assets/user/js/certificate.js') ?>"></script>
-  <?php endif; ?>
-  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
-
-
-  <!-- JS Rate US -->
-  <script>
+  <?php elseif($this->uri->segment(1) == 'review' && $this->uri->segment(3) == 'form'): ?>
+    <!-- JS Rate US -->
+    <script>
       $(document).ready(function() {
         $('.star').click(function() {
           var rating = $(this).data('rating');
@@ -104,7 +101,9 @@
           $('#rating-input').val(rating);
         });
       });
-  </script>
+    </script>
+  <?php endif; ?>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 
 </body>
 </html>

@@ -1,5 +1,4 @@
 <main>
-
   <section class="section wf-section">
     <div class="padding-vertical padding-80">
       <div class="container">
@@ -8,7 +7,7 @@
           <div class="verify-content">
             <h1 class="semibolld text-align-center">Wow, Kelas Telah Selesai</h1>
             <p class="blind-text width-80">Download sertifikatmu sekarang juga</p>
-            <a href="#" class="button is-yellow width-80 w-button">DOWNLOAD SERTIFIKAT</a>
+            <a href="<?= site_url('sertifikat/' . $course->flag . '/download') ?>" class="button is-yellow width-80 w-button">DOWNLOAD SERTIFIKAT</a>
           </div>
         </div>
       </div>
