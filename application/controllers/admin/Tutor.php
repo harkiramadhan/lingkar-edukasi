@@ -112,7 +112,7 @@ class Tutor extends CI_Controller{
             <div class="modal-body">
 				<div class="card-media mb-4 mx-auto" style="max-width: 200px;">
                     <?php if($tutor->img): ?>
-                        <img src="<?= base_url('uploads/tutor/' . $tutor->img) ?>" alt="" class="w-100 rounded" id="image-preview" style="display: block;">
+                        <img src="<?= base_url('uploads/profile/' . $tutor->img) ?>" alt="" class="w-100 rounded" id="image-preview" style="display: block;">
                     <?php else: ?>
 					    <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" alt="" class="w-100 rounded" id="image-preview" style="display: block;">
                     <?php endif; ?>

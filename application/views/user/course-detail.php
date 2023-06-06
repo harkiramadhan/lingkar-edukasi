@@ -206,7 +206,7 @@
                 </div>
                 
                 <?php if($tutor->img): ?>
-                  <img src="<?= base_url('uploads/tutor/' . $tutor->img)?>" loading="lazy" alt="" class="cdetail-tutor_image" style="min-width: 150px;max-width: 150px; max-height: 150px;">
+                  <img src="<?= base_url('uploads/profile/' . $tutor->img)?>" loading="lazy" alt="" class="cdetail-tutor_image" style="min-width: 150px;max-width: 150px; max-height: 150px;">
                 <?php else: ?>
                   <img src="<?= base_url('assets/admin/images/placeholder-image.svg')?>" loading="lazy" alt="" class="cdetail-tutor_image" style="min-width: 150px;max-width: 150px; max-height: 150px;">
                 <?php endif; ?>

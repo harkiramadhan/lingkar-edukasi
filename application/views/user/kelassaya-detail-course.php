@@ -190,7 +190,7 @@
                 <div class="tutor-data">
                   <div class="foto-tutor">
                     <?php if($tutor->img): ?>
-                      <img src="<?= base_url('uploads/tutor/' . $tutor->img)?>" loading="lazy" alt="" class="tutor-foto">
+                      <img src="<?= base_url('uploads/profile/' . $tutor->img)?>" loading="lazy" alt="" class="tutor-foto">
                     <?php else: ?>
                       <img src="<?= base_url('assets/admin/images/placeholder-image.svg')?>" loading="lazy" alt="" class="tutor-foto">
                     <?php endif; ?>
