@@ -146,7 +146,7 @@
                                 </a>
                             </li> -->
                             <li>
-                                <a href="lingkar-pengaturan.html" class="ai-icon" aria-expanded="false">
+                                <a href="<?= site_url('tutor/pengaturan') ?>" class="ai-icon" aria-expanded="false">
                                     <i class="flaticon-381-settings-9"></i>
                                     <span class="nav-text">Pengaturan</span>
                                 </a>
@@ -155,7 +155,7 @@
                     <?php endif; ?>
 
                     <div class="copyright">
-                        <p><strong>Lingkar Edukasi Admin Dashboard</strong> ©<?= date('Y') ?> All Rights Reserved</p>
+                        <p><strong>Lingkar Edukasi Tutor Dashboard</strong> ©<?= date('Y') ?> All Rights Reserved</p>
                     </div>
                 </div>
             </div>
