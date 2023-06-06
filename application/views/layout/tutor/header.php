@@ -41,7 +41,7 @@
         <div id="main-wrapper">
                 
             <div class="nav-header">
-                <a href="index.html" class="brand-logo">
+                <a href="<?= site_url('tutor/overview') ?>" class="brand-logo">
                     <img class="logo-abbr" src="<?= base_url('assets/admin/images/brand/logo-only-main.svg') ?>" alt="">
                     <img class="logo-compact" src="<?= base_url('assets/admin/images/brand/logo-text-only-main.svg') ?>" alt="">
                     <img class="brand-title" src="<?= base_url('assets/admin/images/brand/logo-text-main.svg') ?>" alt="">
@@ -67,7 +67,13 @@
                             <ul class="navbar-nav header-right">
                                 <li class="nav-item dropdown header-profile">
                                     <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
-                                        <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" width="20" alt="" style="object-fit: cover;"/>
+                                        
+                                        <?php if($user->img): ?>
+                                            <img src="<?= base_url('uploads/profile/' . $user->img) ?>" width="20" alt="" style="object-fit: cover;"/>
+                                        <?php else: ?>
+                                            <img src="<?= base_url('assets/admin/images/placeholder-image.svg') ?>" width="20" alt="" style="object-fit: cover;"/>
+                                        <?php endif; ?>
+
                                         <div class="header-info">
                                             <span class="text-black"><strong><?= $this->session->userdata('nama') ?></strong></span>
                                             <p class="fs-12 mb-0">Tutor</p>
