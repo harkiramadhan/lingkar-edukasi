@@ -142,7 +142,7 @@
                                 </a>
                                 <ul aria-expanded="false">
                                     <li><a href="<?= site_url('tutor/course')?>">Daftar Course</a></li>
-                                    <li><a href="<?= site_url('tutor/course/courseReview')?>">Reviews</a></li>
+                                    <li><a href="<?= site_url('tutor/reviews')?>">Reviews</a></li>
                                 </ul>
                             </li>
                             <!-- <li>

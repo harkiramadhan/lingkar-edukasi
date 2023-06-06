@@ -1,6 +1,10 @@
 <?php
 class M_Reviews extends CI_Model{
-    function getAll(){
+    function getAll($pemateriid = false){
+        if($pemateriid){
+            $this->db->where('c.pemateriid', $pemateriid);
+        }
+
         return $this->db->select('u.name, c.judul, r.*')
                         ->from('review r')
                         ->join('user u', 'r.userid = u.id')
