@@ -13,14 +13,16 @@ class Akun extends CI_Controller{
     }
 
     function index(){
+        $userid = $this->session->userdata('userid');
         $var = [
+            'user' => $this->M_Admin->getById($userid),
             'admins' => $this->M_Admin->getAll(),
             'ajax' => [
                 'admin'
             ]
         ];
 
-        $this->load->view('layout/admin/header');
+        $this->load->view('layout/admin/header', $var);
         $this->load->view('admin/akun', $var);
         $this->load->view('layout/admin/footer', $var);
     }

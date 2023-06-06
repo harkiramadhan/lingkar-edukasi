@@ -4,7 +4,8 @@ class Benefit extends CI_Controller{
         parent::__construct();
         
         $this->load->model([
-            'M_Benefit'
+            'M_Benefit',
+            'M_Admin'
         ]);
 
         if($this->session->userdata('is_admin') != TRUE){
@@ -13,7 +14,9 @@ class Benefit extends CI_Controller{
     }
 
     function index(){
+        $userid = $this->session->userdata('userid');
         $var = [
+            'user' => $this->M_Admin->getById($userid),
             'fontawesome' => $this->db->get('fontawesome'),
             'benefit' => $this->M_Benefit->getAll(),
             'ajax' => [
@@ -21,7 +24,7 @@ class Benefit extends CI_Controller{
             ]
         ];
 
-        $this->load->view('layout/admin/header');
+        $this->load->view('layout/admin/header', $var);
         $this->load->view('admin/benefit', $var);
         $this->load->view('layout/admin/footer', $var);
     }

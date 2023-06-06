@@ -4,7 +4,8 @@ class Peserta extends CI_Controller{
         parent::__construct();
 
         $this->load->model([
-            'M_Users'
+            'M_Users',
+			'M_Admin'
         ]);
 
         if($this->session->userdata('is_admin') != TRUE){
@@ -13,7 +14,9 @@ class Peserta extends CI_Controller{
     }
 
     function index(){
+		$userid = $this->session->userdata('userid');
         $var = [
+			'user' => $this->M_Admin->getById($userid),
             'title' => 'Peserta',
             'users' => $this->M_Users->getAll(),
             'ajax' => [

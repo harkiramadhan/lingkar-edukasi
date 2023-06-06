@@ -8,7 +8,8 @@ class Overview extends CI_Controller{
       'M_Users',
       'M_Tutor',
       'M_Transaksi',
-      'M_Enrollment'
+      'M_Enrollment',
+      'M_Admin'
     ]);
     
     if($this->session->userdata('is_admin') != TRUE){
@@ -17,7 +18,9 @@ class Overview extends CI_Controller{
   }
 
   function index(){
+    $userid = $this->session->userdata('userid');
     $var = [
+      'user' => $this->M_Admin->getById($userid),
       'peserta' => $this->M_Users->getAll(),
       'courses' => $this->M_Courses->getAll(),
       'tutor' => $this->M_Tutor->getAll(),

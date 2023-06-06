@@ -75,7 +75,7 @@
                                         <?php endif; ?>
                                         
                                         <div class="header-info">
-                                            <span class="text-black"><strong><?= $this->session->userdata('email') ?></strong></span>
+                                            <span class="text-black"><strong><?= $user->nama ?></strong></span>
                                             <p class="fs-12 mb-0">Admin</p>
                                         </div>
                                     </a>

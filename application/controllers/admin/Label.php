@@ -4,7 +4,8 @@ class Label extends CI_Controller{
         parent::__construct();
 
         $this->load->model([
-            'M_Labels'
+            'M_Labels',
+            'M_Admin'
         ]);
 
         if($this->session->userdata('is_admin') != TRUE){
@@ -13,14 +14,16 @@ class Label extends CI_Controller{
     }
 
     function index(){
+        $userid = $this->session->userdata('userid');
         $var = [
+            'user' => $this->M_Admin->getById($userid),
             'labels' => $this->M_Labels->getAll(),
             'ajax' => [
                 'label'
             ]
         ];
 
-        $this->load->view('layout/admin/header');
+        $this->load->view('layout/admin/header', $var);
         $this->load->view('admin/label', $var);
         $this->load->view('layout/admin/footer', $var);
 

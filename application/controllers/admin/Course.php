@@ -5,6 +5,7 @@ class Course extends CI_Controller{
 
         $this->load->library('image_lib');
         $this->load->model([
+            'M_Admin',
             'M_Courses',
             'M_Tutor',
             'M_Labels',
@@ -34,20 +35,24 @@ class Course extends CI_Controller{
     }
 
     function index(){
+        $userid = $this->session->userdata('userid');
         $var = [
+            'user' => $this->M_Admin->getById($userid),
             'courses' => $this->M_Courses->getAll(),
             'ajax' => [
                 'course'
             ]
         ];
 
-        $this->load->view('layout/admin/header');
+        $this->load->view('layout/admin/header', $var);
         $this->load->view('admin/course', $var);
         $this->load->view('layout/admin/footer', $var);
     }
 
     function tambah(){
+        $userid = $this->session->userdata('userid');
         $var = [
+            'user' => $this->M_Admin->getById($userid),
             'pemateri' => $this->M_Tutor->getActive(),
             'label' => $this->M_Labels->getActive(),
             'benefit' => $this->M_Benefit->getActive(),
@@ -56,13 +61,15 @@ class Course extends CI_Controller{
             ]
         ];
 
-        $this->load->view('layout/admin/header');
+        $this->load->view('layout/admin/header', $var);
         $this->load->view('admin/course-tambah', $var);
         $this->load->view('layout/admin/footer', $var);
     }
 
     function detail($id){
+        $userid = $this->session->userdata('userid');
         $var = [
+            'user' => $this->M_Admin->getById($userid),
             'course' => $this->M_Courses->getById($id),
             'trx' => $this->M_Transaksi->getByCourse($id),
             'video' => $this->M_Video->getByClass($id),
@@ -71,13 +78,15 @@ class Course extends CI_Controller{
             ]
         ];
 
-        $this->load->view('layout/admin/header');
+        $this->load->view('layout/admin/header', $var);
         $this->load->view('admin/course-detail', $var);
         $this->load->view('layout/admin/footer', $var);
     }
 
     function edit($id){
+        $userid = $this->session->userdata('userid');
         $var = [
+            'user' => $this->M_Admin->getById($userid),
             'course' => $this->M_Courses->getById($id),
             'pemateri' => $this->M_Tutor->getActive(),
             'label' => $this->M_Labels->getActive(),
@@ -87,7 +96,7 @@ class Course extends CI_Controller{
             ]
         ];
 
-        $this->load->view('layout/admin/header');
+        $this->load->view('layout/admin/header', $var);
         $this->load->view('admin/course-edit', $var);
         $this->load->view('layout/admin/footer', $var);
     }
@@ -239,7 +248,9 @@ class Course extends CI_Controller{
 
     /************************************  Materi Media ************************************/
     function media($id){
+        $userid = $this->session->userdata('userid');
         $var = [
+            'user' => $this->M_Admin->getById($userid),
             'course' => $this->M_Courses->getById($id),
             'materi' => $this->M_Materi->getByClass($id),
             'videos' => $this->M_Video->getByClass($id),
@@ -249,7 +260,7 @@ class Course extends CI_Controller{
             ]
         ];
 
-        $this->load->view('layout/admin/header');
+        $this->load->view('layout/admin/header', $var);
         $this->load->view('admin/course-media', $var);
         $this->load->view('layout/admin/footer', $var);
     }

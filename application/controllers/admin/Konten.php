@@ -6,6 +6,7 @@ class Konten extends CI_Controller{
     $this->load->library('image_lib');
 
     $this->load->model([
+      'M_Admin',
       'M_Banners',
       'M_Partner',
       'M_Benefit_Landing',
@@ -19,7 +20,9 @@ class Konten extends CI_Controller{
   }
 
   function landing(){
+    $userid = $this->session->userdata('userid');
     $var = [
+      'user' => $this->M_Admin->getById($userid),
       'banners' => $this->M_Banners->getAll(),
       'partners' => $this->M_Partner->getAll(),
       'benefit' => $this->M_Benefit_Landing->getAll(),
@@ -37,7 +40,9 @@ class Konten extends CI_Controller{
   }
 
   function header(){
+    $userid = $this->session->userdata('userid');
     $var = [
+      'user' => $this->M_Admin->getById($userid),
       'setting' => $this->M_Settings->get(),
       'ajax' => [
         'landing-header'
@@ -50,7 +55,9 @@ class Konten extends CI_Controller{
   }
 
   function footer(){
+    $userid = $this->session->userdata('userid');
     $var = [
+      'user' => $this->M_Admin->getById($userid),
       'setting' => $this->M_Settings->get()
     ];
 
