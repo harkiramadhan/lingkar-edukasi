@@ -308,9 +308,13 @@ class Course extends CI_Controller{
 
   function checkTransaction(){
     $orderid = $this->input->post('orderid', TRUE);
-    $checkTrx = Transaction::status($orderid);
-
-    if($checkTrx->transaction_status == 'expire'){
+    try{
+      $checkTrx = Transaction::status($orderid);
+  
+      if($checkTrx->transaction_status == 'expire'){
+        $this->db->where('orderid', $orderid)->delete('midtrans_snap');
+      }
+    }catch(Exception $e) {
       $this->db->where('orderid', $orderid)->delete('midtrans_snap');
     }
   }
