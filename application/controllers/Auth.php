@@ -238,6 +238,7 @@ class Auth extends CI_Controller{
                     'email' => $this->input->post('email', TRUE),
                     'password' => md5($this->input->post('password', TRUE)),
                     'nohp' => $this->input->post('nohp', TRUE),
+                    'created_at' => date('Y-m-d H:i:s')
                 ];
                 $this->db->insert('user', $dataInsert);
                 $this->sendMail([
