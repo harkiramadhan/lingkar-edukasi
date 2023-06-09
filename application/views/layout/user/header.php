@@ -120,7 +120,7 @@
             <?php if($user->profile_picture): ?>
               <div class="dropdown-user_foto" style="background-image:url('<?= base_url('uploads/profile/' . $user->profile_picture) ?>') !important"></div>
             <?php else: ?>
-              <div class="dropdown-user_foto"></div>
+              <div class="dropdown-user_foto" style="background-image:url('<?= base_url('assets/admin/images/placeholder-image.svg') ?>') !important"></div>
             <?php endif; ?>
         </div>
         <nav class="w-dropdown-list">

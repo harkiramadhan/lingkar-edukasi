@@ -1,14 +1,59 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 class Tutor extends CI_Controller{
     function __construct(){
         parent::__construct();
         $this->load->model([
-            'M_Tutor'
+            'M_Tutor',
+            'M_Settings'
         ]);
     }
 
     function index(){
         $this->load->view('tutor/masuk');
+    }
+
+    function lupapassword(){
+        $this->load->view('tutor/lupa-password');
+    }
+
+    function newPassword(){
+        if(!$this->session->userdata('is_tutor')){
+            redirect('tutor');
+        }else{
+            $this->load->view('tutor/password-baru');
+        }
+    }
+
+    function setSession(){
+        $email = $this->input->get('u', TRUE);
+        $getUser = $this->db->get_where('tutor', ['md5(email)' => $email]);
+        if($getUser->num_rows() > 0){
+            $this->session->set_userdata('is_tutor', TRUE);
+            $this->session->set_userdata('email', $getUser->row()->email);
+            $this->session->set_userdata('userid', $getUser->row()->id);
+
+            redirect('tutor/tutor/newPassword','refresh');
+        }
+    }
+
+    function actionNewPassword(){
+        $pwd1 = $this->input->post('pwd1', TRUE);
+        $pwd2 = $this->input->post('pwd2', TRUE);
+
+        if(!$this->session->userdata('is_tutor')){
+            redirect('tutor');
+        }else{
+            if($pwd1 == $pwd2){
+                $this->db->where('id', $this->session->userdata('userid'))->update('tutor', [
+                    'password' => $pwd2
+                ]);
+                redirect('tutor/overview');
+            }
+        }
     }
 
     function auth(){
@@ -137,7 +182,7 @@ class Tutor extends CI_Controller{
             'md5(password)' => $pwd
         ]);
         if($getUser->num_rows() > 0){
-            $this->session->set_userdata('is_admin', TRUE);
+            $this->session->set_userdata('is_tutor', TRUE);
             $this->session->set_userdata('email', $getUser->row()->email);
             $this->session->set_userdata('userid', $getUser->row()->id);
 
@@ -152,5 +197,42 @@ class Tutor extends CI_Controller{
         }
 
         $this->output->set_content_type('application/json')->set_output(json_encode($res));
+    }
+
+    function sendMailForgotPassword(){
+        $email = $this->input->post('email', TRUE);
+        $cekMail = $this->db->get_where('tutor', ['email' => $email]);
+
+        if($cekMail->num_rows() > 0){
+            $data = [
+                'email' => $email,
+                'nama' => $cekMail->row()->nama
+            ];
+
+            $email              = $email;
+            $mail               = new PHPMailer(true);
+            $mail->isSMTP();
+            $mail->SMTPDebug    = 2;
+            $mail->Host         = 'mail.lingkaredukasi.com';
+            $mail->SMTPAuth     = true;
+            $mail->Username     = 'norep@lingkaredukasi.com';
+            $mail->Password     = 'Lingkar12345';
+            $mail->SMTPSecure   = 'ssl';
+            $mail->Port         = 465;
+            $mail->setFrom('norep@lingkaredukasi.com', 'No Reply - Lingkar Edukasi');
+            $mail->addReplyTo('admin@lingkaredukasi.com', 'Lingkar Edukasi');
+            $mail->addAddress("$email");
+            $mail->isHTML(true);
+            $mail->Subject      = 'Atur Ulang Password';
+            $mailContent        = $this->load->view('tutor/email/email-password-reset', $data , TRUE);
+            $mail->Body         = $mailContent;
+            $mail->send();
+
+            $this->session->set_flashdata('error', 'Cek Email Untuk Konfirmasi Perubahan Password');
+        }else{
+            $this->session->set_flashdata('error', 'Email Tidak Terdaftar');
+        }
+
+        redirect($_SERVER['HTTP_REFERER']);
     }
 }
