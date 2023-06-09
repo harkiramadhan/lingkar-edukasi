@@ -15,9 +15,11 @@ class Transaksi extends CI_Controller{
 
     function index(){
         $userid = $this->session->userdata('userid');
+        $courseid = $this->input->get('cid', TRUE);
+
         $var = [
             'user' => $this->M_Admin->getById($userid),
-            'transaksi' => $this->M_Transaksi->getAll(),
+            'transaksi' => ($courseid) ? $this->M_Transaksi->getAll($courseid) : $this->M_Transaksi->getAll(),
             'ajax' => [
                 'transaksi'
             ]

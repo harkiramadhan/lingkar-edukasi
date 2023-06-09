@@ -69,7 +69,7 @@
 						<div class="card">
 							<div class="card-header border-0 pb-0">
 								<h4 class="fs-20 text-black"><i class="fa fa-dollar text-secondary mr-2"></i>Penjualan</h4>
-								<a href="#" class="btn btn-primary btn-xxs shadow">Detail Penjualan</a>
+								<a href="<?= site_url('admin/transaksi?cid=' . $course->id) ?>" class="btn btn-primary btn-xxs shadow">Detail Penjualan</a>
 							</div>
 							<div class="card-body pt-3">
 								<div class="d-flex justify-content-between align-items-center">	

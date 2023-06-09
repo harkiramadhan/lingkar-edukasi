@@ -4,7 +4,11 @@ class M_Transaksi extends CI_Model{
 
     }
 
-    function getAll(){
+    function getAll($courseid = FALSE){
+        if($courseid){
+            $this->db->where('c.id', $courseid);
+        }
+        
         return $this->db->select('u.name, e.orderid, e.pay, o.metadata, c.judul')
                         ->from('enrollment e')
                         ->join('orders o', 'e.orderid = o.id')
