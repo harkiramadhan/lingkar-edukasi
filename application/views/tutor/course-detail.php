@@ -114,7 +114,7 @@
 						<div class="card">
 							<div class="card-header border-0 pb-0">
 								<h4 class="fs-20 text-black"><i class="fa fa- fa-star-half-o text-secondary mr-2"></i>Review</h4>
-								<a href="#" class="btn btn-primary btn-xxs shadow">Detail Review</a>
+								<a href="<?= site_url('tutor/reviews?cid=' . $course->id) ?>" class="btn btn-primary btn-xxs shadow">Detail Review</a>
 							</div>
 							<div class="card-body pt-3">
 								<div class="d-flex justify-content-between align-items-center">	
@@ -123,7 +123,7 @@
 								<div id="radialBar"></div>
 								<div class="d-flex justify-content-between align-items-center">
 									<div>
-										<p class="fs-28 text-black font-w600 mb-0">200.000</p>
+										<p class="fs-28 text-black font-w600 mb-0"><?= $reviews->num_rows() ?></p>
 										<span>Review</span>
 									</div>
 								</div>

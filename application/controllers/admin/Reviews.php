@@ -15,10 +15,12 @@ class Reviews extends CI_Controller{
 
     function index(){
         $userid = $this->session->userdata('userid');
+        $courseid = $this->input->get('cid', TRUE);
+        
         $var = [
             'user' => $this->M_Admin->getById($userid),
             'title' => 'Reviews',
-            'review' => $this->M_Reviews->getAll(),
+            'review' => ($courseid) ? $this->M_Reviews->getByCourses($courseid) : $this->M_Reviews->getAll(),
             'ajax' => [
                 'review'
             ]
