@@ -52,6 +52,12 @@
                                                                 <label class="text-black font-w500">Email Aktif</label>
                                                                 <input name="email" type="text" class="form-control" value="<?= $user->email ?>">
                                                             </div>
+
+
+                                                            <div class="form-group">
+                                                                <label class="text-black font-w500">Deskripsi Singkat</label>
+                                                                <textarea name="nama" rows="4" class="form-control" value=""> </textarea>
+                                                            </div>
                                                             
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">No HP</label>
