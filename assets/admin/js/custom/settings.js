@@ -33,3 +33,5 @@ function previewImage3() {
     document.getElementById("image-preview3").src = oFREvent.target.result
   }
 }
+
+$('#summernote').summernote()

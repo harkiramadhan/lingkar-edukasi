@@ -51,6 +51,7 @@ class Pengaturan extends CI_Controller{
                     'nama' => $this->input->post('nama', TRUE),
                     'nohp' => $this->input->post('nohp', TRUE),
                     'jenkel' => $this->input->post('jenkel', TRUE),
+                    'deskripsi' => $this->input->post('deskripsi', TRUE),
                     'pendidikan_terakhir' => $this->input->post('pendidikan', TRUE),
                     'tgll' => $this->input->post('tgll', TRUE),
                     'img' => $filename
@@ -62,6 +63,7 @@ class Pengaturan extends CI_Controller{
                     'email' => $this->input->post('email', TRUE),
                     'nohp' => $this->input->post('nohp', TRUE),
                     'jenkel' => $this->input->post('jenkel', TRUE),
+                    'deskripsi' => $this->input->post('deskripsi', TRUE),
                     'pendidikan_terakhir' => $this->input->post('pendidikan', TRUE),
                     'tgll' => $this->input->post('tgll', TRUE),
                     'img' => $filename
@@ -74,6 +76,7 @@ class Pengaturan extends CI_Controller{
                 'email' => $this->input->post('email', TRUE),
                 'nohp' => $this->input->post('nohp', TRUE),
                 'jenkel' => $this->input->post('jenkel', TRUE),
+                'deskripsi' => $this->input->post('deskripsi', TRUE),
                 'pendidikan_terakhir' => $this->input->post('pendidikan', TRUE),
                 'tgll' => $this->input->post('tgll', TRUE),
                 'img' => $filename

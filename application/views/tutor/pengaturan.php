@@ -56,7 +56,7 @@
 
                                                             <div class="form-group">
                                                                 <label class="text-black font-w500">Deskripsi Singkat</label>
-                                                                <textarea name="nama" rows="4" class="form-control" value=""> </textarea>
+                                                                <textarea name="deskripsi" rows="4" class="form-control" id="summernote"><?= $user->deskripsi ?></textarea>
                                                             </div>
                                                             
                                                             <div class="form-group">
